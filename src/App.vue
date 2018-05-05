@@ -44,7 +44,7 @@ export default {
   box-shadow: 3px 3px 7px 1px #999999;
 }
 main {
-  max-width: 900px;
+  /* max-width: 900px; */
   margin: 0 auto;
 }
 #footer{
