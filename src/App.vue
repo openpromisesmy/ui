@@ -19,7 +19,7 @@ export default {
   data () {
     return {
       footer: [
-        { text: 'Project', url: '/project' },
+        { text: 'Home', url: '/' },
         { text: 'Promises', url: '/promises' },
         { text: 'Politicians', url: '/politicians' }
       ]
