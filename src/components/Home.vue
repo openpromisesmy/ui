@@ -1,6 +1,6 @@
 <template>
   <main class="home">
-    <h1>{{ msg }}</h1>
+    <div><h1 id="tagline">{{ msg }}</h1></div>
     <img id="logo" src="@/assets/logo.jpg">
     <p>{{ description }}</p>
     <el-button>View Promises</el-button>
@@ -24,5 +24,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#tagline {
+  font-weight: 900;
+}
 
+.el-button {
+  font-size: 18px;
+  padding: 18px;
+  border-radius: 18px
+}
 </style>
