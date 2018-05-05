@@ -1,9 +1,9 @@
 <template>
   <el-container id="app">
     <router-view/>
-      <el-footer>
+      <el-footer id="footer">
         <el-row>
-         <el-col :span="6" v-for="(item, index) in footer" :key="index">
+         <el-col :span="8" v-for="(item, index) in footer" :key="index">
           <div class="grid-content bg-purple">
             <a :href="item.url">{{ item.text }}</a>
           </div>
@@ -35,7 +35,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 #logo {
   max-width: 200px;
@@ -46,5 +46,8 @@ export default {
 main {
   max-width: 900px;
   margin: 0 auto;
+}
+#footer{
+  margin-top: 20px
 }
 </style>
