@@ -5,6 +5,7 @@
     <el-row>
   <el-col :span="6" v-for="o in politicians" :key="o">
     <el-card :body-style="{ padding: '0px' }">
+        <a :href="/politician/ + o.id">
       <img :src="o.profile_image" class="image">
       <div style="padding: 14px;">
         <span>{{ o.name  }}</span>
@@ -12,6 +13,7 @@
           <time class="time">{{ o.primary_position }}</time>
         </div>
       </div>
+      </a>
     </el-card>
   </el-col>
 </el-row>
@@ -31,6 +33,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+a {
+    text-decoration: none
+}
  .el-card {
      height: 400px
  }
