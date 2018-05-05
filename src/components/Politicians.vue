@@ -1,0 +1,69 @@
+<template>
+  <main id="politicians">
+    <h1>Politicians</h1>
+    <p>{{ description }}</p>
+    <el-row>
+  <el-col :span="6" v-for="o in politicians" :key="o">
+    <el-card :body-style="{ padding: '0px' }">
+      <img :src="o.profile_image" class="image">
+      <div style="padding: 14px;">
+        <span>{{ o.name  }}</span>
+        <div class="bottom clearfix">
+          <time class="time">{{ o.primary_position }}</time>
+        </div>
+      </div>
+    </el-card>
+  </el-col>
+</el-row>
+  </main>
+</template>
+
+<script>
+export default {
+  name: 'Politicians',
+  data () {
+    return {
+      politicians: [{"id":"-L6lYpUWjUHYBOb_fkCB","brief":"Lim Guan Eng is a Malaysian politician who has been Chief Minister of Penang since 2008 and Secretary-General of the Democratic Action Party since 2004.","contributor_id":"-L6kq7u9sLz9fI2GuQ-h","created_at":"2018-03-04T15:09:18.209Z","live":true,"name":"Lim Guan Eng","primary_position":"Chief Minister of Penang","profile_image":"http://www.bsg.ox.ac.uk/sites/www.bsg.ox.ac.uk/files/documents/Lim%20GUan%20Eng.jpeg","status":"Verified","updated_at":"2018-03-04T15:09:18.210Z"},{"id":"-L6lZDRxNJ9pFJ9y0TGo","brief":"Dato' Sri Haji Mohammad Najib bin Tun Haji Abdul Razak is the sixth and current Prime Minister of Malaysia. He was sworn into the position on 3 April 2009 to succeed Abdullah Ahmad Badawi.","contributor_id":"-L6kq7u9sLz9fI2GuQ-h","created_at":"2018-03-04T15:11:00.302Z","live":true,"name":"Najib Razak","primary_position":"Prime Minister of Malaysia","profile_image":"https://pbs.twimg.com/profile_images/526212687101820929/wmAKmxjb.jpeg","status":"Verified","updated_at":"2018-03-04T15:11:00.302Z"},{"id":"-L6lZfU6LNKmBB2_X0Qe","brief":"Tan Sri Datuk Seri Panglima Haji Musa bin Haji Aman is the 14th and current Chief Minister of the state of Sabah in Malaysia, in office since 2003","contributor_id":"-L6kq7u9sLz9fI2GuQ-h","created_at":"2018-03-04T15:12:59.342Z","live":true,"name":"Musa Aman","primary_position":"Chief Minister of Sabah","profile_image":"http://1.bp.blogspot.com/-d3GVY05NGRg/UK9uR7L06_I/AAAAAAAA2vo/SLZJVD2trCI/s1600/CM1.jpg","status":"Verified","updated_at":"2018-03-04T15:12:59.342Z"},{"id":"-L6lZpZcWuJ8siJ3B-yt","brief":"Mahathir bin Mohamad is a Malaysian politician who was the fourth Prime Minister of Malaysia from 1981 to 2003, making him longest-serving holder of that office.","contributor_id":"-L6kq7u9sLz9fI2GuQ-h","created_at":"2018-03-04T15:13:41.067Z","live":true,"name":"Mahathir Mohamad","primary_position":"Chairman of Parti Pribumi Bersatu Malaysia","profile_image":"https://pbs.twimg.com/profile_images/916511844235218944/LM_-IAUb.jpg","status":"Verified","updated_at":"2018-03-04T15:13:41.068Z"},{"id":"-LAEDr85AyrHvQOBeLJu","brief":"Datuk Patinggi Abang Haji Abdul Rahman Zohari bin Tun Abang Haji Openg is a Malaysian politician. He became the sixth Chief Minister of Sarawak following the death of Adenan Satem on 11 January 2017","contributor_id":"-LAEDTAC6HQeWYrV3atG","created_at":"2018-04-16T16:13:20.124Z","live":false,"name":"Abang Jo","primary_position":"Chief Minister of Sarawak","profile_image":"http://images.says.com/uploads/story_source/source_image/524927/0f18.jpg","status":"Verified","updated_at":"2018-04-16T16:13:20.124Z"},{"id":"-LAEFHbjgD01SgG-wwqW","brief":"Chong Chieng Jen, is a Malaysian lawyer and politician from the Democratic Action Party.","contributor_id":"-LAEDTAC6HQeWYrV3atG","created_at":"2018-04-16T16:19:36.502Z","live":false,"name":"Chong Chieng Jen","primary_position":"Bandar Kuching MP","profile_image":"https://img.astroawani.com/2014-09/71410915464_295x200.jpg","status":"Verified","updated_at":"2018-04-16T16:19:36.502Z"}]
+  }
+}
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+ .el-card {
+     height: 400px
+ }
+ .time {
+    font-size: 13px;
+    color: #999;
+  }
+  
+  .bottom {
+    margin-top: 13px;
+    line-height: 12px;
+  }
+
+  .button {
+    padding: 0;
+    float: right;
+  }
+
+  .image {
+    width: 100%;
+    display: block;
+    object-fit: cover; /* Do not scale the image */
+  object-position: top; /* Center the image within the element */
+  height: 300px;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+      display: table;
+      content: "";
+  }
+  
+  .clearfix:after {
+      clear: both
+  }
+</style>
