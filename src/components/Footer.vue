@@ -3,7 +3,7 @@
         <el-row>
             <el-col :span="8" v-for="(item, index) in footer" :key="index">
                 <div class="grid-content bg-purple">
-                <a :href="item.url">{{ item.text }}</a>
+                <router-link :to="item.url">{{ item.text }}</router-link>
                 </div>
             </el-col>
         </el-row>
