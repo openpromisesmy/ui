@@ -1,10 +1,10 @@
 <template>
   <el-header id="navbar">
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-  <el-menu-item v-for="(item, index) in navigation" :key="index" index="index">
-    <router-link v-bind:to="item.url">{{ item.text }}</router-link>
-  </el-menu-item>
-</el-menu>
+        <el-menu-item v-for="(item, index) in navigation" :key="index" index="index">
+          <router-link v-bind:to="item.url">{{ item.text }}</router-link>
+        </el-menu-item>
+    </el-menu>
   </el-header>
 </template>
 
@@ -31,26 +31,9 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  /* margin-top: 60px; */
-}
-#logo {
-  max-width: 200px;
-  margin-bottom: 2em;
-  border-radius: 20px;
-  box-shadow: 3px 3px 7px 1px #999999;
-}
-main {
-  /* max-width: 900px; */
-  margin: 0 auto;
-}
-#footer {
-  margin-top: 20px;
+<style scoped>
+a {
+  text-decoration: none;
+  font-size: 1rem
 }
 </style>

@@ -1,24 +1,19 @@
 <template>
-  <el-container id="app">
+  <el-container id="app" direction="vertical">
     <Navbar />
-    <router-view/>
-      <el-footer id="footer">
-        <el-row>
-         <el-col :span="8" v-for="(item, index) in footer" :key="index">
-          <div class="grid-content bg-purple">
-            <a :href="item.url">{{ item.text }}</a>
-          </div>
-          </el-col>
-        </el-row>
-      </el-footer>
+    <el-main>
+          <router-view/>
+    </el-main>
+    <Footer />
   </el-container>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 export default {
   name: 'App',
-  components: { Navbar },
+  components: { Navbar, Footer },
   data () {
     return {
       footer: [
@@ -38,7 +33,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /* margin-top: 60px; */
 }
 #logo {
   max-width: 200px;
@@ -49,8 +43,5 @@ export default {
 main {
   /* max-width: 900px; */
   margin: 0 auto;
-}
-#footer{
-  margin-top: 20px
 }
 </style>

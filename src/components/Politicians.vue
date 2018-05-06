@@ -1,9 +1,8 @@
 <template>
   <main id="politicians">
     <h1>Politicians</h1>
-    <p>{{ description }}</p>
     <el-row>
-  <el-col :span="6" v-for="o in politicians" :key="o">
+  <el-col :span="6" v-for="o in politicians" :key="o.id">
     <el-card :body-style="{ padding: '0px' }">
         <a :href="/politician/ + o.id">
       <img :src="o.profile_image" class="image">
