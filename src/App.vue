@@ -1,5 +1,6 @@
 <template>
   <el-container id="app">
+    <Navbar />
     <router-view/>
       <el-footer id="footer">
         <el-row>
@@ -14,8 +15,10 @@
 </template>
 
 <script>
+import Navbar from '@/components/Navbar'
 export default {
   name: 'App',
+  components: { Navbar },
   data () {
     return {
       footer: [
