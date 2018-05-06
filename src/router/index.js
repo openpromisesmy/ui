@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/Home'
 import Politicians from '@/components/Politicians'
 import Promises from '@/components/Promises'
+import About from '@/components/About'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/promises',
       name: 'Promises',
       component: Promises
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About
     }
   ]
 })
