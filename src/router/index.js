@@ -5,6 +5,7 @@ import Home from '@/components/Home'
 import Politicians from '@/components/Politicians'
 import Promises from '@/components/Promises'
 import About from '@/components/About'
+import SubmitPromise from '@/components/SubmitPromise'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/about',
       name: 'About',
       component: About
+    },
+    {
+      path: '/submit',
+      name: 'SubmitPromise',
+      component: SubmitPromise
     }
   ]
 })
