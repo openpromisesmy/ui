@@ -84,37 +84,38 @@ export default {
   name: 'SubmitPromise',
   data () {
     return {
-        response: '',
-        politicians: require('../assets/politicians.json'), // TODO: replace with actual API call
-        promise: {
-            politician_id: null, // select from database
-            title: null, // string
-            source_url: null, // string
-            source_name: null, // string
-            source_date: null, // date
-            category: null, // string, later: enum from array
-            cover_image: null, // string
-            quote: null, // string
-            notes: null, // string
-            status: null, // enum from array
-        }
-      }
-  },
-  methods: {
-      onSubmit() {
-        console.log('submit!');
+      response: '',
+      politicians: require('../assets/politicians.json'), // TODO: replace with actual API call
+      promise: {
+        politician_id: null, // select from database
+        title: null, // string
+        source_url: null, // string
+        source_name: null, // string
+        source_date: null, // date
+        category: null, // string, later: enum from array
+        cover_image: null, // string
+        quote: null, // string
+        notes: null, // string
+        status: null // enum from array
       }
     }
+  },
+  methods: {
+    onSubmit () {
+      console.log('submit!')
+    }
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .about-points {
-    max-width: 600px;
-    margin: 0 auto
+  max-width: 600px;
+  margin: 0 auto;
 }
-.el-input, .el-select {
-    width: 80%
+.el-input,
+.el-select {
+  width: 80%;
 }
 </style>
