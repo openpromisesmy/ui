@@ -4,7 +4,7 @@
           <form v-on:submit.prevent="onSubmit">
 
         <div class="container">
-          <el-row>
+          <el-row >
 
             <el-col :xs="24" :sm="12" >
               <label>Politician</label>
@@ -21,8 +21,8 @@
             </el-col>
 
             <el-col :xs="24" :sm="12" >
-              <label>Category</label>
-              <input type="text" placeholder="enter text" v-model="promise.category">
+              <span class="input-label">Category</span>
+              <el-input type="text" placeholder="enter text" v-model="promise.category"></el-input>
             </el-col>
 
             <el-col :xs="24" :sm="12" >
@@ -106,5 +106,12 @@ export default {
 .about-points {
     max-width: 600px;
     margin: 0 auto
+}
+.input-label {
+    display: inline-block;
+    width: 20%
+}
+.el-input, .el-select {
+    width: 70%
 }
 </style>
