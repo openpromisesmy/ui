@@ -1,7 +1,7 @@
 <template>
   <el-header id="navbar">
       <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-        <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="index">
+        <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="String(index)">
           <router-link v-bind:to="item.url">{{ item.text }}</router-link>
         </el-menu-item>
     </el-menu>
