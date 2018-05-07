@@ -1,13 +1,11 @@
 <template>
   <main class="about">
     <h1 class="title">Submit A Promise</h1>
-          <form v-on:submit.prevent="onSubmit">
-
-        <div class="container">
+            <el-form v-on:submit.prevent="onSubmit" :label-position="left" label-width="100px">
           <el-row >
 
             <el-col :xs="24" :sm="12" >
-              <label>Politician</label>
+                <el-form-item label="Politician">
               <el-select v-model="promise.politician_id">
                 <el-option
                     default-first-option
@@ -18,57 +16,66 @@
                 >
                 </el-option>
               </el-select>
+                </el-form-item>
             </el-col>
 
             <el-col :xs="24" :sm="12" >
-              <span class="input-label">Category</span>
+                <el-form-item label="Category">
               <el-input type="text" placeholder="enter text" v-model="promise.category"></el-input>
+                </el-form-item>
             </el-col>
 
             <el-col :xs="24" :sm="12" >
-              <label>Title</label>
-              <input type="text" placeholder="enter text" v-model="promise.title">
+                <el-form-item label="Title">
+              <el-input type="text" placeholder="enter text" v-model="promise.title"></el-input>
+                </el-form-item>
             </el-col>
 
             <el-col :xs="24" :sm="12" >
-              <label>Status</label>
-              <input type="text" placeholder="enter text" v-model="promise.status">
+                <el-form-item label="Status">
+              <el-input type="text" placeholder="enter text" v-model="promise.status"></el-input>
+                </el-form-item>
             </el-col>
 
             <el-col :xs="24" :sm="12" >
-              <label>Cover image</label>
-              <input type="text" placeholder="enter text" v-model="promise.cover_image">
+                <el-form-item label="Cover Image">
+              <el-input type="text" placeholder="enter text" v-model="promise.cover_image"></el-input>
+                </el-form-item>
             </el-col>
 
             <el-col :xs="24" :sm="12" >
-              <label>Source URL</label>
-              <input type="text" placeholder="enter text" v-model="promise.source_url">
+                <el-form-item label="Source URL">
+              <el-input type="text" placeholder="enter text" v-model="promise.source_url"></el-input>
+                </el-form-item>
             </el-col>
 
             <el-col :xs="24" :sm="12" >
-              <label>Source Name</label>
-              <input type="text" placeholder="enter text" v-model="promise.source_name">
+                <el-form-item label="Source Name">
+              <el-input type="text" placeholder="enter text" v-model="promise.source_name"></el-input>
+                </el-form-item>
             </el-col>
 
             <el-col :xs="24" :sm="12" >
-              <label>Source Date</label>
-              <input type="text" placeholder="enter text" v-model="promise.source_date">
+                <el-form-item label="Source Date">
+              <el-input type="text" placeholder="enter text" v-model="promise.source_date"></el-input>
+                </el-form-item>
             </el-col>
 
             <el-col :span="24" >
-              <label>Quote</label>
-              <input type="text" placeholder="enter text" v-model="promise.quote">
+                <el-form-item label="Quote">
+              <el-input type="text" placeholder="enter text" v-model="promise.quote"></el-input>
+                </el-form-item>
             </el-col>
 
             <el-col :xs="24" :sm="12" >
-              <label>Notes</label>
-              <input type="text" placeholder="enter text" v-model="promise.notes">
+                <el-form-item label="Notes">
+              <el-input type="text" placeholder="enter text" v-model="promise.notes"></el-input>
+                </el-form-item>
             </el-col>
           </el-row>
-        </div>
+                  <el-button v-on:click="onSubmit"> Submit </el-button>
+            </el-form>
 
-        <button v-on:click="onSubmit"> Submit </button>
-      </form>
   </main>
 </template>
 
@@ -107,11 +114,7 @@ export default {
     max-width: 600px;
     margin: 0 auto
 }
-.input-label {
-    display: inline-block;
-    width: 20%
-}
 .el-input, .el-select {
-    width: 70%
+    width: 80%
 }
 </style>
