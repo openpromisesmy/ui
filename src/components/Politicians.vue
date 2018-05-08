@@ -1,21 +1,22 @@
 <template>
   <main id="politicians">
     <h1>Politicians</h1>
+    <p v-if="politicians.length == 0">Loading politicians...</p>
     <el-row>
-  <el-col :span="6" v-for="o in politicians" :key="o.id">
-    <el-card :body-style="{ padding: '0px' }">
-        <a :href="/politician/ + o.id">
-      <img :src="o.profile_image" class="image">
-      <div style="padding: 14px;">
-        <span>{{ o.name  }}</span>
-        <div class="bottom clearfix">
-          <time class="time">{{ o.primary_position }}</time>
-        </div>
-      </div>
-      </a>
-    </el-card>
-  </el-col>
-</el-row>
+      <el-col :span="6" v-for="o in politicians" :key="o.id">
+        <el-card :body-style="{ padding: '0px' }">
+            <a :href="/politician/ + o.id">
+          <img :src="o.profile_image" class="image">
+          <div style="padding: 14px;">
+            <span>{{ o.name  }}</span>
+            <div class="bottom clearfix">
+              <time class="time">{{ o.primary_position }}</time>
+            </div>
+          </div>
+          </a>
+        </el-card>
+      </el-col>
+    </el-row>
   </main>
 </template>
 
