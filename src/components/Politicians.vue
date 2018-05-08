@@ -20,12 +20,16 @@
 </template>
 
 <script>
+import { getPoliticians } from '@/api'
 export default {
   name: 'Politicians',
   data () {
     return {
-      politicians: require('../assets/politicians.json')
+      politicians: []
     }
+  },
+  async created () {
+    this.politicians = await getPoliticians()
   }
 }
 </script>
