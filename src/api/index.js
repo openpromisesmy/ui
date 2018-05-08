@@ -14,6 +14,7 @@ function getSomething (path) {
 }
 
 const getPoliticians = getSomething('/politicians/');
+const getPromises = getSomething('/promises/');
 
 export {
   getPoliticians
