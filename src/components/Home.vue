@@ -3,8 +3,8 @@
     <div><h1 id="tagline">{{ msg }}</h1></div>
     <img id="logo" src="@/assets/logo.jpg">
     <p>{{ description }}</p>
-    <el-button>View Promises</el-button>
-    <el-button>Submit a Promise</el-button>
+    <router-link to="/promises"><el-button>View Promises</el-button></router-link>
+    <router-link to="/submit"><el-button>Submit a Promise</el-button></router-link>
   </main>
 </template>
 
