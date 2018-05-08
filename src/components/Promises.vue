@@ -35,10 +35,13 @@
       prop="source_name"
       label="Source">
     </el-table-column>
-        <el-table-column
+    <el-table-column
       prop="source_url"
       label="Source Link"
       width="180">
+      <template slot-scope="scope">
+        <a :href="scope.row.source_url" target="_blank">View Source</a>
+      </template>
     </el-table-column>
   </el-table>
   </main>
