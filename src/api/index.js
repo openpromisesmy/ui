@@ -2,7 +2,7 @@ import axios from 'axios'
 const API_URL = 'https://us-central1-openpromises-8526c.cloudfunctions.net'
 
 function getSomething (path) {
-  return async function() {
+  return async function () {
     try {
       const response = await axios.get(API_URL + path)
       const politicians = response.data
@@ -13,9 +13,10 @@ function getSomething (path) {
   }
 }
 
-const getPoliticians = getSomething('/politicians/');
-const getPromises = getSomething('/promises/');
+const getPoliticians = getSomething('/politicians/')
+const getPromises = getSomething('/promises/')
 
 export {
-  getPoliticians
+  getPoliticians,
+  getPromises
 }

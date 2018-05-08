@@ -1,7 +1,9 @@
 <template>
   <main id="promises">
     <h1>Promises</h1>
+    <p v-if="promises.length == 0">Loading promises...</p>
     <el-table
+    v-else
     :data="promises"
     border
     style="width: 100%">
@@ -43,12 +45,16 @@
 </template>
 
 <script>
+import { getPromises } from '@/api'
 export default {
   name: 'Promises',
   data () {
     return {
-      promises: require('../assets/promises.json')
+      promises: []
     }
+  },
+  async created () {
+    this.promises = await getPromises()
   }
 }
 </script>
