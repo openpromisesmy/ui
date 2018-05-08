@@ -29,7 +29,7 @@
     <el-table-column
       prop="quote"
       label="Quote"
-      width="220">
+      width="250">
     </el-table-column>
     <el-table-column
       prop="source_name"
@@ -38,7 +38,7 @@
     <el-table-column
       prop="source_url"
       label="Source Link"
-      width="180">
+      width="100">
       <template slot-scope="scope">
         <a :href="scope.row.source_url" target="_blank">View Source</a>
       </template>
