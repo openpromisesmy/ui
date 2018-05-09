@@ -88,6 +88,17 @@
 
 <script>
 import { getPoliticians } from '@/api'
+import firebase from 'firebase'
+var config = {
+  apiKey: 'AIzaSyBR0GKAzyozw4tp_6Q0kOso1pT9XyHWHpQ',
+  authDomain: 'openpromises-8526c.firebaseapp.com',
+  databaseURL: 'https://openpromises-8526c.firebaseio.com',
+  projectId: 'openpromises-8526c',
+  storageBucket: 'openpromises-8526c.appspot.com',
+  messagingSenderId: '100990292939'
+}
+firebase.initializeApp(config)
+const provider = new firebase.auth.GoogleAuthProvider()
 const appStatus = {
   unauthenticated: 'unauthenticated',
   authenticated: 'authenticated',
@@ -103,6 +114,7 @@ export default {
     return {
       appStatus: appStatus.unauthenticated,
       response: '',
+      user: {},
       politicians: [], // TODO: replace with actual API call
       promise: {
         politician_id: null, // select from database
@@ -121,6 +133,46 @@ export default {
   methods: {
     onSubmit () {
       console.log('submit!')
+    },
+    googleSignIn: function () {
+      let that = this
+      firebase
+        .auth()
+        .signInWithPopup(provider)
+        .then(result => {
+          // This gives you a Google Access Token. You can use it to access the Google API.
+          // var token = result.credential.idToken;
+          // The signed-in user info.
+          var user = result.user
+
+          that.appStatus = appStatus.authenticated
+
+          that.user.name = user.displayName
+          that.user.email = user.email
+          that.user.photoURL = user.photoURL
+          // that.user.token = token;
+
+          firebase
+            .auth()
+            .currentUser.getIdToken(/* forceRefresh */ true)
+            .then(idToken => {
+              that.user.token = idToken
+            })
+            .catch(error => {
+              console.error(error)
+            })
+        })
+        .catch(error => {
+          // Handle Errors here.
+          // const errorCode = error.code
+          // const errorMessage = error.message
+          // The email of the user's account used.
+          // const email = error.email
+          // The firebase.auth.AuthCredential type that was used.
+          // const credential = error.credential
+          // ...
+          console.error(error)
+        })
     }
   }
 }
