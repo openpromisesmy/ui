@@ -64,7 +64,11 @@
 
       <el-col :xs="24" :sm="12" >
           <el-form-item label="Source Date">
-        <el-input type="text" placeholder="enter text" v-model="promise.source_date"></el-input>
+            <el-date-picker
+              v-model="promise.source_date"
+              type="date"
+              placeholder="Indicate date of source">
+            </el-date-picker>
           </el-form-item>
       </el-col>
 
