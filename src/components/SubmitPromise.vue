@@ -1,7 +1,13 @@
 <template>
   <main class="about">
     <h1 class="title">Submit A Promise</h1>
-    <p v-if="politicians.length == 0">Loading form...</p>
+    <template v-if="appStatus === 'unauthenticated' ">
+      <p>Please login to submit a promise</p>
+      <el-button type="primary" v-on:click="googleSignIn">Google Sign In</el-button>
+    </template>
+
+    <template v-if="appStatus === 'authenticated' ">
+         <p v-if="politicians.length == 0">Loading form...</p>
     <el-form v-else v-on:submit.prevent="onSubmit" :label-position="left" label-width="100px">
     <el-row >
 
@@ -75,12 +81,19 @@
       </el-col>
     </el-row>
         <el-button v-on:click="onSubmit"> Submit </el-button>
-  </el-form>
+   </el-form>
+    </template>
   </main>
 </template>
 
 <script>
 import { getPoliticians } from '@/api'
+const appStatus = {
+  unauthenticated: 'unauthenticated',
+  authenticated: 'authenticated',
+  submittedPromise: 'submittedPromise',
+  submissionError: 'submissionError'
+}
 export default {
   name: 'SubmitPromise',
   async created () {
@@ -88,6 +101,7 @@ export default {
   },
   data () {
     return {
+      appStatus: appStatus.unauthenticated,
       response: '',
       politicians: [], // TODO: replace with actual API call
       promise: {
