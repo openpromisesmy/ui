@@ -3,7 +3,7 @@
     <h1 class="title">Submit A Promise</h1>
     <template v-if="appStatus === 'unauthenticated' ">
       <p>Please login to submit a promise</p>
-      <el-button type="primary" v-on:click="googleSignIn">Google Sign In</el-button>
+      <el-button type="primary" v-on:click="googleSignInHandler">Google Sign In</el-button>
     </template>
 
     <template v-if="appStatus === 'authenticated' ">
@@ -95,7 +95,7 @@
 </template>
 
 <script>
-import { getPoliticians, googleSignIn } from '@/api'
+import { getPoliticians, googleSignIn, postPromise } from '@/api'
 
 const appStatus = {
   unauthenticated: 'unauthenticated',
@@ -130,9 +130,9 @@ export default {
   },
   methods: {
     onSubmit () {
-      console.log('submit!')
+      this.postPromiseHandler()
     },
-    googleSignIn: async function () {
+    googleSignInHandler: async function () {
       try {
         const user = await googleSignIn()
         this.user = user
@@ -141,18 +141,17 @@ export default {
         console.error(e)
       }
     },
-    postPromise: async function () {
+    postPromiseHandler: async function () {
       let that = this
       const { user, promise } = this
 
       try {
-        const response = await postPromise({user, promise})
+        const response = await postPromise({ user, promise })
         that.appStatus = appStatus.submittedPromise
         that.response = JSON.stringify(response)
       } catch (e) {
-        const response = e.response
         that.appStatus = appStatus.submissionError
-        that.response = response.data
+        that.response = e
       }
     }
   }
