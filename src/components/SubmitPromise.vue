@@ -8,11 +8,11 @@
 
     <template v-if="appStatus === 'authenticated' ">
          <p v-if="politicians.length == 0">Loading form...</p>
-    <el-form v-else v-on:submit.prevent="onSubmit" :label-position="left" label-width="100px">
+    <el-form v-else v-on:submit.prevent="onSubmit" :rules="rules" label-position="left" label-width="100px" ref="form" :model="promise">
     <el-row >
 
       <el-col :xs="24" :sm="12" >
-          <el-form-item label="Politician">
+          <el-form-item label="Politician" prop="politician_id">
         <el-select v-model="promise.politician_id">
           <el-option
               default-first-option
@@ -27,43 +27,43 @@
       </el-col>
 
       <el-col :xs="24" :sm="12" >
-          <el-form-item label="Category">
+          <el-form-item label="Category" prop="category">
         <el-input type="text" placeholder="enter text" v-model="promise.category"></el-input>
           </el-form-item>
       </el-col>
 
       <el-col :xs="24" :sm="12" >
-          <el-form-item label="Title">
+          <el-form-item label="Title" prop="title">
         <el-input type="text" placeholder="enter text" v-model="promise.title"></el-input>
           </el-form-item>
       </el-col>
 
       <el-col :xs="24" :sm="12" >
-          <el-form-item label="Status">
+          <el-form-item label="Status" prop="status">
         <el-input type="text" placeholder="enter text" v-model="promise.status"></el-input>
           </el-form-item>
       </el-col>
 
       <el-col :xs="24" :sm="12" >
-          <el-form-item label="Cover Image">
+          <el-form-item label="Cover Image" prop="cover_image">
         <el-input type="text" placeholder="enter text" v-model="promise.cover_image"></el-input>
           </el-form-item>
       </el-col>
 
       <el-col :xs="24" :sm="12" >
-          <el-form-item label="Source URL">
+          <el-form-item label="Source URL" prop="source_url">
         <el-input type="text" placeholder="enter text" v-model="promise.source_url"></el-input>
           </el-form-item>
       </el-col>
 
       <el-col :xs="24" :sm="12" >
-          <el-form-item label="Source Name">
+          <el-form-item label="Source Name" prop="source_name">
         <el-input type="text" placeholder="enter text" v-model="promise.source_name"></el-input>
           </el-form-item>
       </el-col>
 
       <el-col :xs="24" :sm="12" >
-          <el-form-item label="Source Date">
+          <el-form-item label="Source Date" prop="source_date">
             <el-date-picker
               v-model="promise.source_date"
               type="date"
@@ -73,13 +73,13 @@
       </el-col>
 
       <el-col :span="24" >
-          <el-form-item label="Quote">
+          <el-form-item label="Quote" prop="quote">
         <el-input type="text" placeholder="enter text" v-model="promise.quote"></el-input>
           </el-form-item>
       </el-col>
 
       <el-col :xs="24" :sm="12" >
-          <el-form-item label="Notes">
+          <el-form-item label="Notes" prop="notes">
         <el-input type="text" placeholder="enter text" v-model="promise.notes"></el-input>
           </el-form-item>
       </el-col>
@@ -119,22 +119,40 @@ export default {
       user: {},
       politicians: [], // TODO: replace with actual API call
       promise: {
-        politician_id: null, // select from database
-        title: null, // string
-        source_url: null, // string
-        source_name: null, // string
-        source_date: null, // date
-        category: null, // string, later: enum from array
-        cover_image: null, // string
-        quote: null, // string
-        notes: null, // string
-        status: null // enum from array
+        politician_id: undefined, // select from database
+        title: undefined, // string
+        source_url: undefined, // string
+        source_name: undefined, // string
+        source_date: undefined, // date
+        category: undefined, // string, later: enum from array
+        cover_image: undefined, // string
+        quote: undefined, // string
+        notes: undefined, // string
+        status: undefined // enum from array
+      },
+      rules: {
+        politician_id: [{ required: true, message: 'Please select a politician', trigger: 'blur' }],
+        title: [{ required: true, message: 'Please indicate title of Promise', trigger: 'blur' }],
+        source_url: [{ required: true, type: 'url', message: 'Please input a valid url for the source', trigger: 'blur' }], // string
+        source_name: [{ required: true, message: 'Please indicate name of source', trigger: 'blur' }],
+        source_date: [{ required: true, message: 'Please indicate source date', trigger: 'blur' }],
+        category: [{ required: true, message: 'Please state the category of the promise', trigger: 'blur' }],
+        cover_image: [{ type: 'url', message: 'Please input a valid URL to an image for the promise', trigger: 'blur' }],
+        quote: [{ required: true, message: 'Please indicate the quote that implies the promise', trigger: 'blur' }],
+        notes: [{ type: 'string' }], // string
+        status: [{ type: 'string' }]// later: enum from array
       }
     }
   },
   methods: {
     onSubmit () {
-      this.postPromiseHandler()
+      this.$refs['form'].validate((valid) => {
+        if (valid) {
+          this.postPromiseHandler()
+        } else {
+          return false
+        }
+      })
     },
     googleSignInHandler: async function () {
       try {
