@@ -87,9 +87,8 @@
 </template>
 
 <script>
-import { getPoliticians } from '@/api'
-import { firebase } from '@/config'
-const provider = new firebase.auth.GoogleAuthProvider()
+import { getPoliticians, googleSignIn } from '@/api'
+
 const appStatus = {
   unauthenticated: 'unauthenticated',
   authenticated: 'authenticated',
@@ -125,45 +124,14 @@ export default {
     onSubmit () {
       console.log('submit!')
     },
-    googleSignIn: function () {
-      let that = this
-      firebase
-        .auth()
-        .signInWithPopup(provider)
-        .then(result => {
-          // This gives you a Google Access Token. You can use it to access the Google API.
-          // var token = result.credential.idToken;
-          // The signed-in user info.
-          var user = result.user
-
-          that.appStatus = appStatus.authenticated
-
-          that.user.name = user.displayName
-          that.user.email = user.email
-          that.user.photoURL = user.photoURL
-          // that.user.token = token;
-
-          firebase
-            .auth()
-            .currentUser.getIdToken(/* forceRefresh */ true)
-            .then(idToken => {
-              that.user.token = idToken
-            })
-            .catch(error => {
-              console.error(error)
-            })
-        })
-        .catch(error => {
-          // Handle Errors here.
-          // const errorCode = error.code
-          // const errorMessage = error.message
-          // The email of the user's account used.
-          // const email = error.email
-          // The firebase.auth.AuthCredential type that was used.
-          // const credential = error.credential
-          // ...
-          console.error(error)
-        })
+    googleSignIn: async function () {
+      try {
+        const user = await googleSignIn()
+        this.user = user
+        this.appStatus = appStatus.authenticated
+      } catch (e) {
+        console.error(e)
+      }
     }
   }
 }
