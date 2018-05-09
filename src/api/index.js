@@ -29,7 +29,6 @@ function googleSignIn () {
         // The signed-in user info.
         const raw = result.user
         let user = {}
-        // that.appStatus = appStatus.authenticated // TODO: move
 
         user.name = raw.displayName
         user.email = raw.email
@@ -61,8 +60,34 @@ function googleSignIn () {
   })
 }
 
+function postPromise ({ user, promise }) {
+  return new Promise((resolve, reject) => {
+    axios.post(API_URL + '/promises/',
+      promise,
+      {
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+          'X-FIREBASE-TOKEN': user.token,
+          'X-USER-EMAIL': user.email,
+          'X-USER-NAME': user.name,
+          'X-USER-PHOTO': user.photoURL
+        }
+      })
+      .then(function (response) {
+        const result = JSON.stringify(response)
+        resolve(result)
+      })
+      .catch(function (error) {
+        const result = error.response.data
+        reject(result)
+      })
+  })
+}
+
 export {
   getPoliticians,
   getPromises,
-  googleSignIn
+  googleSignIn,
+  postPromise
 }

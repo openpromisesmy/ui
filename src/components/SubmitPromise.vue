@@ -3,7 +3,7 @@
     <h1 class="title">Submit A Promise</h1>
     <template v-if="appStatus === 'unauthenticated' ">
       <p>Please login to submit a promise</p>
-      <el-button type="primary" v-on:click="googleSignIn">Google Sign In</el-button>
+      <el-button type="primary" v-on:click="googleSignInHandler">Google Sign In</el-button>
     </template>
 
     <template v-if="appStatus === 'authenticated' ">
@@ -64,7 +64,11 @@
 
       <el-col :xs="24" :sm="12" >
           <el-form-item label="Source Date">
-        <el-input type="text" placeholder="enter text" v-model="promise.source_date"></el-input>
+            <el-date-picker
+              v-model="promise.source_date"
+              type="date"
+              placeholder="Indicate date of source">
+            </el-date-picker>
           </el-form-item>
       </el-col>
 
@@ -83,11 +87,19 @@
         <el-button v-on:click="onSubmit"> Submit </el-button>
    </el-form>
     </template>
+        <template v-if="appStatus === 'submittedPromise' ">
+      <p>The promise has been submitted.</p>
+    </template>
+
+    <template v-if="appStatus === 'submissionError' ">
+      <p v-if="response">
+        <span class="label error">Error</span> {{ response }} </p>
+    </template>
   </main>
 </template>
 
 <script>
-import { getPoliticians, googleSignIn } from '@/api'
+import { getPoliticians, googleSignIn, postPromise } from '@/api'
 
 const appStatus = {
   unauthenticated: 'unauthenticated',
@@ -122,15 +134,28 @@ export default {
   },
   methods: {
     onSubmit () {
-      console.log('submit!')
+      this.postPromiseHandler()
     },
-    googleSignIn: async function () {
+    googleSignInHandler: async function () {
       try {
         const user = await googleSignIn()
         this.user = user
         this.appStatus = appStatus.authenticated
       } catch (e) {
         console.error(e)
+      }
+    },
+    postPromiseHandler: async function () {
+      let that = this
+      const { user, promise } = this
+
+      try {
+        const response = await postPromise({ user, promise })
+        that.appStatus = appStatus.submittedPromise
+        that.response = JSON.stringify(response)
+      } catch (e) {
+        that.appStatus = appStatus.submissionError
+        that.response = e
       }
     }
   }
