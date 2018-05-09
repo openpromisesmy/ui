@@ -133,14 +133,14 @@ export default {
       rules: {
         politician_id: [{ required: true, message: 'Please select a politician', trigger: 'blur' }],
         title: [{ required: true, message: 'Please indicate title of Promise', trigger: 'blur' }],
-        source_url: [{ required: true, type: 'url', message:'Please input a valid url for the source', trigger: 'blur' }], // string
-        source_name: [{ required: true, message:'Please indicate name of source', trigger: 'blur' }],
-        source_date: [{ required: true, message:'Please indicate source date', trigger: 'blur' }],
-        category: [{ required: true, message:'Please state the category of the promise', trigger: 'blur' }],
-        cover_image: [{ type: 'url', message:'Please input a valid URL to an image for the promise', trigger: 'blur' }],
-        quote: [{ required: true, message:'Please indicate the quote that implies the promise', trigger: 'blur' }],
-        notes: [ { type: 'string'}], // string
-        status: [ { type: 'string'}], // later: enum from array
+        source_url: [{ required: true, type: 'url', message: 'Please input a valid url for the source', trigger: 'blur' }], // string
+        source_name: [{ required: true, message: 'Please indicate name of source', trigger: 'blur' }],
+        source_date: [{ required: true, message: 'Please indicate source date', trigger: 'blur' }],
+        category: [{ required: true, message: 'Please state the category of the promise', trigger: 'blur' }],
+        cover_image: [{ type: 'url', message: 'Please input a valid URL to an image for the promise', trigger: 'blur' }],
+        quote: [{ required: true, message: 'Please indicate the quote that implies the promise', trigger: 'blur' }],
+        notes: [{ type: 'string' }], // string
+        status: [{ type: 'string' }]// later: enum from array
       }
     }
   },
