@@ -83,6 +83,14 @@
         <el-button v-on:click="onSubmit"> Submit </el-button>
    </el-form>
     </template>
+        <template v-if="appStatus === 'submittedPromise' ">
+      <p>The promise has been submitted.</p>
+    </template>
+
+    <template v-if="appStatus === 'submissionError' ">
+      <p v-if="response">
+        <span class="label error">Error</span> {{ response }} </p>
+    </template>
   </main>
 </template>
 
@@ -131,6 +139,20 @@ export default {
         this.appStatus = appStatus.authenticated
       } catch (e) {
         console.error(e)
+      }
+    },
+    postPromise: async function () {
+      let that = this
+      const { user, promise } = this
+
+      try {
+        const response = await postPromise({user, promise})
+        that.appStatus = appStatus.submittedPromise
+        that.response = JSON.stringify(response)
+      } catch (e) {
+        const response = e.response
+        that.appStatus = appStatus.submissionError
+        that.response = response.data
       }
     }
   }
