@@ -1,12 +1,12 @@
 <template>
   <main class="about">
     <h1 class="title">Submit A Promise</h1>
-    <template v-if="appStatus === 'unauthenticated' ">
+    <template v-if="!this.$store.state.user.authenticated">
       <p>Please login to submit a promise</p>
       <el-button type="primary" v-on:click="googleSignInHandler">Google Sign In</el-button>
     </template>
 
-    <template v-if="appStatus === 'authenticated' ">
+    <template v-else>
          <p v-if="politicians.length == 0">Loading form...</p>
     <el-form v-else v-on:submit.prevent="onSubmit" :rules="rules" label-position="left" label-width="100px" ref="form" :model="promise">
     <el-row >
@@ -116,7 +116,6 @@ export default {
     return {
       appStatus: appStatus.unauthenticated,
       response: '',
-      user: this.$store.state.user,
       politicians: [], // TODO: replace with actual API call
       promise: {
         politician_id: undefined, // select from database
@@ -157,7 +156,7 @@ export default {
     googleSignInHandler: async function () {
       try {
         const user = await googleSignIn()
-        this.user = user
+        this.$store.commit('login', user)
         this.appStatus = appStatus.authenticated
       } catch (e) {
         console.error(e)
@@ -165,7 +164,8 @@ export default {
     },
     postPromiseHandler: async function () {
       let that = this
-      const { user, promise } = this
+      const { promise } = this
+      const { user } = this.$store.state
 
       try {
         const response = await postPromise({ user, promise })

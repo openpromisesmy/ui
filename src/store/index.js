@@ -10,7 +10,9 @@ const state = {
 }
 
 const mutations = {
-  login: (state, user) => ({ ...state, user: { ...user, authenticated: true } })
+  login(state, user)  {
+    state.user = { ...user, authenticated: true }
+  }
 }
 
-export default new Vuex.Store({ state })
+export default new Vuex.Store({ state, mutations })
