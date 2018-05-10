@@ -6,88 +6,88 @@
       <el-button type="primary" v-on:click="googleSignInHandler">Google Sign In</el-button>
     </template>
 
-    <template v-else>
-         <p v-if="politicians.length == 0">Loading form...</p>
-    <el-form v-else v-on:submit.prevent="onSubmit" :rules="rules" label-position="left" label-width="100px" ref="form" :model="promise">
-    <el-row >
+    <template v-if="this.$store.state.user.authenticated && (appStatus !== 'submittedPromise') ">
+      <p v-if="politicians.length == 0">Loading form...</p>
+        <el-form v-else v-on:submit.prevent="onSubmit" :rules="rules" label-position="left" label-width="100px" ref="form" :model="promise">
+        <el-row >
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Politician" prop="politician_id">
-        <el-select v-model="promise.politician_id">
-          <el-option
-              default-first-option
-              v-for="politician in politicians"
-              :value="politician.id"
-              :key="politician.id"
-              :label="politician.name"
-          >
-          </el-option>
-        </el-select>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Politician" prop="politician_id">
+            <el-select v-model="promise.politician_id">
+              <el-option
+                  default-first-option
+                  v-for="politician in politicians"
+                  :value="politician.id"
+                  :key="politician.id"
+                  :label="politician.name"
+              >
+              </el-option>
+            </el-select>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Category" prop="category">
-        <el-input type="text" placeholder="enter text" v-model="promise.category"></el-input>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Category" prop="category">
+            <el-input type="text" placeholder="enter text" v-model="promise.category"></el-input>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Title" prop="title">
-        <el-input type="text" placeholder="enter text" v-model="promise.title"></el-input>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Title" prop="title">
+            <el-input type="text" placeholder="enter text" v-model="promise.title"></el-input>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Status" prop="status">
-        <el-input type="text" placeholder="enter text" v-model="promise.status"></el-input>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Status" prop="status">
+            <el-input type="text" placeholder="enter text" v-model="promise.status"></el-input>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Cover Image" prop="cover_image">
-        <el-input type="text" placeholder="enter text" v-model="promise.cover_image"></el-input>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Cover Image" prop="cover_image">
+            <el-input type="text" placeholder="enter text" v-model="promise.cover_image"></el-input>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Source URL" prop="source_url">
-        <el-input type="text" placeholder="enter text" v-model="promise.source_url"></el-input>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Source URL" prop="source_url">
+            <el-input type="text" placeholder="enter text" v-model="promise.source_url"></el-input>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Source Name" prop="source_name">
-        <el-input type="text" placeholder="enter text" v-model="promise.source_name"></el-input>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Source Name" prop="source_name">
+            <el-input type="text" placeholder="enter text" v-model="promise.source_name"></el-input>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Source Date" prop="source_date">
-            <el-date-picker
-              v-model="promise.source_date"
-              type="date"
-              placeholder="Indicate date of source">
-            </el-date-picker>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Source Date" prop="source_date">
+                <el-date-picker
+                  v-model="promise.source_date"
+                  type="date"
+                  placeholder="Indicate date of source">
+                </el-date-picker>
+              </el-form-item>
+          </el-col>
 
-      <el-col :span="24" >
-          <el-form-item label="Quote" prop="quote">
-        <el-input type="text" placeholder="enter text" v-model="promise.quote"></el-input>
-          </el-form-item>
-      </el-col>
+          <el-col :span="24" >
+              <el-form-item label="Quote" prop="quote">
+            <el-input type="text" placeholder="enter text" v-model="promise.quote"></el-input>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Notes" prop="notes">
-        <el-input type="text" placeholder="enter text" v-model="promise.notes"></el-input>
-          </el-form-item>
-      </el-col>
-    </el-row>
-        <el-button v-on:click="onSubmit"> Submit </el-button>
-   </el-form>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Notes" prop="notes">
+            <el-input type="text" placeholder="enter text" v-model="promise.notes"></el-input>
+              </el-form-item>
+          </el-col>
+        </el-row>
+          <el-button v-on:click="onSubmit"> Submit </el-button>
+        </el-form>
     </template>
-        <template v-if="appStatus === 'submittedPromise' ">
+    <template v-if="appStatus === 'submittedPromise' ">
       <p>The promise has been submitted.</p>
     </template>
 
