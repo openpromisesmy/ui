@@ -5,12 +5,12 @@ Vue.use(Vuex)
 
 const state = {
   user: {
-   authenticated: false
+    authenticated: false
   }
 }
 
 const mutations = {
-  login(state, user)  {
+  login (state, user) {
     state.user = { ...user, authenticated: true }
   }
 }
