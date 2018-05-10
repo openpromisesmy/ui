@@ -9,4 +9,8 @@ const state = {
   }
 }
 
+const mutations = {
+  login: (state, user) => ({ ...state, user: { ...user, authenticated: true } })
+}
+
 export default new Vuex.Store({ state })
