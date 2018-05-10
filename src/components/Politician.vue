@@ -61,7 +61,7 @@ export default {
     parsePromises: (promises, politicians) => promises.map(promise =>
       ({
         ...promise,
-        source_date: moment(promise.source_date).format('D MMMM YYYY'),
+        source_date: moment(promise.source_date).format('D MMMM YYYY')
       })
     )
   },

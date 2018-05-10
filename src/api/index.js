@@ -73,7 +73,7 @@ function googleSignIn () {
   })
 }
 
-function postPromise({ user, promise }) {
+function postPromise ({ user, promise }) {
   return new Promise((resolve, reject) => {
     axios
       .post(API_URL + '/promises/', promise, {
@@ -86,11 +86,11 @@ function postPromise({ user, promise }) {
           'X-USER-PHOTO': user.photoURL
         }
       })
-      .then(function(response) {
+      .then(function (response) {
         const result = JSON.stringify(response)
         resolve(result)
       })
-      .catch(function(error) {
+      .catch(function (error) {
         const result = error.response.data
         reject(result)
       })
