@@ -1,94 +1,98 @@
 <template>
   <main class="about">
     <h1 class="title">Submit A Promise</h1>
-    <template v-if="appStatus === 'unauthenticated' ">
+    <template v-if="!this.$store.state.user.authenticated">
       <p>Please login to submit a promise</p>
       <el-button type="primary" v-on:click="googleSignInHandler">Google Sign In</el-button>
     </template>
 
-    <template v-if="appStatus === 'authenticated' ">
-         <p v-if="politicians.length == 0">Loading form...</p>
-    <el-form v-else v-on:submit.prevent="onSubmit" :rules="rules" label-position="left" label-width="100px" ref="form" :model="promise">
-    <el-row >
+    <template v-if="this.$store.state.user.authenticated && (appStatus === 'editingPromise') ">
+      <p v-if="politicians.length == 0">Loading form...</p>
+        <el-form v-else v-on:submit.prevent="onSubmit" :rules="rules" label-position="left" label-width="100px" ref="form" :model="promise">
+        <el-row >
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Politician" prop="politician_id">
-        <el-select v-model="promise.politician_id">
-          <el-option
-              default-first-option
-              v-for="politician in politicians"
-              :value="politician.id"
-              :key="politician.id"
-              :label="politician.name"
-          >
-          </el-option>
-        </el-select>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Politician" prop="politician_id">
+            <el-select v-model="promise.politician_id">
+              <el-option
+                  default-first-option
+                  v-for="politician in politicians"
+                  :value="politician.id"
+                  :key="politician.id"
+                  :label="politician.name"
+              >
+              </el-option>
+            </el-select>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Category" prop="category">
-        <el-input type="text" placeholder="enter text" v-model="promise.category"></el-input>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Category" prop="category">
+            <el-input type="text" placeholder="enter text" v-model="promise.category"></el-input>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Title" prop="title">
-        <el-input type="text" placeholder="enter text" v-model="promise.title"></el-input>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Title" prop="title">
+            <el-input type="text" placeholder="enter text" v-model="promise.title"></el-input>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Status" prop="status">
-        <el-input type="text" placeholder="enter text" v-model="promise.status"></el-input>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Status" prop="status">
+            <el-input type="text" placeholder="enter text" v-model="promise.status"></el-input>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Cover Image" prop="cover_image">
-        <el-input type="text" placeholder="enter text" v-model="promise.cover_image"></el-input>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Cover Image" prop="cover_image">
+            <el-input type="text" placeholder="enter text" v-model="promise.cover_image"></el-input>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Source URL" prop="source_url">
-        <el-input type="text" placeholder="enter text" v-model="promise.source_url"></el-input>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Source URL" prop="source_url">
+            <el-input type="text" placeholder="enter text" v-model="promise.source_url"></el-input>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Source Name" prop="source_name">
-        <el-input type="text" placeholder="enter text" v-model="promise.source_name"></el-input>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Source Name" prop="source_name">
+            <el-input type="text" placeholder="enter text" v-model="promise.source_name"></el-input>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Source Date" prop="source_date">
-            <el-date-picker
-              v-model="promise.source_date"
-              type="date"
-              placeholder="Indicate date of source">
-            </el-date-picker>
-          </el-form-item>
-      </el-col>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Source Date" prop="source_date">
+                <el-date-picker
+                  v-model="promise.source_date"
+                  type="date"
+                  placeholder="Indicate date of source">
+                </el-date-picker>
+              </el-form-item>
+          </el-col>
 
-      <el-col :span="24" >
-          <el-form-item label="Quote" prop="quote">
-        <el-input type="text" placeholder="enter text" v-model="promise.quote"></el-input>
-          </el-form-item>
-      </el-col>
+          <el-col :span="24" >
+              <el-form-item label="Quote" prop="quote">
+            <el-input type="text" placeholder="enter text" v-model="promise.quote"></el-input>
+              </el-form-item>
+          </el-col>
 
-      <el-col :xs="24" :sm="12" >
-          <el-form-item label="Notes" prop="notes">
-        <el-input type="text" placeholder="enter text" v-model="promise.notes"></el-input>
-          </el-form-item>
-      </el-col>
-    </el-row>
-        <el-button v-on:click="onSubmit"> Submit </el-button>
-   </el-form>
+          <el-col :xs="24" :sm="12" >
+              <el-form-item label="Notes" prop="notes">
+            <el-input type="text" placeholder="enter text" v-model="promise.notes"></el-input>
+              </el-form-item>
+          </el-col>
+        </el-row>
+          <el-button v-on:click="onSubmit"> Submit </el-button>
+        </el-form>
     </template>
-        <template v-if="appStatus === 'submittedPromise' ">
-      <p>The promise has been submitted.</p>
+    <template v-if="appStatus === 'submittingPromise' ">
+      <p>Submitting promise...</p>
+    </template>
+
+    <template v-if="appStatus === 'submittedPromise' ">
+      <p>Thank you! The promise has been submitted.</p>
     </template>
 
     <template v-if="appStatus === 'submissionError' ">
@@ -102,9 +106,9 @@
 import { getPoliticians, googleSignIn, postPromise } from '@/api'
 
 const appStatus = {
-  unauthenticated: 'unauthenticated',
-  authenticated: 'authenticated',
+  editingPromise: 'editingPromise',
   submittedPromise: 'submittedPromise',
+  submittingPromise: 'submittingPromise',
   submissionError: 'submissionError'
 }
 export default {
@@ -114,9 +118,8 @@ export default {
   },
   data () {
     return {
-      appStatus: appStatus.unauthenticated,
+      appStatus: appStatus.editingPromise,
       response: '',
-      user: {},
       politicians: [], // TODO: replace with actual API call
       promise: {
         politician_id: undefined, // select from database
@@ -148,6 +151,7 @@ export default {
     onSubmit () {
       this.$refs['form'].validate((valid) => {
         if (valid) {
+          this.appStatus = appStatus.submittingPromise
           this.postPromiseHandler()
         } else {
           return false
@@ -157,15 +161,15 @@ export default {
     googleSignInHandler: async function () {
       try {
         const user = await googleSignIn()
-        this.user = user
-        this.appStatus = appStatus.authenticated
+        this.$store.commit('login', user)
       } catch (e) {
         console.error(e)
       }
     },
     postPromiseHandler: async function () {
       let that = this
-      const { user, promise } = this
+      const { promise } = this
+      const { user } = this.$store.state
 
       try {
         const response = await postPromise({ user, promise })
