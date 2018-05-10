@@ -2,16 +2,15 @@ import axios from 'axios'
 import { firebase } from '@/config'
 const provider = new firebase.auth.GoogleAuthProvider()
 const API_URL = 'https://us-central1-openpromises-8526c.cloudfunctions.net'
+// const API_URL = 'http://localhost:5000/openpromises-8526c/us-central1'
 
-function getSomething (path) {
-  return async function () {
-    try {
-      const response = await axios.get(API_URL + path)
-      const politicians = response.data
-      return politicians
-    } catch (e) {
-      console.error(e)
-    }
+async function getSomething (path) {
+  try {
+    const response = await axios.get(API_URL + path)
+    const politicians = response.data
+    return politicians
+  } catch (e) {
+    console.error(e)
   }
 }
 
@@ -27,9 +26,10 @@ async function getSingle (path, id) {
 
 const getPolitician = id => getSingle('/politicians/', id)
 
-const getPoliticians = getSomething('/politicians/')
-const getPromises = getSomething('/promises/')
-const getLivePromises = getSomething('/promises/?live=true')
+const getPoliticians = () => getSomething('/politicians/')
+const getPromises = () => getSomething('/promises/')
+const getLivePromises = () => getSomething('/promises/?live=true')
+const getPoliticianPromises = id => getSomething(`/promises/?politician_id=${id}`) // TODO: account for live too
 
 function googleSignIn () {
   return new Promise((resolve, reject) => {
@@ -102,6 +102,7 @@ export {
   getPoliticians,
   getPromises,
   getLivePromises,
+  getPoliticianPromises,
   googleSignIn,
   postPromise
 }
