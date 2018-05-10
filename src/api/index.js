@@ -3,15 +3,13 @@ import { firebase } from '@/config'
 const provider = new firebase.auth.GoogleAuthProvider()
 const API_URL = 'https://us-central1-openpromises-8526c.cloudfunctions.net'
 
-function getSomething (path) {
-  return async function () {
-    try {
-      const response = await axios.get(API_URL + path)
-      const politicians = response.data
-      return politicians
-    } catch (e) {
-      console.error(e)
-    }
+async function getSomething (path) {
+  try {
+    const response = await axios.get(API_URL + path)
+    const politicians = response.data
+    return politicians
+  } catch (e) {
+    console.error(e)
   }
 }
 
@@ -27,9 +25,10 @@ async function getSingle (path, id) {
 
 const getPolitician = id => getSingle('/politicians/', id)
 
-const getPoliticians = getSomething('/politicians/')
-const getPromises = getSomething('/promises/')
-const getLivePromises = getSomething('/promises/?live=true')
+const getPoliticians = () => getSomething('/politicians/')
+const getPromises = () => getSomething('/promises/')
+const getLivePromises = () => getSomething('/promises/?live=true')
+const getPoliticianPromises = id => getSomething('/promises/' + id)
 
 function googleSignIn () {
   return new Promise((resolve, reject) => {
@@ -73,7 +72,7 @@ function googleSignIn () {
   })
 }
 
-function postPromise ({ user, promise }) {
+function postPromise({ user, promise }) {
   return new Promise((resolve, reject) => {
     axios
       .post(API_URL + '/promises/', promise, {
@@ -86,11 +85,11 @@ function postPromise ({ user, promise }) {
           'X-USER-PHOTO': user.photoURL
         }
       })
-      .then(function (response) {
+      .then(function(response) {
         const result = JSON.stringify(response)
         resolve(result)
       })
-      .catch(function (error) {
+      .catch(function(error) {
         const result = error.response.data
         reject(result)
       })
