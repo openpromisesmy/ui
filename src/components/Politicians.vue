@@ -5,7 +5,7 @@
     <el-row>
       <el-col :span="6" v-for="o in politicians" :key="o.id">
         <el-card :body-style="{ padding: '0px' }">
-            <a :href="/politician/ + o.id">
+            <router-link :to="/politician/ + o.id">
           <img :src="o.profile_image" class="image">
           <div style="padding: 14px;">
             <span>{{ o.name  }}</span>
@@ -13,7 +13,7 @@
               <time class="time">{{ o.primary_position }}</time>
             </div>
           </div>
-          </a>
+            </router-link>
         </el-card>
       </el-col>
     </el-row>
