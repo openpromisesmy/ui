@@ -6,7 +6,7 @@
       <el-button type="primary" v-on:click="googleSignInHandler">Google Sign In</el-button>
     </template>
 
-    <template v-if="this.$store.state.user.authenticated && (appStatus !== 'submittedPromise') ">
+    <template v-if="this.$store.state.user.authenticated && (appStatus === 'editingPromise') ">
       <p v-if="politicians.length == 0">Loading form...</p>
         <el-form v-else v-on:submit.prevent="onSubmit" :rules="rules" label-position="left" label-width="100px" ref="form" :model="promise">
         <el-row >
@@ -87,8 +87,12 @@
           <el-button v-on:click="onSubmit"> Submit </el-button>
         </el-form>
     </template>
+    <template v-if="appStatus === 'submittingPromise' ">
+      <p>Submitting promise...</p>
+    </template>
+
     <template v-if="appStatus === 'submittedPromise' ">
-      <p>The promise has been submitted.</p>
+      <p>Thank you! The promise has been submitted.</p>
     </template>
 
     <template v-if="appStatus === 'submissionError' ">
@@ -102,7 +106,9 @@
 import { getPoliticians, googleSignIn, postPromise } from '@/api'
 
 const appStatus = {
+  editingPromise: 'editingPromise',
   submittedPromise: 'submittedPromise',
+  submittingPromise: 'submittingPromise',
   submissionError: 'submissionError'
 }
 export default {
@@ -112,7 +118,7 @@ export default {
   },
   data () {
     return {
-      appStatus: '',
+      appStatus: appStatus.editingPromise,
       response: '',
       politicians: [], // TODO: replace with actual API call
       promise: {
@@ -145,6 +151,7 @@ export default {
     onSubmit () {
       this.$refs['form'].validate((valid) => {
         if (valid) {
+          this.appStatus = appStatus.submittingPromise
           this.postPromiseHandler()
         } else {
           return false
