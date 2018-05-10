@@ -15,6 +15,18 @@ function getSomething (path) {
   }
 }
 
+async function getSingle (path, id) {
+  try {
+    const response = await axios.get(API_URL + path + id)
+    const politicians = response.data
+    return politicians
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+const getPolitician = id => getSingle('/politicians/', id)
+
 const getPoliticians = getSomething('/politicians/')
 const getPromises = getSomething('/promises/')
 const getLivePromises = getSomething('/promises/?live=true')
@@ -63,11 +75,10 @@ function googleSignIn () {
 
 function postPromise ({ user, promise }) {
   return new Promise((resolve, reject) => {
-    axios.post(API_URL + '/promises/',
-      promise,
-      {
+    axios
+      .post(API_URL + '/promises/', promise, {
         headers: {
-          'Accept': 'application/json, text/plain, */*',
+          Accept: 'application/json, text/plain, */*',
           'Content-Type': 'application/json',
           'X-FIREBASE-TOKEN': user.token,
           'X-USER-EMAIL': user.email,
@@ -87,6 +98,7 @@ function postPromise ({ user, promise }) {
 }
 
 export {
+  getPolitician,
   getPoliticians,
   getPromises,
   getLivePromises,
