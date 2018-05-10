@@ -102,8 +102,6 @@
 import { getPoliticians, googleSignIn, postPromise } from '@/api'
 
 const appStatus = {
-  unauthenticated: 'unauthenticated',
-  authenticated: 'authenticated',
   submittedPromise: 'submittedPromise',
   submissionError: 'submissionError'
 }
@@ -114,7 +112,7 @@ export default {
   },
   data () {
     return {
-      appStatus: appStatus.unauthenticated,
+      appStatus: '',
       response: '',
       politicians: [], // TODO: replace with actual API call
       promise: {
@@ -157,7 +155,6 @@ export default {
       try {
         const user = await googleSignIn()
         this.$store.commit('login', user)
-        this.appStatus = appStatus.authenticated
       } catch (e) {
         console.error(e)
       }
