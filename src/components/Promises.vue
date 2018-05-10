@@ -14,7 +14,8 @@
     </el-table-column>
     <el-table-column
       prop="source_date"
-      label="Date">
+      label="Date"
+      width="150">
     </el-table-column>
     <el-table-column
       prop="category"
@@ -49,6 +50,7 @@
 
 <script>
 import { getPromises } from '@/api'
+import moment from 'moment'
 export default {
   name: 'Promises',
   data () {
@@ -56,8 +58,14 @@ export default {
       promises: []
     }
   },
+  methods: {
+    parsePromises: (promises, politicians) => promises.map(promise => 
+      ({ ...promise, source_date: moment(promise.source_date).format("D MMMM YYYY") })
+    )
+  },
   async created () {
-    this.promises = await getPromises()
+    const promises = await getPromises()
+    this.promises = this.parsePromises(promises)
   }
 }
 </script>
