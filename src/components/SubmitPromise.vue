@@ -1,6 +1,7 @@
 <template>
   <main class="about">
     <h1 class="title">Submit A Promise</h1>
+    <p v-if="this.$store.state.user.email">You are logged in as <b>{{ this.$store.state.user.email }}</b> </p>
     <template v-if="!this.$store.state.user.authenticated">
       <p>Please login to submit a promise</p>
       <el-button type="primary" v-on:click="googleSignInHandler">Google Sign In</el-button>
