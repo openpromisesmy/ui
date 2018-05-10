@@ -116,7 +116,7 @@ export default {
     return {
       appStatus: appStatus.unauthenticated,
       response: '',
-      user: {},
+      user: this.$store.state.user,
       politicians: [], // TODO: replace with actual API call
       promise: {
         politician_id: undefined, // select from database
