@@ -28,7 +28,7 @@ const getPolitician = id => getSingle('/politicians/', id)
 const getPoliticians = () => getSomething('/politicians/')
 const getPromises = () => getSomething('/promises/')
 const getLivePromises = () => getSomething('/promises/?live=true')
-const getPoliticianPromises = id => getSomething('/promises/' + id)
+const getPoliticianPromises = id => getSomething(`/promises/id?=${id}`) // TODO: account for live too
 
 function googleSignIn () {
   return new Promise((resolve, reject) => {
