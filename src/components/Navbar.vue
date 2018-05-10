@@ -13,7 +13,7 @@ export default {
   name: 'Navbar',
   data () {
     return {
-      activeIndex: '1',
+      activeIndex: '0',
       navigation: [
         { text: 'Home', url: '/' },
         { text: 'Promises', url: '/promises' },
