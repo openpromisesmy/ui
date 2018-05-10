@@ -17,6 +17,7 @@ function getSomething (path) {
 
 const getPoliticians = getSomething('/politicians/')
 const getPromises = getSomething('/promises/')
+const getLivePromises = getSomething('/promises/?live=true')
 
 function googleSignIn () {
   return new Promise((resolve, reject) => {
@@ -88,6 +89,7 @@ function postPromise ({ user, promise }) {
 export {
   getPoliticians,
   getPromises,
+  getLivePromises,
   googleSignIn,
   postPromise
 }

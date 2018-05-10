@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { getPromises, getPoliticians } from '@/api'
+import { getLivePromises, getPoliticians } from '@/api'
 import moment from 'moment'
 export default {
   name: 'Promises',
@@ -60,19 +60,23 @@ export default {
     }
   },
   methods: {
-    parsePromises: (promises, politicians) => promises.map(promise => 
+    parsePromises: (promises, politicians) => promises.map(promise =>
       ({
         ...promise,
-        source_date: moment(promise.source_date).format("D MMMM YYYY"),
+        source_date: moment(promise.source_date).format('D MMMM YYYY'),
         politician_name: politicians.find(politician => politician.id === promise.politician_id).name
       })
     )
   },
   async created () {
-    const promises = await getPromises()
-    const politicians = await getPoliticians()
-    this.politicians = politicians
-    this.promises = this.parsePromises(promises, politicians)
+    try {
+      const promises = await getLivePromises()
+      const politicians = await getPoliticians()
+      this.politicians = politicians
+      this.promises = this.parsePromises(promises, politicians)
+    } catch (e) {
+      console.error(e)
+    }
   }
 }
 </script>
