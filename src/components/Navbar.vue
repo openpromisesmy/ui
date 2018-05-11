@@ -1,6 +1,6 @@
 <template>
   <el-header id="navbar">
-      <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+      <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
         <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="String(index)">
           <router-link v-bind:to="item.url">{{ item.text }}</router-link>
         </el-menu-item>
@@ -35,5 +35,14 @@ export default {
 a {
   text-decoration: none;
   font-size: 1rem
+}
+
+@media only screen and (max-width: 600px) {
+    .el-header {
+      margin-bottom: 30px;
+    }
+    .el-menu-item {
+      padding: 0 10px;
+    }
 }
 </style>
