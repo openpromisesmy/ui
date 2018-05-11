@@ -3,7 +3,7 @@
     <h1>Politicians</h1>
     <p v-if="politicians.length == 0">Loading politicians...</p>
     <el-row>
-      <el-col :span="6" v-for="o in politicians" :key="o.id">
+      <el-col :xs="12" :sm="6" v-for="o in politicians" :key="o.id">
         <el-card :body-style="{ padding: '0px' }">
             <router-link :to="/politician/ + o.id">
           <img :src="o.profile_image" class="image">
@@ -74,5 +74,14 @@ a {
 
 .clearfix:after {
   clear: both;
+}
+
+@media only screen and (max-width: 600px) {
+    .image {
+        height: 150px;
+    }
+    .el-card {
+      height: 280px;
+    }
 }
 </style>
