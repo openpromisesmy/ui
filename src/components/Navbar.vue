@@ -38,6 +38,9 @@ a {
 }
 
 @media only screen and (max-width: 600px) {
+    .el-header {
+      margin-bottom: 30px;
+    }
     .el-menu-item {
       padding: 0 10px;
     }
