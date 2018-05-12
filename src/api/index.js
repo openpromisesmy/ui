@@ -63,12 +63,12 @@ function googleSignIn () {
 }
 
 function googleLogout () {
-  return new Promise( (resolve, reject) => {
-    firebase.auth().signOut().then(function() {
+  return new Promise((resolve, reject) => {
+    firebase.auth().signOut().then(function () {
       resolve()
-    }, function(error) {
+    }, function (error) {
       reject(error)
-    });
+    })
   })
 }
 

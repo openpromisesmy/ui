@@ -33,12 +33,12 @@ export default {
     },
     async googleLogoutHandler () {
       try {
-        const user = await googleLogout()
+        await googleLogout()
         this.$store.commit('logout')
       } catch (e) {
         console.error(e)
       }
-    },
+    }
   }
 }
 </script>
