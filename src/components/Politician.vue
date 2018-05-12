@@ -14,11 +14,11 @@
     <template v-if="promises.length === 0">
       <p>Loading promises...</p>
     </template>
-    <template v-else> 
-           <el-table
-    :data="promises"
-    border
-    style="width: 100%">
+    <template v-else>
+    <el-table
+      :data="promises"
+      border
+      style="width: 100%">
     <el-table-column
       prop="title"
       label="Title"
