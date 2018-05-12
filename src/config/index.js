@@ -1,5 +1,5 @@
 import firebase from 'firebase'
-var config = {
+const config = {
   apiKey: 'AIzaSyBR0GKAzyozw4tp_6Q0kOso1pT9XyHWHpQ',
   authDomain: 'openpromises-8526c.firebaseapp.com',
   databaseURL: 'https://openpromises-8526c.firebaseio.com',
@@ -9,6 +9,10 @@ var config = {
 }
 firebase.initializeApp(config)
 
+const API_URL = 'https://us-central1-openpromises-8526c.cloudfunctions.net'
+// const API_URL = 'http://localhost:5000/openpromises-8526c/us-central1'
+
 export {
-  firebase
+  firebase,
+  API_URL
 }
