@@ -62,6 +62,16 @@ function googleSignIn () {
   })
 }
 
+function googleLogout () {
+  return new Promise((resolve, reject) => {
+    firebase.auth().signOut().then(function () {
+      resolve()
+    }, function (error) {
+      reject(error)
+    })
+  })
+}
+
 function postPromise ({ user, promise }) {
   return new Promise((resolve, reject) => {
     axios
@@ -93,5 +103,6 @@ export {
   getLivePromises,
   getPoliticianPromises,
   googleSignIn,
+  googleLogout,
   postPromise
 }

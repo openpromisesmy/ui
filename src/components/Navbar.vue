@@ -4,11 +4,15 @@
         <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="String(index)">
           <router-link v-bind:to="item.url">{{ item.text }}</router-link>
         </el-menu-item>
+        <el-menu-item index="5">
+            <el-button type="info" v-on:click="googleLogoutHandler">Logout</el-button>
+        </el-menu-item>
     </el-menu>
   </el-header>
 </template>
 
 <script>
+import { googleLogout } from '@/api'
 export default {
   name: 'Navbar',
   data () {
@@ -26,6 +30,14 @@ export default {
   methods: {
     handleSelect (key, keyPath) {
       console.log(key, keyPath)
+    },
+    async googleLogoutHandler () {
+      try {
+        await googleLogout()
+        this.$store.commit('logout')
+      } catch (e) {
+        console.error(e)
+      }
     }
   }
 }
