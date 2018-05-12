@@ -1,11 +1,21 @@
 <template>
   <main id="politicians">
-    <h1>{{ politician.name }}</h1>
-    <img class="image" :src="politician.profile_image">
-    <p><b>{{ politician.primary_position }}</b></p>
-    <h2>Promises by {{ politician.name }} ({{ promises.length }})</h2>
-    <p>{{ politician.brief }}</p>
-     <el-table
+    <template v-if="Object.keys(politician) === 0">
+      <p>Loading politician...</p>
+    </template>
+    <template v-else>
+      <h1>{{ politician.name }}</h1>
+      <img class="image" :src="politician.profile_image">
+      <p><b>{{ politician.primary_position }}</b></p>
+      <h2>Promises by {{ politician.name }} ({{ promises.length }})</h2>
+      <p>{{ politician.brief }}</p>
+    </template>
+
+    <template v-if="promises.length === 0">
+      <p>Loading promises...</p>
+    </template>
+    <template v-else> 
+           <el-table
     :data="promises"
     border
     style="width: 100%">
@@ -42,6 +52,7 @@
       </template>
     </el-table-column>
   </el-table>
+    </template>
   </main>
 </template>
 
