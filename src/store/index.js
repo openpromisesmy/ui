@@ -13,6 +13,9 @@ const state = {
 const mutations = {
   login (state, user) {
     state.user = { ...user, authenticated: true }
+  },
+  logout (state) {
+    state.user = {}
   }
 }
 
