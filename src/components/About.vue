@@ -20,6 +20,7 @@
 
              <h2>Can I help?</h2>
              <p>Yes you can. Please contact us through <a href="http://facebook.com/OpenPromises" target="_blank">our Facebook page</a></p>
+             <p>We also have a <a href="https://www.facebook.com/groups/1809117962724326/" target="_blank">Facebook group</a> for everyone to share on promises they have found themselves. The group can also be used for discussions.</p>
          </div>
     </el-col>
     </el-row>
