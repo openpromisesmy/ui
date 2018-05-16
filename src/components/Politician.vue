@@ -7,11 +7,11 @@
       <h1>{{ politician.name }}</h1>
       <img class="image" :src="politician.profile_image">
       <p><b>{{ politician.primary_position }}</b></p>
-      <h2>Promises by {{ politician.name }} ({{ promises.length }})</h2>
+      <h2>Promises by {{ politician.name }} {{ Array.isArray(promises) ? `(${promises.length})` : '' }}</h2>
       <p>{{ politician.brief }}</p>
     </template>
 
-    <template v-if="promises.length === 0">
+    <template v-if="promises === 'loading'">
       <p>Loading promises...</p>
     </template>
     <template v-else>
@@ -65,7 +65,7 @@ export default {
   data () {
     return {
       politician: {},
-      promises: []
+      promises: 'loading'
     }
   },
   methods: {
