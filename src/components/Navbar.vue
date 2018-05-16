@@ -4,7 +4,7 @@
         <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="String(index)">
           <router-link v-bind:to="item.url">{{ item.text }}</router-link>
         </el-menu-item>
-        <el-menu-item index="5">
+        <el-menu-item index="5" v-if="this.$store.state.user.authenticated">
             <el-button type="info" v-on:click="googleLogoutHandler">Logout</el-button>
         </el-menu-item>
     </el-menu>
