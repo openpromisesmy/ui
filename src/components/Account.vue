@@ -1,13 +1,16 @@
 <template>
   <main class="account">
       <h1>Account</h1>
-      <p>{{ authenticated ? `Logged in as ${email}` : 'Please login.' }}</p>
+      <Auth v-if="!this.$store.state.user.authenticated"></Auth>
   </main>
 </template>
 
 <script>
+import Auth from '@/components/Auth'
+
 export default {
   name: 'Account',
+  components: { Auth },
   data () {
     return {
       authenticated: this.$store.state.user.authenticated,

@@ -30,10 +30,5 @@ export default {
 }
 </script>
 
-<style scoped>
-.auth {
-  border: 0.5px solid grey;
-  border-radius: 5px;
-  padding: 20px 0;
-}
+<style>
 </style>
