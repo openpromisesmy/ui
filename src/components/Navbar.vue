@@ -6,7 +6,7 @@
         </el-menu-item>
         <el-menu-item index="4" id="account">
           <router-link to="/account">
-            Account
+            {{ authenticated ? 'Account' : 'Login' }}
           </router-link>
         </el-menu-item>
         <el-menu-item index="5" id="submit">
