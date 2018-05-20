@@ -1,7 +1,7 @@
 <template>
   <main class="auth">
-      <h1>Login or Sign Up</h1>
       <template v-if="!authenticated">
+        <h1>Login or Sign Up</h1>
         <el-button type="primary" v-on:click="googleSignInHandler">Google Sign In</el-button>
       </template>
   </main>

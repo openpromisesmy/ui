@@ -50,6 +50,7 @@ export default {
       try {
         await googleLogout()
         this.$store.commit('logout')
+        this.$router.push('/')
       } catch (e) {
         console.error(e)
       }

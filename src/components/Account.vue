@@ -2,6 +2,7 @@
   <main class="account">
       <h1>Account</h1>
       <Auth v-if="!this.$store.state.user.authenticated"></Auth>
+      <p v-else>Logged in as {{ email }}</p>
   </main>
 </template>
 
