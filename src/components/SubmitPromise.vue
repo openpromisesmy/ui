@@ -101,7 +101,7 @@
 </template>
 
 <script>
-import { getPoliticians, googleSignIn, postPromise } from '@/api'
+import { getPoliticians, postPromise } from '@/api'
 import Auth from '@/components/Auth'
 
 const appStatus = {
@@ -157,14 +157,6 @@ export default {
           return false
         }
       })
-    },
-    googleSignInHandler: async function () {
-      try {
-        const user = await googleSignIn()
-        this.$store.commit('login', user)
-      } catch (e) {
-        console.error(e)
-      }
     },
     postPromiseHandler: async function () {
       let that = this
