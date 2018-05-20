@@ -4,14 +4,15 @@
         <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="String(index)">
           <router-link v-bind:to="item.url">{{ item.text }}</router-link>
         </el-menu-item>
-        <el-menu-item index="4" id="submit">
+        <el-menu-item index="5" id="submit">
           <router-link to="/submit">
             <el-button type="info" v-on:click="googleLogoutHandler">
               Submit A Promise
             </el-button>
           </router-link>
         </el-menu-item>
-        <el-menu-item index="5" v-if="this.$store.state.user.authenticated">
+        <!-- move below to inside account page -->
+        <el-menu-item index="6" v-if="this.$store.state.user.authenticated">
             <el-button type="info" v-on:click="googleLogoutHandler">
               Logout
             </el-button>
@@ -31,7 +32,8 @@ export default {
         { text: 'Home', url: '/' },
         { text: 'Promises', url: '/promises' },
         { text: 'Politicians', url: '/politicians' },
-        { text: 'About', url: '/about' }
+        { text: 'About', url: '/about' },
+        { text: 'Account', url: '/account' }
       ]
     }
   },
