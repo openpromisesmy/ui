@@ -2,10 +2,7 @@
   <main class="about">
     <h1 class="title">Submit A Promise</h1>
     <p v-if="this.$store.state.user.email">You are logged in as <b>{{ this.$store.state.user.email }}</b> </p>
-    <template v-if="!this.$store.state.user.authenticated">
-      <p>Please login to submit a promise</p>
-      <el-button type="primary" v-on:click="googleSignInHandler">Google Sign In</el-button>
-    </template>
+    <Auth v-if="!this.$store.state.user.authenticated"></Auth>
 
     <template v-if="this.$store.state.user.authenticated && (appStatus === 'editingPromise') ">
       <p v-if="politicians.length == 0">Loading form...</p>
@@ -105,6 +102,7 @@
 
 <script>
 import { getPoliticians, googleSignIn, postPromise } from '@/api'
+import Auth from '@/components/Auth'
 
 const appStatus = {
   editingPromise: 'editingPromise',
@@ -117,6 +115,7 @@ export default {
   async created () {
     this.politicians = await getPoliticians()
   },
+  components: { Auth },
   data () {
     return {
       appStatus: appStatus.editingPromise,
