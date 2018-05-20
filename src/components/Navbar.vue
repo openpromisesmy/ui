@@ -6,7 +6,7 @@
         </el-menu-item>
         <el-menu-item index="4" id="account">
           <router-link to="/account">
-            {{ this.$store.state.user.authenticated ? 'Account' : 'Login' }}
+            {{ this.$store.state.user.authenticated ? email : 'Login' }}
           </router-link>
         </el-menu-item>
         <el-menu-item index="5" id="submit">
@@ -39,7 +39,8 @@ export default {
         { text: 'Politicians', url: '/politicians' },
         { text: 'About', url: '/about' }
       ],
-      authenticated: this.$store.state.user.authenticated
+      authenticated: this.$store.state.user.authenticated,
+      email: this.$store.state.user.email
     }
   },
   methods: {
