@@ -1,7 +1,7 @@
 <template>
   <main class="account">
       <h1>Account</h1>
-      <p>{{ authenticated ? email : 'Please login.' }}</p>
+      <p>{{ authenticated ? `Logged in as ${email}` : 'Please login.' }}</p>
   </main>
 </template>
 
