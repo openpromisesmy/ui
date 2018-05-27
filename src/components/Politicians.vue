@@ -3,7 +3,7 @@
     <h1>Politicians</h1>
     <p v-if="politicians.length == 0">Loading politicians...</p>
     <el-row>
-      <el-col :xs="12" :sm="6" v-for="o in politicians" :key="o.id">
+      <el-col :xs="12" :sm="4" v-for="o in politicians" :key="o.id">
         <el-card :body-style="{ padding: '0px' }">
             <router-link :to="/politician/ + o.id">
           <img :src="o.profile_image" class="image">
@@ -40,9 +40,6 @@ export default {
 a {
   text-decoration: none;
 }
-.el-card {
-  height: 400px;
-}
 .time {
   font-size: 13px;
   color: #999;
@@ -58,12 +55,16 @@ a {
   float: right;
 }
 
+.el-card {
+  height: 280px;
+}
+
 .image {
   width: 100%;
   display: block;
   object-fit: cover; /* Do not scale the image */
   object-position: top; /* Center the image within the element */
-  height: 300px;
+  height: 180px;
 }
 
 .clearfix:before,
