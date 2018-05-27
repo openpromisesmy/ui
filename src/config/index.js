@@ -9,8 +9,8 @@ const config = {
 }
 firebase.initializeApp(config)
 
-const API_URL = 'https://us-central1-openpromises-8526c.cloudfunctions.net'
-// const API_URL = 'http://localhost:5000/openpromises-8526c/us-central1'
+// const API_URL = 'https://us-central1-openpromises-8526c.cloudfunctions.net'
+const API_URL = 'http://localhost:5000/openpromises-8526c/us-central1'
 
 export {
   firebase,
