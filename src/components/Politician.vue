@@ -51,6 +51,11 @@
         <a :href="scope.row.source_url" target="_blank">View Source</a>
       </template>
     </el-table-column>
+    <el-table-column
+      prop="status"
+      label="Status"
+      width="125">
+    </el-table-column>
   </el-table>
     </template>
   </main>
@@ -72,6 +77,7 @@ export default {
     parsePromises: (promises, politicians) => promises.map(promise =>
       ({
         ...promise,
+        status: promise.status ? promises.status : 'Review Needed',
         source_date: moment(promise.source_date).format('D MMMM YYYY')
       })
     )
