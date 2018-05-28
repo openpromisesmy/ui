@@ -1,6 +1,6 @@
 <template>
   <main id="promises">
-    <h1>Promises</h1>
+    <h1>Promises {{ promises.length > 0 ? `- ${promises.length}` : 0 }}</h1>
     <p v-if="promises.length == 0">Loading promises...</p>
     <el-table
     v-else
