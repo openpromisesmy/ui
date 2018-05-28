@@ -44,6 +44,11 @@
         <a :href="scope.row.source_url" target="_blank">View Source</a>
       </template>
     </el-table-column>
+    <el-table-column
+      prop="status"
+      label="Status"
+      width="125">
+    </el-table-column>
   </el-table>
   </main>
 </template>
@@ -71,6 +76,7 @@ export default {
       return filteredPromises.map(promise =>
         ({
           ...promise,
+          status: promise.status ? promises.status : 'Review Needed',
           source_date: moment(promise.source_date).format('D MMMM YYYY'),
           politician_name: politicians.find(politician => politician.id === promise.politician_id).name
         })
