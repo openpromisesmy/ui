@@ -68,11 +68,11 @@ export default {
     },
     parsePromises (promises, politicians) {
       const filteredPromises = this.filterLivePoliticians(promises, politicians)
-      return filteredPromises.map(promise => 
-         ({
+      return filteredPromises.map(promise =>
+        ({
           ...promise,
           source_date: moment(promise.source_date).format('D MMMM YYYY'),
-          politician_name: politicians.find(politician => politician.id === promise.politician_id)
+          politician_name: politicians.find(politician => politician.id === promise.politician_id).name
         })
       )
     }
