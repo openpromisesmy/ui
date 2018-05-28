@@ -60,13 +60,22 @@ export default {
     }
   },
   methods: {
-    parsePromises: (promises, politicians) => promises.map(promise =>
-      ({
-        ...promise,
-        source_date: moment(promise.source_date).format('D MMMM YYYY'),
-        politician_name: politicians.find(politician => politician.id === promise.politician_id).name
+    filterLivePoliticians (promises, politicians) {
+      return promises.filter(promise => {
+        const politicianIDs = politicians.map(politician => politician.id)
+        return politicianIDs.includes(promise.politician_id)
       })
-    )
+    },
+    parsePromises (promises, politicians) {
+      const filteredPromises = this.filterLivePoliticians(promises, politicians)
+      return filteredPromises.map(promise => 
+         ({
+          ...promise,
+          source_date: moment(promise.source_date).format('D MMMM YYYY'),
+          politician_name: politicians.find(politician => politician.id === promise.politician_id)
+        })
+      )
+    }
   },
   async created () {
     try {
