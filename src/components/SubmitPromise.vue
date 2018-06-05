@@ -38,7 +38,14 @@
 
           <el-col :xs="24" :sm="12" >
               <el-form-item label="Status" prop="status">
-            <el-input type="text" placeholder="enter text" v-model="promise.status"></el-input>
+            <el-select v-model="promise.status" placeholder="Select">
+              <el-option
+                v-for="status in statusOptions"
+                :key="status"
+                :label="status"
+                :value="status">
+              </el-option>
+            </el-select>
               </el-form-item>
           </el-col>
 
@@ -121,6 +128,14 @@ export default {
       appStatus: appStatus.editingPromise,
       response: '',
       politicians: [], // TODO: replace with actual API call
+      statusOptions: [
+        'Review Needed',
+        'Fulfilled',
+        'Broken',
+        'Partially Fulfilled',
+        'In Progress',
+        'Not Started'
+      ],
       promise: {
         politician_id: undefined, // select from database
         title: undefined, // string
