@@ -97,7 +97,7 @@ export default {
     parsePromises: (promises, politicians) => promises.map(promise =>
       ({
         ...promise,
-        status: promise.status ? promises.status : 'Review Needed',
+        status: promise.status ? promise.status : 'Review Needed',
         source_date: moment(promise.source_date).format('D MMMM YYYY')
       })
     )
@@ -106,6 +106,7 @@ export default {
     try {
       this.politician = await getPolitician(this.$route.params.id)
       const promises = await getPoliticianPromises(this.$route.params.id)
+      promises.forEach(promise => console.log(promise.status))
       this.promises = this.parsePromises(promises)
     } catch (e) {
       console.error(e)
