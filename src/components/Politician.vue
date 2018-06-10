@@ -70,6 +70,7 @@
 
 <script>
 import { getPolitician, getPoliticianPromises } from '@/api'
+import { generateStats } from '@/utils'
 import moment from 'moment'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 
@@ -84,13 +85,7 @@ export default {
   },
   computed: {
     stats: function () {
-      const statusOptions = new Set(this.promises.map(promise => promise.status))
-      const stats = []
-      statusOptions.forEach(statusOption => {
-        const hits = this.promises.filter(promise => promise.status === statusOption)
-        stats.push({ value: statusOption || 'undefined', number: hits.length })
-      })
-      return stats
+      return generateStats(this.promises)
     }
   },
   methods: {
