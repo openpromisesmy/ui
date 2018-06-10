@@ -16,9 +16,12 @@
       <LoadingSpinner />
     </template>
     <template v-else>
-    <el-button v-for="stat in stats" :key="stat.value">
-      <b>{{ stat.value }}</b> {{ stat.number }}
-    </el-button>
+    <el-card id="Politician_stats">
+      <b>Promise Statistics:</b>
+      <el-button v-for="stat in stats" :key="stat.value">
+        <b>{{ stat.value }}</b> {{ stat.number }}
+      </el-button>
+    </el-card>
     <el-table
       :data="promises"
       border
@@ -124,4 +127,5 @@ export default {
 #politicians p b {
   display: inline-block
 }
+
 </style>
