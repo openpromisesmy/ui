@@ -16,6 +16,9 @@
       <LoadingSpinner />
     </template>
     <template v-else>
+    <el-button v-for="stat in stats" :key="stat.value">
+      <b>{{ stat.value }}</b> {{ stat.number }}
+    </el-button>
     <el-table
       :data="promises"
       border
@@ -69,13 +72,24 @@ import LoadingSpinner from '@/components/shared/LoadingSpinner'
 
 export default {
   name: 'Politician',
+  components: { LoadingSpinner },
   data () {
     return {
       politician: {},
       promises: 'loading'
     }
   },
-  components: { LoadingSpinner },
+  computed: {
+    stats: function () {
+      const statusOptions = new Set(this.promises.map(promise => promise.status))
+      const stats = []
+      statusOptions.forEach(statusOption => {
+        const hits = this.promises.filter(promise => promise.status === statusOption)
+        stats.push({ value: statusOption || 'undefined', number: hits.length })
+      })
+      return stats
+    }
+  },
   methods: {
     parsePromises: (promises, politicians) => promises.map(promise =>
       ({
