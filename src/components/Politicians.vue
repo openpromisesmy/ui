@@ -1,7 +1,10 @@
 <template>
   <main id="politicians">
     <h1>Politicians</h1>
-    <p v-if="politicians.length == 0">Loading politicians...</p>
+    <template v-if="politicians.length === 0">
+      <p>Loading politicians...This will take 1-2 seconds.</p>
+      <LoadingSpinner />
+    </template>
     <el-row>
       <el-col :xs="12" :sm="4" v-for="o in politicians" :key="o.id">
         <el-card :body-style="{ padding: '0px' }">
@@ -22,6 +25,8 @@
 
 <script>
 import { getPoliticians } from '@/api'
+import LoadingSpinner from '@/components/shared/LoadingSpinner'
+
 export default {
   name: 'Politicians',
   data () {
@@ -29,6 +34,7 @@ export default {
       politicians: []
     }
   },
+  components: { LoadingSpinner },
   async created () {
     this.politicians = await getPoliticians()
   }
