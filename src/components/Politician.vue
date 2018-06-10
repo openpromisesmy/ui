@@ -16,6 +16,12 @@
       <LoadingSpinner />
     </template>
     <template v-else>
+    <el-card id="Politician_stats">
+      <b>Promise Statistics:</b>
+      <el-button v-for="stat in stats" :key="stat.value">
+        <b>{{ stat.value }}</b> {{ stat.number }}
+      </el-button>
+    </el-card>
     <el-table
       :data="promises"
       border
@@ -69,18 +75,29 @@ import LoadingSpinner from '@/components/shared/LoadingSpinner'
 
 export default {
   name: 'Politician',
+  components: { LoadingSpinner },
   data () {
     return {
       politician: {},
       promises: 'loading'
     }
   },
-  components: { LoadingSpinner },
+  computed: {
+    stats: function () {
+      const statusOptions = new Set(this.promises.map(promise => promise.status))
+      const stats = []
+      statusOptions.forEach(statusOption => {
+        const hits = this.promises.filter(promise => promise.status === statusOption)
+        stats.push({ value: statusOption || 'undefined', number: hits.length })
+      })
+      return stats
+    }
+  },
   methods: {
     parsePromises: (promises, politicians) => promises.map(promise =>
       ({
         ...promise,
-        status: promise.status ? promises.status : 'Review Needed',
+        status: promise.status ? promise.status : 'Review Needed',
         source_date: moment(promise.source_date).format('D MMMM YYYY')
       })
     )
@@ -89,6 +106,7 @@ export default {
     try {
       this.politician = await getPolitician(this.$route.params.id)
       const promises = await getPoliticianPromises(this.$route.params.id)
+      promises.forEach(promise => console.log(promise.status))
       this.promises = this.parsePromises(promises)
     } catch (e) {
       console.error(e)
@@ -110,4 +128,5 @@ export default {
 #politicians p b {
   display: inline-block
 }
+
 </style>

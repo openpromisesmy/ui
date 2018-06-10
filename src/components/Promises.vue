@@ -1,6 +1,6 @@
 <template>
   <main id="promises">
-    <h1>Promises {{ promises.length > 0 ? `- ${promises.length}` : '' }}</h1></h1>
+    <h1>Promises {{ promises.length > 0 ? `- ${promises.length}` : '' }}</h1>
     <template v-if="promises.length === 0">
       <p>Loading promises...This will take 3-5 seconds.</p>
       <LoadingSpinner />
