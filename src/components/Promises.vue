@@ -5,8 +5,14 @@
       <p>Loading promises...This will take 3-5 seconds.</p>
       <LoadingSpinner />
     </template>
+    <template v-else>
+    <el-card id="Promise_stats">
+      <b>Promise Statistics:</b>
+      <el-button v-for="stat in stats" :key="stat.value">
+        <b>{{ stat.value }}</b> {{ stat.number }}
+      </el-button>
+    </el-card>
     <el-table
-    v-else
     :data="promises"
     border
     style="width: 100%">
@@ -53,23 +59,30 @@
       width="125">
     </el-table-column>
   </el-table>
+    </template>
   </main>
 </template>
 
 <script>
 import { getLivePromises, getPoliticians } from '@/api'
+import { generateStats } from '@/utils'
 import moment from 'moment'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 
 export default {
   name: 'Promises',
+  components: { LoadingSpinner },
   data () {
     return {
       politicians: [],
       promises: []
     }
   },
-  components: { LoadingSpinner },
+  computed: {
+    stats: function () {
+      return generateStats(this.promises)
+    }
+  },
   methods: {
     filterLivePoliticians (promises, politicians) {
       return promises.filter(promise => {
@@ -82,7 +95,7 @@ export default {
       return filteredPromises.map(promise =>
         ({
           ...promise,
-          status: promise.status ? promises.status : 'Review Needed',
+          status: promise.status ? promise.status : 'Review Needed',
           source_date: moment(promise.source_date).format('D MMMM YYYY'),
           politician_name: politicians.find(politician => politician.id === promise.politician_id).name
         })
@@ -107,9 +120,7 @@ export default {
 a {
   text-decoration: none;
 }
-.el-card {
-  height: 400px;
-}
+
 .time {
   font-size: 13px;
   color: #999;
