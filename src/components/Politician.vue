@@ -12,7 +12,8 @@
     </template>
 
     <template v-if="promises === 'loading'">
-      <p>Loading promises...</p>
+      <p>Loading promises...This will take 2-4 seconds.</p>
+      <LoadingSpinner />
     </template>
     <template v-else>
     <el-table
@@ -64,6 +65,7 @@
 <script>
 import { getPolitician, getPoliticianPromises } from '@/api'
 import moment from 'moment'
+import LoadingSpinner from '@/components/shared/LoadingSpinner'
 
 export default {
   name: 'Politician',
@@ -73,6 +75,7 @@ export default {
       promises: 'loading'
     }
   },
+  components: { LoadingSpinner },
   methods: {
     parsePromises: (promises, politicians) => promises.map(promise =>
       ({
