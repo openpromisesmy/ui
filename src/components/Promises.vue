@@ -1,7 +1,10 @@
 <template>
   <main id="promises">
     <h1>Promises {{ promises.length > 0 ? `- ${promises.length}` : 0 }}</h1>
-    <p v-if="promises.length == 0">Loading promises...</p>
+    <template v-if="promises.length === 0">
+      <p>Loading promises...This will take 3-5 seconds.</p>
+      <LoadingSpinner />
+    </template>
     <el-table
     v-else
     :data="promises"
@@ -56,6 +59,8 @@
 <script>
 import { getLivePromises, getPoliticians } from '@/api'
 import moment from 'moment'
+import LoadingSpinner from '@/components/shared/LoadingSpinner'
+
 export default {
   name: 'Promises',
   data () {
@@ -64,6 +69,7 @@ export default {
       promises: []
     }
   },
+  components: { LoadingSpinner },
   methods: {
     filterLivePoliticians (promises, politicians) {
       return promises.filter(promise => {
