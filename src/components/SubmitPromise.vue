@@ -124,7 +124,7 @@ export default {
   },
   components: { Auth },
   computed: {
-    user() { return this.$store.state.user }
+    user () { return this.$store.state.user }
   },
   data () {
     return {
