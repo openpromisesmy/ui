@@ -171,15 +171,14 @@ export default {
       this.$refs['form'].validate((valid) => {
         if (valid) {
           this.appStatus = appStatus.submittingPromise
-          this.postPromiseHandler()
+          this.postPromiseHandler(this.promise)
         } else {
           return false
         }
       })
     },
-    postPromiseHandler: async function () {
+    postPromiseHandler: async function (promise) {
       let that = this
-      const { promise } = this
       const { user } = this.$store.state
       promise.contributor_id = this.user.id
 
