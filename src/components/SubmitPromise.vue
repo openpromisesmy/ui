@@ -123,6 +123,9 @@ export default {
     this.politicians = await getPoliticians()
   },
   components: { Auth },
+  computed: {
+    user() { return this.$store.state.user }
+  },
   data () {
     return {
       appStatus: appStatus.editingPromise,
@@ -178,6 +181,7 @@ export default {
       let that = this
       const { promise } = this
       const { user } = this.$store.state
+      promise.contributor_id = this.user.id
 
       try {
         const response = await postPromise({ user, promise })

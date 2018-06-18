@@ -94,6 +94,8 @@ function postPromise ({ user, promise }) {
   })
 }
 
+const getContributor = email => getSomething('/contributors/?email=' + email)
+
 export {
   getPolitician,
   getPoliticians,
@@ -102,5 +104,6 @@ export {
   getPoliticianPromises,
   googleSignIn,
   googleLogout,
-  postPromise
+  postPromise,
+  getContributor
 }

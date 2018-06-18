@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { googleSignIn } from '@/api'
+import { googleSignIn, getContributor } from '@/api'
 
 export default {
   name: 'Auth',
@@ -20,7 +20,9 @@ export default {
   methods: {
     googleSignInHandler: async function () {
       try {
-        const user = await googleSignIn()
+        const firebaseUser = await googleSignIn()
+        const response = await getContributor(firebaseUser.email)
+        const user = response[0]
         this.$store.commit('login', user)
       } catch (e) {
         console.error(e)
