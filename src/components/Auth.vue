@@ -21,7 +21,8 @@ export default {
     googleSignInHandler: async function () {
       try {
         const firebaseUser = await googleSignIn()
-        const user = await getContributor(firebaseUser.email)
+        const response = await getContributor(firebaseUser.email)
+        const user = response[0]
         this.$store.commit('login', user)
       } catch (e) {
         console.error(e)
