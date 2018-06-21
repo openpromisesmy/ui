@@ -22,6 +22,10 @@ export default {
       try {
         const firebaseUser = await googleSignIn()
         const response = await getContributor(firebaseUser.email)
+        // below: when first time signing in, create account
+        if (response.length === 0) {
+
+        }
         const user = response[0]
         this.$store.commit('login', user)
       } catch (e) {
