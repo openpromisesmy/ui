@@ -5,8 +5,16 @@ const provider = new firebase.auth.GoogleAuthProvider()
 async function getSomething (path) {
   try {
     const response = await axios.get(API_URL + path)
-    const politicians = response.data
-    return politicians
+    return response.data
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+async function postSomething (path, data) {
+  try {
+    const response = await axios.post(API_URL + path, data)
+    return response.data
   } catch (e) {
     console.error(e)
   }
@@ -95,6 +103,7 @@ function postPromise ({ user, promise }) {
 }
 
 const getContributor = email => getSomething('/contributors/?email=' + email)
+const postContributor = data => postSomething('/contributors/', data)
 
 export {
   getPolitician,
@@ -105,5 +114,6 @@ export {
   googleSignIn,
   googleLogout,
   postPromise,
-  getContributor
+  getContributor,
+  postContributor
 }

@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { googleSignIn, getContributor } from '@/api'
+import { googleSignIn, getContributor, postContributor } from '@/api'
 
 export default {
   name: 'Auth',
@@ -22,7 +22,17 @@ export default {
       try {
         const firebaseUser = await googleSignIn()
         const response = await getContributor(firebaseUser.email)
-        const user = response[0]
+        // below: when first time signing in, create account
+        let user = response[0]
+        if (response.length === 0) {
+          const data = {
+            name: firebaseUser.name,
+            email: firebaseUser.email
+          }
+          await postContributor(data)
+          const response2 = await getContributor(firebaseUser.email)
+          user = response2[0]
+        }
         this.$store.commit('login', user)
       } catch (e) {
         console.error(e)
