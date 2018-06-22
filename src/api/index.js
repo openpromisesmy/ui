@@ -85,7 +85,8 @@ function postPromise ({ user, promise }) {
         headers: {
           Accept: 'application/json, text/plain, */*',
           'Content-Type': 'application/json',
-          'X-FIREBASE-TOKEN': await firebase.auth().currentUser.getIdToken()
+          'X-FIREBASE-TOKEN': await firebase.auth().currentUser.getIdToken(),
+          'X-FIREBASE-EMAIL': user.email
         }
       })
       .then(function (response) {
