@@ -79,16 +79,14 @@ function googleLogout () {
 }
 
 function postPromise ({ user, promise }) {
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     axios
       .post(API_URL + '/promises/', promise, {
         headers: {
           Accept: 'application/json, text/plain, */*',
           'Content-Type': 'application/json',
-          'X-FIREBASE-TOKEN': user.token,
-          'X-USER-EMAIL': user.email,
-          'X-USER-NAME': user.name,
-          'X-USER-PHOTO': user.photoURL
+          'X-FIREBASE-TOKEN': await firebase.auth().currentUser.getIdToken(),
+          'X-USER-EMAIL': user.email
         }
       })
       .then(function (response) {

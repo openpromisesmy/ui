@@ -178,17 +178,15 @@ export default {
       })
     },
     postPromiseHandler: async function (promise) {
-      let that = this
-      const { user } = this.$store.state
-      promise.contributor_id = this.user.id
-
       try {
+        const { user } = this.$store.state
+        promise.contributor_id = this.user.id
         const response = await postPromise({ user, promise })
-        that.appStatus = appStatus.submittedPromise
-        that.response = JSON.stringify(response)
+        this.appStatus = appStatus.submittedPromise
+        this.response = JSON.stringify(response)
       } catch (e) {
-        that.appStatus = appStatus.submissionError
-        that.response = e
+        this.appStatus = appStatus.submissionError
+        this.response = JSON.stringify(e)
       }
     }
   }
