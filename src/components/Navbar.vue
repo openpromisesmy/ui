@@ -11,7 +11,7 @@
         </el-menu-item>
         <el-menu-item index="5" id="submit">
           <router-link to="/submit">
-            <el-button type="info" v-on:click="googleLogoutHandler">
+            <el-button type="info">
               Submit A Promise
             </el-button>
           </router-link>
