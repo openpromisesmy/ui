@@ -138,7 +138,8 @@ export default {
         'Partially Fulfilled',
         'In Progress',
         'Not Started',
-        'At Risk'
+        'At Risk',
+        'Retracted'
       ],
       promise: {
         politician_id: undefined, // select from database
