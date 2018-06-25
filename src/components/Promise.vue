@@ -5,7 +5,10 @@
     </template>
     <template v-else>
       <h1>{{ promise.title }}</h1>
-      <p v-for="(value, key) in displayedValues" :key="key" class="Promise_values"><b>{{ key }}: </b>{{ value }}</p>
+      <el-row v-for="(value, key) in displayedValues" :key="key" class="Promise_values">
+        <el-col :span="12"><div class="grid-content"> <b>{{ key }} </b> </div></el-col>
+        <el-col :span="12"><div class="grid-content"> {{ value }} </div></el-col>
+      </el-row>
     </template>
 
   </main>
@@ -38,15 +41,14 @@ export default {
   computed: {
     displayedValues () {
       let data = { ...this.promise }
-      delete data.id
-      delete data.title
-      delete data.contributor_id
-      delete data.updated_at
-      delete data.created_at
-      delete data.live
-      delete data.politician_id
-      data.source_date = formatDate(data.source_date)
-      return data
+      return {
+        'Source Date': formatDate(data.source_date),
+        'Source URL': data.source_url,
+        'Source Name': data.source_name,
+        'Status': data.status,
+        'Category': data.category,
+        'Quote': data.quote
+      }
     }
   },
   async created () {
@@ -67,8 +69,22 @@ export default {
   max-width: 900px
 }
 
-.Promise_values{
-  text-transform: capitalize
+.grid-content {
+  border-radius: 4px;
+  min-height: 36px;
+}
+
+.el-row {
+  padding: 10px;
+  border: 1px solid grey
+}
+
+.el-row:last-child {
+  margin-bottom: 0;
+}
+
+.el-col {
+  border-radius: 4px;
 }
 
 </style>
