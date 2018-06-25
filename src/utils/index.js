@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 function generateStats (promises) {
   const statusOptions = new Set(promises.map(promise => promise.status))
   const stats = []
@@ -8,6 +10,11 @@ function generateStats (promises) {
   return stats
 }
 
+function formatDate(date) {
+  return moment(date).format('D MMMM YYYY')
+}
+
 export {
-  generateStats
+  generateStats,
+  formatDate
 }
