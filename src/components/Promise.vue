@@ -5,6 +5,10 @@
     </template>
     <template v-else>
       <h1>{{ promise.title }}</h1>
+      <el-row>
+        <el-col :span="12">Made by</el-col>
+        <el-col :span="12">{{ politician.name }}</el-col>
+      </el-row>
       <el-row v-for="(value, key) in displayedValues" :key="key" class="Promise_values">
         <el-col :span="12"><div class="grid-content"> <b>{{ key }} </b> </div></el-col>
         <el-col :span="12"><div class="grid-content"> {{ value }} </div></el-col>
