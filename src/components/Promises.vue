@@ -25,7 +25,7 @@
     </el-table-column>
     <el-table-column
       prop="source_date"
-      label="Date"
+      label="Source Date"
       width="150">
     </el-table-column>
     <el-table-column
@@ -37,10 +37,6 @@
       prop="politician_name"
       label="Politician"
       width="150">
-    </el-table-column>
-    <el-table-column
-      prop="source_name"
-      label="Source">
     </el-table-column>
     <el-table-column
       prop="status"
