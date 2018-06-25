@@ -40,11 +40,6 @@
       width="150">
     </el-table-column>
     <el-table-column
-      prop="quote"
-      label="Quote"
-      width="250">
-    </el-table-column>
-    <el-table-column
       prop="source_name"
       label="Source">
     </el-table-column>
