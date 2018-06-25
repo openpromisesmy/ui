@@ -18,8 +18,7 @@
     style="width: 100%">
     <el-table-column
       prop="title"
-      label="Title"
-      width="180">
+      label="Title">
       <template slot-scope="scope">
         <router-link :to="'/promises/' + scope.row.id">{{ scope.row.title }}</router-link>
       </template>
