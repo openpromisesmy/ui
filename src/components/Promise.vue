@@ -25,8 +25,8 @@ export default {
   data () {
     return {
       appStatus: '',
-      politicians: [],
-      promises: {}
+      politician: {},
+      promise: {}
     }
   },
   methods: {
@@ -40,10 +40,9 @@ export default {
   },
   async created () {
     try {
-      this.politician = await getPolitician(this.$route.params.id)
-      const promises = await getPoliticianPromises(this.$route.params.id)
-      promises.forEach(promise => console.log(promise.status))
-      this.promises = this.parsePromises(promises)
+      this.promise = await getPromise(this.$route.params.id)
+      this.politician = await getPolitician(this.promise.poitician_id)
+
     } catch (e) {
       console.error(e)
     }
