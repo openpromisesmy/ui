@@ -33,6 +33,7 @@ async function getSingle (path, id) {
 const getPolitician = id => getSingle('/politicians/', id)
 
 const getPoliticians = () => getSomething('/politicians/')
+const getPromise = id => getSomething('/promises/' + id)
 const getPromises = () => getSomething('/promises/')
 const getLivePromises = () => getSomething('/promises/?live=true')
 const getPoliticianPromises = id => getSomething(`/promises/?politician_id=${id}`) // TODO: account for live too
@@ -106,9 +107,12 @@ const postContributor = data => postSomething('/contributors/', data)
 export {
   getPolitician,
   getPoliticians,
+
+  getPromise,
   getPromises,
   getLivePromises,
   getPoliticianPromises,
+
   googleSignIn,
   googleLogout,
   postPromise,
