@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/Home'
 import Politician from '@/components/Politician'
 import Politicians from '@/components/Politicians'
+import Promise from '@/components/Promise'
 import Promises from '@/components/Promises'
 import About from '@/components/About'
 import SubmitPromise from '@/components/SubmitPromise'
@@ -33,6 +34,11 @@ export default new Router({
       path: '/politician/:id',
       name: 'Politician',
       component: Politician
+    },
+    {
+      path: '/promises/:id',
+      name: 'Promise',
+      component: Promise
     },
     {
       path: '/promises',
