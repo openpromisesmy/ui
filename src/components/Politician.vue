@@ -28,8 +28,7 @@
       style="width: 100%">
     <el-table-column
       prop="title"
-      label="Title"
-      width="180">
+      label="Title">
       <template slot-scope="scope">
         <router-link :to="'/promises/' + scope.row.id">{{ scope.row.title }}</router-link>
       </template>
@@ -43,23 +42,6 @@
       prop="category"
       label="Category"
       width="180">
-    </el-table-column>
-    <el-table-column
-      prop="quote"
-      label="Quote"
-      width="250">
-    </el-table-column>
-    <el-table-column
-      prop="source_name"
-      label="Source">
-    </el-table-column>
-    <el-table-column
-      prop="source_url"
-      label="Source Link"
-      width="100">
-      <template slot-scope="scope">
-        <a :href="scope.row.source_url" target="_blank">View Source</a>
-      </template>
     </el-table-column>
     <el-table-column
       prop="status"
