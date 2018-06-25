@@ -1,21 +1,17 @@
 <template>
-  <main id="promise">
-    <template v-if="Object.keys(promise) === 0">
+  <main id="Promise">
+    <template v-if="appStatus === 'loading'">
       <p>Loading promise...</p>
     </template>
     <template v-else>
       <h1>{{ promise.title }}</h1>
-      <!-- <img class="image" :src="politician.profile_image">
-      <p><b>{{ politician.primary_position }}</b></p>
-      <h2>Promises by {{ politician.name }} {{ Array.isArray(promises) ? `(${promises.length})` : '' }}</h2>
-      <p>{{ politician.brief }}</p> -->
     </template>
 
   </main>
 </template>
 
 <script>
-import { getPromise, getPoliticians } from '@/api'
+import { getPromise, getPolitician } from '@/api'
 import moment from 'moment'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 
@@ -24,7 +20,7 @@ export default {
   components: { LoadingSpinner },
   data () {
     return {
-      appStatus: '',
+      appStatus: 'loading',
       politician: {},
       promise: {}
     }
@@ -41,8 +37,8 @@ export default {
   async created () {
     try {
       this.promise = await getPromise(this.$route.params.id)
-      this.politician = await getPolitician(this.promise.poitician_id)
-
+      this.politician = await getPolitician(this.promise.politician_id)
+      this.appStatus = ''
     } catch (e) {
       console.error(e)
     }
@@ -52,16 +48,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.image {
-  min-width: 30%;
-  display: inline-block;
-  object-fit: cover; /* Do not scale the image */
-  object-position: top; /* Center the image within the element */
-  height: 300px;
-}
-
-#politicians p b {
-  display: inline-block
+#Promise {
+  max-width: 900px
 }
 
 </style>
