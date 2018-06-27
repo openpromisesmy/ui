@@ -116,7 +116,7 @@ export default {
       if (this.pageNumber === 1) delete this.query.startAfter
 
       if (this.pageNumber > 1) {
-        this.query.startAfter = reverse ? this.promises[this.promises.length - 1][this.query.orderBy] : this.promises[0][this.query.orderBy]
+        this.query.startAfter = reverse ? this.livePromises[this.livePromises.length - 1][this.query.orderBy] : this.livePromises[0][this.query.orderBy]
       }
     },
     nextPage () {
