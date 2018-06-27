@@ -10,7 +10,7 @@ function generateStats (promises) {
   return stats
 }
 
-function formatDate(date) {
+function formatDate (date) {
   return moment(date).format('D MMMM YYYY')
 }
 
