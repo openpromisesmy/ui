@@ -18,7 +18,7 @@
       </el-button>
     </el-row>
     <el-table
-    :data="promises"
+    :data="livePromises"
     border
     style="width: 100%">
     <el-table-column
@@ -77,10 +77,13 @@ export default {
   },
   computed: {
     stats: function () {
-      return generateStats(this.promises)
+      return generateStats(this.livePromises)
     },
     queryString: function () {
       return queryString.stringify(this.query)
+    },
+    livePromises: function () {
+      return this.parsePromises(this.promises, this.politicians)
     }
   },
   methods: {
