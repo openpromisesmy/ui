@@ -19,11 +19,14 @@
     </el-row>
     <el-table
     :data="livePromises"
+    :default-sort = "{prop: 'source_date', order: 'descending'}"
     border
     style="width: 100%">
     <el-table-column
       prop="title"
-      label="Title">
+      label="Title"
+      width="350"
+    >
       <template slot-scope="scope">
         <router-link :to="'/promises/' + scope.row.id">{{ scope.row.title }}</router-link>
       </template>
@@ -32,6 +35,9 @@
       prop="source_date"
       label="Source Date"
       width="150">
+      <template slot-scope="scope">
+        <p>{{ formatDate(scope.row.source_date) }}</p>
+      </template>
     </el-table-column>
     <el-table-column
       prop="category"
@@ -69,7 +75,7 @@ export default {
       promises: [],
       pageNumber: 1,
       query: {
-        pageSize: 25,
+        pageSize: 50,
         orderBy: 'source_date',
         reverse: true
       }
@@ -107,7 +113,6 @@ export default {
         ({
           ...promise,
           status: promise.status ? promise.status : 'Review Needed',
-          source_date: formatDate(promise.source_date),
           politician_name: politicians.find(politician => politician.id === promise.politician_id).name
         })
       )
