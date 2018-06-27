@@ -67,6 +67,7 @@ export default {
       appStatus: '',
       politicians: [],
       promises: [],
+      pageNumber: 1,
       query: {
         pageSize: 25,
         orderBy: 'source_date',
