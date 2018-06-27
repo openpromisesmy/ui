@@ -2,7 +2,7 @@
   <main id="promises">
     <h1>Most Recent Promises</h1>
     <template v-if="appStatus === 'loading'">
-      <p>Loading promises...This will take 3-5 seconds.</p>
+      <p>Loading promises...This will take 2-4 seconds.</p>
       <LoadingSpinner />
     </template>
     <template v-else>
@@ -12,9 +12,11 @@
         <b>{{ stat.value }}</b> {{ stat.number }}
       </el-button>
     </el-card>
-    <el-button type="primary" @click="nextPage()">
-      Older >>
-    </el-button>
+    <el-row id="Promises_pagination">
+      <el-button type="primary" @click="nextPage()">
+        Older >>
+      </el-button>
+    </el-row>
     <el-table
     :data="promises"
     border
@@ -180,5 +182,9 @@ a {
 
 .clearfix:after {
   clear: both;
+}
+
+#Promises_pagination {
+  margin: 20px 0
 }
 </style>
