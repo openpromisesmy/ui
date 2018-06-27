@@ -12,7 +12,7 @@
         <b>{{ stat.value }}</b> {{ stat.number }}
       </el-button>
     </el-card>
-    <el-row id="Promises_pagination">
+    <el-row class="Promises_pagination">
       <el-button type="primary" @click="nextPage()">
         Older >>
       </el-button>
@@ -55,6 +55,11 @@
       width="125">
     </el-table-column>
   </el-table>
+    <el-row class="Promises_pagination">
+      <el-button type="primary" @click="nextPage()">
+        Older >>
+      </el-button>
+    </el-row>
     </template>
   </main>
 </template>
@@ -193,7 +198,7 @@ a {
   clear: both;
 }
 
-#Promises_pagination {
+.Promises_pagination {
   margin: 20px 0
 }
 </style>
