@@ -1,7 +1,7 @@
 <template>
   <main id="promises">
     <h1>Promises {{ promises.length > 0 ? `- ${promises.length}` : '' }}</h1>
-    <template v-if="promises.length === 0">
+    <template v-if="appStatus === 'loading'">
       <p>Loading promises...This will take 3-5 seconds.</p>
       <LoadingSpinner />
     </template>
@@ -50,9 +50,9 @@
 
 <script>
 import { getLivePromises, getPoliticians } from '@/api'
-import { generateStats } from '@/utils'
-import moment from 'moment'
+import { generateStats, formatDate } from '@/utils'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
+import queryString from 'query-string'
 
 export default {
   name: 'Promises',
@@ -60,15 +60,31 @@ export default {
   data () {
     return {
       politicians: [],
-      promises: []
+      promises: [],
+      query: {
+        pageSize: 25,
+        orderBy: 'source_date',
+        reverse: true
+      }
     }
   },
   computed: {
     stats: function () {
       return generateStats(this.promises)
+    },
+    queryString: function () {
+      return queryString.stringify(this.query)
     }
   },
   methods: {
+    formatDate,
+    async listPromisesHandler (queryString) {
+      console.log(queryString)
+      this.appStatus = 'loading'
+      const promises = await getLivePromises(queryString)
+      this.promises = this.parsePromises(promises, this.politicians)
+      this.appStatus = ''
+    },
     filterLivePoliticians (promises, politicians) {
       return promises.filter(promise => {
         const politicianIDs = politicians.map(politician => politician.id)
@@ -81,18 +97,41 @@ export default {
         ({
           ...promise,
           status: promise.status ? promise.status : 'Review Needed',
-          source_date: moment(promise.source_date).format('D MMMM YYYY'),
+          source_date: formatDate(promise.source_date),
           politician_name: politicians.find(politician => politician.id === promise.politician_id).name
         })
       )
+    },
+    updateStartAfter (reverse) {
+      if (this.pageNumber === 1) delete this.query.startAfter
+
+      if (this.pageNumber > 1) {
+        this.query.startAfter = reverse ? this.promises[this.promises.length - 1][this.query.orderBy] : this.promises[0][this.query.orderBy]
+      }
+    },
+    nextPage () {
+      this.pageNumber++
+      this.query.reverse = true
+      this.updateQuery()
+    },
+    previousPage () {
+      if (this.pageNumber === 1) return
+      this.pageNumber--
+      this.query.reverse = false
+      this.updateQuery()
+    },
+    updateQuery (obj) {
+      this.query = { ...this.query, ...obj }
+      this.updateStartAfter(this.query.reverse)
+      this.listPromisesHandler(this.queryString)
     }
   },
   async created () {
     try {
-      const promises = await getLivePromises()
+      this.appStatus = 'loading'
       const politicians = await getPoliticians()
       this.politicians = politicians
-      this.promises = this.parsePromises(promises, politicians)
+      this.listPromisesHandler(this.queryString)
     } catch (e) {
       console.error(e)
     }
