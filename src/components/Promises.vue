@@ -1,6 +1,6 @@
 <template>
   <main id="promises">
-    <h1>Promises {{ promises.length > 0 ? `- ${promises.length}` : '' }}</h1>
+    <h1>Most Recent Promises</h1>
     <template v-if="appStatus === 'loading'">
       <p>Loading promises...This will take 3-5 seconds.</p>
       <LoadingSpinner />
@@ -12,6 +12,9 @@
         <b>{{ stat.value }}</b> {{ stat.number }}
       </el-button>
     </el-card>
+    <el-button type="primary" @click="nextPage()">
+      Older >>
+    </el-button>
     <el-table
     :data="promises"
     border
@@ -59,6 +62,7 @@ export default {
   components: { LoadingSpinner },
   data () {
     return {
+      appStatus: '',
       politicians: [],
       promises: [],
       query: {
