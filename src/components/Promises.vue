@@ -99,7 +99,7 @@ export default {
       return queryString.stringify(this.query)
     },
     async listPromisesHandler (queryString) {
-      console.log('listPromisesHandler ()' ,queryString)
+      console.log('listPromisesHandler ()', queryString)
       this.appStatus = 'loading'
       const promises = await getLivePromises(queryString)
       if (promises.length === 0) return alert('no results')
@@ -110,14 +110,14 @@ export default {
       this.appStatus = 'loadingMore'
       this.pageNumber++
       this.query.reverse = true
-      
+
       this.updateStartAfter(this.query.reverse)
       console.log(startAfterPromise.source_date)
 
       const promises = await getLivePromises(this.queryString())
       if (promises.length === 0) return alert('no results')
       // sort ?
-      this.promises = [...this.promises, ...promises] 
+      this.promises = [...this.promises, ...promises]
       this.appStatus = ''
     },
     filterLivePoliticians (promises, politicians) {
