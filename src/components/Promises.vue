@@ -12,11 +12,6 @@
         <b>{{ stat.value }}</b> {{ stat.number }}
       </el-button>
     </el-card>
-    <el-row class="Promises_pagination">
-      <el-button type="primary" @click="nextPage()">
-        Older >>
-      </el-button>
-    </el-row>
     <el-table
     :data="livePromises"
     :default-sort = "{prop: 'source_date', order: 'descending'}"
@@ -55,9 +50,10 @@
       width="125">
     </el-table-column>
   </el-table>
-    <el-row class="Promises_pagination">
-      <el-button type="primary" @click="nextPage()">
-        Older >>
+    <LoadingSpinner v-if="appStatus === 'loadingMore'" />
+    <el-row class="Promises_pagination" v-else>
+      <el-button type="primary" @click="loadMorePromise(livePromises[livePromises.length -1])">
+        Load more >>
       </el-button>
     </el-row>
     </template>
@@ -80,7 +76,7 @@ export default {
       promises: [],
       pageNumber: 1,
       query: {
-        pageSize: 50,
+        pageSize: 5,
         orderBy: 'source_date',
         reverse: true
       }
@@ -90,20 +86,36 @@ export default {
     stats: function () {
       return generateStats(this.livePromises)
     },
-    queryString: function () {
-      return queryString.stringify(this.query)
-    },
     livePromises: function () {
       return this.parsePromises(this.promises, this.politicians)
     }
   },
   methods: {
     formatDate,
+    queryString () {
+      console.log('queryString ()', JSON.stringify(this.query, null, 2))
+      return queryString.stringify(this.query)
+    },
     async listPromisesHandler (queryString) {
-      console.log(queryString)
+      console.log('listPromisesHandler ()' ,queryString)
       this.appStatus = 'loading'
       const promises = await getLivePromises(queryString)
+      if (promises.length === 0) return alert('no results')
       this.promises = this.parsePromises(promises, this.politicians)
+      this.appStatus = ''
+    },
+    async loadMorePromise (startAfterPromise) {
+      this.appStatus = 'loadingMore'
+      this.pageNumber++
+      this.query.reverse = true
+      
+      this.updateStartAfter(this.query.reverse)
+      console.log(startAfterPromise.source_date)
+
+      const promises = await getLivePromises(this.queryString())
+      if (promises.length === 0) return alert('no results')
+      // sort ?
+      this.promises = [...this.promises, ...this.parsePromises(promises, this.politicians)] 
       this.appStatus = ''
     },
     filterLivePoliticians (promises, politicians) {
@@ -127,6 +139,7 @@ export default {
 
       if (this.pageNumber > 1) {
         this.query.startAfter = reverse ? this.livePromises[this.livePromises.length - 1][this.query.orderBy] : this.livePromises[0][this.query.orderBy]
+        console.log('updateStartAfter()', JSON.stringify(this.query, null, 2), this.queryString())
       }
     },
     nextPage () {
@@ -143,7 +156,7 @@ export default {
     updateQuery (obj) {
       this.query = { ...this.query, ...obj }
       this.updateStartAfter(this.query.reverse)
-      this.listPromisesHandler(this.queryString)
+      this.listPromisesHandler(this.queryString())
     }
   },
   async created () {
@@ -151,7 +164,7 @@ export default {
       this.appStatus = 'loading'
       const politicians = await getPoliticians()
       this.politicians = politicians
-      this.listPromisesHandler(this.queryString)
+      this.listPromisesHandler(this.queryString())
     } catch (e) {
       console.error(e)
     }
