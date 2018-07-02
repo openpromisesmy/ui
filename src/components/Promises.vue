@@ -95,11 +95,9 @@ export default {
   methods: {
     formatDate,
     queryString () {
-      console.log('queryString ()', JSON.stringify(this.query, null, 2))
       return queryString.stringify(this.query)
     },
     async listPromisesHandler (queryString) {
-      console.log('listPromisesHandler ()', queryString)
       this.appStatus = 'loading'
       const promises = await getLivePromises(queryString)
       if (promises.length === 0) return alert('no results')
@@ -112,7 +110,6 @@ export default {
       this.query.reverse = true
 
       this.updateStartAfter(this.query.reverse)
-      console.log(startAfterPromise.source_date)
 
       const promises = await getLivePromises(this.queryString())
       if (promises.length === 0) return alert('no results')
@@ -141,7 +138,6 @@ export default {
 
       if (this.pageNumber > 1) {
         this.query.startAfter = reverse ? this.promises[this.promises.length - 1][this.query.orderBy] : this.promises[0][this.query.orderBy]
-        console.log('updateStartAfter()', JSON.stringify(this.query, null, 2), this.queryString())
       }
     },
     nextPage () {
