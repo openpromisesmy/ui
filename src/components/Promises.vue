@@ -22,6 +22,7 @@
     <el-table-column
       prop="title"
       label="Title"
+      width="500"
     >
       <template slot-scope="scope">
         <router-link :to="'/promises/' + scope.row.id">{{ scope.row.title }}</router-link>
