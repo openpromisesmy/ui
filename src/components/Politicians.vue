@@ -1,6 +1,5 @@
 <template>
   <main id="politicians">
-    <h1>Politicians</h1>
     <template v-if="politicians.length === 0">
       <p>Loading politicians...This will take 1-2 seconds.</p>
       <LoadingSpinner />
