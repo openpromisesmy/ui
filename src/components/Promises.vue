@@ -6,12 +6,14 @@
       <LoadingSpinner />
     </template>
     <template v-else>
+
     <el-card id="Promise_stats">
       <b>Promise Statistics:</b>
       <el-button v-for="stat in stats" :key="stat.value">
         <b>{{ stat.value }}</b> {{ stat.number }}
       </el-button>
     </el-card>
+
     <el-table
     :data="livePromises"
     :default-sort = "{prop: 'source_date', order: 'descending'}"
@@ -20,7 +22,6 @@
     <el-table-column
       prop="title"
       label="Title"
-      width="350"
     >
       <template slot-scope="scope">
         <router-link :to="'/promises/' + scope.row.id">{{ scope.row.title }}</router-link>
@@ -76,7 +77,7 @@ export default {
       promises: [],
       pageNumber: 1,
       query: {
-        pageSize: 5,
+        pageSize: 10,
         orderBy: 'source_date',
         reverse: true
       }
@@ -115,7 +116,7 @@ export default {
       const promises = await getLivePromises(this.queryString())
       if (promises.length === 0) return alert('no results')
       // sort ?
-      this.promises = [...this.promises, ...this.parsePromises(promises, this.politicians)] 
+      this.promises = [...this.promises, ...promises] 
       this.appStatus = ''
     },
     filterLivePoliticians (promises, politicians) {
@@ -138,7 +139,7 @@ export default {
       if (this.pageNumber === 1) delete this.query.startAfter
 
       if (this.pageNumber > 1) {
-        this.query.startAfter = reverse ? this.livePromises[this.livePromises.length - 1][this.query.orderBy] : this.livePromises[0][this.query.orderBy]
+        this.query.startAfter = reverse ? this.promises[this.promises.length - 1][this.query.orderBy] : this.promises[0][this.query.orderBy]
         console.log('updateStartAfter()', JSON.stringify(this.query, null, 2), this.queryString())
       }
     },
@@ -214,4 +215,5 @@ a {
 .Promises_pagination {
   margin: 20px 0
 }
+
 </style>
