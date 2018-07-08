@@ -1,26 +1,36 @@
 <template>
   <main class="home">
 
-    <section>
+    <section id="hero">
       <div><h1 id="tagline">{{ tagline }}</h1></div>
-      <img id="logo" src="@/assets/logo.jpg">
-      <p>{{ description }}</p>
-      <div id="fb-root"></div>
+      <el-row>
+        <el-col :md="6">
+          <img id="logo" src="@/assets/logo.jpg">
+        </el-col>
+        <el-col :md="18" id="description">
+          <p>
+            OpenPromises is civilian-led not for profit project that is based on recording and tracking promises made by politicians.<br/>
+            We believe that technology can have a great impact on governance and democracy. Tech can change the world, and we aim to be a part of that.<br/>
+            Contact us on Facebook if you want to bring OpenPromises to your country.
+          </p>
+        </el-col>
+      </el-row>
     </section>
 
     <section>
-      <h1>View Promises by Politician</h1>
+      <h1>Browse Promises by Politician</h1>
       <Politicians />
     </section>
 
     <section id="cta">
       <el-card>
         <h1>Be part of the movement,</h1>
-        <router-link to="/submit"><el-button>Submit a Promise</el-button></router-link>
+        <router-link to="/submit"><el-button type="primary">Submit a Promise</el-button></router-link>
       </el-card>
     </section>
 
     <section>
+      <div id="fb-root"></div>
       <h1>Follow Us on Facebook (We post updates there first)</h1>
       <div class="fb-page" data-href="https://www.facebook.com/openpromises.malaysia/" data-tabs="timeline" data-width="500" data-height="900" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/openpromises.malaysia/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/openpromises.malaysia/">OpenPromises Malaysia</a></blockquote></div>
     </section>
@@ -37,9 +47,7 @@ export default {
   data () {
     return {
       tagline:
-        "Track Promises by Your Representatives",
-      description:
-        'OpenPromises is civilian-led not for profit project that is based on recording promises made by politicians. Our source is publicly available media sources and we are currently focusing on Malaysia due to it being the homebase of our current participants, and also due to the upcoming general elections. We believe that technology can have a great impact on governance and democracy. Tech can change the world, and we aim to be a part of that.'
+        "Track Promises by Your Representatives"
     }
   },
   created () {
@@ -59,6 +67,19 @@ export default {
 <style scoped>
 #tagline {
   font-weight: 900;
+}
+
+#hero {
+  max-width: 900px;
+  margin: 0 auto
+}
+
+#description {
+  height: 200px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding: 20px
 }
 
 .el-button {

@@ -11,7 +11,7 @@
         </el-menu-item>
         <el-menu-item index="5" id="submit">
           <router-link to="/submit">
-            <el-button type="info">
+            <el-button type="primary">
               Submit A Promise
             </el-button>
           </router-link>
