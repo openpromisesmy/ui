@@ -25,7 +25,7 @@
     <section id="cta">
       <el-card>
         <h1>Be part of the movement,</h1>
-        <router-link to="/submit"><el-button>Submit a Promise</el-button></router-link>
+        <router-link to="/submit"><el-button type="primary">Submit a Promise</el-button></router-link>
       </el-card>
     </section>
 
