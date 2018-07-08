@@ -4,7 +4,7 @@
     <section>
       <div><h1 id="tagline">{{ tagline }}</h1></div>
       <img id="logo" src="@/assets/logo.jpg">
-      <p>{{ description }}</p>
+      <p id="description">{{ description }}</p>
       <div id="fb-root"></div>
     </section>
 
@@ -59,6 +59,10 @@ export default {
 <style scoped>
 #tagline {
   font-weight: 900;
+}
+
+#description {
+  max-width: 900px
 }
 
 .el-button {
