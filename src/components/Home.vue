@@ -1,11 +1,16 @@
 <template>
   <main class="home">
 
-    <section>
+    <section id="hero">
       <div><h1 id="tagline">{{ tagline }}</h1></div>
-      <img id="logo" src="@/assets/logo.jpg">
-      <p id="description">{{ description }}</p>
-      <div id="fb-root"></div>
+      <el-row>
+        <el-col :md="6">
+          <img id="logo" src="@/assets/logo.jpg">
+        </el-col>
+        <el-col :md="18" id="description">
+          <p>{{ description }}</p>
+        </el-col>
+      </el-row>
     </section>
 
     <section>
@@ -21,6 +26,7 @@
     </section>
 
     <section>
+      <div id="fb-root"></div>
       <h1>Follow Us on Facebook (We post updates there first)</h1>
       <div class="fb-page" data-href="https://www.facebook.com/openpromises.malaysia/" data-tabs="timeline" data-width="500" data-height="900" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/openpromises.malaysia/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/openpromises.malaysia/">OpenPromises Malaysia</a></blockquote></div>
     </section>
@@ -61,8 +67,17 @@ export default {
   font-weight: 900;
 }
 
+#hero {
+  max-width: 900px;
+  margin: 0 auto
+}
+
 #description {
-  max-width: 900px
+  height: 200px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding: 20px
 }
 
 .el-button {
