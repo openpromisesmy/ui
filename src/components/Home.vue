@@ -8,13 +8,17 @@
           <img id="logo" src="@/assets/logo.jpg">
         </el-col>
         <el-col :md="18" id="description">
-          <p>{{ description }}</p>
+          <p>
+            OpenPromises is civilian-led not for profit project that is based on recording and tracking promises made by politicians.<br/>
+            We believe that technology can have a great impact on governance and democracy. Tech can change the world, and we aim to be a part of that.<br/>
+            Contact us on Facebook if you want to bring OpenPromises to your country.
+          </p>
         </el-col>
       </el-row>
     </section>
 
     <section>
-      <h1>View Promises by Politician</h1>
+      <h1>Browse Promises by Politician</h1>
       <Politicians />
     </section>
 
@@ -43,9 +47,7 @@ export default {
   data () {
     return {
       tagline:
-        "Track Promises by Your Representatives",
-      description:
-        'OpenPromises is civilian-led not for profit project that is based on recording promises made by politicians. Our source is publicly available media sources and we are currently focusing on Malaysia due to it being the homebase of our current participants, and also due to the upcoming general elections. We believe that technology can have a great impact on governance and democracy. Tech can change the world, and we aim to be a part of that.'
+        "Track Promises by Your Representatives"
     }
   },
   created () {
