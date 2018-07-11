@@ -1,17 +1,23 @@
 <template>
+  <navbar-mobile v-if="$mq === 'sm'"
+    v-bind="{ googleLogoutHandler, navigation, authenticated, email }"
+  />
   <navbar-desktop
-  v-bind="{ googleLogoutHandler, navigation, authenticated, email }"
+    v-else-if="$mq === 'md'"
+    v-bind="{ googleLogoutHandler, navigation, authenticated, email }"
   />
 </template>
 
 <script>
 import { googleLogout } from '@/api'
 import NavbarDesktop from '@/components/NavbarDesktop'
+import NavbarMobile from '@/components/NavbarMobile'
 
 export default {
   name: 'Navbar',
   components: {
-    NavbarDesktop
+    NavbarDesktop,
+    NavbarMobile
   },
   data () {
     return {
