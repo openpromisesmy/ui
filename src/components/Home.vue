@@ -47,7 +47,7 @@ export default {
   data () {
     return {
       tagline:
-        "Track Promises by Your Representatives"
+        'Track Promises by Your Representatives'
     }
   },
   created () {
@@ -93,6 +93,6 @@ export default {
 }
 
 .el-card {
-  display: inline-block 
+  display: inline-block
 }
 </style>
