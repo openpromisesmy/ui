@@ -37,7 +37,6 @@
 </el-row>
   </el-collapse-item>
 
-
 </el-collapse>
 </template>
 
@@ -57,7 +56,7 @@ export default {
     handleOpen (key, keyPath) {
       // this.isCollapse = false
     },
-    handleClose(key, keyPath) {
+    handleClose (key, keyPath) {
       // this.isCollapse = true
     }
   }
