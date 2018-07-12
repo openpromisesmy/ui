@@ -113,45 +113,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-a {
-  text-decoration: none;
-}
-
-.time {
-  font-size: 13px;
-  color: #999;
-}
-
-.bottom {
-  margin-top: 13px;
-  line-height: 12px;
-}
-
-.button {
-  padding: 0;
-  float: right;
-}
-
-.image {
-  width: 100%;
-  display: block;
-  object-fit: cover; /* Do not scale the image */
-  object-position: top; /* Center the image within the element */
-  height: 300px;
-}
-
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: '';
-}
-
-.clearfix:after {
-  clear: both;
-}
-
-.Promises_pagination {
-  margin: 20px 0
-}
-
 </style>

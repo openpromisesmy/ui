@@ -74,15 +74,6 @@ export default {
   props: [ 'politicians', 'promises', 'stats', 'livePromises', 'appStatus', 'loadMorePromises' ],
   methods: {
       formatDate
-  },
-  data () {
-    return {
-      query: {
-        pageSize: 10,
-        orderBy: 'source_date',
-        reverse: true
-      }
-    }
   }
 }
 </script>
@@ -106,24 +97,6 @@ a {
 .button {
   padding: 0;
   float: right;
-}
-
-.image {
-  width: 100%;
-  display: block;
-  object-fit: cover; /* Do not scale the image */
-  object-position: top; /* Center the image within the element */
-  height: 300px;
-}
-
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: '';
-}
-
-.clearfix:after {
-  clear: both;
 }
 
 .Promises_pagination {
