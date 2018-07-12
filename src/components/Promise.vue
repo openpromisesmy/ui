@@ -1,15 +1,17 @@
 <template>
-  <promise-desktop v-bind="{ promise, politician, appStatus, displayedValues }" />
+  <promise-mobile v-if="$mq === 'sm'" v-bind="{ promise, politician, appStatus, displayedValues }" />
+  <promise-desktop v-else v-bind="{ promise, politician, appStatus, displayedValues }" />
 </template>
 
 <script>
 import { getPromise, getPolitician } from '@/api'
 import PromiseDesktop from '@/components/PromiseDesktop'
+import PromiseMobile from '@/components/PromiseMobile'
 import { formatDate } from '@/utils'
 
 export default {
   name: 'Promise',
-  components: { PromiseDesktop },
+  components: { PromiseDesktop, PromiseMobile },
   data () {
     return {
       appStatus: 'loading',
