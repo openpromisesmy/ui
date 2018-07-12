@@ -33,21 +33,6 @@
         <router-link :to="'/promises/' + scope.row.id">{{ scope.row.title }}</router-link>
       </template>
     </el-table-column>
-    <el-table-column
-      prop="source_date"
-      label="Date"
-      width="150">
-    </el-table-column>
-    <el-table-column
-      prop="category"
-      label="Category"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="status"
-      label="Status"
-      width="125">
-    </el-table-column>
   </el-table>
     </template>
   </main>
@@ -60,7 +45,7 @@ import moment from 'moment'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 
 export default {
-  name: 'PoliticianDesktop',
+  name: 'PoliticianMobile',
   components: { LoadingSpinner },
   props: ['stats', 'politician', 'promises']
 }

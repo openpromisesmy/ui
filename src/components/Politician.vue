@@ -1,5 +1,6 @@
 <template>
-  <politician-desktop v-bind="{ politician, promises, stats }" />
+  <politician-mobile v-if="$mq === 'sm'" v-bind="{ politician, promises, stats }" />
+  <politician-desktop v-else  v-bind="{ politician, promises, stats }" />
 </template>
 
 <script>
@@ -7,10 +8,11 @@ import { getPolitician, getPoliticianPromises } from '@/api'
 import { generateStats } from '@/utils'
 import moment from 'moment'
 import PoliticianDesktop from '@/components/PoliticianDesktop'
+import PoliticianMobile from '@/components/PoliticianMobile'
 
 export default {
   name: 'Politician',
-  components: { PoliticianDesktop },
+  components: { PoliticianDesktop, PoliticianMobile },
   data () {
     return {
       politician: {},
