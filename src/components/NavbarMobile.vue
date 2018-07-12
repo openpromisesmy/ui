@@ -46,7 +46,8 @@ export default {
   props: ['googleLogoutHandler', 'navigation', 'authenticated', 'email'],
   data () {
     return {
-      isCollapse: false
+      isCollapse: false,
+      activeNames: []
     }
   },
   methods: {
