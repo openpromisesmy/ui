@@ -39,9 +39,6 @@
 </template>
 
 <script>
-import { getPolitician, getPoliticianPromises } from '@/api'
-import { generateStats } from '@/utils'
-import moment from 'moment'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 
 export default {
