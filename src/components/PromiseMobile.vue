@@ -28,10 +28,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#Promise {
-  max-width: 900px
-}
-
 .grid-content {
   border-radius: 4px;
   min-height: 36px;
