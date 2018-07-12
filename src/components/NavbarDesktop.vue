@@ -30,6 +30,11 @@
 export default {
   name: 'NavbarDesktop',
   props: ['googleLogoutHandler', 'navigation', 'authenticated', 'email'],
+  data () {
+    return {
+      activeIndex: '0'
+    }
+  },
   methods: {
     handleSelect (key, keyPath) {
       console.log(key, keyPath)
