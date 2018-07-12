@@ -8,7 +8,7 @@
       <img class="image" :src="politician.profile_image">
       <p><b>{{ politician.primary_position }}</b></p>
       <p>{{ politician.brief }}</p>
-      <h2>Promises by {{ politician.name }} {{ Array.isArray(promises) ? `(${promises.length})` : '' }}</h2>
+      <h2>Promises by {{ politician.name }} </h2>
     </template>
 
     <template v-if="promises === 'loading'">
@@ -55,7 +55,7 @@ export default {
   display: inline-block;
   object-fit: cover; /* Do not scale the image */
   object-position: top; /* Center the image within the element */
-  height: 300px;
+  width: 60%
 }
 
 #politicians p b {
