@@ -63,17 +63,15 @@
 </template>
 
 <script>
-import { getLivePromises, getPoliticians } from '@/api'
-import { generateStats, formatDate } from '@/utils'
+import { formatDate } from '@/utils'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
-import queryString from 'query-string'
 
 export default {
   name: 'PromisesDesktop',
   components: { LoadingSpinner },
   props: [ 'politicians', 'promises', 'stats', 'livePromises', 'appStatus', 'loadMorePromises' ],
   methods: {
-      formatDate
+    formatDate
   }
 }
 </script>
