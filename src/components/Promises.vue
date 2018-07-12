@@ -1,76 +1,18 @@
 <template>
-  <main id="promises">
-    <h1>Most Recent Promises</h1>
-    <template v-if="appStatus === 'loading'">
-      <p>Loading promises...This will take 2-4 seconds.</p>
-      <LoadingSpinner />
-    </template>
-    <template v-else>
-
-    <el-card id="Promise_stats">
-      <b>Promise Statistics:</b>
-      <el-button v-for="stat in stats" :key="stat.value">
-        <b>{{ stat.value }}</b> {{ stat.number }}
-      </el-button>
-    </el-card>
-
-    <el-table
-    :data="livePromises"
-    :default-sort = "{prop: 'source_date', order: 'descending'}"
-    border
-    style="width: 100%">
-    <el-table-column
-      prop="title"
-      label="Title"
-      width="500"
-    >
-      <template slot-scope="scope">
-        <router-link :to="'/promises/' + scope.row.id">{{ scope.row.title }}</router-link>
-      </template>
-    </el-table-column>
-    <el-table-column
-      prop="source_date"
-      label="Source Date"
-      width="150">
-      <template slot-scope="scope">
-        <p>{{ formatDate(scope.row.source_date) }}</p>
-      </template>
-    </el-table-column>
-    <el-table-column
-      prop="category"
-      label="Category"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="politician_name"
-      label="Politician"
-      width="150">
-    </el-table-column>
-    <el-table-column
-      prop="status"
-      label="Status"
-      width="125">
-    </el-table-column>
-  </el-table>
-    <LoadingSpinner v-if="appStatus === 'loadingMore'" />
-    <el-row class="Promises_pagination" v-else>
-      <el-button type="primary" @click="loadMorePromise(livePromises[livePromises.length -1])">
-        Load more >>
-      </el-button>
-    </el-row>
-    </template>
-  </main>
+  <promises-desktop v-bind="{ politicians, promises, stats, livePromises, appStatus, loadMorePromises }"
+  />
 </template>
 
 <script>
 import { getLivePromises, getPoliticians } from '@/api'
-import { generateStats, formatDate } from '@/utils'
+import { generateStats } from '@/utils'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 import queryString from 'query-string'
+import PromisesDesktop from '@/components/PromisesDesktop'
 
 export default {
   name: 'Promises',
-  components: { LoadingSpinner },
+  components: { LoadingSpinner, PromisesDesktop },
   data () {
     return {
       appStatus: '',
@@ -93,7 +35,6 @@ export default {
     }
   },
   methods: {
-    formatDate,
     queryString () {
       return queryString.stringify(this.query)
     },
@@ -104,7 +45,7 @@ export default {
       this.promises = this.parsePromises(promises, this.politicians)
       this.appStatus = ''
     },
-    async loadMorePromise (startAfterPromise) {
+    async loadMorePromises (startAfterPromise) {
       this.appStatus = 'loadingMore'
       this.pageNumber++
       this.query.reverse = true
