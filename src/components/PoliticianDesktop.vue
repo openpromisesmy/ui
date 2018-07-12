@@ -1,6 +1,6 @@
 <template>
   <main id="politicians">
-    <template v-if="Object.keys(politician) === 0">
+    <template v-if="politician === 'loading'">
       <p>Loading politician...</p>
     </template>
     <template v-else>

@@ -15,7 +15,7 @@ export default {
   components: { PoliticianDesktop, PoliticianMobile },
   data () {
     return {
-      politician: {},
+      politician: 'loading',
       promises: 'loading'
     }
   },
@@ -37,7 +37,6 @@ export default {
     try {
       this.politician = await getPolitician(this.$route.params.id)
       const promises = await getPoliticianPromises(this.$route.params.id)
-      promises.forEach(promise => console.log(promise.status))
       this.promises = this.parsePromises(promises)
     } catch (e) {
       console.error(e)
