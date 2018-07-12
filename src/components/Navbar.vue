@@ -3,7 +3,7 @@
     v-bind="{ googleLogoutHandler, navigation, authenticated, email }"
   />
   <navbar-desktop
-    v-else-if="$mq === 'md'"
+    v-else
     v-bind="{ googleLogoutHandler, navigation, authenticated, email }"
   />
 </template>

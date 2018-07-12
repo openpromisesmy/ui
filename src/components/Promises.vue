@@ -1,5 +1,6 @@
 <template>
-  <promises-desktop v-bind="{ politicians, promises, stats, livePromises, appStatus, loadMorePromises }"
+  <promises-mobile v-if="$mq === 'sm'" v-bind="{ politicians, promises, stats, livePromises, appStatus, loadMorePromises }" />
+  <promises-desktop v-else v-bind="{ politicians, promises, stats, livePromises, appStatus, loadMorePromises }"
   />
 </template>
 
@@ -9,10 +10,11 @@ import { generateStats } from '@/utils'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 import queryString from 'query-string'
 import PromisesDesktop from '@/components/PromisesDesktop'
+import PromisesMobile from '@/components/PromisesMobile'
 
 export default {
   name: 'Promises',
-  components: { LoadingSpinner, PromisesDesktop },
+  components: { LoadingSpinner, PromisesDesktop, PromisesMobile },
   data () {
     return {
       appStatus: '',
