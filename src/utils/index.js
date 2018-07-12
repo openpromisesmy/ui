@@ -1,6 +1,9 @@
 import moment from 'moment'
 
 function generateStats (promises) {
+  if (!Array.isArray(promises)) {
+    return []
+  }
   const statusOptions = new Set(promises.map(promise => promise.status))
   const stats = []
   statusOptions.forEach(statusOption => {
