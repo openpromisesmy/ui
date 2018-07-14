@@ -24,6 +24,7 @@
 
 <script>
 import { getPoliticians } from '@/api'
+import { isEmpty } from 'lodash'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 
 export default {
@@ -35,7 +36,26 @@ export default {
   },
   components: { LoadingSpinner },
   async created () {
-    this.politicians = await getPoliticians()
+    // @TODO: Move to loadCache(cacheKey, promise)
+    if (isEmpty(this.$store.state.politicians)) {
+      try {
+        const politicians = await getPoliticians()
+        this.$store.commit('loadPoliticians', politicians)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+    this.politicians = this.$store.state.politicians
+  },
+  async mounted () {
+    // @TODO: Move to updateCache(cacheKey, promise)
+    try {
+      const politicians = await getPoliticians()
+      this.$store.commit('loadPoliticians', politicians)
+      this.politicians = this.$store.state.politicians
+    } catch (e) {
+      console.log(e)
+    }
   }
 }
 </script>
@@ -75,7 +95,7 @@ a {
 .clearfix:before,
 .clearfix:after {
   display: table;
-  content: '';
+  content: "";
 }
 
 .clearfix:after {
@@ -83,11 +103,11 @@ a {
 }
 
 @media only screen and (max-width: 600px) {
-    .image {
-        height: 150px;
-    }
-    .el-card {
-      height: 280px;
-    }
+  .image {
+    height: 150px;
+  }
+  .el-card {
+    height: 280px;
+  }
 }
 </style>

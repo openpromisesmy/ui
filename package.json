@@ -17,6 +17,7 @@
     "axios": "^0.18.0",
     "element-ui": "^2.3.7",
     "firebase": "^5.0.1",
+    "lodash": "^4.17.10",
     "moment": "^2.22.1",
     "query-string": "^6.1.0",
     "vue": "^2.5.2",

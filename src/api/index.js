@@ -36,7 +36,8 @@ const getPoliticians = () => getSomething('/politicians/')
 const getPromise = id => getSomething('/promises/' + id)
 const getPromises = () => getSomething('/promises/')
 const getLivePromises = query => getSomething('/promises/?live=true&' + query)
-const getPoliticianPromises = id => getSomething(`/promises/?politician_id=${id}`) // TODO: account for live too
+const getPoliticianPromises = id =>
+  getSomething(`/promises/?politician_id=${id}`) // TODO: account for live too
 
 function googleSignIn () {
   return new Promise((resolve, reject) => {
@@ -71,11 +72,17 @@ function googleSignIn () {
 
 function googleLogout () {
   return new Promise((resolve, reject) => {
-    firebase.auth().signOut().then(function () {
-      resolve()
-    }, function (error) {
-      reject(error)
-    })
+    firebase
+      .auth()
+      .signOut()
+      .then(
+        function () {
+          resolve()
+        },
+        function (error) {
+          reject(error)
+        }
+      )
   })
 }
 
@@ -107,12 +114,10 @@ const postContributor = data => postSomething('/contributors/', data)
 export {
   getPolitician,
   getPoliticians,
-
   getPromise,
   getPromises,
   getLivePromises,
   getPoliticianPromises,
-
   googleSignIn,
   googleLogout,
   postPromise,
