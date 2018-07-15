@@ -7,7 +7,8 @@ Vue.use(Vuex)
 const state = {
   user: {
     authenticated: false
-  }
+  },
+  politicians: []
 }
 
 const mutations = {
@@ -16,6 +17,9 @@ const mutations = {
   },
   logout (state) {
     state.user = {}
+  },
+  loadPoliticians (state, politicians) {
+    state.politicians = [ ...politicians ]
   }
 }
 

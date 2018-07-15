@@ -45,6 +45,6 @@ main {
   margin: 0 auto;
 }
 .title {
-  font-size: 36px
+  font-size: 36px;
 }
 </style>
