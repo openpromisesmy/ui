@@ -24,8 +24,8 @@
 
     <section id="cta">
       <el-card>
-        <h1>Be part of the movement,</h1>
-        <router-link to="/submit"><el-button type="primary">Submit a Promise</el-button></router-link>
+        <h1>Help fund the movement</h1>
+        <a href="https://www.patreon.com/openpromisesmalaysia"><el-button type="success">Check us out on Patreon</el-button></a>
       </el-card>
     </section>
 
