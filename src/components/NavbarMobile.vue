@@ -28,7 +28,7 @@
 -->
     <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
     <el-menu-item id="logo-navbar">
-        <img src="../assets/patreon.png" height="40px"/>
+        <img src="../assets/openpromises.png" height="40px"/>
     </el-menu-item>
     
     </el-menu>

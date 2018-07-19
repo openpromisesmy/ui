@@ -30,7 +30,7 @@
 
     <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
     <el-menu-item id="logo-navbar">
-        <img src="../assets/patreon.png" height="48px"/>
+        <img src="../assets/openpromises.png" height="48px"/>
     </el-menu-item>
     <el-menu-item index="4" id="account">
       <router-link to="/account">
