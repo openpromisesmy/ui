@@ -1,5 +1,7 @@
 <template>
-  <el-header id="navbar">
+  <el-header id="navbar" style="text-align: left;vertical-align:middle; font-size: 12px;
+">
+<!--
       <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
         <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="String(index)">
           <router-link v-bind:to="item.url">{{ item.text }}</router-link>
@@ -16,12 +18,39 @@
             </el-button>
           </router-link>
         </el-menu-item>
-        <!-- move below to inside account page -->
+         move below to inside account page 
         <el-menu-item index="6" v-if="this.$store.state.user.authenticated">
             <el-button type="info" @click="googleLogoutHandler">
               Logout
             </el-button>
         </el-menu-item>
+    </el-menu>
+-->
+            
+
+    <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
+    <el-menu-item id="logo-navbar">
+        <img src="../assets/patreon.png" height="48px"/>
+    </el-menu-item>
+    <el-menu-item index="4" id="account">
+      <router-link to="/account">
+        {{ this.$store.state.user.authenticated ? email : 'Login' }}
+      </router-link>
+    </el-menu-item>
+    <router-link to="/submit" id="submit">
+        <el-menu-item index="5" >
+            <el-button type="primary">
+              Submit A Promise
+            </el-button>
+        </el-menu-item>
+    </router-link>
+
+    <!-- move below to inside account page -->
+    <el-menu-item index="6" v-if="this.$store.state.user.authenticated">
+        <el-button type="info" @click="googleLogoutHandler">
+          Logout
+        </el-button>
+    </el-menu-item>
     </el-menu>
   </el-header>
 </template>
@@ -48,8 +77,24 @@ a {
   text-decoration: none;
   font-size: 1rem
 }
+#logo-navbar>img{
+    padding-right: 8px;
+    border-right: 3px solid #444;
 
-#submit {
+}
+#logo-navbar{
+    padding-left: 0px;
+    border-bottom: none;
+}
+#submit, #account{
   float:right
+}
+.el-menu{
+    border-bottom: none
+}
+.el-header {
+    line-height: 60px;
+    z-index: 10;
+    box-shadow: 0px 1px 1px 0px rgba(238,238,238,1);
 }
 </style>

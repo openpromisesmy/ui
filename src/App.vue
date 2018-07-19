@@ -1,19 +1,25 @@
 <template>
-  <el-container id="app" direction="vertical">
-    <Navbar />
-    <el-main>
-          <router-view/>
-    </el-main>
-    <Footer />
-  </el-container>
+
+    <el-container id="app" direction="vertical">
+        <Navbar id="header"/>
+        <el-container id="content">
+            <Sidebar/>
+            <el-main>
+                  <router-view/>
+                <Footer />
+
+            </el-main>
+        </el-container>
+    </el-container>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import Sidebar from '@/components/Sidebar'
 export default {
   name: 'App',
-  components: { Navbar, Footer },
+  components: { Navbar, Footer, Sidebar },
   data () {
     return {
       footer: [
@@ -39,6 +45,13 @@ export default {
   margin-bottom: 2em;
   border-radius: 20px;
   box-shadow: 3px 3px 7px 1px #999999;
+}
+#header{
+    position: fixed;
+    width: 100%;
+}
+#content{
+    margin-top: 60px;
 }
 main {
   /* max-width: 900px; */
