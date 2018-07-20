@@ -3,7 +3,6 @@
         <img id="img-navbar"  src="../assets/openpromises.png" height="48px"/>
 
       <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
-        
         <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="String(index)">
           <router-link v-bind:to="item.url">{{ item.text }}</router-link>
         </el-menu-item>

@@ -13,10 +13,8 @@
       @close="handleClose"
       :collapse="isCollapse"
       >
-        
         <router-link v-bind:to="item.url" v-for="(item, index) in navigation" :key="index">
             <el-menu-item  v-bind:index="String(index)">
-                
               {{ item.text }}
             </el-menu-item>
         </router-link>
