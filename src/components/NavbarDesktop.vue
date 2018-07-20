@@ -1,6 +1,6 @@
 <template>
   <el-header id="navbar">
-        <img id="img-navbar"  src="../assets/openpromises.png" height="48px"/>
+        <img id="navbar-logo"  src="../assets/openpromises.png"/>
 
       <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
         <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="String(index)">
@@ -50,11 +50,12 @@ a {
   text-decoration: none;
   font-size: 1rem
 }
-#img-navbar{
+#navbar-logo{
     margin-right: 24px;
     float: left;
     margin-top: 4px;
     margin-left: 12px;
+    height: 42px
 }
 #submit {
   float:right
