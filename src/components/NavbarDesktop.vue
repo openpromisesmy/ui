@@ -50,12 +50,10 @@ a {
   text-decoration: none;
   font-size: 1rem
 }
-#navbar-logo{
-    margin-right: 24px;
-    float: left;
-    margin-top: 4px;
-    margin-left: 12px;
-    height: 42px
+#navbar-logo{ 
+  margin: 4px 24px 0px 12px;
+  float: left;
+  height: 42px
 }
 #submit {
   float:right
