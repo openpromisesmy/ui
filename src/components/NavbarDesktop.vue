@@ -50,7 +50,7 @@ a {
   text-decoration: none;
   font-size: 1rem
 }
-#navbar-logo{ 
+#navbar-logo {
   margin: 4px 24px 0px 12px;
   float: left;
   height: 42px
