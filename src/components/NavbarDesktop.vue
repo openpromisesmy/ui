@@ -1,5 +1,7 @@
 <template>
   <el-header id="navbar">
+        <img id="navbar-logo"  src="../assets/openpromises.png"/>
+
       <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
         <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="String(index)">
           <router-link v-bind:to="item.url">{{ item.text }}</router-link>
@@ -48,8 +50,15 @@ a {
   text-decoration: none;
   font-size: 1rem
 }
-
+#navbar-logo {
+  margin: 4px 24px 0px 12px;
+  float: left;
+  height: 42px
+}
 #submit {
   float:right
+}
+.el-menu{
+    background-color: transparent;
 }
 </style>
