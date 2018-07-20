@@ -1,8 +1,8 @@
 <template>
   <el-collapse v-model="activeNames">
-  <img id="img-navbar" src="../assets/openpromises.png" height="32px"/>
+  <img id="navbar-logo" src="../assets/openpromises.png"/>
 
-  <el-collapse-item title="" name="1">
+  <el-collapse-item title="Menu" name="1">
     <el-row class="tac">
   <el-col>
     <el-menu
@@ -73,9 +73,10 @@ a {
   text-decoration: none;
   font-size: 1rem
 }
-#img-navbar{
-    float: left;
-    margin-top: 8px;
-    margin-left: 12px;
+#navbar-logo {
+  height: 32px;
+  float: left;
+  margin-top: 8px;
+  margin-left: 12px
 }
 </style>
