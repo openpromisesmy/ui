@@ -24,7 +24,7 @@
 
 <script>
 import { getPoliticians } from '@/api'
-import { isEmpty } from 'lodash'
+import { loadCache, updateCache } from '@/utils'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 
 export default {
@@ -36,23 +36,15 @@ export default {
   },
   components: { LoadingSpinner },
   async created () {
-    // @TODO: Move to loadCache(cacheKey, promise)
-    if (isEmpty(this.$store.state.politicians)) {
-      try {
-        const politicians = await getPoliticians()
-        this.$store.commit('loadPoliticians', politicians)
-      } catch (e) {
-        console.log(e)
-      }
+    try {
+      this.politicians = await loadCache(this, 'politicians', getPoliticians())
+    } catch (e) {
+      console.log(e)
     }
-    this.politicians = this.$store.state.politicians
   },
   async mounted () {
-    // @TODO: Move to updateCache(cacheKey, promise)
     try {
-      const politicians = await getPoliticians()
-      this.$store.commit('loadPoliticians', politicians)
-      this.politicians = this.$store.state.politicians
+      this.politicians = await updateCache(this, 'politicians', getPoliticians())
     } catch (e) {
       console.log(e)
     }
