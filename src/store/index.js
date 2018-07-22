@@ -18,7 +18,7 @@ const mutations = {
   logout (state) {
     state.user = {}
   },
-  loadPoliticians (state, politicians) {
+  cachePoliticians (state, politicians) {
     state.politicians = [ ...politicians ]
   }
 }
