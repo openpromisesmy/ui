@@ -1,15 +1,14 @@
 <template>
   <navbar-mobile v-if="$mq === 'sm'"
-    v-bind="{ googleLogoutHandler, navigation, authenticated, email }"
+    v-bind="{ navigation, authenticated, email }"
   />
   <navbar-desktop
     v-else
-    v-bind="{ googleLogoutHandler, navigation, authenticated, email }"
+    v-bind="{ navigation, authenticated, email }"
   />
 </template>
 
 <script>
-import { googleLogout } from '@/api'
 import NavbarDesktop from '@/components/NavbarDesktop'
 import NavbarMobile from '@/components/NavbarMobile'
 
@@ -36,15 +35,6 @@ export default {
   methods: {
     handleSelect (key, keyPath) {
       console.log(key, keyPath)
-    },
-    async googleLogoutHandler () {
-      try {
-        await googleLogout()
-        this.$store.commit('logout')
-        this.$router.push('/')
-      } catch (e) {
-        console.error(e)
-      }
     }
   }
 }

@@ -30,12 +30,6 @@
             </el-button>
           </router-link>
         </el-menu-item>
-        <!-- move below to inside account page -->
-        <el-menu-item index="6" v-if="this.$store.state.user.authenticated" >
-            <el-button type="info" @click="googleLogoutHandler">
-              Logout
-            </el-button>
-        </el-menu-item>
     </el-menu>
   </el-col>
 </el-row>
@@ -47,7 +41,7 @@
 <script>
 export default {
   name: 'NavbarMobile',
-  props: ['googleLogoutHandler', 'navigation', 'authenticated', 'email'],
+  props: [ 'navigation', 'authenticated', 'email'],
   data () {
     return {
       isCollapse: false,
