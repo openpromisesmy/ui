@@ -9,6 +9,7 @@ import Promises from '@/components/Promises'
 import About from '@/components/About'
 import SubmitPromise from '@/components/SubmitPromise'
 import Account from '@/components/Account'
+import Contact from '@/components/Contact'
 
 Vue.use(Router)
 
@@ -49,6 +50,11 @@ export default new Router({
       path: '/about',
       name: 'About',
       component: About
+    },
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: Contact
     },
     {
       path: '/submit',

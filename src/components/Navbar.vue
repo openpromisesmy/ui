@@ -26,7 +26,8 @@ export default {
         { text: 'Home', url: '/' },
         { text: 'Promises', url: '/promises' },
         { text: 'Politicians', url: '/politicians' },
-        { text: 'About', url: '/about' }
+        { text: 'About', url: '/about' },
+        { text: 'Contact', url: '/contact' }
       ],
       authenticated: this.$store.state.user.authenticated,
       email: this.$store.state.user.email
