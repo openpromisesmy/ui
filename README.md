@@ -36,3 +36,13 @@ Inside the `config` folder you need to create the following:
 - `dev.env.js`
 - `test.env.js`
 The variables trickle down. From prod to dev, from dev to test.
+Set these variables:
+````
+NODE_ENV:
+GOOGLE_API_KEY: 
+FIREBASE_AUTH_DOMAIN: 
+FIREBASE_DATABASE_URL: 
+FIREBASE_PROJECT_ID: 
+FIREBASE_STORAGE_BUCKET: 
+FIREBASE_MESSAGING_SENDER_ID:
+````
