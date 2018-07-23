@@ -28,3 +28,11 @@ npm test
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+# Configuration
+
+Inside the `config` folder you need to create the following:
+- `prod.env.js`
+- `dev.env.js`
+- `test.env.js`
+The variables trickle down. From prod to dev, from dev to test.
