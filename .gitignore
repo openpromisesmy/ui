@@ -15,3 +15,7 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
+
+/config/prod.env.js
+/config/dev.env.js
+/config/test.env.js
