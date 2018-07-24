@@ -16,6 +16,6 @@
 }(document, 'script', 'facebook-jssdk'))
 
 export default {
-  name: 'facebookcomment'
+  name: 'FacebookComment'
 }
 </script>
