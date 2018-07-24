@@ -1,8 +1,15 @@
 <template>
   <main id="politicians">
     <template v-if="politician === 'loading'">
-      <p>Loading politician...</p>
-      <LoadingSpinner />
+      <div>
+      <ContentLoader height="350" width="300">
+        <rect x="25" y="0" rx="3" ry="3" width="250" height="30" class="center"/>
+        <rect x="50" y="40" rx="3" ry="3" width="200" height="200" class="center"/>
+        <rect x="25" y="250" rx="3" ry="3" width="250" height="30" class="center"/>
+        <rect x="25" y="290" rx="3" ry="3" width="250" height="20" class="center"/>
+        <rect x="25" y="320" rx="3" ry="3" width="250" height="20" class="center"/>
+      </ContentLoader>
+      </div>
     </template>
     <template v-else>
       <h1>{{ politician.name }}</h1>
@@ -41,10 +48,11 @@
 
 <script>
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
+import { ContentLoader } from 'vue-content-loader'
 
 export default {
   name: 'PoliticianMobile',
-  components: { LoadingSpinner },
+  components: { LoadingSpinner, ContentLoader },
   props: ['stats', 'politician', 'promises']
 }
 </script>
