@@ -13,7 +13,10 @@
     </template>
     <template v-else>
       <h1>{{ politician.name }}</h1>
-      <img class="image" :src="politician.profile_image" onload="alert('oka')">
+      <img class="image" :src="politician.profile_image" v-on:load="imgDoneLoading">
+      <ContentLoader v-if="!imgLoaded" height="200" width="300">
+        <rect x="50" y="0" rx="3" ry="3" width="200" height="200" />
+      </ContentLoader>
       <p><b>{{ politician.primary_position }}</b></p>
       <p>{{ politician.brief }}</p>
       <h2>Promises by {{ politician.name }} </h2>
@@ -59,7 +62,17 @@ import { ContentLoader } from 'vue-content-loader'
 export default {
   name: 'PoliticianMobile',
   components: { LoadingSpinner, ContentLoader },
-  props: ['stats', 'politician', 'promises']
+  props: ['stats', 'politician', 'promises'],
+  data () {
+    return {
+      imgLoaded: false
+    }
+  },
+  methods: {
+    imgDoneLoading () {
+      this.imgLoaded = true
+    }
+  }
 }
 </script>
 
