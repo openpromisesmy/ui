@@ -15,7 +15,7 @@
       </el-row>
     </template>
 
-<FacebookComment></FacebookComment>
+<FacebookComment />
   </main>
 </template>
 
