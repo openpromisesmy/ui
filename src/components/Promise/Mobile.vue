@@ -4,16 +4,15 @@
       <p>Loading promise...</p>
     </template>
     <template v-else>
+
       <el-card class="Promise_Mobile_hero">
         <p>{{ politician.name }}</p>
         <h1>{{ promise.title }}</h1>
         <p class="Promise_Mobile_date">{{ formatDate(promise.source_date) }}</p>
       </el-card>
-      <div>
-        <p> <b> Status </b></p>
-        <p> {{ promise.status || 'Review Needed' }} </p>
-        <p> <b> Category </b></p>
-        <p> {{ promise.category }} </p>
+
+      <p> <b> Category </b></p>
+      <p> {{ promise.category }} </p>
 
       <el-card class="Promise_Mobile_quote">
         <p> <b> Quote </b></p>
@@ -22,7 +21,10 @@
           <p class="quote_source_link" >Source: {{ promise.source_name }} </p>
         </a>
       </el-card>
-      </div>
+
+      <p> <b> Status </b></p>
+      <p> {{ promise.status || 'Review Needed' }} </p>
+
     </template>
   <FacebookComment />
   </main>
