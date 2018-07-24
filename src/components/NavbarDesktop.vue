@@ -25,7 +25,7 @@
 <script>
 export default {
   name: 'NavbarDesktop',
-  props: [ 'navigation', 'authenticated', 'email'],
+  props: ['navigation', 'authenticated', 'email'],
   data () {
     return {
       activeIndex: '0'
