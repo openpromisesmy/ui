@@ -12,17 +12,18 @@
         <p> {{ value }} </p>
       </div>
     </template>
-
+  <FacebookComment />
   </main>
 </template>
 
 <script>
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
+import FacebookComment from '@/components/FacebookComment'
 
 export default {
   name: 'PromiseMobile',
   props: [ 'promise', 'politician', 'appStatus', 'displayedValues' ],
-  components: { LoadingSpinner }
+  components: { LoadingSpinner, FacebookComment }
 }
 </script>
 
