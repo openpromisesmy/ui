@@ -30,19 +30,14 @@ npm test
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 # Configuration
-
-Inside the `config` folder you need to create the following:
-- `prod.env.js`
-- `dev.env.js`
-- `test.env.js`
-The variables trickle down. From prod to dev, from dev to test.
-Set these variables:
+## Environment variables
+Inside the root folder, create a .env with the following variables:
+(note: a quirk is that all strings in the .env need to be enclosed like this '"STRING_HERE"')
 ````
-NODE_ENV:
-GOOGLE_API_KEY: 
-FIREBASE_AUTH_DOMAIN: 
-FIREBASE_DATABASE_URL: 
-FIREBASE_PROJECT_ID: 
-FIREBASE_STORAGE_BUCKET: 
-FIREBASE_MESSAGING_SENDER_ID:
+PROD_GOOGLE_API_KEY: 
+PROD_FIREBASE_DATABASE_URL: 
+PROD_FIREBASE_PROJECT_ID: 
+PROD_FIREBASE_STORAGE_BUCKET: 
+PROD_FIREBASE_MESSAGING_SENDER_ID:
 ````
+todo: use DEV_ variables instead (set in config/dev.env.js)
