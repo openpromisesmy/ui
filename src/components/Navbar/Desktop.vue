@@ -1,6 +1,6 @@
 <template>
   <el-header id="navbar">
-        <img id="navbar-logo"  src="../assets/openpromises.png"/>
+        <img id="navbar-logo"  src="@/assets/openpromises.png"/>
 
       <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
         <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="String(index)">
