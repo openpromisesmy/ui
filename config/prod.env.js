@@ -1,6 +1,5 @@
 'use strict'
 require('dotenv').config()
-console.log(process.env)
 module.exports = {
     NODE_ENV: '"production"',
     GOOGLE_API_KEY: process.env.PROD_GOOGLE_API_KEY,
