@@ -15,7 +15,6 @@
 import Auth from '@/components/Auth'
 import { googleLogout } from '@/api'
 
-
 export default {
   name: 'Account',
   components: { Auth },
