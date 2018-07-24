@@ -4,13 +4,31 @@
       <p>Loading promise...</p>
     </template>
     <template v-else>
-      <h1>{{ promise.title }}</h1>
-        <p><b>Made by</b></p>
+
+      <el-card class="Promise_Mobile_hero">
         <p>{{ politician.name }}</p>
-      <div v-for="(value, key) in displayedValues" :key="key" class="Promise_values">
-        <p> <b>{{ key }} </b></p>
-        <p> {{ value }} </p>
-      </div>
+        <h1>{{ promise.title }}</h1>
+        <p class="Promise_Mobile_date">{{ formatDate(promise.source_date) }}</p>
+      </el-card>
+
+      <el-card class="Promise_Mobile_quote">
+        <p> <b> Quote </b></p>
+        <p> {{ promise.quote }} </p>
+        <a :href="promise.source_url" target="_blank">
+          <p class="quote_source_link" >Source: {{ promise.source_name }} </p>
+        </a>
+      </el-card>
+
+      <el-card>
+      <p> <b> Category </b></p>
+      <p> {{ promise.category }} </p>
+      </el-card>
+
+      <el-card>
+      <p> <b> Status </b></p>
+      <p>{{ promise.status || 'Review Needed' }}</p>
+      </el-card>
+
     </template>
   <FacebookComment />
   </main>
@@ -19,27 +37,23 @@
 <script>
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 import FacebookComment from '@/components/FacebookComment'
+import { formatDate } from '@/utils'
 
 export default {
   name: 'PromiseMobile',
   props: [ 'promise', 'politician', 'appStatus', 'displayedValues' ],
-  components: { LoadingSpinner, FacebookComment }
+  components: { LoadingSpinner, FacebookComment },
+  methods: {
+    formatDate
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.grid-content {
-  border-radius: 4px;
-  min-height: 36px;
-}
 
 .el-row {
   padding: 10px
-}
-
-.el-row:last-child {
-  margin-bottom: 0;
 }
 
 .el-col {
@@ -48,6 +62,23 @@ export default {
 
 p {
     text-align: left
+}
+
+.Promise_Mobile_date {
+  text-align: right
+}
+
+.Promise_Mobile_hero {
+  background-color: darkslategrey;
+  color: white;
+}
+
+.quote_source_link {
+  text-align: right
+}
+
+.el-card {
+  margin-bottom: 10px
 }
 
 </style>
