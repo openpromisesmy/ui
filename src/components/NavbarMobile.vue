@@ -41,7 +41,7 @@
 <script>
 export default {
   name: 'NavbarMobile',
-  props: [ 'navigation', 'authenticated', 'email'],
+  props: ['navigation', 'authenticated', 'email'],
   data () {
     return {
       isCollapse: false,
