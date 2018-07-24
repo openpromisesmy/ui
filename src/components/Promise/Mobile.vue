@@ -11,9 +11,6 @@
         <p class="Promise_Mobile_date">{{ formatDate(promise.source_date) }}</p>
       </el-card>
 
-      <p> <b> Category </b></p>
-      <p> {{ promise.category }} </p>
-
       <el-card class="Promise_Mobile_quote">
         <p> <b> Quote </b></p>
         <p> {{ promise.quote }} </p>
@@ -22,8 +19,10 @@
         </a>
       </el-card>
 
-      <p> <b> Status </b></p>
-      <p> {{ promise.status || 'Review Needed' }} </p>
+      <p> <b> Category </b></p>
+      <p> {{ promise.category }} </p>
+
+      <p> <b> Status </b> {{ promise.status || 'Review Needed' }}  </p>
 
     </template>
   <FacebookComment />
@@ -66,7 +65,8 @@ p {
 
 .Promise_Mobile_hero {
   background-color: darkslategrey;
-  color: white
+  color: white;
+  margin-bottom: 20px
 }
 
 .quote_source_link {
