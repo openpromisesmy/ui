@@ -5,8 +5,8 @@
 
 <script>
 import { getPromise, getPolitician } from '@/api'
-import PromiseDesktop from '@/components/PromiseDesktop'
-import PromiseMobile from '@/components/PromiseMobile'
+import PromiseDesktop from '@/components/Promise/Desktop'
+import PromiseMobile from '@/components/Promise/Mobile'
 import { formatDate } from '@/utils'
 
 export default {
