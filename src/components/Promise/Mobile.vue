@@ -4,7 +4,7 @@
       <p>Loading promise...</p>
     </template>
     <template v-else>
-      <h1>{{ promise.title }}</h1>
+      <el-card><h1>{{ promise.title }}</h1></el-card>
         <p><b>Made by</b></p>
         <p>{{ politician.name }}</p>
       <div v-for="(value, key) in displayedValues" :key="key" class="Promise_values">
