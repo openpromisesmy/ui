@@ -1,6 +1,6 @@
 <template>
   <el-collapse v-model="activeNames">
-  <img id="navbar-logo" src="../assets/openpromises.png"/>
+  <img id="navbar-logo" src="@/assets/openpromises.png"/>
 
   <el-collapse-item title="Menu" name="1">
     <el-row class="tac">

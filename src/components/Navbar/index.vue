@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import NavbarDesktop from '@/components/NavbarDesktop'
-import NavbarMobile from '@/components/NavbarMobile'
+import NavbarDesktop from '@/components/Navbar/Desktop'
+import NavbarMobile from '@/components/Navbar/Mobile'
 
 export default {
   name: 'Navbar',

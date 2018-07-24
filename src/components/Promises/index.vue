@@ -9,8 +9,8 @@ import { getLivePromises, getPoliticians } from '@/api'
 import { generateStats } from '@/utils'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 import queryString from 'query-string'
-import PromisesDesktop from '@/components/PromisesDesktop'
-import PromisesMobile from '@/components/PromisesMobile'
+import PromisesDesktop from '@/components/Promises/Desktop'
+import PromisesMobile from '@/components/Promises/Mobile'
 
 export default {
   name: 'Promises',

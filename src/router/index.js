@@ -1,11 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import Home from '@/components/Home'
-import Politician from '@/components/Politician'
+import Politician from '@/components/Politician/index'
 import Politicians from '@/components/Politicians'
-import Promise from '@/components/Promise'
-import Promises from '@/components/Promises'
+import Promise from '@/components/Promise/index'
+import Promises from '@/components/Promises/index'
 import About from '@/components/About'
 import SubmitPromise from '@/components/SubmitPromise'
 import Account from '@/components/Account'
@@ -20,11 +19,6 @@ export default new Router({
       path: '/',
       name: 'Home',
       component: Home
-    },
-    {
-      path: '/help',
-      name: 'HelloWorld',
-      component: HelloWorld
     },
     {
       path: '/politicians',
