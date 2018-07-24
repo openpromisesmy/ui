@@ -10,16 +10,18 @@
         <p class="Promise_Mobile_date">{{ formatDate(promise.source_date) }}</p>
       </el-card>
       <div>
-        <p> <b> Source URL </b></p>
-        <p> {{ promise.source_url }} </p>
-        <p> <b> Source Name </b></p>
-        <p> {{ promise.source_name }} </p>
         <p> <b> Status </b></p>
         <p> {{ promise.status || 'Review Needed' }} </p>
         <p> <b> Category </b></p>
         <p> {{ promise.category }} </p>
+
+      <el-card class="Promise_Mobile_quote">
         <p> <b> Quote </b></p>
         <p> {{ promise.quote }} </p>
+        <a :href="promise.source_url" target="_blank">
+          <p class="quote_source_link" >Source: {{ promise.source_name }} </p>
+        </a>
+      </el-card>
       </div>
     </template>
   <FacebookComment />
@@ -63,6 +65,10 @@ p {
 .Promise_Mobile_hero {
   background-color: darkslategrey;
   color: white
+}
+
+.quote_source_link {
+  text-align: right
 }
 
 </style>
