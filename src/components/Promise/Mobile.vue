@@ -19,10 +19,15 @@
         </a>
       </el-card>
 
+      <el-card>
       <p> <b> Category </b></p>
       <p> {{ promise.category }} </p>
+      </el-card>
 
-      <p> <b> Status </b> {{ promise.status || 'Review Needed' }}  </p>
+      <el-card>
+      <p> <b> Status </b></p>
+      <p>{{ promise.status || 'Review Needed' }}</p>
+      </el-card>
 
     </template>
   <FacebookComment />
@@ -66,11 +71,14 @@ p {
 .Promise_Mobile_hero {
   background-color: darkslategrey;
   color: white;
-  margin-bottom: 20px
 }
 
 .quote_source_link {
   text-align: right
+}
+
+.el-card {
+  margin-bottom: 10px
 }
 
 </style>
