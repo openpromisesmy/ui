@@ -7,6 +7,7 @@ const config = {
   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
 }
+const facebookAppId = process.env.FACEBOOK_APP_ID
 firebase.initializeApp(config)
 console.log(process.env)
 
@@ -15,5 +16,6 @@ let API_URL = 'https://us-central1-openpromises-8526c.cloudfunctions.net'
 
 export {
   firebase,
-  API_URL
+  API_URL,
+  facebookAppId
 }
