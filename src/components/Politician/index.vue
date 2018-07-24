@@ -7,8 +7,8 @@
 import { getPolitician, getPoliticianPromises } from '@/api'
 import { generateStats } from '@/utils'
 import moment from 'moment'
-import PoliticianDesktop from '@/components/PoliticianDesktop'
-import PoliticianMobile from '@/components/PoliticianMobile'
+import PoliticianDesktop from '@/components/Politician/Desktop'
+import PoliticianMobile from '@/components/Politician/Mobile'
 
 export default {
   name: 'Politician',
