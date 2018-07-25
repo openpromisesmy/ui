@@ -4,6 +4,7 @@
       <p>Loading politicians...This will take 1-2 seconds.</p>
       <LoadingSpinner />
     </template>
+    <el-input placeholder="Search for a politician" v-model="input" class="search" />
     <el-row>
       <el-col :xs="12" :sm="4" v-for="o in politicians" :key="o.id">
         <el-card :body-style="{ padding: '0px' }">
@@ -92,6 +93,11 @@ a {
 
 .clearfix:after {
   clear: both;
+}
+
+.search {
+  max-width: 400px;
+  margin: 10px
 }
 
 @media only screen and (max-width: 600px) {
