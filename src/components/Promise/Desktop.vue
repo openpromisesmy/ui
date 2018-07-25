@@ -4,15 +4,29 @@
       <p>Loading promise...</p>
     </template>
     <template v-else>
-      <h1>{{ promise.title }}</h1>
-      <el-row>
-        <el-col :span="12"><b>Made by</b></el-col>
-        <el-col :span="12">{{ politician.name }}</el-col>
-      </el-row>
-      <el-row v-for="(value, key) in displayedValues" :key="key" class="Promise_values">
-        <el-col :span="12"><div class="grid-content"> <b>{{ key }} </b> </div></el-col>
-        <el-col :span="12"><div class="grid-content"> {{ value }} </div></el-col>
-      </el-row>
+       <el-card class="Promise_Mobile_hero">
+        <p>{{ politician.name }}</p>
+        <h1>{{ promise.title }}</h1>
+        <p class="Promise_Mobile_date">{{ formatDate(promise.source_date) }}</p>
+      </el-card>
+
+      <el-card class="Promise_Mobile_quote">
+        <p> <b> Quote </b></p>
+        <p> {{ promise.quote }} </p>
+        <a :href="promise.source_url" target="_blank">
+          <p class="quote_source_link" >Source: {{ promise.source_name }} </p>
+        </a>
+      </el-card>
+
+      <el-card>
+      <p> <b> Category </b></p>
+      <p> {{ promise.category }} </p>
+      </el-card>
+
+      <el-card>
+      <p> <b> Status </b></p>
+      <p>{{ promise.status || 'Review Needed' }}</p>
+      </el-card>
     </template>
 
   <FacebookComment />
@@ -22,10 +36,13 @@
 <script>
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 import FacebookComment from '@/components/FacebookComment'
+import { formatDate } from '@/utils'
+
 export default {
   name: 'PromiseDesktop',
   props: [ 'promise', 'politician', 'appStatus', 'displayedValues' ],
-  components: { LoadingSpinner, FacebookComment }
+  components: { LoadingSpinner, FacebookComment },
+  methods: { formatDate }
 }
 </script>
 
@@ -42,15 +59,27 @@ export default {
 
 .el-row {
   padding: 10px;
-  border: 1px solid grey
-}
-
-.el-row:last-child {
-  margin-bottom: 0;
 }
 
 .el-col {
   border-radius: 4px;
+}
+
+.Promise_Mobile_date {
+  text-align: right
+}
+
+.Promise_Mobile_hero {
+  background-color: darkslategrey;
+  color: white;
+}
+
+.quote_source_link {
+  text-align: right
+}
+
+.el-card {
+  margin-bottom: 10px
 }
 
 </style>
