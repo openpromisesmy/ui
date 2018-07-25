@@ -6,7 +6,6 @@
     <el-row>
      <el-col :span="24">
          <div class="about-points">
-             
              <el-card>
              <h2>The problem ?</h2>
              <p>The feedback loop for representative democracies is broken. Politicians gain support from citizens not just based on track records but also heavily based on promises that they make. The fulfilment of these promises are currently not tracked in a systematic way.</p>
