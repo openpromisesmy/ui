@@ -22,6 +22,8 @@
       </el-col>
     </el-row>
 
+    <p v-if="filteredPoliticians.length === 0">Sorry, no politicians match your search.</p>
+
   </main>
 </template>
 
