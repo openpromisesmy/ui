@@ -4,9 +4,10 @@
       <p>Loading politicians...This will take 1-2 seconds.</p>
       <LoadingSpinner />
     </template>
-    <el-input placeholder="Search for a politician" v-model="input" class="search" />
-    <el-row>
-      <el-col :xs="12" :sm="4" v-for="o in politicians" :key="o.id">
+    <el-input clearable placeholder="Search for a politician" v-model="search" class="search" />
+
+    <el-row class="politicians-row">
+      <el-col :xs="12" :sm="4" v-for="o in filteredPoliticians" :key="o.id">
         <el-card :body-style="{ padding: '0px' }">
             <router-link :to="/politician/ + o.id">
           <img :src="o.profile_image" class="image">
@@ -20,6 +21,7 @@
         </el-card>
       </el-col>
     </el-row>
+
   </main>
 </template>
 
@@ -32,10 +34,18 @@ export default {
   name: 'Politicians',
   data () {
     return {
-      politicians: []
+      politicians: [],
+      search: ''
     }
   },
   components: { LoadingSpinner },
+  computed: {
+    filteredPoliticians() {
+      return this.politicians.filter(politician => {
+        return politician.name.toLowerCase().includes(this.search.toLowerCase())
+      })
+    }
+  },
   async created () {
     try {
       this.politicians = await loadCache(this, 'politicians', getPoliticians())
@@ -75,6 +85,7 @@ a {
 
 .el-card {
   height: 280px;
+  min-width: 200px
 }
 
 .image {
@@ -96,8 +107,14 @@ a {
 }
 
 .search {
-  max-width: 400px;
+  width: 320px;
+  max-width: 90vw;
   margin: 10px
+}
+
+.politicians-row {
+  width: 90vw;
+  margin: 0 auto
 }
 
 @media only screen and (max-width: 600px) {
@@ -106,6 +123,7 @@ a {
   }
   .el-card {
     height: 280px;
+    min-width: unset
   }
 }
 </style>
