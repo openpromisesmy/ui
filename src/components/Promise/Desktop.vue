@@ -5,13 +5,13 @@
     </template>
     <template v-else>
        <el-card class="Promise_Mobile_hero">
-        <p>{{ politician.name }}</p>
+        <p class="card-title">{{ politician.name }}</p>
         <h1>{{ promise.title }}</h1>
         <p class="Promise_Mobile_date">{{ formatDate(promise.source_date) }}</p>
       </el-card>
 
       <el-card class="Promise_Mobile_quote">
-        <p> <b> Quote </b></p>
+        <p class="card-title"> <b> Quote </b></p>
         <p> {{ promise.quote }} </p>
         <a :href="promise.source_url" target="_blank">
           <p class="quote_source_link" >Source: {{ promise.source_name }} </p>
@@ -19,7 +19,7 @@
       </el-card>
 
       <el-card>
-      <p> <b> Category </b></p>
+      <p class="card-title"> <b> Category </b></p>
       <p> {{ promise.category }} </p>
       </el-card>
 
@@ -82,4 +82,7 @@ export default {
   margin-bottom: 10px
 }
 
+.card-title {
+  text-align: left
+}
 </style>
