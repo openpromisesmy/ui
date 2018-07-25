@@ -1,8 +1,14 @@
 <template>
   <main id="Promise">
+
     <template v-if="appStatus === 'loading'">
-      <p>Loading promise...</p>
+      <ContentLoader height="350" width="300">
+        <rect x="50" y="0" rx="3" ry="3" width="200" height="100" />
+        <rect x="50" y="110" rx="3" ry="3" width="200" height="80" />
+        <rect x="50" y="200" rx="3" ry="3" width="200" height="80" />
+      </ContentLoader>
     </template>
+
     <template v-else>
 
       <el-card class="Promise_Mobile_hero">
@@ -38,11 +44,12 @@
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 import FacebookComment from '@/components/FacebookComment'
 import { formatDate } from '@/utils'
+import { ContentLoader } from 'vue-content-loader'
 
 export default {
   name: 'PromiseMobile',
   props: [ 'promise', 'politician', 'appStatus', 'displayedValues' ],
-  components: { LoadingSpinner, FacebookComment },
+  components: { LoadingSpinner, FacebookComment, ContentLoader },
   methods: {
     formatDate
   }
