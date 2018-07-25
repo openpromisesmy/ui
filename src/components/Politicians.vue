@@ -42,7 +42,7 @@ export default {
   },
   components: { LoadingSpinner },
   computed: {
-    filteredPoliticians() {
+    filteredPoliticians () {
       return this.politicians.filter(politician => {
         return politician.name.toLowerCase().includes(this.search.toLowerCase())
       })
