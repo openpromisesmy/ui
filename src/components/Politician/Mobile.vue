@@ -19,7 +19,6 @@
       </ContentLoader>
       <p><b>{{ politician.primary_position }}</b></p>
       <p>{{ politician.brief }}</p>
-      <h2>Promises by {{ politician.name }} </h2>
     </template>
 
     <template v-if="promises === 'loading'">
@@ -33,12 +32,10 @@
       </ContentLoader>
     </template>
     <template v-else>
-    <el-card id="Politician_stats">
-      <b>Promise Statistics:</b>
-      <el-button v-for="stat in stats" :key="stat.value">
-        <b>{{ stat.value }}</b> {{ stat.number }}
-      </el-button>
-    </el-card>
+
+    <promise-stats v-bind="{ stats }"/>
+
+    <h2>Promises by {{ politician.name }} </h2>
     <el-table
       :data="promises"
       border
@@ -58,10 +55,11 @@
 <script>
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 import { ContentLoader } from 'vue-content-loader'
+import PromiseStats from './PromiseStats'
 
 export default {
   name: 'PoliticianMobile',
-  components: { LoadingSpinner, ContentLoader },
+  components: { LoadingSpinner, ContentLoader, PromiseStats },
   props: ['stats', 'politician', 'promises'],
   data () {
     return {

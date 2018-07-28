@@ -1,15 +1,23 @@
 import moment from 'moment'
 import { isEmpty, capitalize } from 'lodash'
+import promiseStatusValues from './promiseStatusValues'
 
 function generateStats (promises) {
+  let stats = {}
+  promiseStatusValues.forEach(x => {
+    stats[x] = 0
+  })
+
   if (!Array.isArray(promises)) {
-    return []
+    return stats
   }
-  const statusOptions = new Set(promises.map(promise => promise.status))
-  const stats = []
-  statusOptions.forEach(statusOption => {
-    const hits = promises.filter(promise => promise.status === statusOption)
-    stats.push({ value: statusOption || 'undefined', number: hits.length })
+
+  promises.forEach(promise => {
+    if (promiseStatusValues.includes(promise.status)) {
+      return stats[promise.status]++
+    } else {
+      return stats['Review Needed']++
+    }
   })
   return stats
 }
