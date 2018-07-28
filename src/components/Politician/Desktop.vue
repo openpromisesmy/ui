@@ -15,12 +15,8 @@
       <LoadingSpinner />
     </template>
     <template v-else>
-    <el-card id="Politician_stats">
-      <b>Promise Statistics:</b>
-      <el-button v-for="stat in stats" :key="stat.value">
-        <b>{{ stat.value }}</b> {{ stat.number }}
-      </el-button>
-    </el-card>
+
+    <promise-stats v-bind="{ stats }"/>
 
     <h2>Promises by {{ politician.name }}</h2>
     <el-table
@@ -56,10 +52,11 @@
 
 <script>
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
+import PromiseStats from './PromiseStats'
 
 export default {
   name: 'PoliticianDesktop',
-  components: { LoadingSpinner },
+  components: { LoadingSpinner, PromiseStats },
   props: ['stats', 'politician', 'promises']
 }
 </script>
