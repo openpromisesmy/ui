@@ -1,12 +1,12 @@
 const promiseStatusValues = [
   'Review Needed',
-  'Fulfilled',
-  'Broken',
-  'Partially Fulfilled',
-  'In Progress',
   'Not Started',
+  'In Progress',
+  'Fulfilled',
+  'Partially Fulfilled',
   'At Risk',
-  'Retracted'
+  'Retracted',
+  'Broken'
 ]
 
 export default promiseStatusValues
