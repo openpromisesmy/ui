@@ -34,7 +34,7 @@
     <template v-else>
 
     <promise-stats v-bind="{ stats }"/>
-    
+
     <h2>Promises by {{ politician.name }} </h2>
     <el-table
       :data="promises"
