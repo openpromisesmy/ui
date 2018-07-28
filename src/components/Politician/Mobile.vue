@@ -19,7 +19,6 @@
       </ContentLoader>
       <p><b>{{ politician.primary_position }}</b></p>
       <p>{{ politician.brief }}</p>
-      <h2>Promises by {{ politician.name }} </h2>
     </template>
 
     <template v-if="promises === 'loading'">
@@ -35,7 +34,8 @@
     <template v-else>
 
     <promise-stats v-bind="{ stats }"/>
-
+    
+    <h2>Promises by {{ politician.name }} </h2>
     <el-table
       :data="promises"
       border
