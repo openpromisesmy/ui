@@ -33,12 +33,9 @@
       </ContentLoader>
     </template>
     <template v-else>
-    <el-card id="Politician_stats">
-      <b>Promise Statistics:</b>
-      <el-button v-for="stat in stats" :key="stat.value">
-        <b>{{ stat.value }}</b> {{ stat.number }}
-      </el-button>
-    </el-card>
+
+    <promise-stats v-bind="{ stats }"/>
+
     <el-table
       :data="promises"
       border
@@ -58,10 +55,11 @@
 <script>
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 import { ContentLoader } from 'vue-content-loader'
+import PromiseStats from './PromiseStats'
 
 export default {
   name: 'PoliticianMobile',
-  components: { LoadingSpinner, ContentLoader },
+  components: { LoadingSpinner, ContentLoader, PromiseStats },
   props: ['stats', 'politician', 'promises'],
   data () {
     return {
