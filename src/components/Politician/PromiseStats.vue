@@ -1,8 +1,8 @@
 <template>
     <el-card id="Politician_stats">
       <b>Promise Statistics:</b>
-      <el-button v-for="stat in stats" :key="stat.value">
-        <b>{{ stat.value }}</b> {{ stat.number }}
+      <el-button v-for="(value, key) in stats" :key="key">
+        <b>{{ key }}</b> {{ value }}
       </el-button>
     </el-card>
 </template>
