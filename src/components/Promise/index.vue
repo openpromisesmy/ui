@@ -7,6 +7,7 @@
     <promise-updates :promiseUpdates="promiseUpdates"
                      :promiseID="promise.id"
     />
+    <facebook-comment />
   </div>
 </template>
 
@@ -15,11 +16,12 @@ import { getPromise, getPolitician, listPromiseUpdates } from '@/api'
 import PromiseDesktop from '@/components/Promise/Desktop'
 import PromiseMobile from '@/components/Promise/Mobile'
 import PromiseUpdates from '@/components/Promise/PromiseUpdates'
+import FacebookComment from '@/components/FacebookComment'
 import { formatDate } from '@/utils'
 
 export default {
   name: 'Promise',
-  components: { PromiseDesktop, PromiseMobile, PromiseUpdates },
+  components: { PromiseDesktop, PromiseMobile, PromiseUpdates, FacebookComment },
   data () {
     return {
       appStatus: 'loading',
