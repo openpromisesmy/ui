@@ -111,6 +111,8 @@ function postPromise ({ user, promise }) {
 const getContributor = email => getSomething('/contributors/?email=' + email)
 const postContributor = data => postSomething('/contributors/', data)
 
+const listPromiseUpdates = query => getSomething('/promiseUpdates/' + query)
+
 export {
   getPolitician,
   getPoliticians,
@@ -122,5 +124,6 @@ export {
   googleLogout,
   postPromise,
   getContributor,
-  postContributor
+  postContributor,
+  listPromiseUpdates
 }
