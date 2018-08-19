@@ -14,8 +14,8 @@
       <p>
       </p>
       <h1> {{ promiseUpdate.title }}</h1>
-      <p>Description: {{ promiseUpdate.description }}</p>
-      <p>Quote: {{ promiseUpdate.quote }}</p>
+      <p><b>Description:</b> {{ promiseUpdate.description }}</p>
+      <p><b>Quote:</b> "{{ promiseUpdate.quote }}"</p>
     </el-card>
   </article>
 </template>
@@ -38,5 +38,9 @@ export default {
 }
 .source {
   float: right
+}
+.el-card {
+  text-align: left;
+  margin-bottom: 10px
 }
 </style>

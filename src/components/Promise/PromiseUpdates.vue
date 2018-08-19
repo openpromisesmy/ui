@@ -1,12 +1,12 @@
 <template>
-  <main>
+  <section v-if="promiseUpdates.length > 0">
+      <h1 class="header">Updates</h1>
       <promise-update-card
         v-for="promiseUpdate in promiseUpdates"
         :key="promiseUpdate.id"
-        v-if="promiseUpdates.length > 0"
         :promiseUpdate="promiseUpdate"
       />
-  </main>
+  </section>
 </template>
 
 <script>
@@ -20,7 +20,11 @@ export default {
 </script>
 
 <style scoped>
-main {
+section {
   max-width: 900px
+}
+.header {
+  text-align: left;
+  font-size: 1.5rem
 }
 </style>
