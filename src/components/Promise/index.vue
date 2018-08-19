@@ -1,22 +1,33 @@
 <template>
-  <promise-mobile v-if="$mq === 'sm'" v-bind="{ promise, politician, appStatus, displayedValues }" />
-  <promise-desktop v-else v-bind="{ promise, politician, appStatus, displayedValues }" />
+  <div>
+    <promise-mobile v-if="$mq === 'sm'"
+                    v-bind="{ promise, politician, appStatus, displayedValues }" />
+    <promise-desktop v-else
+                    v-bind="{ promise, politician, appStatus, displayedValues }" />
+    <promise-updates :promiseUpdates="promiseUpdates"
+                     :promiseID="promise.id"
+    />
+    <facebook-comment />
+  </div>
 </template>
 
 <script>
-import { getPromise, getPolitician } from '@/api'
+import { getPromise, getPolitician, listPromiseUpdates } from '@/api'
 import PromiseDesktop from '@/components/Promise/Desktop'
 import PromiseMobile from '@/components/Promise/Mobile'
+import PromiseUpdates from '@/components/Promise/PromiseUpdates'
+import FacebookComment from '@/components/FacebookComment'
 import { formatDate } from '@/utils'
 
 export default {
   name: 'Promise',
-  components: { PromiseDesktop, PromiseMobile },
+  components: { PromiseDesktop, PromiseMobile, PromiseUpdates, FacebookComment },
   data () {
     return {
       appStatus: 'loading',
-      politician: {},
-      promise: {}
+      politician: '',
+      promise: '',
+      promiseUpdates: ''
     }
   },
   methods: {
@@ -44,6 +55,7 @@ export default {
   async created () {
     try {
       this.promise = await getPromise(this.$route.params.id)
+      this.promiseUpdates = await listPromiseUpdates(`?promise_id=${this.$route.params.id}&orderBy=source_date`)
       this.politician = await getPolitician(this.promise.politician_id)
       this.appStatus = ''
     } catch (e) {

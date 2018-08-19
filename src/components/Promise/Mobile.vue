@@ -36,20 +36,18 @@
       </el-card>
 
     </template>
-  <FacebookComment />
   </main>
 </template>
 
 <script>
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
-import FacebookComment from '@/components/FacebookComment'
 import { formatDate } from '@/utils'
 import { ContentLoader } from 'vue-content-loader'
 
 export default {
   name: 'PromiseMobile',
   props: [ 'promise', 'politician', 'appStatus', 'displayedValues' ],
-  components: { LoadingSpinner, FacebookComment, ContentLoader },
+  components: { LoadingSpinner, ContentLoader },
   methods: {
     formatDate
   }
