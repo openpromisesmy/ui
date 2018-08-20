@@ -4,10 +4,17 @@
       <p>Loading politician...</p>
     </template>
     <template v-else>
-      <h1>{{ politician.name }}</h1>
-      <img class="image" :src="politician.profile_image">
-      <p><b>{{ politician.primary_position }}</b></p>
-      <p>{{ politician.brief }}</p>
+      <el-row>
+        <el-col :md="16">
+          <politician-details :politician="politician"/>
+        </el-col>
+        <el-col :md="8">
+          <promise-stats v-if="promises != 'loading'" v-bind="{ stats }"/>
+          <ContentLoader v-else width="300" height="280" >
+            <rect x="0" y="0" rx="3" ry="3" width="300" height="280" />
+          </ContentLoader>
+        </el-col>
+      </el-row>
     </template>
 
     <template v-if="promises === 'loading'">
@@ -15,9 +22,6 @@
       <LoadingSpinner />
     </template>
     <template v-else>
-
-    <promise-stats v-bind="{ stats }"/>
-
     <h2>Promises by {{ politician.name }}</h2>
     <el-table
       :data="promises"
@@ -51,26 +55,20 @@
 </template>
 
 <script>
+import PoliticianDetails from '@/components/Politician/PoliticianDetails'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 import PromiseStats from './PromiseStats'
+import { ContentLoader } from 'vue-content-loader'
 
 export default {
   name: 'PoliticianDesktop',
-  components: { LoadingSpinner, PromiseStats },
+  components: { LoadingSpinner, PromiseStats, PoliticianDetails, ContentLoader },
   props: ['stats', 'politician', 'promises']
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.image {
-  min-width: 30%;
-  display: inline-block;
-  object-fit: cover; /* Do not scale the image */
-  object-position: top; /* Center the image within the element */
-  height: 300px;
-}
-
 #politicians p b {
   display: inline-block
 }
