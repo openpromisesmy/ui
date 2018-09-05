@@ -6,12 +6,12 @@
         <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="String(index)">
           <router-link v-bind:to="item.url">{{ item.text }}</router-link>
         </el-menu-item>
-        <el-menu-item index="4" id="account">
+        <el-menu-item index="5" id="account">
           <router-link to="/account">
             {{ this.$store.state.user.authenticated ? email : 'Login' }}
           </router-link>
         </el-menu-item>
-        <el-menu-item index="5" id="submit">
+        <el-menu-item index="6" id="submit">
           <router-link to="/submit">
             <el-button type="primary">
               Submit A Promise
@@ -49,7 +49,7 @@ a {
   float: left;
   height: 42px
 }
-#submit {
+#submit, #account {
   float:right
 }
 .el-menu{
