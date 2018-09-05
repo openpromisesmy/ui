@@ -23,33 +23,13 @@
     </template>
     <template v-else>
     <h2>Promises by {{ politician.name }}</h2>
-    <el-table
-      :data="promises"
-      border
-      style="width: 100%">
-    <el-table-column
-      prop="title"
-      label="Title">
-      <template slot-scope="scope">
-        <router-link :to="'/promises/' + scope.row.id">{{ scope.row.title }}</router-link>
-      </template>
-    </el-table-column>
-    <el-table-column
-      prop="source_date"
-      label="Date"
-      width="150">
-    </el-table-column>
-    <el-table-column
-      prop="category"
-      label="Category"
-      width="180">
-    </el-table-column>
-    <el-table-column
-      prop="status"
-      label="Status"
-      width="125">
-    </el-table-column>
-  </el-table>
+    <desktop-promise-list :promises="promises" v-if="promises == 'loading'"/>
+    <ContentLoader v-else width="600" height="500" >
+      <rect x="0" y="0" rx="3" ry="3" width="600" height="20" />
+      <rect x="0" y="25" rx="3" ry="3" width="600" height="20" />
+      <rect x="0" y="50" rx="3" ry="3" width="600" height="20" />
+      <rect x="0" y="75" rx="3" ry="3" width="600" height="20" />
+    </ContentLoader>
     </template>
   </main>
 </template>
@@ -58,11 +38,12 @@
 import PoliticianDetails from '@/components/Politician/PoliticianDetails'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 import PromiseStats from './PromiseStats'
+import DesktopPromiseList from './DesktopPromiseList'
 import { ContentLoader } from 'vue-content-loader'
 
 export default {
   name: 'PoliticianDesktop',
-  components: { LoadingSpinner, PromiseStats, PoliticianDetails, ContentLoader },
+  components: { LoadingSpinner, PromiseStats, PoliticianDetails, ContentLoader, DesktopPromiseList },
   props: ['stats', 'politician', 'promises']
 }
 </script>
