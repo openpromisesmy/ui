@@ -23,7 +23,13 @@
     </template>
     <template v-else>
     <h2>Promises by {{ politician.name }}</h2>
-    <desktop-promise-list :promises="promises"/>
+    <desktop-promise-list :promises="promises" v-if="promises == 'loading'"/>
+    <ContentLoader v-else width="600" height="500" >
+      <rect x="0" y="0" rx="3" ry="3" width="600" height="20" />
+      <rect x="0" y="25" rx="3" ry="3" width="600" height="20" />
+      <rect x="0" y="50" rx="3" ry="3" width="600" height="20" />
+      <rect x="0" y="75" rx="3" ry="3" width="600" height="20" />
+    </ContentLoader>
     </template>
   </main>
 </template>
