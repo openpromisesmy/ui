@@ -55,4 +55,7 @@ a {
 .el-menu{
     background-color: transparent;
 }
+.router-link-active {
+  font-weight: 800;
+}
 </style>

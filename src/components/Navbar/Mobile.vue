@@ -73,4 +73,7 @@ a {
   margin-top: 8px;
   margin-left: 12px
 }
+.router-link-active {
+  font-weight: 800;
+}
 </style>
