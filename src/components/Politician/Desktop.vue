@@ -23,7 +23,12 @@
     </template>
     <template v-else>
     <h2>Promises by {{ politician.name }}</h2>
-    <desktop-promise-list :promises="promises" v-if="promises == 'loading'"/>
+    <template v-if="promises != 'loading'">
+      <el-input clearable placeholder="Search for a promise" v-model="search" class="search" />
+      <p v-if="search.length > 0 && filteredPromises.length > 0"><b>{{ filteredPromises.length }}</b> promises matches your search.</p>
+      <p v-if="filteredPromises.length === 0">Sorry, no promise matches your search.</p>
+      <desktop-promise-list :promises="filteredPromises"/>
+    </template>
     <ContentLoader v-else width="600" height="500" >
       <rect x="0" y="0" rx="3" ry="3" width="600" height="20" />
       <rect x="0" y="25" rx="3" ry="3" width="600" height="20" />
@@ -44,7 +49,19 @@ import { ContentLoader } from 'vue-content-loader'
 export default {
   name: 'PoliticianDesktop',
   components: { LoadingSpinner, PromiseStats, PoliticianDetails, ContentLoader, DesktopPromiseList },
-  props: ['stats', 'politician', 'promises']
+  props: ['stats', 'politician', 'promises'],
+  data () {
+    return {
+      search: ''
+    }
+  },
+  computed: {
+    filteredPromises () {
+      return this.promises.filter(promise => {
+        return promise.title.toLowerCase().includes(this.search.toLowerCase())
+      })
+    }
+  }
 }
 </script>
 
@@ -52,6 +69,11 @@ export default {
 <style scoped>
 #politicians p b {
   display: inline-block
+}
+.search {
+  width: 320px;
+  max-width: 90vw;
+  margin: 10px
 }
 
 </style>
