@@ -1,8 +1,13 @@
 <template>
   <main id="Promise">
-    <template v-if="appStatus === 'loading'">
-      <p>Loading promise...</p>
-    </template>
+    <ContentLoader v-if="appStatus === 'loading'"
+                   width="600" 
+                   height="500" 
+    >
+      <rect x="0" y="0" rx="3" ry="3" width="600" height="150" />
+      <rect x="0" y="160" rx="3" ry="3" width="600" height="150" />
+      <rect x="0" y="320" rx="3" ry="3" width="600" height="150" />
+    </ContentLoader>
     <template v-else>
        <el-card class="Promise_Mobile_hero">
         <p class="card-title">{{ politician.name }}</p>
@@ -35,11 +40,12 @@
 <script>
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 import { formatDate } from '@/utils'
+import { ContentLoader } from 'vue-content-loader'
 
 export default {
   name: 'PromiseDesktop',
   props: [ 'promise', 'politician', 'appStatus', 'displayedValues' ],
-  components: { LoadingSpinner },
+  components: { LoadingSpinner, ContentLoader },
   methods: { formatDate }
 }
 </script>
