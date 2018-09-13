@@ -5,6 +5,7 @@ import Politician from '@/components/Politician/index'
 import Politicians from '@/components/Politicians'
 import Promise from '@/components/Promise/index'
 import Promises from '@/components/Promises/index'
+import Participate from '@/components/Participate/index'
 import About from '@/components/About'
 import SubmitPromise from '@/components/SubmitPromise'
 import Account from '@/components/Account'
@@ -39,6 +40,11 @@ export default new Router({
       path: '/promises',
       name: 'Promises',
       component: Promises
+    },
+    {
+      path: '/participate',
+      name: 'Participate',
+      component: Participate
     },
     {
       path: '/about',
