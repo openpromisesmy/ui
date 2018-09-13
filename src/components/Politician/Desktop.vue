@@ -25,7 +25,7 @@
     <h2>Promises by {{ politician.name }}</h2>
     <template v-if="promises != 'loading'">
       <el-input clearable placeholder="Search for a promise" v-model="search" class="search" />
-      <p v-if="search.length > 0 && filteredPromises.length > 0"><b>{{ filteredPromises.length }}</b> promises matches your search.</p>
+      <p v-if="search.length > 0 && filteredPromises.length > 0"><b>{{ filteredPromises.length }}</b> promise{{filteredPromises.length > 1 ? 's' : ''}} matches your search.</p>
       <p v-if="filteredPromises.length === 0">Sorry, no promise matches your search.</p>
       <desktop-promise-list :promises="filteredPromises"/>
     </template>
