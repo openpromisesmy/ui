@@ -1,8 +1,8 @@
 <template>
   <main id="Promise">
     <ContentLoader v-if="appStatus === 'loading'"
-                   width="600" 
-                   height="500" 
+                   width="600"
+                   height="500"
     >
       <rect x="0" y="0" rx="3" ry="3" width="600" height="150" />
       <rect x="0" y="160" rx="3" ry="3" width="600" height="150" />
