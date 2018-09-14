@@ -7,7 +7,7 @@
     <promise-updates :promiseUpdates="promiseUpdates"
                      :promiseID="promise.id"
     />
-    <facebook-comment />
+    <facebook-comment id="facebook-comment" />
   </div>
 </template>
 
@@ -67,4 +67,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#facebook-comment {
+  text-align: center
+}
 </style>
