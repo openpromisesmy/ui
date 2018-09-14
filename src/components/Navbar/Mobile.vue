@@ -1,5 +1,5 @@
 <template>
-  <el-collapse v-model="activeNames">
+  <el-collapse v-model="activeNames" id="navbar">
   <img id="navbar-logo" src="@/assets/openpromises.png"/>
 
   <el-collapse-item title="Menu" name="1">
@@ -63,6 +63,10 @@ export default {
 </script>
 
 <style scoped>
+#navbar {
+  text-align: center
+}
+
 a {
   text-decoration: none;
   font-size: 1rem
