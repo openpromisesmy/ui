@@ -1,5 +1,5 @@
 <template>
-  <main id="politicians">
+  <main id="politician">
     <template v-if="politician === 'loading'">
       <p>Loading politician...</p>
     </template>
@@ -65,9 +65,12 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#politicians p b {
+#politician {
+  text-align: center
+}
+
+#politician p b {
   display: inline-block
 }
 .search {
