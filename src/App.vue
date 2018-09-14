@@ -13,7 +13,7 @@
         logged_out_greeting="Hi. Itching to know something? Ask away!">
       </div>
     </el-main>
-    <Footer />
+    <Footer class="footer-container"/>
   </el-container>
 </template>
 
@@ -46,23 +46,41 @@ export default {
 </script>
 
 <style>
+html, body {
+  height: 100%
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
+
+.el-main {
+  flex: 1 0 auto;
+}
+
+.footer-container {
+  flex-shrink: 0;
+}
+
+main {
+  /* max-width: 900px; */
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 36px;
+}
+
 #logo {
   max-width: 200px;
   margin-bottom: 2em;
   border-radius: 20px;
   box-shadow: 3px 3px 7px 1px #999999;
-}
-main {
-  /* max-width: 900px; */
-  margin: 0 auto;
-}
-.title {
-  font-size: 36px;
 }
 </style>

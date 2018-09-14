@@ -54,7 +54,7 @@ export default {
   margin-top: 20px;
   background-color: darkslategray;
   padding: 10px 5px;
-  color: white;
+  color: white
 }
 .footer-link {
   color: white;
