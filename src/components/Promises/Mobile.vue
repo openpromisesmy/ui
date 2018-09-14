@@ -7,12 +7,12 @@
     </template>
     <template v-else>
 
-    <el-card id="Promise_stats">
+    <!-- <el-card id="Promise_stats">
       <b>Promise Statistics:</b>
       <el-button v-for="stat in stats" :key="stat.value">
         <b>{{ stat.value }}</b> {{ stat.number }}
       </el-button>
-    </el-card>
+    </el-card> -->
 
     <el-table
     :data="livePromises"
@@ -29,11 +29,11 @@
     </el-table-column>
   </el-table>
     <LoadingSpinner v-if="appStatus === 'loadingMore'" />
-    <el-row class="Promises_pagination" v-else>
+    <!-- <el-row class="Promises_pagination" v-else>
       <el-button type="primary" @click="loadMorePromises(livePromises[livePromises.length -1])">
         Load more >>
       </el-button>
-    </el-row>
+    </el-row> -->
     </template>
   </main>
 </template>
