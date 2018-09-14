@@ -1,5 +1,5 @@
 <template>
-  <main id="politicians">
+  <main id="politician">
     <template v-if="politician === 'loading'">
       <div>
       <ContentLoader height="350" width="300">
@@ -88,6 +88,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#politician {
+  text-align: center
+}
+
 .image {
   min-width: 30%;
   display: inline-block;
@@ -96,7 +100,7 @@ export default {
   width: 60%
 }
 
-#politicians p b {
+#politician p b {
   display: inline-block
 }
 
