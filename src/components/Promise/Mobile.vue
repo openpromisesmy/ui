@@ -11,6 +11,9 @@
 
     <template v-else>
 
+      <el-card v-if="promise.cover_image" class="Promise_card_image" :style="{ backgroundImage: 'url(' + promise.cover_image + ')' }">
+      </el-card> 
+
       <el-card class="Promise_Mobile_hero">
         <p>{{ politician.name }}</p>
         <h1>{{ promise.title }}</h1>
@@ -84,6 +87,14 @@ p {
 
 .el-card {
   margin-bottom: 10px
+}
+
+.Promise_card_image {
+  height: 80vw;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 </style>
