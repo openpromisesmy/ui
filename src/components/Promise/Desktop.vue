@@ -98,6 +98,8 @@ export default {
 }
 
 .Promise_card_image img {
+  display: block;
+  margin: 0 auto;
   width: 50%;
   text-align: center;
   border-radius: 5%
