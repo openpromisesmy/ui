@@ -9,7 +9,8 @@
       <rect x="0" y="320" rx="3" ry="3" width="600" height="150" />
     </ContentLoader>
     <template v-else>
-       <el-card class="Promise_Mobile_hero">
+
+      <el-card class="Promise_Mobile_hero">
         <p class="card-title">{{ politician.name }}</p>
         <h1>{{ promise.title }}</h1>
         <p class="Promise_Mobile_date">{{ formatDate(promise.source_date) }}</p>
@@ -24,14 +25,20 @@
       </el-card>
 
       <el-card>
-      <p class="card-title"> <b> Category </b></p>
-      <p> {{ promise.category }} </p>
+        <p class="card-title"> <b> Category </b></p>
+        <p> {{ promise.category }} </p>
       </el-card>
 
       <el-card>
-      <p class="card-title"> <b> Status </b></p>
-      <p>{{ promise.status || 'Review Needed' }}</p>
+        <p class="card-title"> <b> Status </b></p>
+        <p>{{ promise.status || 'Review Needed' }}</p>
       </el-card>
+
+      <el-card v-if="promise.cover_image" class="Promise_card_image">
+        <p class="card-title"> <b> Image </b></p>
+        <img :src="promise.cover_image" />
+      </el-card> 
+
     </template>
 
   </main>
@@ -88,5 +95,13 @@ export default {
 
 .card-title {
   text-align: left
+}
+
+.Promise_card_image img {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
+  border-radius: 5%
 }
 </style>
