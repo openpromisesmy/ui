@@ -62,6 +62,7 @@ html, body {
 
 .el-main {
   flex: 1 0 auto;
+  overflow: unset
 }
 
 .footer-container {
