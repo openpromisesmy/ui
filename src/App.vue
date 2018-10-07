@@ -61,7 +61,7 @@ html, body {
 }
 
 .el-main {
-  flex: 1 0 auto;
+  /* flex: 1 0 auto; */
   overflow: unset
 }
 
