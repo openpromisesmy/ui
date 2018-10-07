@@ -23,7 +23,7 @@ export default {
       activeIndex: '0',
       navigation: [
         { text: 'Home', url: '/' },
-        { text: 'Promises', url: '/promises' },
+        // { text: 'Promises', url: '/promises' },
         { text: 'Politicians', url: '/politicians' },
         { text: 'Participate', url: '/participate' },
         { text: 'About', url: '/about' },
