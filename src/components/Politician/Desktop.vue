@@ -4,7 +4,7 @@
       <p>Loading politician...</p>
     </template>
     <template v-else>
-      <el-row>
+      <el-row id="main_info">
         <el-col :md="16">
           <politician-details :politician="politician"/>
         </el-col>
@@ -73,6 +73,11 @@ export default {
 #politician p b {
   display: inline-block
 }
+
+#main_info {
+  display: flex
+}
+
 .search {
   width: 320px;
   max-width: 90vw;
