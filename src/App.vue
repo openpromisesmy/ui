@@ -60,15 +60,6 @@ html, body {
   flex-direction: column;
 }
 
-.el-main {
-  /* flex: 1 0 auto; */
-  overflow: unset
-}
-
-.footer-container {
-  flex-shrink: 0;
-}
-
 main {
   /* max-width: 900px; */
   margin: 0 auto;
