@@ -7,7 +7,6 @@ const config = {
   storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
 }
-console.log(config)
 const facebookAppId = process.env.FACEBOOK_APP_ID
 firebase.initializeApp(config)
 
