@@ -64,7 +64,7 @@
 
 <script>
 import { formatDate } from '@/utils'
-import LoadingSpinner from '@/components/shared/LoadingSpinner'
+import LoadingSpinner from '@/components//LoadingSpinner'
 
 export default {
   name: 'PromisesDesktop',

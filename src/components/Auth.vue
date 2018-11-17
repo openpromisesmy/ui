@@ -16,7 +16,7 @@
 
 <script>
 import { googleSignIn, getContributor, postContributor } from '@/api'
-import LoadingSpinner from '@/components/shared/LoadingSpinner'
+import LoadingSpinner from '@/components//LoadingSpinner'
 
 export default {
   name: 'Auth',

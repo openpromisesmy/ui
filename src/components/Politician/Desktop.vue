@@ -41,7 +41,7 @@
 
 <script>
 import PoliticianDetails from '@/components/Politician/PoliticianDetails'
-import LoadingSpinner from '@/components/shared/LoadingSpinner'
+import LoadingSpinner from '@/components//LoadingSpinner'
 import PromiseStats from './PromiseStats'
 import DesktopPromiseList from './DesktopPromiseList'
 import { ContentLoader } from 'vue-content-loader'
