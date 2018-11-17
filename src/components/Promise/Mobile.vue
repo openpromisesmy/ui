@@ -57,7 +57,7 @@ import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 
 export default {
   name: 'PromiseMobile',
-  props: [ 'promise', 'politician', 'appStatus', 'displayedValues', url ],
+  props: [ 'promise', 'politician', 'appStatus', 'displayedValues', 'url' ],
   components: { LoadingSpinner, ContentLoader, VueGoodshareFacebook },
   methods: {
     formatDate
