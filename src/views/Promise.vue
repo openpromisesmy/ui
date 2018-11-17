@@ -1,9 +1,9 @@
 <template>
   <div>
     <promise-mobile v-if="$mq === 'sm'"
-                    v-bind="{ promise, politician, appStatus, displayedValues }" />
+                    v-bind="{ promise, politician, appStatus, displayedValues, url }" />
     <promise-desktop v-else
-                    v-bind="{ promise, politician, appStatus, displayedValues }" />
+                    v-bind="{ promise, politician, appStatus, displayedValues, url }" />
     <promise-updates :promiseUpdates="promiseUpdates"
                      :promiseID="promise.id"
     />
@@ -40,6 +40,9 @@ export default {
     // )
   },
   computed: {
+    url () {
+      return location.href
+    },
     displayedValues () {
       let data = { ...this.promise }
       return {

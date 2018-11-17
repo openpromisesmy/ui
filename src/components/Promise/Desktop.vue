@@ -40,7 +40,7 @@
       </el-card>
 
       <vue-goodshare-facebook
-        :page_url="this.$route.fullPath"
+        :page_url="url"
         title_social="Facebook"
         has_counter
         has_icon
@@ -59,7 +59,7 @@ import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 
 export default {
   name: 'PromiseDesktop',
-  props: [ 'promise', 'politician', 'appStatus', 'displayedValues' ],
+  props: [ 'promise', 'politician', 'appStatus', 'displayedValues', 'url' ],
   components: { LoadingSpinner, ContentLoader, VueGoodshareFacebook },
   methods: { formatDate }
 }
