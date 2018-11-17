@@ -38,6 +38,13 @@
       <p>{{ promise.status || 'Review Needed' }}</p>
       </el-card>
 
+      <vue-goodshare-facebook
+        :page_url="url"
+        title_social="Facebook"
+        has_counter
+        has_icon
+      ></vue-goodshare-facebook>
+
     </template>
   </main>
 </template>
@@ -46,11 +53,12 @@
 import LoadingSpinner from '@/components//LoadingSpinner'
 import { formatDate } from '@/utils'
 import { ContentLoader } from 'vue-content-loader'
+import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 
 export default {
   name: 'PromiseMobile',
-  props: [ 'promise', 'politician', 'appStatus', 'displayedValues' ],
-  components: { LoadingSpinner, ContentLoader },
+  props: [ 'promise', 'politician', 'appStatus', 'displayedValues', url ],
+  components: { LoadingSpinner, ContentLoader, VueGoodshareFacebook },
   methods: {
     formatDate
   }
