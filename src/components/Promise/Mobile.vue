@@ -12,7 +12,7 @@
     <template v-else>
 
       <el-card v-if="promise.cover_image" class="Promise_card_image" :style="{ backgroundImage: 'url(' + promise.cover_image + ')' }">
-      </el-card> 
+      </el-card>
 
       <el-card class="Promise_Mobile_hero">
         <p>{{ politician.name }}</p>
