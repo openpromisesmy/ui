@@ -39,6 +39,13 @@
         <img :src="promise.cover_image" />
       </el-card>
 
+      <vue-goodshare-facebook
+        :page_url="this.$route.fullPath"
+        title_social="Facebook"
+        has_counter
+        has_icon
+      ></vue-goodshare-facebook>
+
     </template>
 
   </main>
@@ -48,11 +55,12 @@
 import LoadingSpinner from '@/components//LoadingSpinner'
 import { formatDate } from '@/utils'
 import { ContentLoader } from 'vue-content-loader'
+import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 
 export default {
   name: 'PromiseDesktop',
   props: [ 'promise', 'politician', 'appStatus', 'displayedValues' ],
-  components: { LoadingSpinner, ContentLoader },
+  components: { LoadingSpinner, ContentLoader, VueGoodshareFacebook },
   methods: { formatDate }
 }
 </script>
