@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import Politicians from '@/components/Politicians'
+import Politicians from '@/views/Politicians'
 
 export default {
   name: 'Home',

@@ -7,7 +7,7 @@
 <script>
 import { getLivePromises, getPoliticians } from '@/api'
 import { generateStats } from '@/utils'
-import LoadingSpinner from '@/components/shared/LoadingSpinner'
+import LoadingSpinner from '@/components/LoadingSpinner'
 import queryString from 'query-string'
 import PromisesDesktop from '@/components/Promises/Desktop'
 import PromisesMobile from '@/components/Promises/Mobile'

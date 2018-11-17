@@ -57,7 +57,7 @@
 </template>
 
 <script>
-import LoadingSpinner from '@/components/shared/LoadingSpinner'
+import LoadingSpinner from '@/components//LoadingSpinner'
 import { ContentLoader } from 'vue-content-loader'
 import PromiseStats from './PromiseStats'
 

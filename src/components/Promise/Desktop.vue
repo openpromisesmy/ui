@@ -37,7 +37,7 @@
       <el-card v-if="promise.cover_image" class="Promise_card_image">
         <p class="card-title"> <b> Image </b></p>
         <img :src="promise.cover_image" />
-      </el-card> 
+      </el-card>
 
     </template>
 
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import LoadingSpinner from '@/components/shared/LoadingSpinner'
+import LoadingSpinner from '@/components//LoadingSpinner'
 import { formatDate } from '@/utils'
 import { ContentLoader } from 'vue-content-loader'
 
