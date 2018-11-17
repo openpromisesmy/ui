@@ -6,10 +6,10 @@ import Politicians from '@/views/Politicians'
 import Promise from '@/components/Promise/index'
 import Promises from '@/components/Promises/index'
 import Participate from '@/views/Participate/index'
-import About from '@/components/About'
+import About from '@/views/About'
 import SubmitPromise from '@/views/SubmitPromise'
-import Account from '@/components/Account'
-import Contact from '@/components/Contact'
+import Account from '@/views/Account'
+import Contact from '@/views/Contact'
 
 Vue.use(Router)
 
