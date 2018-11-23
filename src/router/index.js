@@ -10,10 +10,11 @@ import About from '@/views/About'
 import SubmitPromise from '@/views/SubmitPromise'
 import Account from '@/views/Account'
 import Contact from '@/views/Contact'
+import beforeEach from './beforeEach'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
@@ -24,47 +25,78 @@ export default new Router({
     {
       path: '/politicians',
       name: 'Politicians',
-      component: Politicians
+      component: Politicians,
+      meta: {
+        title: 'Politicians'
+      }
     },
     {
       path: '/politician/:id',
       name: 'Politician',
-      component: Politician
+      component: Politician,
+      meta: {
+        title: 'View Politician'
+      }
     },
     {
       path: '/promises/:id',
       name: 'Promise',
-      component: Promise
+      component: Promise,
+      meta: {
+        title: 'View Promise'
+      }
     },
     {
       path: '/promises',
       name: 'Promises',
-      component: Promises
+      component: Promises,
+      meta: {
+        title: 'Promises'
+      }
     },
     {
       path: '/participate',
       name: 'Participate',
-      component: Participate
+      component: Participate,
+      meta: {
+        title: 'Participate'
+      }
     },
     {
       path: '/about',
       name: 'About',
-      component: About
+      component: About,
+      meta: {
+        title: 'About'
+      }
     },
     {
       path: '/contact',
       name: 'Contact',
-      component: Contact
+      component: Contact,
+      meta: {
+        title: 'Contact'
+      }
     },
     {
       path: '/submit',
       name: 'SubmitPromise',
-      component: SubmitPromise
+      component: SubmitPromise,
+      meta: {
+        title: 'Submit Promise'
+      }
     },
     {
       path: '/account',
       name: 'Account',
-      component: Account
+      component: Account,
+      meta: {
+        title: 'Account'
+      }
     }
   ]
 })
+
+router.beforeEach(beforeEach)
+
+export default router
