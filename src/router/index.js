@@ -31,18 +31,12 @@ const routes = [
   {
     path: '/politician/:id',
     name: 'Politician',
-    component: Politician,
-    meta: {
-      title: 'View Politician'
-    }
+    component: Politician
   },
   {
     path: '/promises/:id',
     name: 'Promise',
-    component: Promise,
-    meta: {
-      title: 'View Promise'
-    }
+    component: Promise
   },
   {
     path: '/promises',
