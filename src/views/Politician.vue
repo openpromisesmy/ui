@@ -1,6 +1,10 @@
 <template>
-  <politician-mobile v-if="$mq === 'sm'" v-bind="{ politician, promises, stats }" />
-  <politician-desktop v-else  v-bind="{ politician, promises, stats }" />
+  <div>
+    <politician-mobile v-if="$mq === 'sm'"
+      v-bind="{ politician, promises, stats, url }" />
+    <politician-desktop v-else
+      v-bind="{ politician, promises, stats,url }" />
+  </div>
 </template>
 
 <script>
@@ -22,6 +26,9 @@ export default {
   computed: {
     stats: function () {
       return generateStats(this.promises)
+    },
+    url () {
+      return location.href
     }
   },
   methods: {

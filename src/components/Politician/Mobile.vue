@@ -35,6 +35,14 @@
 
     <promise-stats v-bind="{ stats }"/>
 
+    <vue-goodshare-facebook
+      class="facebook-share"
+      :page_url="url"
+      title_social="Share on Facebook"
+      has_counter
+      has_icon
+    ></vue-goodshare-facebook>
+
     <h2>Promises by {{ politician.name }} </h2>
     <el-input clearable placeholder="Search for a promise" v-model="search" class="search" />
     <p v-if="search.length > 0 && filteredPromises.length > 0"><b>{{ filteredPromises.length }}</b> promise{{filteredPromises.length > 1 ? 's' : ''}} matches your search.</p>
@@ -60,11 +68,12 @@
 import LoadingSpinner from '@/components//LoadingSpinner'
 import { ContentLoader } from 'vue-content-loader'
 import PromiseStats from './PromiseStats'
+import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 
 export default {
   name: 'PoliticianMobile',
-  components: { LoadingSpinner, ContentLoader, PromiseStats },
-  props: ['stats', 'politician', 'promises'],
+  components: { LoadingSpinner, ContentLoader, PromiseStats, VueGoodshareFacebook },
+  props: ['stats', 'politician', 'promises', 'url'],
   data () {
     return {
       imgLoaded: false,
@@ -86,7 +95,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #politician {
   text-align: center
@@ -104,4 +112,7 @@ export default {
   display: inline-block
 }
 
+.facebook-share {
+  margin: 20px !important
+}
 </style>

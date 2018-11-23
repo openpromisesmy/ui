@@ -17,6 +17,14 @@
       </el-row>
     </template>
 
+    <vue-goodshare-facebook
+      class="facebook-share"
+      :page_url="url"
+      title_social="Share on Facebook"
+      has_counter
+      has_icon
+    ></vue-goodshare-facebook>
+
     <template v-if="promises === 'loading'">
       <p>Loading promises...This will take 2-4 seconds.</p>
       <LoadingSpinner />
@@ -45,11 +53,12 @@ import LoadingSpinner from '@/components//LoadingSpinner'
 import PromiseStats from './PromiseStats'
 import DesktopPromiseList from './DesktopPromiseList'
 import { ContentLoader } from 'vue-content-loader'
+import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 
 export default {
   name: 'PoliticianDesktop',
-  components: { LoadingSpinner, PromiseStats, PoliticianDetails, ContentLoader, DesktopPromiseList },
-  props: ['stats', 'politician', 'promises'],
+  components: { LoadingSpinner, PromiseStats, PoliticianDetails, ContentLoader, DesktopPromiseList, VueGoodshareFacebook },
+  props: ['stats', 'politician', 'promises', 'url'],
   data () {
     return {
       search: ''
@@ -82,6 +91,10 @@ export default {
   width: 320px;
   max-width: 90vw;
   margin: 10px
+}
+
+.facebook-share {
+  margin: 20px !important
 }
 
 </style>
