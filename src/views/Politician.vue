@@ -9,7 +9,7 @@
 
 <script>
 import { getPolitician, getPoliticianPromises } from '@/api'
-import { generateStats } from '@/utils'
+import { generateStats, updateTitle } from '@/utils'
 import moment from 'moment'
 import PoliticianDesktop from '@/components/Politician/Desktop'
 import PoliticianMobile from '@/components/Politician/Mobile'
@@ -32,6 +32,7 @@ export default {
     }
   },
   methods: {
+    updateTitle,
     parsePromises: (promises, politicians) => promises.map(promise =>
       ({
         ...promise,
@@ -43,6 +44,7 @@ export default {
   async created () {
     try {
       this.politician = await getPolitician(this.$route.params.id)
+      updateTitle(this.politician.name)
       const promises = await getPoliticianPromises(this.$route.params.id)
       this.promises = this.parsePromises(promises)
     } catch (e) {

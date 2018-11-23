@@ -17,7 +17,7 @@ import PromiseDesktop from '@/components/Promise/Desktop'
 import PromiseMobile from '@/components/Promise/Mobile'
 import PromiseUpdates from '@/components/Promise/PromiseUpdates'
 import FacebookComment from '@/components/FacebookComment'
-import { formatDate } from '@/utils'
+import { formatDate, updateTitle } from '@/utils'
 
 export default {
   name: 'Promise',
@@ -31,6 +31,7 @@ export default {
     }
   },
   methods: {
+    updateTitle,
     // parsePolitician: (promises, politicians) => promises.map(promise =>
     //   ({
     //     ...promise,
@@ -58,6 +59,7 @@ export default {
   async created () {
     try {
       this.promise = await getPromise(this.$route.params.id)
+      updateTitle(this.promise.title)
       this.promiseUpdates = await listPromiseUpdates(`?promise_id=${this.$route.params.id}&orderBy=source_date`)
       this.politician = await getPolitician(this.promise.politician_id)
       this.appStatus = ''

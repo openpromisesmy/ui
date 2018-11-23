@@ -1,6 +1,7 @@
 import moment from 'moment'
 import { isEmpty, capitalize } from 'lodash'
 import promiseStatusValues from './promiseStatusValues'
+import updateTitle from './updateTitle'
 
 function generateStats (promises) {
   let stats = {}
@@ -44,5 +45,6 @@ export {
   generateStats,
   formatDate,
   updateCache,
-  loadCache
+  loadCache,
+  updateTitle
 }
