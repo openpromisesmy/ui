@@ -14,87 +14,89 @@ import beforeEach from './beforeEach'
 
 Vue.use(Router)
 
+const routes = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path: '/politicians',
+    name: 'Politicians',
+    component: Politicians,
+    meta: {
+      title: 'Politicians'
+    }
+  },
+  {
+    path: '/politician/:id',
+    name: 'Politician',
+    component: Politician,
+    meta: {
+      title: 'View Politician'
+    }
+  },
+  {
+    path: '/promises/:id',
+    name: 'Promise',
+    component: Promise,
+    meta: {
+      title: 'View Promise'
+    }
+  },
+  {
+    path: '/promises',
+    name: 'Promises',
+    component: Promises,
+    meta: {
+      title: 'Promises'
+    }
+  },
+  {
+    path: '/participate',
+    name: 'Participate',
+    component: Participate,
+    meta: {
+      title: 'Participate'
+    }
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About,
+    meta: {
+      title: 'About'
+    }
+  },
+  {
+    path: '/contact',
+    name: 'Contact',
+    component: Contact,
+    meta: {
+      title: 'Contact'
+    }
+  },
+  {
+    path: '/submit',
+    name: 'SubmitPromise',
+    component: SubmitPromise,
+    meta: {
+      title: 'Submit Promise'
+    }
+  },
+  {
+    path: '/account',
+    name: 'Account',
+    component: Account,
+    meta: {
+      title: 'Account'
+    }
+  }
+]
+
 const router = new Router({
   mode: 'history',
-  routes: [
-    {
-      path: '/',
-      name: 'Home',
-      component: Home
-    },
-    {
-      path: '/politicians',
-      name: 'Politicians',
-      component: Politicians,
-      meta: {
-        title: 'Politicians'
-      }
-    },
-    {
-      path: '/politician/:id',
-      name: 'Politician',
-      component: Politician,
-      meta: {
-        title: 'View Politician'
-      }
-    },
-    {
-      path: '/promises/:id',
-      name: 'Promise',
-      component: Promise,
-      meta: {
-        title: 'View Promise'
-      }
-    },
-    {
-      path: '/promises',
-      name: 'Promises',
-      component: Promises,
-      meta: {
-        title: 'Promises'
-      }
-    },
-    {
-      path: '/participate',
-      name: 'Participate',
-      component: Participate,
-      meta: {
-        title: 'Participate'
-      }
-    },
-    {
-      path: '/about',
-      name: 'About',
-      component: About,
-      meta: {
-        title: 'About'
-      }
-    },
-    {
-      path: '/contact',
-      name: 'Contact',
-      component: Contact,
-      meta: {
-        title: 'Contact'
-      }
-    },
-    {
-      path: '/submit',
-      name: 'SubmitPromise',
-      component: SubmitPromise,
-      meta: {
-        title: 'Submit Promise'
-      }
-    },
-    {
-      path: '/account',
-      name: 'Account',
-      component: Account,
-      meta: {
-        title: 'Account'
-      }
-    }
-  ]
+  routes
 })
 
 router.beforeEach(beforeEach)
