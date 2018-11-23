@@ -38,7 +38,7 @@
     <vue-goodshare-facebook
       class="facebook-share"
       :page_url="url"
-      title_social="Facebook"
+      title_social="Share on Facebook"
       has_counter
       has_icon
     ></vue-goodshare-facebook>
