@@ -22,9 +22,7 @@
         <a :href="promise.source_url" target="_blank">
           <p class="quote_source_link" >Source: {{ promise.source_name }} </p>
         </a>
-      </el-card>
 
-      <el-card v-show="promise.context || promise.elaboration">
         <template v-show="promise.context">
           <p class="card-title"> <b> Context </b></p>
           <p> {{ promise.context }} </p>
