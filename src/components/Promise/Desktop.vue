@@ -34,6 +34,11 @@
         </template>
       </el-card>
 
+      <el-card v-show="promise.state">
+        <p class="card-title"> <b> State </b></p>
+        <p> {{ promise.state }} </p>
+      </el-card>
+
       <el-card>
         <p class="card-title"> <b> Category </b></p>
         <p> {{ promise.category }} </p>
