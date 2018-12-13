@@ -31,8 +31,8 @@ export default {
     }
   },
   methods: {
-    updateTitle,
-    // parsePolitician: (promises, politicians) => promises.map(promise =>
+    updateTitle
+    // ,parsePolitician: (promises, politicians) => promises.map(promise =>
     //   ({
     //     ...promise,
     //     status: promise.status ? promise.status : 'Review Needed',
