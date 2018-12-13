@@ -24,14 +24,16 @@
         </a>
       </el-card>
 
-      <el-card v-show="promise.context">
-        <p class="card-title"> <b> Context </b></p>
-        <p> {{ promise.context }} </p>
-      </el-card>
+      <el-card v-show="promise.context || promise.elaboration">
+        <template v-show="promise.context">
+          <p class="card-title"> <b> Context </b></p>
+          <p> {{ promise.context }} </p>
+        </template>
 
-      <el-card v-show="promise.elaboration">
-        <p class="card-title"> <b> Context </b></p>
-        <p> {{ promise.elaboration }} </p>
+        <template v-show="promise.elaboration">
+          <p class="card-title"> <b> Elaboration </b></p>
+          <p> {{ promise.elaboration }} </p>
+        </template>
       </el-card>
 
       <el-card>
