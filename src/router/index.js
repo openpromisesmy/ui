@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/views/Home'
 import Politician from '@/views/Politician'
 import Politicians from '@/views/Politicians'
+import States from '@/views/States'
 import Promise from '@/views/Promise'
 import Promises from '@/views/Promises'
 import Participate from '@/views/Participate/index'
@@ -32,6 +33,11 @@ const routes = [
     path: '/politician/:id',
     name: 'Politician',
     component: Politician
+  },
+  {
+    path: '/states',
+    name: 'States',
+    component: States
   },
   {
     path: '/promises/:id',
