@@ -26,7 +26,7 @@ export default {
         // { text: 'Promises', url: '/promises' },
         { text: 'Politicians', url: '/politicians' },
         { text: 'Participate', url: '/participate' },
-        { text: 'States', url: '/states' },
+        // { text: 'States', url: '/states' },
         { text: 'About', url: '/about' },
         { text: 'Contact', url: '/contact' }
       ],
