@@ -23,18 +23,18 @@
           <p class="quote_source_link" >Source: {{ promise.source_name }} </p>
         </a>
 
-        <template v-show="promise.context">
+        <template v-if="promise.context">
           <p class="card-title"> <b> Context </b></p>
           <p> {{ promise.context }} </p>
         </template>
 
-        <template v-show="promise.elaboration">
+        <template v-if="promise.elaboration">
           <p class="card-title"> <b> Elaboration </b></p>
-          <p> {{ promise.elaboration }} </p>
+          <p> {{ typeof promise.elaboration }} </p>
         </template>
       </el-card>
 
-      <el-card v-show="promise.state">
+      <el-card v-if="promise.state">
         <p class="card-title"> <b> State </b></p>
         <p> {{ promise.state }} </p>
       </el-card>
@@ -49,7 +49,7 @@
         <p>{{ promise.status || 'Review Needed' }}</p>
       </el-card>
 
-      <el-card v-show="promise.deadline">
+      <el-card v-if="promise.deadline">
         <p class="card-title"> <b> Deadline </b></p>
         <p>{{ formatDate(promise.deadline) }}</p>
       </el-card>
