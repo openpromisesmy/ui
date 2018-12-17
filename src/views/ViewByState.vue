@@ -3,20 +3,20 @@
   <h1>Promises relating to {{ this.$route.params.state }}</h1>
 
   <loading-spinner v-if="appStatus === 'loading'" />
-  <desktop-promise-list v-else :promises="promises"/>
-
+  <promises-table v-else :promises="promises" exclude="['live', 'created_at', 'politician_name']" />
+  
   </main>
 </template>
 
 <script>
 import malaysianStates from '@/utils/malaysianStates'
-import { getLivePromises } from '@/api'
-import DesktopPromiseList from '@/components/Politician/DesktopPromiseList'
+import { getLivePromises, getPoliticians } from '@/api'
+import PromisesTable from '@/components/PromisesTable'
 import LoadingSpinner from '@/components//LoadingSpinner'
 
 export default {
   name: 'Politicians',
-  components: { DesktopPromiseList, LoadingSpinner },
+  components: { PromisesTable, LoadingSpinner },
   data () {
     return {
       malaysianStates,
