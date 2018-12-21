@@ -16,6 +16,12 @@
       <h1> {{ promiseUpdate.title }}</h1>
       <p><b>Description:</b> {{ promiseUpdate.description }}</p>
       <p><b>Quote:</b> "{{ promiseUpdate.quote }}"</p>
+
+      <template v-if="promiseUpdate.cover_image">
+        <p><b>Image</b></p>
+        <img :src="promiseUpdate.cover_image" class="PromiseUpdate_image"/>
+      </template>
+
     </el-card>
   </article>
 </template>
@@ -42,5 +48,12 @@ export default {
 .el-card {
   text-align: left;
   margin-bottom: 10px
+}
+
+.PromiseUpdate_image {
+  width: 50%;
+  border-radius: 2%;
+  display: block;
+  margin: 0 auto
 }
 </style>
