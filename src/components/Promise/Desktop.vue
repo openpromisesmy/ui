@@ -30,7 +30,7 @@
 
         <template v-if="promise.elaboration">
           <p class="card-title"> <b> Elaboration </b></p>
-          <p> {{ typeof promise.elaboration }} </p>
+          <p> {{ promise.elaboration }} </p>
         </template>
       </el-card>
 
