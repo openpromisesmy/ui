@@ -10,7 +10,7 @@
 
 <script>
 import malaysianStates from '@/utils/malaysianStates'
-import { getLivePromises, getPoliticians } from '@/api'
+import { getLivePromises } from '@/api'
 import PromisesTable from '@/components/PromisesTable'
 import LoadingSpinner from '@/components//LoadingSpinner'
 
