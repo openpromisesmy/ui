@@ -4,13 +4,13 @@
 
   <loading-spinner v-if="appStatus === 'loading'" />
   <promises-table v-else :promises="promises" exclude="['live', 'created_at', 'politician_name']" />
-  
+
   </main>
 </template>
 
 <script>
 import malaysianStates from '@/utils/malaysianStates'
-import { getLivePromises, getPoliticians } from '@/api'
+import { getLivePromises } from '@/api'
 import PromisesTable from '@/components/PromisesTable'
 import LoadingSpinner from '@/components//LoadingSpinner'
 
