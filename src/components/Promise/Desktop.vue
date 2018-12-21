@@ -23,14 +23,14 @@
           <p class="quote_source_link" >Source: {{ promise.source_name }} </p>
         </a>
 
-        <template v-if="promise.context">
-          <p class="card-title"> <b> Context </b></p>
-          <p> {{ promise.context }} </p>
-        </template>
-
         <template v-if="promise.elaboration">
           <p class="card-title"> <b> Elaboration </b></p>
           <p> {{ promise.elaboration }} </p>
+        </template>
+
+        <template v-if="promise.context">
+          <p class="card-title"> <b> Context </b></p>
+          <p> {{ promise.context }} </p>
         </template>
       </el-card>
 
