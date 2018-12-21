@@ -4,7 +4,7 @@
 
   <loading-spinner v-if="appStatus === 'loading'" />
   <promises-table v-else :promises="promises" exclude="['live', 'created_at', 'politician_name']" />
-  
+
   </main>
 </template>
 
