@@ -54,7 +54,17 @@
           <p class="card-title"> <b> Deadline </b></p>
           <p>{{ formatDate(promise.deadline) }}</p>
         </template>
+      </el-card>
 
+      <el-card v-if="promise.clauses.broken || promise.clauses.fulfilled">
+        <template v-if="promise.clauses.fulfilled">
+          <p class="card-title"> <b> Fulfilled Clause</b></p>
+          <p>{{ promise.clauses.fulfilled }}</p>
+        </template>
+        <template v-if="promise.clauses.broken">
+          <p class="card-title"> <b> Broken Clause</b></p>
+          <p>{{ promise.clauses.broken }}</p>
+        </template>
       </el-card>
 
       <el-card v-if="promise.cover_image" class="Promise_card_image">
