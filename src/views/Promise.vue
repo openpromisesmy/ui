@@ -1,8 +1,6 @@
 <template>
   <div>
-    <promise-mobile v-if="$mq === 'sm'"
-                    v-bind="{ promise, politician, appStatus, displayedValues, url }" />
-    <promise-desktop v-else
+    <promise-desktop
                     v-bind="{ promise, politician, appStatus, displayedValues, url }" />
     <promise-updates :promiseUpdates="promiseUpdates"
                      :promiseID="promise.id"
@@ -14,14 +12,13 @@
 <script>
 import { getPromise, getPolitician, listPromiseUpdates } from '@/api'
 import PromiseDesktop from '@/components/Promise/Desktop'
-import PromiseMobile from '@/components/Promise/Mobile'
 import PromiseUpdates from '@/components/Promise/PromiseUpdates'
 import FacebookComment from '@/components/FacebookComment'
 import { formatDate, updateTitle } from '@/utils'
 
 export default {
   name: 'Promise',
-  components: { PromiseDesktop, PromiseMobile, PromiseUpdates, FacebookComment },
+  components: { PromiseDesktop, PromiseUpdates, FacebookComment },
   data () {
     return {
       appStatus: 'loading',
