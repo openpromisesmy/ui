@@ -34,24 +34,27 @@
         </template>
       </el-card>
 
-      <el-card v-if="promise.state">
-        <p class="card-title"> <b> State </b></p>
-        <p> {{ promise.state }} </p>
-      </el-card>
+      <el-card v-if="promise.state || promise.category">
+        <template v-if="promise.state">
+          <p class="card-title"> <b> State </b></p>
+          <p> {{ promise.state }} </p>
+        </template>
 
-      <el-card>
-        <p class="card-title"> <b> Category </b></p>
-        <p> {{ promise.category }} </p>
+        <template v-if="promise.category">
+          <p class="card-title"> <b> Category </b></p>
+          <p> {{ promise.category }} </p>
+        </template>
       </el-card>
 
       <el-card>
         <p class="card-title"> <b> Status </b></p>
         <p>{{ promise.status || 'Review Needed' }}</p>
-      </el-card>
 
-      <el-card v-if="promise.deadline">
-        <p class="card-title"> <b> Deadline </b></p>
-        <p>{{ formatDate(promise.deadline) }}</p>
+        <template v-if="promise.deadline">
+          <p class="card-title"> <b> Deadline </b></p>
+          <p>{{ formatDate(promise.deadline) }}</p>
+        </template>
+
       </el-card>
 
       <el-card v-if="promise.cover_image" class="Promise_card_image">
