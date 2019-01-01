@@ -15,14 +15,14 @@
       </template>
     </el-table-column>
     <el-table-column
-      v-if="!exclude.includes('source_name')"
+      v-if="!exclude.includes('source_name') && !(this.$mq === 'sm')"
       prop="source_name"
       label="Source Name"
       width="200">
     </el-table-column>
     <el-table-column
       sortable
-      v-if="!exclude.includes('source_date')"
+      v-if="!exclude.includes('source_date') && !(this.$mq === 'sm')"
       prop="source_date"
       label="Source Date"
       width="150">
@@ -31,19 +31,20 @@
       </template>
     </el-table-column>
     <el-table-column
+      v-if="!exclude.includes('category') && !(this.$mq === 'sm')"
       prop="category"
       label="Category"
       width="180">
     </el-table-column>
     <el-table-column
-      v-if="!exclude.includes('politician_name')"
+      v-if="!exclude.includes('politician_name') && !(this.$mq === 'sm')"
       prop="politician_name"
       label="Politician"
       width="150">
     </el-table-column>
     <el-table-column
       sortable
-      v-if="!exclude.includes('status')"
+      v-if="!exclude.includes('status') && !(this.$mq === 'sm')"
       prop="status"
       label="Status"
       width="125">
