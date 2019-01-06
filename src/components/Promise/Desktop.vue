@@ -61,6 +61,7 @@
         </template>
       </el-card>
 
+      <template v-if="promise.clauses">
       <el-card v-if="promise.clauses.broken || promise.clauses.fulfilled">
         <template v-if="promise.clauses.fulfilled">
           <p class="card-title"> <b> Fulfilled Clause</b></p>
@@ -71,6 +72,7 @@
           <p>{{ promise.clauses.broken }}</p>
         </template>
       </el-card>
+      </template>
 
       <el-card v-if="promise.cover_image" class="Promise_card_image">
         <p class="card-title"> <b> Image </b></p>
