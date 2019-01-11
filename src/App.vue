@@ -46,6 +46,7 @@ export default {
 </script>
 
 <style>
+@import '../node_modules/reset-css/reset.css';
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
