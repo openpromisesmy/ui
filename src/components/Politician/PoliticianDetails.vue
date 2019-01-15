@@ -1,5 +1,5 @@
 <template>
-    <el-card id="PoliticianDetails">
+    <el-card id="PoliticianDetails" header="Bio">
     <el-row>
         <el-col :sm="24">
             <img class="image" :src="politician.profile_image">

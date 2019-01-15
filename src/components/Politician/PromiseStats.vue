@@ -1,5 +1,5 @@
 <template>
-    <el-card id="Promise_stats">
+    <el-card id="Promise_stats" header="Promise Statistics">
       <h2>{{ totalPromises }} promises made</h2>
       <el-row v-for="(value, key) in stats" :key="key">
           <el-col :span="14">
@@ -37,7 +37,8 @@ export default {
 #Promise_stats {
   margin: 2px;
   background-color: darkslategrey;
-  color: white
+  color: white;
+  text-align: center
 }
 
 .el-row {
