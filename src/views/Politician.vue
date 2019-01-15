@@ -1,10 +1,12 @@
 <template>
-  <div>
+  <section>
     <politician-mobile v-if="$mq === 'sm'"
       v-bind="{ politician, promises, stats, url }" />
     <politician-desktop v-else
       v-bind="{ politician, promises, stats,url }" />
-  </div>
+    <h2>Promises by {{ politician.name }} </h2>
+    <promises-table :promises="promises" />
+  </section>
 </template>
 
 <script>
@@ -13,14 +15,15 @@ import { generateStats, updateTitle } from '@/utils'
 import moment from 'moment'
 import PoliticianDesktop from '@/components/Politician/Desktop'
 import PoliticianMobile from '@/components/Politician/Mobile'
+import PromisesTable from '@/components/PromisesTable'
 
 export default {
   name: 'Politician',
-  components: { PoliticianDesktop, PoliticianMobile },
+  components: { PoliticianDesktop, PoliticianMobile, PromisesTable },
   data () {
     return {
-      politician: 'loading',
-      promises: 'loading'
+      politician: [],
+      promises: []
     }
   },
   computed: {

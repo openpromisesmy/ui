@@ -42,24 +42,6 @@
       has_counter
       has_icon
     ></vue-goodshare-facebook>
-
-    <h2>Promises by {{ politician.name }} </h2>
-    <el-input clearable placeholder="Search for a promise" v-model="search" class="search" />
-    <p v-if="search.length > 0 && filteredPromises.length > 0"><b>{{ filteredPromises.length }}</b> promise{{filteredPromises.length > 1 ? 's' : ''}} matches your search.</p>
-    <p v-if="filteredPromises.length === 0">Sorry, no promise matches your search.</p>
-
-    <el-table
-      :data="filteredPromises"
-      border
-      style="width: 100%">
-    <el-table-column
-      prop="title"
-      label="Title">
-      <template slot-scope="scope">
-        <router-link :to="'/promises/' + scope.row.id">{{ scope.row.title }}</router-link>
-      </template>
-    </el-table-column>
-  </el-table>
     </template>
   </main>
 </template>
