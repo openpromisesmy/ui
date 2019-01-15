@@ -4,11 +4,11 @@
       <p>Loading politician...</p>
     </template>
     <template v-else>
-      <el-row id="main_info">
-        <el-col :md="16">
+      <el-row id="main_info" :gutter="10">
+        <el-col :md="12">
           <politician-details :politician="politician"/>
         </el-col>
-        <el-col :md="8">
+        <el-col :md="12">
           <promise-stats v-if="promises != 'loading'" v-bind="{ stats }"/>
           <ContentLoader v-else width="300" height="280" >
             <rect x="0" y="0" rx="3" ry="3" width="300" height="280" />
@@ -17,6 +17,7 @@
       </el-row>
     </template>
 
+    <el-row>
     <vue-goodshare-facebook
       class="facebook-share"
       :page_url="url"
@@ -24,6 +25,7 @@
       has_counter
       has_icon
     ></vue-goodshare-facebook>
+    </el-row>
   </main>
 </template>
 
@@ -60,10 +62,6 @@ export default {
 
 #politician p b {
   display: inline-block
-}
-
-#main_info {
-  display: flex
 }
 
 .search {

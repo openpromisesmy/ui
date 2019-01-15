@@ -1,8 +1,6 @@
 <template>
   <section>
-    <politician-mobile v-if="$mq === 'sm'"
-      v-bind="{ politician, promises, stats, url }" />
-    <politician-desktop v-else
+    <politician-desktop
       v-bind="{ politician, promises, stats,url }" />
     <h2>Promises by {{ politician.name }} </h2>
     <promises-table :promises="promises" exclude="[politician_name]"/>
@@ -14,12 +12,11 @@ import { getPolitician, getPoliticianPromises } from '@/api'
 import { generateStats, updateTitle } from '@/utils'
 import moment from 'moment'
 import PoliticianDesktop from '@/components/Politician/Desktop'
-import PoliticianMobile from '@/components/Politician/Mobile'
 import PromisesTable from '@/components/PromisesTable'
 
 export default {
   name: 'Politician',
-  components: { PoliticianDesktop, PoliticianMobile, PromisesTable },
+  components: { PoliticianDesktop, PromisesTable },
   data () {
     return {
       politician: [],
