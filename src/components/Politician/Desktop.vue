@@ -65,14 +65,6 @@ export default {
 </script>
 
 <style scoped>
-#politician {
-  text-align: center
-}
-
-#politician p b {
-  display: inline-block
-}
-
 .search {
   width: 320px;
   max-width: 90vw;
