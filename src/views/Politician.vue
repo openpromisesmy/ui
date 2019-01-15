@@ -5,6 +5,7 @@
     <politician-desktop v-else
       v-bind="{ politician, promises, stats,url }" />
     <h2>Promises by {{ politician.name }} </h2>
+    <promises-table :promises="promises" />
   </section>
 </template>
 
@@ -14,14 +15,15 @@ import { generateStats, updateTitle } from '@/utils'
 import moment from 'moment'
 import PoliticianDesktop from '@/components/Politician/Desktop'
 import PoliticianMobile from '@/components/Politician/Mobile'
+import PromisesTable from '@/components/PromisesTable'
 
 export default {
   name: 'Politician',
-  components: { PoliticianDesktop, PoliticianMobile },
+  components: { PoliticianDesktop, PoliticianMobile, PromisesTable },
   data () {
     return {
       politician: 'loading',
-      promises: 'loading'
+      promises: ['loading']
     }
   },
   computed: {
