@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <section>
     <politician-mobile v-if="$mq === 'sm'"
       v-bind="{ politician, promises, stats, url }" />
     <politician-desktop v-else
       v-bind="{ politician, promises, stats,url }" />
-  </div>
+  </section>
 </template>
 
 <script>
