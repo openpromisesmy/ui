@@ -3,7 +3,7 @@
     <politician-desktop
       v-bind="{ politician, promises, stats,url }" />
     <h2>Promises by {{ politician.name }} </h2>
-    <promises-table :promises="promises" exclude="[politician_name]"/>
+    <promises-table :promises="promises" :exclude="['politician_name']"/>
   </section>
 </template>
 
