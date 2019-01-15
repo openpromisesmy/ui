@@ -1,10 +1,10 @@
 <template>
     <el-card id="PoliticianDetails">
     <el-row>
-        <el-col :sm="10">
+        <el-col :sm="24">
             <img class="image" :src="politician.profile_image">
         </el-col>
-         <el-col :sm="14">
+         <el-col :sm="24">
             <div class="details-text">
                 <h1>
                     {{ politician.name }}
@@ -20,7 +20,11 @@
 <script>
 export default {
   name: 'Politician',
-  props: ['politician']
+  props: {
+    politician: {
+      type: Object
+    }
+  }
 }
 </script>
 
