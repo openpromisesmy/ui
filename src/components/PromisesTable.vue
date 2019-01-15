@@ -16,7 +16,7 @@
         width="350">
         <template slot-scope="scope">
           <router-link :to="'/promises/' + scope.row.id">
-          <p>{{ scope.row.title }}</p>
+          <p class="promise-title">{{ scope.row.title }}</p>
           </router-link>
         </template>
       </el-table-column>
@@ -86,4 +86,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.promise-title {
+  word-break: normal
+}
 </style>
