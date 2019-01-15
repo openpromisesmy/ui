@@ -1,5 +1,5 @@
 <template>
-    <el-card id="Promise_stats">
+    <el-card id="Promise_stats" header="Promise Statistics">
       <h2>{{ totalPromises }} promises made</h2>
       <el-row v-for="(value, key) in stats" :key="key">
           <el-col :span="14">
