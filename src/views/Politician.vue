@@ -19,7 +19,7 @@ export default {
   components: { PoliticianDesktop, PromisesTable },
   data () {
     return {
-      politician: [],
+      politician: {},
       promises: []
     }
   },
