@@ -37,7 +37,8 @@ export default {
 #Promise_stats {
   margin: 2px;
   background-color: darkslategrey;
-  color: white
+  color: white;
+  text-align: center
 }
 
 .el-row {
