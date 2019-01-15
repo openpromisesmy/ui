@@ -5,22 +5,22 @@
     </template>
     <template v-else>
       <el-row id="main_info" :gutter="10">
-        <el-col :sm="12">
+        <el-col :sm="12" :md="8">
           <politician-details :politician="politician"/>
         </el-col>
-        <el-col :sm="12">
-          <promise-stats v-if="promises != 'loading'" v-bind="{ stats }"/>
-          <ContentLoader v-else width="300" height="280" >
-            <rect x="0" y="0" rx="3" ry="3" width="300" height="280" />
-          </ContentLoader>
-        </el-col>
-        <el-col :sm="12" v-if="politician.contact_details">
+        <el-col :sm="12" :md="8" v-if="politician.contact_details">
           <contact-details
             :email="politician.contact_details.email"
             :facebook_url="politician.contact_details.facebook_url"
             :phone_number="politician.contact_details.phone_number"
             :twitter_url="politician.contact_details.twitter_url"
           />
+        </el-col>
+        <el-col :sm="12" :md="8">
+          <promise-stats v-if="promises != 'loading'" v-bind="{ stats }"/>
+          <ContentLoader v-else width="300" height="280" >
+            <rect x="0" y="0" rx="3" ry="3" width="300" height="280" />
+          </ContentLoader>
         </el-col>
       </el-row>
     </template>
