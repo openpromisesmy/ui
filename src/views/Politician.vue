@@ -22,8 +22,8 @@ export default {
   components: { PoliticianDesktop, PoliticianMobile, PromisesTable },
   data () {
     return {
-      politician: 'loading',
-      promises: ['loading']
+      politician: [],
+      promises: []
     }
   },
   computed: {
