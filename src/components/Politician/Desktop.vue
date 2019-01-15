@@ -5,10 +5,10 @@
     </template>
     <template v-else>
       <el-row id="main_info" :gutter="10">
-        <el-col :md="12">
+        <el-col :sm="12">
           <politician-details :politician="politician"/>
         </el-col>
-        <el-col :md="12">
+        <el-col :sm="12">
           <promise-stats v-if="promises != 'loading'" v-bind="{ stats }"/>
           <ContentLoader v-else width="300" height="280" >
             <rect x="0" y="0" rx="3" ry="3" width="300" height="280" />
