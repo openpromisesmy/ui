@@ -14,6 +14,14 @@
             <rect x="0" y="0" rx="3" ry="3" width="300" height="280" />
           </ContentLoader>
         </el-col>
+        <el-col :sm="12" v-if="politician.contact_details">
+          <contact-details
+            :email="politician.contact_details.email"
+            :facebook_url="politician.contact_details.facebook_url"
+            :phone_number="politician.contact_details.phone_number"
+            :twitter_url="politician.contact_details.twitter_url"
+          />
+        </el-col>
       </el-row>
     </template>
 
@@ -33,12 +41,13 @@
 import PoliticianDetails from '@/components/Politician/PoliticianDetails'
 import LoadingSpinner from '@/components//LoadingSpinner'
 import PromiseStats from './PromiseStats'
+import ContactDetails from './ContactDetails'
 import { ContentLoader } from 'vue-content-loader'
 import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 
 export default {
   name: 'PoliticianDesktop',
-  components: { LoadingSpinner, PromiseStats, PoliticianDetails, ContentLoader, VueGoodshareFacebook },
+  components: { LoadingSpinner, PromiseStats, PoliticianDetails, ContentLoader, VueGoodshareFacebook, ContactDetails },
   props: ['stats', 'politician', 'promises', 'url'],
   data () {
     return {
