@@ -94,6 +94,12 @@
               <li>Chia Yen Gan - Project Officer</li>
               <li>Jing Yi Lim - Tracking Coordinator</li>
               <li>Umar Rasydan - Lead Developer</li>
+              <li>Seah Eu Han - Community Manager</li>
+              <li>Devraj Sathivelu - Editor</li>
+              <li>Michael Ting - Tracker</li>
+              <li>Yong Hong Yaw - Tracker</li>
+              <li>Navin Nathaniel Innasi - Tracker</li>
+              <li>Melody AB - HR Officer</li>
             </ul>
             <p>None of us are affiliated with any political party. We are just ordinary citizens hoping to do our small part in improving our country’s democracy.</p>
           </el-card>
