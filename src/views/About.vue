@@ -59,7 +59,11 @@
 
             <el-card>
              <h2>What would we use funding for?</h2>
-             <p>Tracking is a very time consuming process and a more developed backend system can cut down the time needed to process promises. Development of the website and tracking tools will be accelerated with proper funding. We also need funding to get access to paid media sources which will help us verify promises faster. </p>
+             <p>Tracking is a very time consuming process and a more developed backend system can cut down the time needed to process promises. Development of the website and tracking tools will be accelerated with proper funding. We also need funding to get access to paid media sources which will help us verify promises faster. Here is a list of the more immediate uses of funds:</p>
+             <ul>
+               <li>Full text search capabilities - 29 USD/month</li>
+               <li>Security tools - 25 USD/month (there are certain security tools that we can use to ensure the platform is more secure against attacks)</li>
+             </ul>
             </el-card>
 
             <el-card>
