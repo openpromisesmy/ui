@@ -91,11 +91,9 @@
             <h2>The Team</h2>
             <ul>
               <li>Nazreen Mohamad - Founder and Project Manager</li>
-              <li>Chia Yen Gan - Campaign Manager</li>
+              <li>Chia Yen Gan - Project Officer</li>
               <li>Jing Yi Lim - Tracking Coordinator</li>
-              <li>Han Jinn - Lead Tracker</li>
               <li>Umar Rasydan - Lead Developer</li>
-              <li>Roxanne Low - Product Design</li>
             </ul>
             <p>None of us are affiliated with any political party. We are just ordinary citizens hoping to do our small part in improving our country’s democracy.</p>
           </el-card>
