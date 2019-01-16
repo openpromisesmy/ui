@@ -39,12 +39,27 @@
 
             <el-card>
              <h2>Who are we funded by ?</h2>
-             <p>Currently there are no sponsors. We have used some of our personal money to for expenses incurred by the website. We will look for funding in the near future. Our main priority right now is on building the platform.</p>
+             <p>Currently we have 44 USD/month funding from our community members that covers our current monthly expenses. For a year before we had crowdfunding, we also used some of our personal money to for expenses incurred by the website and its setting up. As it stands, we are 100% citizen-funded through Patreon. Decentralised funding means we cannot be easily influenced or corrupted.</p>
+            </el-card>
+
+            <el-card>
+              <h2>What are the current expenses?</h2>
+              <p>What are the current expenses?
+                <ul>
+                  <li>Web hosting and domain (30.00 USD/month) - <b>already covered by crowdfunders</b></li>
+                  <li>Paid media subscriptions (10.34 USD/month) - <b>already covered by crowdfunders</b></li>
+                  <ul>
+                    <li>The Malaysian Insight monthly subscription (paid annually) - 3.10 USD</li>
+                    <li>Malaysia Kini monthly subscription (paid annually) - 4.14 USD</li>
+                    <li>The Edge monthly subscription (paid annually) - 3.10 USD</li>
+                  </ul>
+                </ul>
+              </p>
             </el-card>
 
             <el-card>
              <h2>What would we use funding for?</h2>
-             <p>If we have funding, we would use it to compensate trackers and hire developers. Tracking is a very time consuming process. Currently our team members all have their own daytime jobs so contribution is quite restricted by this. We would use the funding to hire full time promise trackers and developers. Development of the website will be accelerated with proper funding. We also need funding to get access to paid media sources which will help us verify promises faster.</p>
+             <p>Tracking is a very time consuming process and a more developed backend system can cut down the time needed to process promises. Development of the website and tracking tools will be accelerated with proper funding. We also need funding to get access to paid media sources which will help us verify promises faster. </p>
             </el-card>
 
             <el-card>
