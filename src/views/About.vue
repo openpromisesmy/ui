@@ -67,6 +67,11 @@
             </el-card>
 
             <el-card>
+              <h2>How can people fund us?</h2>
+              <p>Through our Patreon page at <a href="https://patreon.com/openpromisesmalaysia">https://patreon.com/openpromisesmalaysia</a></p>
+            </el-card>
+
+            <el-card>
              <h2>Deployment in other countries</h2>
              <p>What we are building behind the scenes is a platform that can be deployed for any country. If you are interested to bring this to your country, please <a href="https://facebook.com/openpromises.malaysia" target="_blank">message us on facebook</a></p>
             </el-card>
