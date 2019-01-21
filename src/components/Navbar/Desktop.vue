@@ -45,9 +45,9 @@ a {
   font-size: 1rem
 }
 #navbar-logo {
-  margin: 4px 24px 0px 12px;
+  margin: 7px 12px 7px 12px;
   float: left;
-  height: 42px
+  height: 45px
 }
 #submit, #account {
   float:right
@@ -56,6 +56,6 @@ a {
     background-color: transparent;
 }
 .router-link-active {
-  font-weight: 800;
+  font-weight: 600;
 }
 </style>

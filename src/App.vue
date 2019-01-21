@@ -1,7 +1,7 @@
 <template>
   <el-container id="app" direction="vertical">
     <Navbar />
-    <el-main>
+    <div>
       <router-view/>
       <!-- Load Facebook SDK for JavaScript -->
       <div id="fb-root"></div>
@@ -12,7 +12,7 @@
         logged_in_greeting="Hi. Itching to know something? Ask away!"
         logged_out_greeting="Hi. Itching to know something? Ask away!">
       </div>
-    </el-main>
+    </div>
     <Footer class="footer-container"/>
   </el-container>
 </template>

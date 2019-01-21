@@ -2,23 +2,28 @@
   <main class="home">
 
     <section id="hero">
-      <div><h1 id="tagline">{{ tagline }}</h1></div>
-      <el-row>
-        <el-col :md="6">
-          <img id="logo" src="@/assets/logo.jpg">
-        </el-col>
-        <el-col :md="18" id="description">
-          <p>
-            OpenPromises is civilian-led not for profit project that is based on recording and tracking promises made by politicians.<br/>
-            We believe that technology can have a great impact on governance and democracy. Tech can change the world, and we aim to be a part of that.<br/>
-            Contact us on Facebook if you want to bring OpenPromises to your country.
-          </p>
+      <el-row class="content">
+        <el-col :md="24" id="description">
+          <el-row>
+            <el-col :md="6">
+              <img id="logo" src="@/assets/logo.jpg">
+            </el-col>
+            <el-col :md="18">
+              <h1 id="tagline">{{ tagline }}</h1>
+              <p class="description-text">
+                OpenPromises is civilian-led not for profit project that is based on recording and tracking promises made by politicians.<br/>
+                We believe that technology can have a great impact on governance and democracy.<br/>
+                Tech can change the world, and we aim to be a part of that.<br/>
+                Contact us on Facebook if you want to bring OpenPromises to your country.
+              </p>
+            </el-col>
+          </el-row>
         </el-col>
       </el-row>
     </section>
 
     <section>
-      <h1>Browse Promises by Politician</h1>
+      <p id="browse-title">Browse Promises by Politician</p>
       <Politicians />
     </section>
 
@@ -74,20 +79,31 @@ main {
 }
 
 #tagline {
-  font-weight: 900;
+  /*font-weight: 900;*/
+  font-size: 24px;
+  padding: 20px 0;
 }
 
 #hero {
-  max-width: 900px;
-  margin: 0 auto
+  margin: 0 auto;
+  padding: 40px;
+  background: #d9edf7;
+}
+
+#hero .content{
+  padding: 20px;
 }
 
 #description {
-  height: 200px;
   display:flex;
   justify-content:center;
   align-items:center;
-  padding: 20px
+  padding: 20px;
+  text-align: left;
+}
+
+#description .description-text{
+  line-height: 20px;
 }
 
 .el-button {
@@ -102,5 +118,10 @@ main {
 
 .el-card {
   display: inline-block
+}
+
+#browse-title{
+  padding: 30px;
+  font-size: 20px;
 }
 </style>
