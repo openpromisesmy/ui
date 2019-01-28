@@ -1,7 +1,7 @@
 <template>
   <el-container id="app" direction="vertical">
     <Navbar />
-    <div>
+    <el-main>
       <router-view/>
       <!-- Load Facebook SDK for JavaScript -->
       <div id="fb-root"></div>
@@ -12,7 +12,7 @@
         logged_in_greeting="Hi. Itching to know something? Ask away!"
         logged_out_greeting="Hi. Itching to know something? Ask away!">
       </div>
-    </div>
+    </el-main>
     <Footer class="footer-container"/>
   </el-container>
 </template>
@@ -52,6 +52,10 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+
+.el-main {
+  padding: 0;
 }
 
 main {
