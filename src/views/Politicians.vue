@@ -7,17 +7,19 @@
     <el-input clearable placeholder="Search for a politician" v-model="search" class="search" />
 
     <el-row class="politicians-row">
-      <el-col :xs="12" :sm="4" v-for="o in filteredPoliticians" :key="o.id">
-        <el-card :body-style="{ padding: '0px' }">
+      <el-col :xs="12" :sm="8" :md="6" :lg="6" :xl="4" v-for="o in filteredPoliticians" :key="o.id" >
+        <el-card shadow="hover" :style="{'background' : 'url(' + o.profile_image + ') no-repeat center center', 'background-size' : 'cover', 'position' : 'relative','margin' : '3px' }" >
+          <div class="card-body">
             <router-link :to="/politician/ + o.id">
-          <img :src="o.profile_image" class="image">
-          <div style="padding: 14px;">
-            <span>{{ o.name  }}</span>
-            <div class="bottom clearfix">
-              <time class="time">{{ o.primary_position }}</time>
-            </div>
-          </div>
+              <!-- <img :src="o.profile_image" class="image"> -->
+              <div style="padding: 14px;">
+                <span>{{ o.name  }}</span>
+                <div class="bottom clearfix">
+                  <time class="time">{{ o.primary_position }}</time>
+                </div>
+              </div>
             </router-link>
+          </div>
         </el-card>
       </el-col>
     </el-row>
@@ -73,14 +75,15 @@ main {
 
 a {
   text-decoration: none;
+  color: white;
 }
 .time {
-  font-size: 13px;
+  font-size: 12px;
   color: #999;
 }
 
 .bottom {
-  margin-top: 13px;
+  margin-top: 12px;
   line-height: 12px;
 }
 
@@ -90,8 +93,27 @@ a {
 }
 
 .el-card {
-  height: 280px;
-  min-width: 200px
+  height: 300px;
+}
+
+.card-body{
+  padding: 0px;
+  position: absolute;
+  left: 0;
+  background: rgb(15,15,15,0.8);
+  top: 210px;
+  width: 100%;
+  height : 100%;
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  -ms-transition: all 0.4s ease-out;
+  -o-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.el-card:hover .card-body{
+  top: 0px;
+
 }
 
 .image {
