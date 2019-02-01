@@ -1,8 +1,8 @@
 <template>
-  <main>
+  <section id="FacebookComment">
     <div id="fb-root"></div>
     <div class="fb-comments"></div>
-  </main>
+  </section>
 </template>
 
 <script>

@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <section id="PromiseView">
     <promise-desktop
                     v-bind="{ promise, politician, appStatus, displayedValues, url }" />
     <promise-updates :promiseUpdates="promiseUpdates"
                      :promiseID="promise.id"
     />
     <facebook-comment id="facebook-comment" />
-  </div>
+  </section>
 </template>
 
 <script>
@@ -69,6 +69,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#PromiseView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px
+}
 #facebook-comment {
   text-align: center
 }

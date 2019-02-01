@@ -1,5 +1,5 @@
 <template>
-  <main id="Promise">
+  <article class="Promise">
     <ContentLoader v-if="appStatus === 'loading'"
                    width="600"
                    height="500"
@@ -88,7 +88,7 @@
 
     </template>
 
-  </main>
+  </article>
 </template>
 
 <script>
@@ -107,7 +107,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#Promise {
+.Promise {
   max-width: 900px
 }
 
