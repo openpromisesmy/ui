@@ -1,12 +1,12 @@
 <template>
-  <main id="PromiseView">
+  <section id="PromiseView">
     <promise-desktop
                     v-bind="{ promise, politician, appStatus, displayedValues, url }" />
     <promise-updates :promiseUpdates="promiseUpdates"
                      :promiseID="promise.id"
     />
     <facebook-comment id="facebook-comment" />
-  </main>
+  </section>
 </template>
 
 <script>
