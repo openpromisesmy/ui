@@ -1,27 +1,27 @@
 <template>
-  <main id="politician">
+  <article id="Politician">
     <template v-if="politician === 'loading'">
       <p>Loading politician...</p>
     </template>
     <template v-else>
       <el-row id="main_info" :gutter="10">
-        <el-col :sm="12" :md="8">
+        <section>
           <politician-details :politician="politician"/>
-        </el-col>
-        <el-col :sm="12" :md="8" v-if="politician.contact_details">
+        </section>
+        <section v-if="politician.contact_details">
           <contact-details
             :email="politician.contact_details.email"
             :facebook_url="politician.contact_details.facebook_url"
             :phone_number="politician.contact_details.phone_number"
             :twitter_url="politician.contact_details.twitter_url"
           />
-        </el-col>
-        <el-col :sm="12" :md="8">
+        </section>
+        <section>
           <promise-stats v-if="promises != 'loading'" v-bind="{ stats }"/>
           <ContentLoader v-else width="300" height="280" >
             <rect x="0" y="0" rx="3" ry="3" width="300" height="280" />
           </ContentLoader>
-        </el-col>
+        </section>
       </el-row>
     </template>
 
@@ -34,7 +34,7 @@
       has_icon
     ></vue-goodshare-facebook>
     </el-row>
-  </main>
+  </article>
 </template>
 
 <script>
@@ -65,6 +65,23 @@ export default {
 </script>
 
 <style scoped>
+#main_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around
+}
+
+#main_info > section {
+  flex: 1;
+  margin: 10px
+}
+
+@media all and (max-width: 500px) {
+  #main_info {
+    flex-direction: column;
+  }
+}
+
 .search {
   width: 320px;
   max-width: 90vw;
