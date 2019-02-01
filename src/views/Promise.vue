@@ -69,6 +69,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+#PromiseView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px
+}
 #facebook-comment {
   text-align: center
 }
