@@ -11,8 +11,7 @@
         <el-card shadow="hover" :style="{'background' : 'url(' + o.profile_image + ') no-repeat center center', 'background-size' : 'cover', 'position' : 'relative','margin' : '3px' }" >
           <div class="card-body">
             <router-link :to="/politician/ + o.id">
-              <!-- <img :src="o.profile_image" class="image"> -->
-              <div style="padding: 14px;">
+              <div class="card-info">
                 <span>{{ o.name  }}</span>
                 <div class="bottom clearfix">
                   <time class="time">{{ o.primary_position }}</time>
@@ -113,7 +112,11 @@ a {
 
 .el-card:hover .card-body{
   top: 0px;
+}
 
+.card-info{
+  padding: 14px;
+  height: 100%;
 }
 
 .image {
