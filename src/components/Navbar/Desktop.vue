@@ -4,7 +4,8 @@
 
       <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
         <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="String(index)">
-          <router-link v-bind:to="item.url">{{ item.text }}</router-link>
+          <router-link v-if="item.url" v-bind:to="item.url">{{ item.text }}</router-link>
+          <a v-else-if="item.externalUrl" :href="item.externalUrl">{{ item.text }}</a>
         </el-menu-item>
         <el-menu-item index="5" id="account">
           <router-link to="/account">
