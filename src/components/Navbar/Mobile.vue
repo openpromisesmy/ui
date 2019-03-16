@@ -13,11 +13,14 @@
             @close="handleClose"
             :collapse="isCollapse"
             >
-            <router-link v-bind:to="item.url" v-for="(item, index) in navigation" :key="index">
-                <el-menu-item  v-bind:index="String(index)">
+              <el-menu-item  v-bind:index="String(index)" v-for="(item, index) in navigation" :key="index">
+                <router-link v-if="item.url" v-bind:to="item.url">
                   {{ item.text }}
-                </el-menu-item>
-            </router-link>
+                </router-link>
+                <a v-else-if="item.externalUrl" :href="item.externalUrl">
+                  {{ item.text }}
+                </a>
+              </el-menu-item>
             <el-menu-item index="4" id="account" >
               <router-link to="/account">
                 {{ this.$store.state.user.authenticated ? email : 'Login' }}
