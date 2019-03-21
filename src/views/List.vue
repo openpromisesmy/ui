@@ -5,7 +5,7 @@
     </template>
     <template v-else>
       <h1>{{ list.title }}</h1>
-      <promises-table :promises="promises" exclude="[source_name, politician_name]"/>
+      <promises-table :promises="promises" :exclude="['source_name', 'politician_name']"/>
     </template>
   </div>
 </template>
