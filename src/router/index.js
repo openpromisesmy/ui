@@ -14,6 +14,7 @@ import About from '@/views/About'
 import SubmitPromise from '@/views/SubmitPromise'
 import Account from '@/views/Account'
 import Contact from '@/views/Contact'
+import Oops from '@/components/404'
 import beforeEach from './beforeEach'
 
 Vue.use(Router)
@@ -22,7 +23,10 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      title: 'Keep power in check'
+    }
   },
   {
     path: '/politicians',
@@ -111,6 +115,14 @@ const routes = [
     component: Account,
     meta: {
       title: 'Account'
+    }
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: Oops,
+    meta: {
+      title: '404'
     }
   }
 ]
