@@ -23,7 +23,10 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      title: 'Keep power in check'
+    }
   },
   {
     path: '/politicians',
