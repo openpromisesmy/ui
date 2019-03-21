@@ -33,7 +33,7 @@ export default {
   async created () {
     try {
       this.lists = await this.listListsHandler()
-      // this.appStatus = ''
+      this.appStatus = ''
     } catch (e) {
       console.error(e)
     }

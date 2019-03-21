@@ -31,7 +31,7 @@ export default {
       this.list.promise_ids.forEach(async promiseId => {
         this.promises.push(await getPromise(promiseId))
       })
-      this.appStatus = ''
+      // this.appStatus = ''
     } catch (e) {
       console.error(e)
     }
