@@ -40,7 +40,8 @@ export default {
 
 <style scoped>
 main {
-  padding: 20px;
+  padding: 0 10%;
+  text-align: center;
 }
 header {
   text-align: center;
