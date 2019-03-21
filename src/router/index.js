@@ -7,6 +7,7 @@ import States from '@/views/States'
 import ViewByState from '@/views/ViewByState'
 import Promise from '@/views/Promise'
 import Promises from '@/views/Promises'
+import Lists from '@/views/Lists'
 import Participate from '@/views/Participate/index'
 import About from '@/views/About'
 import SubmitPromise from '@/views/SubmitPromise'
@@ -56,6 +57,19 @@ const routes = [
     component: Promises,
     meta: {
       title: 'Promises'
+    }
+  },
+  // {
+  //   path: '/lists/:id',
+  //   name: 'List',
+  //   component: List
+  // },
+  {
+    path: '/lists',
+    name: 'Lists',
+    component: Lists,
+    meta: {
+      title: 'Lists'
     }
   },
   {
