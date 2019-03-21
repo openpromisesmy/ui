@@ -1,6 +1,12 @@
 import axios from 'axios'
 import { firebase, API_URL } from '@/config'
+import mocks from '../mocks'
+const mockLists = mocks.lists
 const provider = new firebase.auth.GoogleAuthProvider()
+
+// TODO: replace with real
+const listLists = () => mockLists
+const getList = id => mockLists.find(x => x.id === id)
 
 async function getSomething (path) {
   try {
@@ -125,5 +131,7 @@ export {
   postPromise,
   getContributor,
   postContributor,
-  listPromiseUpdates
+  listPromiseUpdates,
+  listLists,
+  getList
 }
