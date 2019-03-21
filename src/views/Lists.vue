@@ -1,23 +1,27 @@
 <template>
   <main>
-    <header>
-      <h1>Lists</h1>
-      <p>Promises grouped by themes.</p>
-    </header>
-    <lists-table :lists="lists"/>
+    <loading-spinner v-if="appStatus==='loading'" />
+    <template v-else>
+      <header>
+        <h1>Lists</h1>
+        <p>Promises grouped by themes.</p>
+      </header>
+      <lists-table :lists="lists"/>
+    </template>
   </main>
 </template>
 
 <script>
 import { listLists } from '@/api'
 import ListsTable from '@/components/Lists/Table'
+import LoadingSpinner from '@/components/LoadingSpinner'
 
 export default {
   name: 'Lists',
-  components: { ListsTable },
+  components: { ListsTable, LoadingSpinner },
   data () {
     return {
-      appStatus: '',
+      appStatus: 'loading',
       lists: []
     }
   },
@@ -28,7 +32,6 @@ export default {
   },
   async created () {
     try {
-      this.appStatus = 'loading'
       this.lists = await this.listListsHandler()
       this.appStatus = ''
     } catch (e) {
