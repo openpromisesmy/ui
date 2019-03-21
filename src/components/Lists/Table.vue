@@ -16,7 +16,6 @@
           </router-link>
         </template>
       </el-table-column>
-      ></el-table-column>
     </el-table>
   </section>
 </template>
