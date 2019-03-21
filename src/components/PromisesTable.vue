@@ -89,4 +89,7 @@ export default {
 .promise-title {
   word-break: normal
 }
+.el-input {
+  margin-bottom: 20px
+}
 </style>
