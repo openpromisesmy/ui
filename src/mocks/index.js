@@ -4,8 +4,8 @@ const lists = [
     live: false,
     title: 'Student Aids',
     contributor_id: '-LAEDTAC6HQeWYrV3atG',
-    created_at: "2019-03-17T18:35:05.441Z",
-    updated_at: "2019-03-17T18:35:05.441Z",
+    created_at: '2019-03-17T18:35:05.441Z',
+    updated_at: '2019-03-17T18:35:05.441Z',
     promise_ids: [
       'CeX1MLvSq7IVx3nI1CgI',
       'U5zwNgRbdu0NZRjFLoBF',
@@ -17,8 +17,8 @@ const lists = [
     live: true,
     title: 'Broadband service in Malaysia',
     contributor_id: '-LAEDTAC6HQeWYrV3atG',
-    created_at: "2019-03-17T18:35:05.441Z",
-    updated_at: "2019-03-17T18:35:05.441Z",
+    created_at: '2019-03-17T18:35:05.441Z',
+    updated_at: '2019-03-17T18:35:05.441Z',
     promise_ids: [
       'XjGLsRtJ9spk5VeBidDl',
       'bGvbmCPqIcpWQIZAp92C'
