@@ -1,12 +1,6 @@
 import axios from 'axios'
 import { firebase, API_URL } from '@/config'
-import mocks from '../mocks'
-const mockLists = mocks.lists
 const provider = new firebase.auth.GoogleAuthProvider()
-
-// TODO: replace with real
-const listLists = () => mockLists
-const getList = id => mockLists.find(x => x.id === id)
 
 async function getSomething (path) {
   try {
@@ -37,13 +31,16 @@ async function getSingle (path, id) {
 }
 
 const getPolitician = id => getSingle('/politicians/', id)
-
 const getPoliticians = () => getSomething('/politicians/')
+
 const getPromise = id => getSomething('/promises/' + id)
 const getPromises = () => getSomething('/promises/')
 const getLivePromises = query => getSomething('/promises/?live=true&' + query)
 const getPoliticianPromises = id =>
   getSomething(`/promises/?politician_id=${id}`) // TODO: account for live too
+
+const getList = id => getSomething('/lists/' + id)
+const listLists = id => getSomething('/lists/')
 
 function googleSignIn () {
   return new Promise((resolve, reject) => {
