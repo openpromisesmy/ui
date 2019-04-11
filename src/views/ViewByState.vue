@@ -3,7 +3,7 @@
   <h1>Promises relating to {{ this.$route.params.state }}</h1>
 
   <loading-spinner v-if="appStatus === 'loading'" />
-  <promises-table v-else :promises="promises" exclude="['live', 'created_at', 'politician_name']" />
+  <promises-table v-else :promises="promises" :exclude="['live', 'created_at', 'politician_name']" />
 
   </main>
 </template>

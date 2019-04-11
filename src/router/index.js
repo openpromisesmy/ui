@@ -7,11 +7,14 @@ import States from '@/views/States'
 import ViewByState from '@/views/ViewByState'
 import Promise from '@/views/Promise'
 import Promises from '@/views/Promises'
+import List from '@/views/List'
+import Lists from '@/views/Lists'
 import Participate from '@/views/Participate/index'
 import About from '@/views/About'
 import SubmitPromise from '@/views/SubmitPromise'
 import Account from '@/views/Account'
 import Contact from '@/views/Contact'
+import Oops from '@/components/404'
 import beforeEach from './beforeEach'
 
 Vue.use(Router)
@@ -20,7 +23,10 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      title: 'Keep power in check'
+    }
   },
   {
     path: '/politicians',
@@ -56,6 +62,19 @@ const routes = [
     component: Promises,
     meta: {
       title: 'Promises'
+    }
+  },
+  {
+    path: '/lists/:id',
+    name: 'List',
+    component: List
+  },
+  {
+    path: '/lists',
+    name: 'Lists',
+    component: Lists,
+    meta: {
+      title: 'Lists'
     }
   },
   {
@@ -96,6 +115,14 @@ const routes = [
     component: Account,
     meta: {
       title: 'Account'
+    }
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: Oops,
+    meta: {
+      title: '404'
     }
   }
 ]

@@ -1,5 +1,8 @@
 // This callback runs before every route change, including on page load.
 function beforeEach (to, from, next) {
+  if (!to.matched.length) {
+    next('/404')
+  }
   // This goes through the matched routes from last to first, finding the closest route with a title.
   // eg. if we have /some/deep/nested/route and /some, /deep, and /nested have titles, nested's will be chosen.
   const nearestWithTitle = to.matched

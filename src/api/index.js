@@ -31,13 +31,16 @@ async function getSingle (path, id) {
 }
 
 const getPolitician = id => getSingle('/politicians/', id)
-
 const getPoliticians = () => getSomething('/politicians/')
+
 const getPromise = id => getSomething('/promises/' + id)
 const getPromises = () => getSomething('/promises/')
 const getLivePromises = query => getSomething('/promises/?live=true&' + query)
 const getPoliticianPromises = id =>
   getSomething(`/promises/?politician_id=${id}`) // TODO: account for live too
+
+const getList = id => getSomething('/lists/' + id)
+const listLists = id => getSomething('/lists/')
 
 function googleSignIn () {
   return new Promise((resolve, reject) => {
@@ -125,5 +128,7 @@ export {
   postPromise,
   getContributor,
   postContributor,
-  listPromiseUpdates
+  listPromiseUpdates,
+  listLists,
+  getList
 }
