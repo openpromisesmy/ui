@@ -9,17 +9,6 @@
       <p v-if="filteredLists.length === 0">Sorry, no list matches your search.</p>
     </template>
     <el-table :data="filteredLists" border style="width: 100%">
-      <el-table-column
-        prop="live"
-        label="Live"
-        width="125">
-        <template slot-scope="scope">
-          <el-button v-if="scope.row.live" type="success" icon="el-icon-check" circle></el-button>
-          <span v-else>
-            {{ scope.row.live.toString() }}
-          </span>
-        </template>
-      </el-table-column>
       <el-table-column prop="title" label="Title">
         <template slot-scope="scope">
           <router-link :to="'/lists/' + scope.row.id">
@@ -37,28 +26,28 @@
 </template>
 
 <script>
-import LoadingSpinner from '@/components//LoadingSpinner'
-import { formatDate } from '@/utils'
+import LoadingSpinner from "@/components//LoadingSpinner";
+import { formatDate } from "@/utils";
 
 export default {
-  name: 'ListsTable',
+  name: "ListsTable",
   components: { LoadingSpinner },
   props: {
     lists: { type: Array },
     exclude: { type: Array, default: () => [] }
   },
   data: () => ({
-    search: ''
+    search: ""
   }),
   methods: { formatDate },
   computed: {
-    filteredLists () {
+    filteredLists() {
       return this.lists.filter(list => {
-        return list.title.toLowerCase().includes(this.search.toLowerCase())
-      })
+        return list.title.toLowerCase().includes(this.search.toLowerCase());
+      });
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
