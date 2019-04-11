@@ -11,6 +11,26 @@
     border
     style="width: 100%">
       <el-table-column
+        prop="live"
+        label="Live"
+        width="125">
+        <template slot-scope="scope">
+          <el-button v-if="scope.row.live" type="success" icon="el-icon-check" circle></el-button>
+          <span v-else>
+            {{ scope.row.live.toString() }}
+          </span>
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="created_at"
+        label="Created At"
+        width="150"
+      >
+        <template slot-scope="scope">
+          <p>{{ formatDate(scope.row.created_at) }}</p>
+        </template>
+      </el-table-column>
+      <el-table-column
         prop="title"
         label="Title"
       >
@@ -18,6 +38,14 @@
           <router-link :to="'/promises/' + scope.row.id">
           <p class="promise-title">{{ scope.row.title }}</p>
           </router-link>
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="description"
+        label="Description"
+      >
+        <template slot-scope="scope">
+          <p class="promise-title">{{ scope.row.quote }}</p>
         </template>
       </el-table-column>
       <el-table-column

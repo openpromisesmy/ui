@@ -9,11 +9,27 @@
       <p v-if="filteredLists.length === 0">Sorry, no list matches your search.</p>
     </template>
     <el-table :data="filteredLists" border style="width: 100%">
+      <el-table-column
+        prop="live"
+        label="Live"
+        width="125">
+        <template slot-scope="scope">
+          <el-button v-if="scope.row.live" type="success" icon="el-icon-check" circle></el-button>
+          <span v-else>
+            {{ scope.row.live.toString() }}
+          </span>
+        </template>
+      </el-table-column>
       <el-table-column prop="title" label="Title">
         <template slot-scope="scope">
           <router-link :to="'/lists/' + scope.row.id">
             <p class="list-title">{{ scope.row.title }}</p>
           </router-link>
+        </template>
+      </el-table-column>
+      <el-table-column prop="description" label="Description">
+        <template slot-scope="scope">
+          <p class="list-title">{{ scope.row.description }}</p>
         </template>
       </el-table-column>
     </el-table>
