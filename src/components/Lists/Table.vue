@@ -16,6 +16,11 @@
           </router-link>
         </template>
       </el-table-column>
+      <el-table-column prop="description" label="Description">
+        <template slot-scope="scope">
+          <p class="list-title">{{ scope.row.description }}</p>
+        </template>
+      </el-table-column>
     </el-table>
   </section>
 </template>

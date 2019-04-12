@@ -5,6 +5,7 @@
     </template>
     <template v-else>
       <h1>{{ list.title }}</h1>
+      <p>{{ list.description }}</p>
       <promises-table :promises="promises" :exclude="['source_name', 'politician_name']"/>
     </template>
   </div>
@@ -49,6 +50,6 @@ export default {
 
 <style scoped>
 h1 {
-  text-align: center
+  text-align: center;
 }
 </style>
