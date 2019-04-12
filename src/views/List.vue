@@ -12,40 +12,40 @@
 </template>
 
 <script>
-import { getList, getPromise } from "@/api";
-import PromisesTable from "@/components/PromisesTable";
-import LoadingSpinner from "@/components//LoadingSpinner";
+import { getList, getPromise } from '@/api'
+import PromisesTable from '@/components/PromisesTable'
+import LoadingSpinner from '@/components//LoadingSpinner'
 
 export default {
-  name: "List",
-  data() {
+  name: 'List',
+  data () {
     return {
-      appStatus: "loading",
+      appStatus: 'loading',
       list: {},
       promises: []
-    };
+    }
   },
   components: { LoadingSpinner, PromisesTable },
-  async created() {
+  async created () {
     try {
-      this.list = await this.getListHandler(this.$route.params.id);
+      this.list = await this.getListHandler(this.$route.params.id)
       this.list.promise_ids.forEach(async promiseId => {
-        this.promises.push(await getPromise(promiseId));
-      });
-      this.appStatus = "";
+        this.promises.push(await getPromise(promiseId))
+      })
+      this.appStatus = ''
     } catch (e) {
-      console.error(e);
+      console.error(e)
     }
   },
   methods: {
-    async getListHandler(id) {
-      return getList(id);
+    async getListHandler (id) {
+      return getList(id)
     },
-    async getPromiseHandler(id) {
-      return getPromise(id);
+    async getPromiseHandler (id) {
+      return getPromise(id)
     }
   }
-};
+}
 </script>
 
 <style scoped>

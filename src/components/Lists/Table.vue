@@ -26,28 +26,28 @@
 </template>
 
 <script>
-import LoadingSpinner from "@/components//LoadingSpinner";
-import { formatDate } from "@/utils";
+import LoadingSpinner from '@/components//LoadingSpinner'
+import { formatDate } from '@/utils'
 
 export default {
-  name: "ListsTable",
+  name: 'ListsTable',
   components: { LoadingSpinner },
   props: {
     lists: { type: Array },
     exclude: { type: Array, default: () => [] }
   },
   data: () => ({
-    search: ""
+    search: ''
   }),
   methods: { formatDate },
   computed: {
-    filteredLists() {
+    filteredLists () {
       return this.lists.filter(list => {
-        return list.title.toLowerCase().includes(this.search.toLowerCase());
-      });
+        return list.title.toLowerCase().includes(this.search.toLowerCase())
+      })
     }
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
