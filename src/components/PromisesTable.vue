@@ -14,6 +14,13 @@
       border
       style="width: 100%"
     >
+      <el-table-column
+        sortable
+        v-if="!exclude.includes('status')"
+        prop="status"
+        label="Status"
+        width="125"
+      ></el-table-column>
       <el-table-column prop="title" label="Title">
         <template slot-scope="scope">
           <router-link :to="'/promises/' + scope.row.id">
@@ -49,13 +56,6 @@
         prop="politician_name"
         label="Politician"
         width="150"
-      ></el-table-column>
-      <el-table-column
-        sortable
-        v-if="!exclude.includes('status') && !(this.$mq === 'sm')"
-        prop="status"
-        label="Status"
-        width="125"
       ></el-table-column>
     </el-table>
   </section>
