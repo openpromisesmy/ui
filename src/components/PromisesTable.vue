@@ -21,11 +21,6 @@
           </router-link>
         </template>
       </el-table-column>
-      <el-table-column prop="description" label="Description">
-        <template slot-scope="scope">
-          <p class="promise-title">{{ scope.row.quote }}</p>
-        </template>
-      </el-table-column>
       <el-table-column
         v-if="!exclude.includes('source_name') && !(this.$mq === 'sm')"
         prop="source_name"
