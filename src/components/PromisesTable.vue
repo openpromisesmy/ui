@@ -14,6 +14,13 @@
       border
       style="width: 100%"
     >
+      <el-table-column
+        sortable
+        v-if="!exclude.includes('status') && !(this.$mq === 'sm')"
+        prop="status"
+        label="Status"
+        width="125"
+      ></el-table-column>
       <el-table-column prop="title" label="Title">
         <template slot-scope="scope">
           <router-link :to="'/promises/' + scope.row.id">
@@ -50,40 +57,33 @@
         label="Politician"
         width="150"
       ></el-table-column>
-      <el-table-column
-        sortable
-        v-if="!exclude.includes('status') && !(this.$mq === 'sm')"
-        prop="status"
-        label="Status"
-        width="125"
-      ></el-table-column>
     </el-table>
   </section>
 </template>
 
 <script>
-import LoadingSpinner from '@/components//LoadingSpinner'
-import { formatDate } from '@/utils'
+import LoadingSpinner from "@/components//LoadingSpinner";
+import { formatDate } from "@/utils";
 
 export default {
-  name: 'PromisesTable',
+  name: "PromisesTable",
   components: { LoadingSpinner },
   props: {
     promises: { type: Array },
     exclude: { type: Array, default: () => [] }
   },
   data: () => ({
-    search: ''
+    search: ""
   }),
   methods: { formatDate },
   computed: {
-    filteredPromises () {
+    filteredPromises() {
       return this.promises.filter(promise => {
-        return promise.title.toLowerCase().includes(this.search.toLowerCase())
-      })
+        return promise.title.toLowerCase().includes(this.search.toLowerCase());
+      });
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
