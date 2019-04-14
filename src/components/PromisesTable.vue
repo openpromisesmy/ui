@@ -62,28 +62,28 @@
 </template>
 
 <script>
-import LoadingSpinner from "@/components//LoadingSpinner";
-import { formatDate } from "@/utils";
+import LoadingSpinner from '@/components//LoadingSpinner'
+import { formatDate } from '@/utils'
 
 export default {
-  name: "PromisesTable",
+  name: 'PromisesTable',
   components: { LoadingSpinner },
   props: {
     promises: { type: Array },
     exclude: { type: Array, default: () => [] }
   },
   data: () => ({
-    search: ""
+    search: ''
   }),
   methods: { formatDate },
   computed: {
-    filteredPromises() {
+    filteredPromises () {
       return this.promises.filter(promise => {
-        return promise.title.toLowerCase().includes(this.search.toLowerCase());
-      });
+        return promise.title.toLowerCase().includes(this.search.toLowerCase())
+      })
     }
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
