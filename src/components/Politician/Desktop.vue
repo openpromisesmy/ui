@@ -48,7 +48,7 @@ import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 export default {
   name: 'PoliticianDesktop',
   components: { LoadingSpinner, PromiseStats, PoliticianDetails, ContentLoader, VueGoodshareFacebook, ContactDetails },
-  props: [ 'politician', 'promises', 'url'],
+  props: ['politician', 'promises', 'url'],
   data () {
     return {
       search: ''
