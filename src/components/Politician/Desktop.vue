@@ -17,7 +17,7 @@
           />
         </section>
         <section>
-          <promise-stats v-if="promises != 'loading'" v-bind="{ stats }"/>
+          <promise-stats v-if="promises != 'loading'" v-bind="{ promises }"/>
           <ContentLoader v-else width="300" height="280" >
             <rect x="0" y="0" rx="3" ry="3" width="300" height="280" />
           </ContentLoader>
@@ -48,7 +48,7 @@ import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 export default {
   name: 'PoliticianDesktop',
   components: { LoadingSpinner, PromiseStats, PoliticianDetails, ContentLoader, VueGoodshareFacebook, ContactDetails },
-  props: ['stats', 'politician', 'promises', 'url'],
+  props: [ 'politician', 'promises', 'url'],
   data () {
     return {
       search: ''
