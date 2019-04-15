@@ -5,7 +5,7 @@
     </template>
     <template v-else>
       <el-row id="main_info">
-        <section>
+        <section id="List_info">
           <h1>{{ list.title }}</h1>
           <p>{{ list.description }}</p>
         </section>
@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style scoped>
-h1 {
+#List_info {
   text-align: center;
 }
 
