@@ -39,8 +39,8 @@
 
 <script>
 import PoliticianDetails from '@/components/Politician/PoliticianDetails'
-import LoadingSpinner from '@/components//LoadingSpinner'
-import PromiseStats from './PromiseStats'
+import LoadingSpinner from '@/components/LoadingSpinner'
+import PromiseStats from '@/components/PromiseStats'
 import ContactDetails from './ContactDetails'
 import { ContentLoader } from 'vue-content-loader'
 import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
