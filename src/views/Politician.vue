@@ -1,7 +1,7 @@
 <template>
   <section>
     <politician-desktop
-      v-bind="{ politician, promises, stats,url }" />
+      v-bind="{ politician, promises, url }" />
     <h2>Promises by {{ politician.name }} </h2>
     <promises-table :promises="promises" :exclude="['politician_name']"/>
   </section>
@@ -9,7 +9,7 @@
 
 <script>
 import { getPolitician, getPoliticianPromises } from '@/api'
-import { generateStats, updateTitle } from '@/utils'
+import { updateTitle } from '@/utils'
 import moment from 'moment'
 import PoliticianDesktop from '@/components/Politician/Desktop'
 import PromisesTable from '@/components/PromisesTable'
@@ -24,9 +24,6 @@ export default {
     }
   },
   computed: {
-    stats: function () {
-      return generateStats(this.promises)
-    },
     url () {
       return location.href
     }

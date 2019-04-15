@@ -22,10 +22,15 @@
 </template>
 
 <script>
+import { generateStats } from '@/utils'
+
 export default {
   name: 'PromiseStats',
-  props: ['stats'],
+  props: ['promises'],
   computed: {
+    stats: function () {
+      return generateStats(this.promises)
+    },
     totalPromises () {
       return Object.values(this.stats).reduce((a, b) => a + b)
     }
