@@ -4,9 +4,14 @@
       <LoadingSpinner/>
     </template>
     <template v-else>
-      <h1>{{ list.title }}</h1>
-      <p>{{ list.description }}</p>
-      <promises-table :promises="promises" :exclude="['source_name', 'politician_name']"/>
+      <el-row>
+        <h1>{{ list.title }}</h1>
+        <p>{{ list.description }}</p>
+        <promise-stats v-if="promises != 'loading'" v-bind="{ promises }"/>
+      </el-row>
+      <el-row>
+        <promises-table :promises="promises" :exclude="['source_name', 'politician_name']"/>
+      </el-row>
     </template>
   </div>
 </template>
@@ -14,7 +19,8 @@
 <script>
 import { getList, getPromise } from '@/api'
 import PromisesTable from '@/components/PromisesTable'
-import LoadingSpinner from '@/components//LoadingSpinner'
+import LoadingSpinner from '@/components/LoadingSpinner'
+import PromiseStats from '@/components/PromiseStats'
 
 export default {
   name: 'List',
@@ -25,7 +31,7 @@ export default {
       promises: []
     }
   },
-  components: { LoadingSpinner, PromisesTable },
+  components: { LoadingSpinner, PromiseStats, PromisesTable },
   async created () {
     try {
       this.list = await this.getListHandler(this.$route.params.id)
