@@ -4,10 +4,14 @@
       <LoadingSpinner/>
     </template>
     <template v-else>
-      <el-row>
-        <h1>{{ list.title }}</h1>
-        <p>{{ list.description }}</p>
-        <promise-stats v-if="promises != 'loading'" v-bind="{ promises }"/>
+      <el-row id="main_info">
+        <section>
+          <h1>{{ list.title }}</h1>
+          <p>{{ list.description }}</p>
+        </section>
+        <section>
+          <promise-stats v-if="promises != 'loading'" v-bind="{ promises }"/>
+        </section>
       </el-row>
       <el-row>
         <promises-table :promises="promises" :exclude="['source_name', 'politician_name']"/>
@@ -57,5 +61,22 @@ export default {
 <style scoped>
 h1 {
   text-align: center;
+}
+
+#main_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around
+}
+
+#main_info > section {
+  flex: 1;
+  margin: 10px
+}
+
+@media all and (max-width: 500px) {
+  #main_info {
+    flex-direction: column;
+  }
 }
 </style>
