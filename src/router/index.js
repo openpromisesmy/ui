@@ -12,6 +12,7 @@ import Lists from '@/views/Lists'
 import Participate from '@/views/Participate/index'
 import About from '@/views/About'
 import SubmitPromise from '@/views/SubmitPromise'
+import Quizzes from '@/views/Quizzes'
 import Account from '@/views/Account'
 import Contact from '@/views/Contact'
 import Oops from '@/components/404'
@@ -115,6 +116,14 @@ const routes = [
     component: Account,
     meta: {
       title: 'Account'
+    }
+  },
+  {
+    path: '/quizzes',
+    name: 'Quizzes',
+    component: Quizzes,
+    meta: {
+      title: 'Quizzes'
     }
   },
   {
