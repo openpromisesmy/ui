@@ -24,6 +24,7 @@ export default {
         { text: 'Participate', url: '/participate' },
         { text: 'Blog', externalUrl: 'https://blog.openpromises.com' },
         // { text: 'States', url: '/states' },
+        // { text: 'Quizzes', url: '/quizzes' },
         { text: 'About', url: '/about' }
         // { text: "Contact", url: "/contact" }
       ],
