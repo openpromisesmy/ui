@@ -119,7 +119,7 @@ const routes = [
     }
   },
   {
-    path: '/quizzes',
+    path: '/quizzes/:id',
     name: 'Quizzes',
     component: Quizzes,
     meta: {
