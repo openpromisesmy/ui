@@ -1,10 +1,17 @@
 <template>
-  <main id="states">
-  <h1>Promises relating to {{ this.$route.params.state }}</h1>
-
-  <loading-spinner v-if="appStatus === 'loading'" />
-  <promises-table v-else :promises="promises" :exclude="['live', 'created_at', 'politician_name']" />
-
+  <main>
+    <el-row id="main_info">
+          <section id="page-title">
+              <h1>Promises relating to {{ this.$route.params.state }}</h1>
+          </section>
+          <section>
+              <loading-spinner v-if="appStatus === 'loading'" />
+              <promise-stats v-else v-bind="{ promises }"/>
+          </section>
+    </el-row>
+    <el-row>
+      <promises-table :promises="promises" :exclude="['live', 'created_at', 'politician_name']" />
+    </el-row>
   </main>
 </template>
 
@@ -33,14 +40,24 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-main {
-  text-align: center
+#main_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around
+}
+
+#main_info > section {
+  flex: 1;
+  margin: 10px
 }
 
 .state {
   padding: 20px
+}
+
+#page-title {
+  text-align: center
 }
 
 </style>
