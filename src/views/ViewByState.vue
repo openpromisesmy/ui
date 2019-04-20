@@ -34,10 +34,10 @@ export default {
     }
   },
   computed: {
-    stateObject() {
+    stateObject () {
       return this.malaysianStates.find(x => x.name === this.stateName)
     },
-    stateName() {
+    stateName () {
       return this.$route.params.state
     }
   },
