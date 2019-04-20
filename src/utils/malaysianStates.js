@@ -49,7 +49,8 @@ const malaysianStates = [
   },
   {
     'name': 'Sabah',
-    'image': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Flag_of_Sabah.svg/1200px-Flag_of_Sabah.svg.png'
+    'image': 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Flag_of_Sabah.svg/1200px-Flag_of_Sabah.svg.png',
+    'show': true
   },
   {
     'name': 'Sarawak',
