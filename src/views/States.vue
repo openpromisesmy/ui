@@ -1,5 +1,5 @@
 <template>
-  <main id="states">
+  <main>
     <el-col v-for="state in filteredMalaysianStates" :key="state" :lg="4" :sm="6" :xs="24" class="state">
       <el-row>
         <el-card shadow="hover" :body-style="{'padding' : '0', 'position' : 'relative'}" :style="{'margin' : '5px' }">
@@ -38,7 +38,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 main {
-  text-align: center
+  text-align: center;
+  padding: 20px
 }
 
 div.el-card__body{
