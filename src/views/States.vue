@@ -1,6 +1,6 @@
 <template>
   <main id="states">
-    <el-col v-for="state in malaysianStates" :key="state" :lg="4" :sm="6" :xs="24" class="state">
+    <el-col v-for="state in filteredMalaysianStates" :key="state" :lg="4" :sm="6" :xs="24" class="state">
       <el-row>
         <el-card shadow="hover" :body-style="{'padding' : '0', 'position' : 'relative'}" :style="{'margin' : '5px' }">
           <div class="card-body">
@@ -25,6 +25,11 @@ export default {
   data () {
     return {
       malaysianStates
+    }
+  },
+  computed: {
+    filteredMalaysianStates() {
+      return this.malaysianStates.filter(x => x.show)
     }
   }
 }
