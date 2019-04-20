@@ -3,6 +3,7 @@
     <el-row id="main_info">
           <section id="page-title">
               <h1>Promises relating to {{ this.$route.params.state }}</h1>
+              <img class="state-image" :src=stateObject.image>
           </section>
           <section>
               <loading-spinner v-if="appStatus === 'loading'" />
@@ -32,6 +33,11 @@ export default {
       promises: []
     }
   },
+  computed: {
+    stateObject() {
+      return this.malaysianStates.find(x => x.name === this.$route.params.state)
+    }
+  },
   async created () {
     const { state } = this.$route.params
     this.promises = await getLivePromises(`state=${state}`)
@@ -54,6 +60,10 @@ export default {
 
 .state {
   padding: 20px
+}
+
+.state-image{
+  max-width: 100%;
 }
 
 #page-title {
