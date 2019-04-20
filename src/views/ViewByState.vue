@@ -12,11 +12,12 @@
 import malaysianStates from '@/utils/malaysianStates'
 import { getLivePromises } from '@/api'
 import PromisesTable from '@/components/PromisesTable'
-import LoadingSpinner from '@/components//LoadingSpinner'
+import LoadingSpinner from '@/components/LoadingSpinner'
+import PromiseStats from '@/components/PromiseStats'
 
 export default {
   name: 'Politicians',
-  components: { PromisesTable, LoadingSpinner },
+  components: { LoadingSpinner, PromisesTable, PromiseStats },
   data () {
     return {
       malaysianStates,
