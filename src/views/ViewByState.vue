@@ -2,7 +2,7 @@
   <main>
     <el-row id="main_info">
           <section id="page-title">
-              <h1>Promises relating to {{ this.$route.params.state }}</h1>
+              <h1>Promises relating to {{ stateName }}</h1>
               <img class="state-image" :src=stateObject.image>
           </section>
           <section>
@@ -35,12 +35,14 @@ export default {
   },
   computed: {
     stateObject() {
-      return this.malaysianStates.find(x => x.name === this.$route.params.state)
+      return this.malaysianStates.find(x => x.name === this.stateName)
+    },
+    stateName() {
+      return this.$route.params.state
     }
   },
   async created () {
-    const { state } = this.$route.params
-    this.promises = await getLivePromises(`state=${state}`)
+    this.promises = await getLivePromises(`state=${this.stateName}`)
     this.appStatus = ''
   }
 }
