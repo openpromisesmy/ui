@@ -2,7 +2,8 @@
   <main>
     <el-row id="main_info">
           <section id="page-title">
-              <h1>Promises relating to {{ this.$route.params.state }}</h1>
+              <h1>Promises relating to {{ stateName }}</h1>
+              <img class="state-image" :src=stateObject.image>
           </section>
           <section>
               <loading-spinner v-if="appStatus === 'loading'" />
@@ -32,9 +33,16 @@ export default {
       promises: []
     }
   },
+  computed: {
+    stateObject() {
+      return this.malaysianStates.find(x => x.name === this.stateName)
+    },
+    stateName() {
+      return this.$route.params.state
+    }
+  },
   async created () {
-    const { state } = this.$route.params
-    this.promises = await getLivePromises(`state=${state}`)
+    this.promises = await getLivePromises(`state=${this.stateName}`)
     this.appStatus = ''
   }
 }
@@ -52,8 +60,18 @@ export default {
   margin: 10px
 }
 
+@media all and (max-width: 500px) {
+  #main_info {
+    flex-direction: column;
+  }
+}
+
 .state {
   padding: 20px
+}
+
+.state-image{
+  max-width: 100%;
 }
 
 #page-title {
