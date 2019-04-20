@@ -60,6 +60,12 @@ export default {
   margin: 10px
 }
 
+@media all and (max-width: 500px) {
+  #main_info {
+    flex-direction: column;
+  }
+}
+
 .state {
   padding: 20px
 }
