@@ -1,6 +1,11 @@
 <template>
   <main>
-    <states-display  :states="filteredMalaysianStates" />
+    <el-row>
+      <states-display  :states="filteredMalaysianStates" />
+    </el-row>
+    <el-row>
+      <p>*Other states will be published once we have more complete data on state-related promises. If you are interested to help out with promise tracking  in your state, message us.</p>
+    </el-row>
   </main>
 </template>
 
