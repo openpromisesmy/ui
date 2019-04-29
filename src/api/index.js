@@ -111,7 +111,20 @@ function postPromise ({ user, promise }) {
   })
 }
 
-const getContributor = email => getSomething('/contributors/?email=' + email)
+async function getContributor (email) {
+  try {
+    const response = await axios.get(API_URL + '/contributors/?email=' + email, {
+      headers: {
+        'X-FIREBASE-TOKEN': await firebase.auth().currentUser.getIdToken(),
+        'X-USER-EMAIL': email
+      }
+    })
+    return response.data
+  } catch (e) {
+    console.error(e)
+  }
+}
+
 const postContributor = data => postSomething('/contributors/', data)
 
 const listPromiseUpdates = query => getSomething('/promiseUpdates/' + query)

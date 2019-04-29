@@ -22,7 +22,7 @@ export default {
   },
   components: { StatesDisplay },
   computed: {
-    filteredMalaysianStates() {
+    filteredMalaysianStates () {
       return this.malaysianStates.filter(x => x.show)
     }
   }
