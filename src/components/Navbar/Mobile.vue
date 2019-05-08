@@ -40,26 +40,26 @@
 
 <script>
 export default {
-  name: "NavbarMobile",
-  props: ["navigation", "authenticated", "email"],
-  data() {
+  name: 'NavbarMobile',
+  props: ['navigation', 'authenticated', 'email'],
+  data () {
     return {
       activeNames: []
-    };
+    }
   },
   methods: {
-    handleSelect(key, keyPath) {
+    handleSelect (key, keyPath) {
       // Collapse Nav Bar
-      this.activeNames = [];
+      this.activeNames = []
     },
-    handleOpen(key, keyPath) {
+    handleOpen (key, keyPath) {
       // Do something
     },
-    handleClose(key, keyPath) {
+    handleClose (key, keyPath) {
       // Do something
     }
   }
-};
+}
 </script>
 
 <style scoped>

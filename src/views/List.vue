@@ -40,7 +40,12 @@ export default {
     try {
       this.list = await this.getListHandler(this.$route.params.id)
       this.list.promise_ids.forEach(async promiseId => {
-        this.promises.push(await getPromise(promiseId))
+        const promise = await getPromise(promiseId)
+        if (promise) {
+          this.promises.push(promise)
+        } else {
+          console.error(`promise with ID ${promiseID} is undefined`)
+        }
       })
       this.appStatus = ''
     } catch (e) {
@@ -66,12 +71,12 @@ export default {
 #main_info {
   display: flex;
   flex-direction: row;
-  justify-content: space-around
+  justify-content: space-around;
 }
 
 #main_info > section {
   flex: 1;
-  margin: 10px
+  margin: 10px;
 }
 
 @media all and (max-width: 500px) {
