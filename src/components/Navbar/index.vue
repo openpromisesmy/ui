@@ -21,6 +21,7 @@ export default {
         // { text: 'Promises', url: '/promises' },
         { text: 'Politicians', url: '/politicians' },
         { text: 'States', url: '/states' },
+        { text: 'Lists', url: '/lists' },
         { text: 'Participate', url: '/participate' },
         { text: 'Blog', externalUrl: 'https://blog.openpromises.com' },
         // { text: 'States', url: '/states' },
