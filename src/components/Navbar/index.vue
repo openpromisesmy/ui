@@ -18,13 +18,11 @@ export default {
       activeIndex: "0",
       navigation: [
         { text: "Home", url: "/" },
-        // { text: 'Promises', url: '/promises' },
         { text: "Politicians", url: "/politicians" },
         { text: "States", url: "/states" },
         { text: "Lists", url: "/lists" },
         { text: "Participate", url: "/participate" },
         { text: "Blog", externalUrl: "https://blog.openpromises.com" },
-        // { text: 'States', url: '/states' },
         // { text: 'Quizzes', url: '/quizzes' },
         { text: "About", url: "/about" }
         // { text: "Contact", url: "/contact" }
