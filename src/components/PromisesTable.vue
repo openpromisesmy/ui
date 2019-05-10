@@ -8,7 +8,12 @@
       </p>
       <p v-if="filteredPromises.length === 0">Sorry, no promise matches your search.</p>
     </template>
-    <el-table
+    <el-row class="promise-cards-container">
+      <el-col :xs="24" :sm="8" :md="6" :lg="6" :xl="4" v-for="promise in filteredPromises" :key="promise.id" >
+        <promise-card :promise="promise" />
+      </el-col>
+    </el-row>
+    <!-- <el-table
       :data="filteredPromises"
       :default-sort="{prop: 'created_at', order: 'descending'}"
       border
@@ -57,17 +62,18 @@
         label="Politician"
         width="150"
       ></el-table-column>
-    </el-table>
+    </el-table> -->
   </section>
 </template>
 
 <script>
 import LoadingSpinner from '@/components//LoadingSpinner'
 import { formatDate } from '@/utils'
+import PromiseCard from '@/components/PromiseCard'
 
 export default {
   name: 'PromisesTable',
-  components: { LoadingSpinner },
+  components: { LoadingSpinner, PromiseCard },
   props: {
     promises: { type: Array },
     exclude: { type: Array, default: () => [] }
@@ -93,5 +99,9 @@ export default {
 }
 .el-input {
   margin-bottom: 20px;
+}
+.promise-cards-container {
+  width: 100%;
+  /* margin: 0 auto */
 }
 </style>
