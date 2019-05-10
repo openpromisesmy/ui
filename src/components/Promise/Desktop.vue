@@ -10,7 +10,8 @@
     </ContentLoader>
     <template v-else>
 
-      <el-card class="Promise_Mobile_hero" :style="'background-color:' + statusColorMap[promise.status]">
+      <el-card class="hero" :style="'background-color:' + statusColorMap[promise.status]">
+        <span class="status">{{ promise.status }}</span>
         <p class="card-title">{{ politician.name }}</p>
         <h1>{{ promise.title }}</h1>
         <p class="Promise_Mobile_date">{{ formatDate(promise.source_date) }}</p>
@@ -129,8 +130,14 @@ export default {
   text-align: right
 }
 
-.Promise_Mobile_hero {
+.hero {
   color: white;
+}
+
+.status {
+  font-size: 0.8rem;
+  font-weight: 900;
+  text-transform: uppercase
 }
 
 .quote_source_link {
