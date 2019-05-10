@@ -10,7 +10,7 @@
     </ContentLoader>
     <template v-else>
 
-      <el-card class="Promise_Mobile_hero">
+      <el-card class="Promise_Mobile_hero" :style="'background-color:' + statusColorMap[promise.status]">
         <p class="card-title">{{ politician.name }}</p>
         <h1>{{ promise.title }}</h1>
         <p class="Promise_Mobile_date">{{ formatDate(promise.source_date) }}</p>
@@ -93,12 +93,13 @@
 
 <script>
 import LoadingSpinner from '@/components//LoadingSpinner'
-import { formatDate } from '@/utils'
+import { formatDate, statusColorMap } from '@/utils'
 import { ContentLoader } from 'vue-content-loader'
 import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 
 export default {
   name: 'PromiseDesktop',
+  data: () => ({ statusColorMap }),
   props: [ 'promise', 'politician', 'appStatus', 'displayedValues', 'url' ],
   components: { LoadingSpinner, ContentLoader, VueGoodshareFacebook },
   methods: { formatDate }
@@ -129,7 +130,6 @@ export default {
 }
 
 .Promise_Mobile_hero {
-  background-color: darkslategrey;
   color: white;
 }
 
