@@ -2,7 +2,7 @@
   <router-link :to="'/promises/' + promise.id">
   <el-card class="promise-card" :style="'background-color:' + statusColorMap[promise.status]">
     <header>
-      <span class="status">{{ promise.status }}</span>
+      <span class="status">{{ promise.status === 'TBC' ? 'Review Needed' : promise.status }}</span>
       <span class="source-date">{{ formatDate(promise.source_date) }}</span>
     </header>
     <h1>{{ promise.title }}</h1>
