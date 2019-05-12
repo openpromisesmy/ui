@@ -131,10 +131,10 @@ export default {
       const textFiltered = this.promises.filter(promise => {
         return promise.title.toLowerCase().includes(this.search.toLowerCase())
       })
-      const textAndStatusFiltered = results.filter(promise => {
+      const textAndStatusFiltered = textFiltered.filter(promise => {
         return this.filterStatus == '' || promise.status == this.filterStatus
       })
-      return results
+      return textAndStatusFiltered
     }
   }
 }
