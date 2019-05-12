@@ -3,16 +3,20 @@
     <template>
       <el-row>
         <el-col :xs="24" :sm="12">
-          <el-input clearable placeholder="Search for a promise" v-model="search" class="search"/>
+          <el-input clearable placeholder="Search for a promise" v-model="search" class="search">
+            <template slot="prepend">Filter by title</template>
+          </el-input>
         </el-col>
         <el-col :xs="24" :sm="8">
-          <el-select v-model="filterStatus" filterable placeholder="Search by status">
+          <span>Filter by status</span>
+          <el-select v-model="filterStatus" clearable filterable placeholder="Search by status">
             <el-option
-              v-for="item in statusOptions"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
+              v-for="status in statusOptions"
+              :key="status"
+              :label="status"
+              :value="status">
             </el-option>
+            <template slot="prepend">Filter by title</template>
           </el-select>
         </el-col>
       </el-row>
@@ -96,34 +100,15 @@ export default {
     search: '',
     filterStatus : '',
     statusOptions: [
-    {
-      value: '',
-      label: 'All'
-    }, {
-      value: 'Review Needed',
-      label: 'Review Needed'
-    }, {
-      value: 'Not Started',
-      label: 'Not Started'
-    }, {
-      value: 'In Progress',
-      label: 'In Progress'
-    }, {
-      value: 'Fulfilled',
-      label: 'Fulfilled'
-    }, {
-      value: 'Partially Fulfilled',
-      label: 'Partially Fulfilled'
-    }, {
-      value: 'At Risk',
-      label: 'At Risk'
-    }, {
-      value: 'Retracted',
-      label: 'Retracted'
-    }, {
-      value: 'Broken',
-      label: 'Broken'
-    }],
+      'Review Needed',
+      'Not Started',
+      'In Progress',
+      'Fulfilled',
+      'Partially Fulfilled',
+      'At Risk',
+      'Retracted',
+      'Broken'
+    ],
   }),
   methods: { formatDate },
   computed: {
