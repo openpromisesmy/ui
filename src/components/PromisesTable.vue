@@ -128,7 +128,7 @@ export default {
   methods: { formatDate },
   computed: {
     filteredPromises () {
-      var results = this.promises.filter(promise => {
+      let results = this.promises.filter(promise => {
         return promise.title.toLowerCase().includes(this.search.toLowerCase())
       })
       results = results.filter(promise => {
