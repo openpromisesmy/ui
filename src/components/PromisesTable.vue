@@ -1,7 +1,21 @@
 <template>
   <section>
     <template>
-      <el-input clearable placeholder="Search for a promise" v-model="search" class="search"/>
+      <el-row>
+        <el-col :xs="24" :sm="12">
+          <el-input clearable placeholder="Search for a promise" v-model="search" class="search"/>
+        </el-col>
+        <el-col :xs="24" :sm="8">
+          <el-select v-model="filterStatus" filterable placeholder="Search by status">
+            <el-option
+              v-for="item in statusOptions"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value">
+            </el-option>
+          </el-select>
+        </el-col>
+      </el-row>
       <p v-if="search.length > 0 && filteredPromises.length > 0">
         <b>{{ filteredPromises.length }}</b>
         promise{{filteredPromises.length > 1 ? 's' : ''}} matches your search.
@@ -79,14 +93,48 @@ export default {
     exclude: { type: Array, default: () => [] }
   },
   data: () => ({
-    search: ''
+    search: '',
+    filterStatus : '',
+    statusOptions: [
+    {
+      value: '',
+      label: 'All'
+    }, {
+      value: 'Review Needed',
+      label: 'Review Needed'
+    }, {
+      value: 'Not Started',
+      label: 'Not Started'
+    }, {
+      value: 'In Progress',
+      label: 'In Progress'
+    }, {
+      value: 'Fulfilled',
+      label: 'Fulfilled'
+    }, {
+      value: 'Partially Fulfilled',
+      label: 'Partially Fulfilled'
+    }, {
+      value: 'At Risk',
+      label: 'At Risk'
+    }, {
+      value: 'Retracted',
+      label: 'Retracted'
+    }, {
+      value: 'Broken',
+      label: 'Broken'
+    }],
   }),
   methods: { formatDate },
   computed: {
     filteredPromises () {
-      return this.promises.filter(promise => {
+      var results = this.promises.filter(promise => {
         return promise.title.toLowerCase().includes(this.search.toLowerCase())
       })
+      results = results.filter(promise => {
+        return this.filterStatus == '' || promise.status == this.filterStatus;
+      })
+      return results;
     }
   }
 }
