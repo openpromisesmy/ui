@@ -3,11 +3,10 @@
     <template>
       <el-row>
         <el-col :xs="24" :sm="12">
-          <el-input clearable placeholder="Search for a promise" v-model="search" class="search">
-            <template slot="prepend">Filter by title</template>
-          </el-input>
+          <span>Filter by title</span>
+          <el-input clearable placeholder="Search for a promise" v-model="search" class="search" />
         </el-col>
-        <el-col :xs="24" :sm="8">
+        <el-col :xs="24" :sm="12">
           <span>Filter by status</span>
           <el-select v-model="filterStatus" clearable filterable placeholder="Search by status">
             <el-option
@@ -136,5 +135,8 @@ export default {
 .promise-cards-container {
   width: 100%;
   /* margin: 0 auto */
+}
+.search {
+  width: 70%;
 }
 </style>
