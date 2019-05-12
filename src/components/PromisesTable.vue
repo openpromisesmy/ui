@@ -1,6 +1,7 @@
 <template>
   <section>
     <template>
+      <el-card class="filters">
       <el-row>
         <el-col :xs="24" :sm="12">
           <span>Filter by title</span>
@@ -19,6 +20,7 @@
           </el-select>
         </el-col>
       </el-row>
+      </el-card>
       <p v-if="search.length > 0 && filteredPromises.length > 0">
         <b>{{ filteredPromises.length }}</b>
         promise{{filteredPromises.length > 1 ? 's' : ''}} matches your search.
@@ -138,5 +140,8 @@ export default {
 }
 .search {
   width: 70%;
+}
+.filters {
+  margin: 10px
 }
 </style>
