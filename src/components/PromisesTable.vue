@@ -128,13 +128,13 @@ export default {
   methods: { formatDate },
   computed: {
     filteredPromises () {
-      let results = this.promises.filter(promise => {
+      const textFiltered = this.promises.filter(promise => {
         return promise.title.toLowerCase().includes(this.search.toLowerCase())
       })
-      results = results.filter(promise => {
-        return this.filterStatus == '' || promise.status == this.filterStatus;
+      const textAndStatusFiltered = results.filter(promise => {
+        return this.filterStatus == '' || promise.status == this.filterStatus
       })
-      return results;
+      return results
     }
   }
 }
