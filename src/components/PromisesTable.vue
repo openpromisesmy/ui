@@ -9,9 +9,9 @@
           <el-select v-model="filterStatus" filterable placeholder="Search by status">
             <el-option
               v-for="item in statusOptions"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value">
+              :key="item"
+              :label="item"
+              :value="item">
             </el-option>
           </el-select>
         </el-col>
@@ -84,6 +84,7 @@
 import LoadingSpinner from '@/components//LoadingSpinner'
 import { formatDate } from '@/utils'
 import PromiseCard from '@/components/PromiseCard'
+import promiseStatusValues from '../utils/promiseStatusValues'
 
 export default {
   name: 'PromisesTable',
@@ -95,46 +96,16 @@ export default {
   data: () => ({
     search: '',
     filterStatus : '',
-    statusOptions: [
-    {
-      value: '',
-      label: 'All'
-    }, {
-      value: 'Review Needed',
-      label: 'Review Needed'
-    }, {
-      value: 'Not Started',
-      label: 'Not Started'
-    }, {
-      value: 'In Progress',
-      label: 'In Progress'
-    }, {
-      value: 'Fulfilled',
-      label: 'Fulfilled'
-    }, {
-      value: 'Partially Fulfilled',
-      label: 'Partially Fulfilled'
-    }, {
-      value: 'At Risk',
-      label: 'At Risk'
-    }, {
-      value: 'Retracted',
-      label: 'Retracted'
-    }, {
-      value: 'Broken',
-      label: 'Broken'
-    }],
+    statusOptions : ['All',...promiseStatusValues]
   }),
   methods: { formatDate },
   computed: {
     filteredPromises () {
-      var results = this.promises.filter(promise => {
-        return promise.title.toLowerCase().includes(this.search.toLowerCase())
+      console.log(promiseStatusValues);
+      let results = this.promises.filter(promise => {
+        return (promise.title.toLowerCase().includes(this.search.toLowerCase())) && (this.filterStatus == 'All' || promise.status == this.filterStatus)
       })
-      results = results.filter(promise => {
-        return this.filterStatus == '' || promise.status == this.filterStatus;
-      })
-      return results;
+      return results
     }
   }
 }
