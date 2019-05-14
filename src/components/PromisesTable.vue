@@ -21,7 +21,7 @@
         </el-col>
       </el-row>
       </el-card>
-      <p v-if="search.length > 0 && filteredPromises.length > 0">
+      <p v-if="search.length > 0 && filteredPromises.length > 0" id="filter-result-statement">
         <b>{{ filteredPromises.length }}</b>
         promise{{filteredPromises.length > 1 ? 's' : ''}} matches your search.
       </p>
@@ -101,7 +101,7 @@ export default {
   data: () => ({
     search: '',
     filterStatus : '',
-    statusOptions : ['All',...promiseStatusValues]
+    statusOptions : [...promiseStatusValues]
   }),
   methods: { formatDate },
   computed: {
@@ -135,5 +135,8 @@ export default {
 }
 .filters {
   margin: 10px
+}
+#filter-result-statement {
+  text-align: center
 }
 </style>
