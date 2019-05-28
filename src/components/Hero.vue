@@ -31,7 +31,12 @@ export default {
 </script>
 
 <style scoped>
+@keyframes fadeIn { 
+  from { opacity: 0.6; } 
+}
+
 #logo {
+  animation: fadeIn 2s infinite alternate;
   max-width: 200px;
   display: block;
   margin: 0 auto;
