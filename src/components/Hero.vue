@@ -2,25 +2,35 @@
   <el-row class="content">
     <el-col :md="24" id="description">
       <el-row>
-        <el-col :md="6">
           <img id="logo" src="@/assets/logo.jpg">
-        </el-col>
-        <el-col :md="18">
           <h1 id="tagline">{{ tagline }}</h1>
-          <p class="description-text">
-            OpenPromises is civilian-led not for profit project that is based on recording and tracking promises made by politicians.
-            <br>We believe that technology can have a great impact on governance and democracy.
-            <br>Tech can change the world, and we aim to be a part of that.
-          </p>
-        </el-col>
+          <div class="description-text">
+            <vue-typer
+              :repeat="0"
+              :pre-type-delay="1000"
+              :pre-erase-delay="2000"
+              text="We elect our representatives into power to serve us."/><br/>
+            <vue-typer
+              id="second-line"
+              :repeat="0"
+              :pre-type-delay="5000"
+              text="Promises are made in our interests." /><br/>
+            <vue-typer
+              id="third-line"
+              :repeat="0"
+              :pre-type-delay="10000"
+              text="It's time we track those promises." />
+          </div>
       </el-row>
     </el-col>
   </el-row>
 </template>
 
 <script>
+import { VueTyper } from 'vue-typer'
 export default {
   name: "Hero",
+  components: { VueTyper },
   data() {
     return {
       tagline: "Track Promises by Your Representatives"
