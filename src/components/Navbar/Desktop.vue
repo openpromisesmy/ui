@@ -21,19 +21,19 @@
 
 <script>
 export default {
-  name: 'NavbarDesktop',
-  props: ['navigation', 'authenticated', 'email'],
-  data () {
+  name: "NavbarDesktop",
+  props: ["navigation", "authenticated", "email"],
+  data() {
     return {
-      activeIndex: '0'
-    }
+      activeIndex: "0"
+    };
   },
   methods: {
-    handleSelect (key, keyPath) {
-      console.log(key, keyPath)
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
     }
   }
-}
+};
 </script>
 
 <style scoped>
