@@ -45,6 +45,7 @@ export default {
 }
 
 #tagline {
+  text-align: center;
   margin: 20px;
   font-size: 24px;
 }
@@ -61,7 +62,8 @@ export default {
   text-align: left;
 }
 
-#description .description-text{
+#description .description-text {
+  text-align: center;
   line-height: 20px;
   margin: 20px
 }
