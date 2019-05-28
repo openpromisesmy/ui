@@ -2,20 +2,23 @@
   <el-header id="navbar">
     <img id="navbar-logo" src="@/assets/openpromises.png">
     <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
+
       <el-menu-item index="0" id="home">
         <router-link to="/">Home</router-link>
       </el-menu-item>
-      <el-submenu index="1">
+
+      <el-submenu index="1" id="promises">
         <template slot="title">Promises</template>
         <el-menu-item
           v-for="(item, index) in promiseItems"
           :key="index"
-          v-bind:index="String(index)"
+          v-bind:index="`1-${String(index)}`"
         >
           <router-link v-if="item.url" v-bind:to="item.url">{{ item.text }}</router-link>
           <a v-else-if="item.externalUrl" :href="item.externalUrl">{{ item.text }}</a>
         </el-menu-item>
       </el-submenu>
+
       <el-menu-item
         v-for="(item, index) in singleLevelItems"
         :key="index"
