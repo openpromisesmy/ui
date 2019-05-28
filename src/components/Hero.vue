@@ -8,15 +8,12 @@
             <vue-typer
               :repeat="0"
               :pre-type-delay="1000"
-              :pre-erase-delay="2000"
               text="We elect our representatives into power to serve us."/><br/>
             <vue-typer
-              id="second-line"
               :repeat="0"
-              :pre-type-delay="5000"
+              :pre-type-delay="6000"
               text="Promises are made in our interests." /><br/>
             <vue-typer
-              id="third-line"
               :repeat="0"
               :pre-type-delay="10000"
               text="It's time we track those promises." />
