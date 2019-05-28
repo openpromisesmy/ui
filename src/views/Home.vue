@@ -23,8 +23,7 @@
     </section>
 
     <section>
-      <p id="browse-title">Browse Promises by Politician</p>
-      <Politicians />
+      <Lists />
     </section>
 
     <section id="cta">
@@ -48,11 +47,11 @@
 </template>
 
 <script>
-import Politicians from '@/views/Politicians'
+import Lists from '@/views/Lists'
 
 export default {
   name: 'Home',
-  components: { Politicians },
+  components: { Lists },
   data () {
     return {
       tagline:
