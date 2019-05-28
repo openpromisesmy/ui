@@ -15,7 +15,6 @@ export default {
   },
   data () {
     return {
-      activeIndex: '0',
       navigation: [
         { text: 'Home', url: '/' },
         { text: 'Politicians', url: '/politicians' },
