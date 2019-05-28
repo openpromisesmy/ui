@@ -1,9 +1,15 @@
 <template>
   <el-header id="navbar">
     <img id="navbar-logo" src="@/assets/openpromises.png">
-
     <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
-      <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="String(index)">
+      <el-menu-item index="0" id="home">
+        <router-link to="/">Home</router-link>
+      </el-menu-item>
+      <el-menu-item
+        v-for="(item, index) in navItems"
+        :key="index"
+        v-bind:index="String(index + 1)"
+      >
         <router-link v-if="item.url" v-bind:to="item.url">{{ item.text }}</router-link>
         <a v-else-if="item.externalUrl" :href="item.externalUrl">{{ item.text }}</a>
       </el-menu-item>
@@ -25,12 +31,20 @@ export default {
   props: ["navigation", "authenticated", "email"],
   data() {
     return {
-      activeIndex: "0"
+      activeIndex: "0",
+      promiseNavItems: ["Politicians","States","Lists"]
     };
   },
   methods: {
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
+    }
+  },
+  computed: {
+    navItems() {
+      const notHome = x => x.text !== 'Home'
+      const notPromises = x => !this.promiseNavItems.includes(x.text)
+      return this.navigation.filter(x => notHome(x) && notPromises(x))
     }
   }
 };
