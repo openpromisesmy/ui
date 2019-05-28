@@ -11,7 +11,6 @@
             OpenPromises is civilian-led not for profit project that is based on recording and tracking promises made by politicians.
             <br>We believe that technology can have a great impact on governance and democracy.
             <br>Tech can change the world, and we aim to be a part of that.
-            <br>Contact us on Facebook if you want to bring OpenPromises to your country.
           </p>
         </el-col>
       </el-row>
