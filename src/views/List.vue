@@ -44,7 +44,7 @@ export default {
         if (promise) {
           this.promises.push(promise)
         } else {
-          console.error(`promise with ID ${promiseID} is undefined`)
+          console.error(`promise with ID ${promiseId} is undefined`)
         }
       })
       this.appStatus = ''
