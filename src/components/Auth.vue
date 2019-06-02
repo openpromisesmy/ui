@@ -35,7 +35,7 @@ export default {
         this.appStatus = 'loggingIn'
         const initialGetResponse = await getContributor(firebaseUser.email)
         let user
-        const userDoesNotExistYet = response.length === 0
+        const userDoesNotExistYet = initialGetResponse === undefined || initialGetResponse.length === 0
         if (userDoesNotExistYet) {
           const data = {
             name: firebaseUser.name,
