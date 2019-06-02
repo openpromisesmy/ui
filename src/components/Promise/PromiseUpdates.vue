@@ -14,7 +14,7 @@ import PromiseUpdateCard from '@/components/Promise/PromiseUpdateCard'
 
 export default {
   name: 'PromiseUpdates',
-  props: ['promiseUpdates', 'promiseID'],
+  props: ['promiseUpdates'],
   components: { PromiseUpdateCard }
 }
 </script>
