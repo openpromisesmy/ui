@@ -33,19 +33,20 @@ export default {
         this.appStatus = 'popup'
         const firebaseUser = await googleSignIn()
         this.appStatus = 'loggingIn'
-        const response = await getContributor(firebaseUser.email)
-        // below: when first time signing in, create account
-        let user = response[0]
-        if (response.length === 0) {
+        const initialGetResponse = await getContributor(firebaseUser.email)
+        let user
+        const userDoesNotExistYet = response.length === 0
+        if (userDoesNotExistYet) {
           const data = {
             name: firebaseUser.name,
             email: firebaseUser.email
           }
           await postContributor(data)
-          const response2 = await getContributor(firebaseUser.email)
-          user = response2[0]
+          user = (await getContributor(firebaseUser.email))[0]
+        } else {
+          user = initialGetResponse[0]
         }
-        this.$store.commit('login', user)
+        if (user) return this.$store.commit('login', user)
       } catch (e) {
         console.error(e)
       }
