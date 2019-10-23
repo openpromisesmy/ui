@@ -9,7 +9,7 @@ const quizSetting = [{
   'questions': [
     // Question 1
     {
-      'name': 'Do you own a cars?',
+      'name': 'Do you own any cars?',
       'description': 'Choose 1 of the following',
       'choices': [
         {
@@ -21,7 +21,7 @@ const quizSetting = [{
           'value': 3
         },
         {
-          'title': 'I own one cars below 1600cc, and another car is above 1600cc which is more than 10 years old',
+          'title': 'I own one car below 1600cc, and another car above 1600cc which is more than 10 years old',
           'value': 3
         },
         {
@@ -36,7 +36,7 @@ const quizSetting = [{
     },
     // Question 2
     {
-      'name': 'Do you own a motorcycles?',
+      'name': 'Do you own any motorcycles?',
       'description': 'Choose 1 of the following',
       'choices': [
         {
@@ -48,7 +48,7 @@ const quizSetting = [{
           'value': 2
         },
         {
-          'title': 'I own one motorcycles below 150cc, and another car is above 1600cc which is more than 7 years old',
+          'title': 'I own one motorcycle below 150cc, and another car is above 1600cc which is more than 7 years old',
           'value': 2
         },
         {
