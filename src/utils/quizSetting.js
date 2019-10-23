@@ -1,5 +1,5 @@
 const quizSetting = [{
-  'title': 'Fuel Subsidy Checking',
+  'title': 'Fuel Subsidy Check',
   'description': 'Take this quiz below if you are a BSH recipient to find out how much cash payout you are eligible to receive for fuel next year. For non-BSH recipients, you will receive a special Kad95 to enjoy a discount of 30 sen per litre (limited to 100 litres per month) for cars or 40 litres per month for motorcycles when purchasing RON95 at the petrol station.',
   'result': {
     1: 'You don\'t get fuel subsidy. Take noted that subsidy always reserved for needed person',
