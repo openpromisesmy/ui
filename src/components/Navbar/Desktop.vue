@@ -1,9 +1,29 @@
 <template>
   <el-header id="navbar">
     <img id="navbar-logo" src="@/assets/openpromises.png">
-
     <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
-      <el-menu-item v-for="(item, index) in navigation" :key="index" v-bind:index="String(index)">
+
+      <el-menu-item index="0" id="home">
+        <router-link to="/">Home</router-link>
+      </el-menu-item>
+
+      <el-submenu index="1" id="promises">
+        <template slot="title">Promises</template>
+        <el-menu-item
+          v-for="(item, index) in promiseItems"
+          :key="index"
+          v-bind:index="`1-${String(index)}`"
+        >
+          <router-link v-if="item.url" v-bind:to="item.url">{{ item.text }}</router-link>
+          <a v-else-if="item.externalUrl" :href="item.externalUrl">{{ item.text }}</a>
+        </el-menu-item>
+      </el-submenu>
+
+      <el-menu-item
+        v-for="(item, index) in singleLevelItems"
+        :key="index"
+        v-bind:index="String(index + 2)"
+      >
         <router-link v-if="item.url" v-bind:to="item.url">{{ item.text }}</router-link>
         <a v-else-if="item.externalUrl" :href="item.externalUrl">{{ item.text }}</a>
       </el-menu-item>
@@ -21,25 +41,37 @@
 
 <script>
 export default {
-  name: 'NavbarDesktop',
-  props: ['navigation', 'authenticated', 'email'],
-  data () {
+  name: "NavbarDesktop",
+  props: ["navigation", "authenticated", "email"],
+  data() {
     return {
-      activeIndex: '0'
-    }
+      activeIndex: "0",
+      promiseNavItems: ["Politicians","States","Lists"]
+    };
   },
   methods: {
-    handleSelect (key, keyPath) {
-      console.log(key, keyPath)
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    isPromiseItem(x) {
+      return this.promiseNavItems.includes(x.text)
+    }
+  },
+  computed: {
+    singleLevelItems() {
+      const notHome = x => x.text !== 'Home'
+      return this.navigation.filter(x => notHome(x) && !this.isPromiseItem(x))
+    },
+    promiseItems() {
+      return this.navigation.filter(x => this.isPromiseItem(x))
     }
   }
-}
+};
 </script>
 
 <style scoped>
 a {
   text-decoration: none;
-  font-size: 1rem;
 }
 #navbar-logo {
   margin: 7px 12px 7px 12px;

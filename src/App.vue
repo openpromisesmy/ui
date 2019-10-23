@@ -42,11 +42,4 @@ export default {
 .title {
   font-size: 36px;
 }
-
-#logo {
-  max-width: 200px;
-  margin-bottom: 2em;
-  border-radius: 20px;
-  box-shadow: 3px 3px 7px 1px #999999;
-}
 </style>

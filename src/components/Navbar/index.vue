@@ -1,5 +1,5 @@
 <template>
-  <navbar-mobile v-if="$mq === 'sm'" v-bind="{ navigation, authenticated }"/>
+  <navbar-mobile v-if="$mq === 'navbar' || $mq === 'sm'" v-bind="{ navigation, authenticated }"/>
   <navbar-desktop v-else v-bind="{ navigation, authenticated }"/>
 </template>
 
@@ -15,7 +15,6 @@ export default {
   },
   data () {
     return {
-      activeIndex: '0',
       navigation: [
         { text: 'Home', url: '/' },
         { text: 'Politicians', url: '/politicians' },

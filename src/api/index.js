@@ -13,7 +13,12 @@ async function getSomething (path) {
 
 async function postSomething (path, data) {
   try {
-    const response = await axios.post(API_URL + path, data)
+    const response = await axios.post(API_URL + path, data, {
+      headers: {
+        'X-FIREBASE-TOKEN': await firebase.auth().currentUser.getIdToken(),
+        'X-USER-EMAIL': await firebase.auth().currentUser.email
+      }
+    })
     return response.data
   } catch (e) {
     console.error(e)

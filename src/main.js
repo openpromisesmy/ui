@@ -14,6 +14,7 @@ Vue.use(ElementUI, { locale })
 Vue.use(VueMq, {
   breakpoints: {
     sm: 450,
+    navbar: 780,
     md: 1250,
     lg: Infinity
   }
