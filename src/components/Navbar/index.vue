@@ -23,7 +23,8 @@ export default {
         { text: 'Participate', url: '/participate' },
         { text: 'Blog', externalUrl: 'https://blog.openpromises.com' },
         // { text: 'Quizzes', url: '/quizzes' },
-        { text: 'About', url: '/about' }
+        { text: 'About', url: '/about' },
+        { text: 'Budget 2020', url: '/budget-2020/quiz' }
         // { text: "Contact", url: "/contact" }
       ],
       authenticated: this.$store.state.user.authenticated
