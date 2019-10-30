@@ -9,7 +9,7 @@ const quizSetting = [{
   'questions': [
     // Question 1
     {
-      'name': 'Do you own a cars?',
+      'name': 'Do you own a car?',
       'description': 'Choose 1 of the following',
       'choices': [
         {
@@ -36,7 +36,7 @@ const quizSetting = [{
     },
     // Question 2
     {
-      'name': 'Do you own a motorcycles?',
+      'name': 'Do you own a motorcycle?',
       'description': 'Choose 1 of the following',
       'choices': [
         {
