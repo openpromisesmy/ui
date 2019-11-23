@@ -28,12 +28,21 @@
         <a v-else-if="item.externalUrl" :href="item.externalUrl">{{ item.text }}</a>
       </el-menu-item>
       <el-menu-item index="5" id="account">
-        <router-link to="/account">{{ this.$store.state.user.authenticated ? 'Account' : 'Login' }}</router-link>
+        <router-link to="/account">
+         <el-button>
+          {{ this.$store.state.user.authenticated ? 'Account' : 'Login' }}
+         </el-button>
+        </router-link>
       </el-menu-item>
       <el-menu-item index="6" id="submit">
         <router-link to="/submit">
           <el-button type="primary">Submit A Promise</el-button>
         </router-link>
+      </el-menu-item>
+      <el-menu-item index="7" id="patreon">
+        <a href="https://www.patreon.com/openpromisesmalaysia">
+          <el-button type="danger">Keep Us running</el-button>
+        </a>
       </el-menu-item>
     </el-menu>
   </el-header>
@@ -78,9 +87,12 @@ a {
   float: left;
   height: 45px;
 }
+#patreon,
 #submit,
 #account {
   float: right;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 .el-menu {
   background-color: transparent;
