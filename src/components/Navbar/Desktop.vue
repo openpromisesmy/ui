@@ -39,8 +39,8 @@
           <el-button type="primary">Submit A Promise</el-button>
         </router-link>
       </el-menu-item>
-      <el-menu-item index="7" id="patreon">
-        <a href="https://www.patreon.com/openpromisesmalaysia">
+      <el-menu-item index="7" id="patreon" v-if="$route.path!=='/'">
+        <a target="_blank" href="https://www.patreon.com/openpromisesmalaysia">
           <el-button type="danger">Keep Us running</el-button>
         </a>
       </el-menu-item>
