@@ -26,7 +26,9 @@ PROD_FIREBASE_MESSAGING_SENDER_ID:
 
 ```
 
-todo: use `DEV_` variables when in dev mode (set this in config/dev.env.js). Currently all the variables names are `PROD_`
+## TODOS:
+
+- use `DEV_` variables when in dev mode (set this in config/dev.env.js). Currently all the variables names are `PROD_`
 
 ```
 
