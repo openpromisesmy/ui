@@ -1,8 +1,27 @@
 <template>
   <section>
     <template>
-      <el-input clearable placeholder="Search for a promise" v-model="search" class="search"/>
-      <p v-if="search.length > 0 && filteredPromises.length > 0">
+      <el-card class="filters">
+      <el-row>
+        <el-col :xs="24" :sm="12">
+          <span>Filter by title</span>
+          <el-input clearable placeholder="Search for a promise" v-model="search" class="search" />
+        </el-col>
+        <el-col :xs="24" :sm="12">
+          <span>Filter by status</span>
+          <el-select v-model="filterStatus" clearable filterable placeholder="Search by status">
+            <el-option
+              v-for="status in statusOptions"
+              :key="status"
+              :label="status"
+              :value="status">
+            </el-option>
+            <template slot="prepend">Filter by title</template>
+          </el-select>
+        </el-col>
+      </el-row>
+      </el-card>
+      <p v-if="search.length > 0 && filteredPromises.length > 0" id="filter-result-statement">
         <b>{{ filteredPromises.length }}</b>
         promise{{filteredPromises.length > 1 ? 's' : ''}} matches your search.
       </p>
@@ -70,6 +89,7 @@
 import LoadingSpinner from '@/components//LoadingSpinner'
 import { formatDate } from '@/utils'
 import PromiseCard from '@/components/PromiseCard'
+import promiseStatusValues from '../utils/promiseStatusValues'
 
 export default {
   name: 'PromisesTable',
@@ -79,14 +99,20 @@ export default {
     exclude: { type: Array, default: () => [] }
   },
   data: () => ({
-    search: ''
+    search: '',
+    filterStatus : '',
+    statusOptions : [...promiseStatusValues]
   }),
   methods: { formatDate },
   computed: {
     filteredPromises () {
-      return this.promises.filter(promise => {
+      const textFiltered = this.promises.filter(promise => {
         return promise.title.toLowerCase().includes(this.search.toLowerCase())
       })
+      const textAndStatusFiltered = textFiltered.filter(promise => {
+        return this.filterStatus == '' || promise.status == this.filterStatus
+      })
+      return textAndStatusFiltered
     }
   }
 }
@@ -103,5 +129,14 @@ export default {
 .promise-cards-container {
   width: 100%;
   /* margin: 0 auto */
+}
+.search {
+  width: 70%;
+}
+.filters {
+  margin: 10px
+}
+#filter-result-statement {
+  text-align: center
 }
 </style>

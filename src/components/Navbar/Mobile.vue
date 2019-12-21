@@ -1,6 +1,6 @@
 <template>
   <el-collapse v-model="activeNames" id="navbar">
-    <img id="navbar-logo" src="@/assets/openpromises.png">
+    <img id="navbar-logo" src="@/assets/openpromises.png" />
 
     <el-collapse-item title="Menu" name="1">
       <el-row class="tac">
@@ -31,6 +31,11 @@
                 <el-button type="primary">Submit A Promise</el-button>
               </router-link>
             </el-menu-item>
+            <el-menu-item index="6" id="patreon" v-if="$route.path!=='/'">
+              <a target="_blank" href="https://www.patreon.com/openpromisesmalaysia">
+                <el-button type="danger">Keep Us running</el-button>
+              </a>
+            </el-menu-item>
           </el-menu>
         </el-col>
       </el-row>
@@ -40,26 +45,26 @@
 
 <script>
 export default {
-  name: 'NavbarMobile',
-  props: ['navigation', 'authenticated', 'email'],
-  data () {
+  name: "NavbarMobile",
+  props: ["navigation", "authenticated", "email"],
+  data() {
     return {
       activeNames: []
-    }
+    };
   },
   methods: {
-    handleSelect (key, keyPath) {
+    handleSelect(key, keyPath) {
       // Collapse Nav Bar
-      this.activeNames = []
+      this.activeNames = [];
     },
-    handleOpen (key, keyPath) {
+    handleOpen(key, keyPath) {
       // Do something
     },
-    handleClose (key, keyPath) {
+    handleClose(key, keyPath) {
       // Do something
     }
   }
-}
+};
 </script>
 
 <style scoped>

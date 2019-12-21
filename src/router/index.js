@@ -15,6 +15,7 @@ import SubmitPromise from '@/views/SubmitPromise'
 import Quizzes from '@/views/Quizzes'
 import Account from '@/views/Account'
 import Contact from '@/views/Contact'
+import FederalBudgetQuiz from '@/views/FederalBudgetQuiz'
 import Oops from '@/components/404'
 import beforeEach from './beforeEach'
 
@@ -116,6 +117,14 @@ const routes = [
     component: Account,
     meta: {
       title: 'Account'
+    }
+  },
+  {
+    path: '/budget-2020/quiz',
+    name: 'FederalBudgetQuiz',
+    component: FederalBudgetQuiz,
+    meta: {
+      title: 'FederalBudgetQuiz'
     }
   },
   {

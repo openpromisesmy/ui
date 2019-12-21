@@ -3,6 +3,7 @@ import { isEmpty, capitalize } from 'lodash'
 import promiseStatusValues from './promiseStatusValues'
 import updateTitle from './updateTitle'
 import statusColorMap from './statusColorMap'
+import quizSetting from './quizSetting'
 
 function generateStats (promises) {
   let stats = {}
@@ -48,5 +49,6 @@ export {
   updateCache,
   loadCache,
   statusColorMap,
-  updateTitle
+  updateTitle,
+  quizSetting
 }

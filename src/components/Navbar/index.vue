@@ -1,5 +1,5 @@
 <template>
-  <navbar-mobile v-if="$mq === 'sm'" v-bind="{ navigation, authenticated }"/>
+  <navbar-mobile v-if="$mq === 'navbar' || $mq === 'sm'" v-bind="{ navigation, authenticated }"/>
   <navbar-desktop v-else v-bind="{ navigation, authenticated }"/>
 </template>
 
@@ -15,7 +15,6 @@ export default {
   },
   data () {
     return {
-      activeIndex: '0',
       navigation: [
         { text: 'Home', url: '/' },
         { text: 'Politicians', url: '/politicians' },
@@ -24,7 +23,8 @@ export default {
         { text: 'Participate', url: '/participate' },
         { text: 'Blog', externalUrl: 'https://blog.openpromises.com' },
         // { text: 'Quizzes', url: '/quizzes' },
-        { text: 'About', url: '/about' }
+        { text: 'About', url: '/about' },
+        { text: 'Budget 2020', url: '/budget-2020/quiz' }
         // { text: "Contact", url: "/contact" }
       ],
       authenticated: this.$store.state.user.authenticated
