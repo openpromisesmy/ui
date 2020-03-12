@@ -31,47 +31,47 @@
 </template>
 
 <script>
-import { getPoliticians } from "@/api";
-import { loadCache, updateCache } from "@/utils";
-import LoadingSpinner from "@/components//LoadingSpinner";
+import { getPoliticians } from '@/api'
+import { loadCache, updateCache } from '@/utils'
+import LoadingSpinner from '@/components//LoadingSpinner'
 
 export default {
-  name: "Politicians",
-  data() {
+  name: 'Politicians',
+  data () {
     return {
       politicians: [],
-      search: ""
-    };
+      search: ''
+    }
   },
   components: { LoadingSpinner },
   computed: {
-    filteredPoliticians() {
+    filteredPoliticians () {
       return this.politicians.filter(politician => {
         return politician.name
           .toLowerCase()
-          .includes(this.search.toLowerCase());
-      });
+          .includes(this.search.toLowerCase())
+      })
     }
   },
-  async created() {
+  async created () {
     try {
-      this.politicians = await loadCache(this, "politicians", getPoliticians());
+      this.politicians = await loadCache(this, 'politicians', getPoliticians())
     } catch (e) {
-      console.log(e);
+      console.log(e)
     }
   },
-  async mounted() {
+  async mounted () {
     try {
       this.politicians = await updateCache(
         this,
-        "politicians",
+        'politicians',
         getPoliticians()
-      );
+      )
     } catch (e) {
-      console.log(e);
+      console.log(e)
     }
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
