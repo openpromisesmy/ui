@@ -143,6 +143,7 @@ a {
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
+  border: 1px solid lightblue;
 }
 
 .card-body > .text {
