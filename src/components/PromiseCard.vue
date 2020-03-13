@@ -30,6 +30,11 @@ export default {
 a {
   text-decoration: none
 }
+
+.el-card {
+  border: none;
+}
+
 .promise-card {
   width: 250px;
   height: 300px;
@@ -37,16 +42,24 @@ a {
   position: relative;
   margin: 10px auto;
 }
+
+.promise-card:hover {
+  box-shadow: 1px 2px 13px 0px rgb(132, 131, 131);
+}
+
 header {
   font-size: 0.8rem;
 }
+
 .status {
   font-weight: 900;
   text-transform: uppercase
 }
+
 .source-date {
   float: right
 }
+
 .category {
   position: absolute;
   bottom: 0;
