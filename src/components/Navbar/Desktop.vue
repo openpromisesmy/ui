@@ -1,8 +1,13 @@
 <template>
   <el-header id="navbar">
-    <img id="navbar-logo" src="@/assets/openpromises.png">
-    <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect">
-
+    <router-link to="/"
+      ><img id="navbar-logo" src="@/assets/openpromises.png"
+    /></router-link>
+    <el-menu
+      :default-active="activeIndex"
+      mode="horizontal"
+      @select="handleSelect"
+    >
       <el-menu-item index="0" id="home">
         <router-link to="/">Home</router-link>
       </el-menu-item>
@@ -14,8 +19,12 @@
           :key="index"
           v-bind:index="`1-${String(index)}`"
         >
-          <router-link v-if="item.url" v-bind:to="item.url">{{ item.text }}</router-link>
-          <a v-else-if="item.externalUrl" :href="item.externalUrl">{{ item.text }}</a>
+          <router-link v-if="item.url" v-bind:to="item.url">{{
+            item.text
+          }}</router-link>
+          <a v-else-if="item.externalUrl" :href="item.externalUrl">{{
+            item.text
+          }}</a>
         </el-menu-item>
       </el-submenu>
 
@@ -24,14 +33,18 @@
         :key="index"
         v-bind:index="String(index + 2)"
       >
-        <router-link v-if="item.url" v-bind:to="item.url">{{ item.text }}</router-link>
-        <a v-else-if="item.externalUrl" :href="item.externalUrl">{{ item.text }}</a>
+        <router-link v-if="item.url" v-bind:to="item.url">{{
+          item.text
+        }}</router-link>
+        <a v-else-if="item.externalUrl" :href="item.externalUrl">{{
+          item.text
+        }}</a>
       </el-menu-item>
       <el-menu-item index="5" id="account">
         <router-link to="/account">
-         <el-button>
-          {{ this.$store.state.user.authenticated ? 'Account' : 'Login' }}
-         </el-button>
+          <el-button>
+            {{ this.$store.state.user.authenticated ? "Account" : "Login" }}
+          </el-button>
         </router-link>
       </el-menu-item>
       <el-menu-item index="6" id="submit">
@@ -39,7 +52,7 @@
           <el-button type="primary">Submit A Promise</el-button>
         </router-link>
       </el-menu-item>
-      <el-menu-item index="7" id="patreon" v-if="$route.path!=='/'">
+      <el-menu-item index="7" id="patreon" v-if="$route.path !== '/'">
         <a target="_blank" href="https://www.patreon.com/openpromisesmalaysia">
           <el-button type="danger">Keep Us running</el-button>
         </a>
@@ -55,7 +68,7 @@ export default {
   data() {
     return {
       activeIndex: "0",
-      promiseNavItems: ["Politicians","States","Lists"]
+      promiseNavItems: ["Politicians", "States", "Lists"]
     };
   },
   methods: {
@@ -63,16 +76,16 @@ export default {
       console.log(key, keyPath);
     },
     isPromiseItem(x) {
-      return this.promiseNavItems.includes(x.text)
+      return this.promiseNavItems.includes(x.text);
     }
   },
   computed: {
     singleLevelItems() {
-      const notHome = x => x.text !== 'Home'
-      return this.navigation.filter(x => notHome(x) && !this.isPromiseItem(x))
+      const notHome = x => x.text !== "Home";
+      return this.navigation.filter(x => notHome(x) && !this.isPromiseItem(x));
     },
     promiseItems() {
-      return this.navigation.filter(x => this.isPromiseItem(x))
+      return this.navigation.filter(x => this.isPromiseItem(x));
     }
   }
 };
@@ -86,6 +99,8 @@ a {
   margin: 7px 12px 7px 12px;
   float: left;
   height: 45px;
+  position: relative;
+  z-index: 999;
 }
 #patreon,
 #submit,
