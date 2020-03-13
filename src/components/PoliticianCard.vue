@@ -60,6 +60,7 @@ export default {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border: 1px solid lightblue;
+  margin-right: 10px;
 }
 
 .card-body > .text {
