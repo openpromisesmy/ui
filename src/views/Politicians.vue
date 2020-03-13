@@ -21,10 +21,9 @@
       >
         <router-link :to="/politician/ + o.id">
           <el-card
+            class="politician-card"
             shadow="hover"
-            :style="{
-              position: 'relative'
-            }"
+            :body-style="{ padding: '0px', height: '100%' }"
           >
             <div class="card-body">
               <div
@@ -122,32 +121,31 @@ a {
   margin: 5px;
 }
 
-.card-body {
-  /* padding: 0px; */
-  /* position: absolute; */
-  /* left: 0; */
-  /* top: 110px; */
-  /* width: 100%;
-  height: 100%; */
-  /* display: flex;
-  align-items: center;
-  flex-direction: row; */
+.el-card:hover {
+  background-color: rgba(240, 248, 255, 0.5);
 }
 
-.card-body > div {
+.card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.card-body > .thumbnail,
+.card-body > .text {
   display: inline-block;
 }
 
-.card-body .thumbnail {
+.card-body > .thumbnail {
   width: 15vh;
   height: 15vh;
-  /* display: block; */
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
 }
 
-.card-body .text {
+.card-body > .text {
   font-size: 0.9rem;
   width: 60%;
   vertical-align: top;
@@ -156,11 +154,6 @@ a {
 .card-body p {
   margin: 0;
 }
-
-/* .image {
-  width: 100%;
-  display: block;
-} */
 
 .search {
   width: 320px;
