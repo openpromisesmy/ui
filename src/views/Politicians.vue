@@ -4,74 +4,97 @@
       <p>Loading politicians...This will take 1-2 seconds.</p>
       <LoadingSpinner />
     </template>
-    <el-input clearable placeholder="Search for a politician" v-model="search" class="search" />
+    <el-input
+      clearable
+      placeholder="Search for a politician"
+      v-model="search"
+      class="search"
+    />
 
     <el-row class="politicians-row">
-      <el-col :xs="12" :sm="6" :md="4" v-for="o in filteredPoliticians" :key="o.id">
-        <el-card
-          shadow="hover"
-          :style="{'background' : 'url(' + o.profile_image + ') no-repeat center center', 'background-size' : 'cover', 'position' : 'relative','margin' : '3px' }"
-        >
-          <div class="card-body">
-            <router-link :to="/politician/ + o.id">
-              <div class="card-info">
-                <span>{{ o.name }}</span>
-                <div class="bottom clearfix">
-                  <time class="time">{{ o.primary_position }}</time>
-                </div>
+      <el-col
+        :xs="24"
+        :sm="12"
+        :lg="8"
+        v-for="o in filteredPoliticians"
+        :key="o.id"
+      >
+        <router-link :to="/politician/ + o.id">
+          <el-card
+            shadow="hover"
+            :style="{
+              position: 'relative'
+            }"
+          >
+            <div class="card-body">
+              <div
+                class="thumbnail"
+                :style="{
+                  background:
+                    'url(' + o.profile_image + ') no-repeat center center',
+                  'background-size': 'cover'
+                }"
+              ></div>
+              <div class="text">
+                <p>
+                  <b>{{ o.name }}</b>
+                </p>
+                <p>{{ o.primary_position }}</p>
               </div>
-            </router-link>
-          </div>
-        </el-card>
+            </div>
+          </el-card>
+        </router-link>
       </el-col>
     </el-row>
 
-    <p v-if="filteredPoliticians.length === 0">Sorry, no politicians match your search.</p>
+    <p v-if="filteredPoliticians.length === 0">
+      Sorry, no politicians match your search.
+    </p>
   </main>
 </template>
 
 <script>
-import { getPoliticians } from '@/api'
-import { loadCache, updateCache } from '@/utils'
-import LoadingSpinner from '@/components//LoadingSpinner'
+import { getPoliticians } from "@/api";
+import { loadCache, updateCache } from "@/utils";
+import LoadingSpinner from "@/components//LoadingSpinner";
 
 export default {
-  name: 'Politicians',
-  data () {
+  name: "Politicians",
+  data() {
     return {
       politicians: [],
-      search: ''
-    }
+      search: ""
+    };
   },
   components: { LoadingSpinner },
   computed: {
-    filteredPoliticians () {
+    filteredPoliticians() {
       return this.politicians.filter(politician => {
         return politician.name
           .toLowerCase()
-          .includes(this.search.toLowerCase())
-      })
+          .includes(this.search.toLowerCase());
+      });
     }
   },
-  async created () {
+  async created() {
     try {
-      this.politicians = await loadCache(this, 'politicians', getPoliticians())
+      this.politicians = await loadCache(this, "politicians", getPoliticians());
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
   },
-  async mounted () {
+  async mounted() {
     try {
       this.politicians = await updateCache(
         this,
-        'politicians',
+        "politicians",
         getPoliticians()
-      )
+      );
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -82,11 +105,6 @@ main {
 
 a {
   text-decoration: none;
-  color: white;
-}
-.time {
-  font-size: 12px;
-  color: #999;
 }
 
 .bottom {
@@ -100,50 +118,49 @@ a {
 }
 
 .el-card {
-  height: 200px;
+  height: 120px;
+  margin: 5px;
 }
 
 .card-body {
-  padding: 0px;
-  position: absolute;
-  left: 0;
-  background: rgb(15, 15, 15, 0.8);
-  top: 110px;
-  width: 100%;
-  height: 100%;
-  -webkit-transition: all 0.4s ease-out;
-  -moz-transition: all 0.4s ease-out;
-  -ms-transition: all 0.4s ease-out;
-  -o-transition: all 0.4s ease-out;
-  transition: all 0.4s ease-out;
+  /* padding: 0px; */
+  /* position: absolute; */
+  /* left: 0; */
+  /* top: 110px; */
+  /* width: 100%;
+  height: 100%; */
+  /* display: flex;
+  align-items: center;
+  flex-direction: row; */
 }
 
-.el-card:hover .card-body {
-  top: 0px;
+.card-body > div {
+  display: inline-block;
 }
 
-.card-info {
-  padding: 14px;
-  height: 100%;
+.card-body .thumbnail {
+  width: 15vh;
+  height: 15vh;
+  /* display: block; */
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
 }
 
-.image {
+.card-body .text {
+  font-size: 0.9rem;
+  width: 60%;
+  vertical-align: top;
+}
+
+.card-body p {
+  margin: 0;
+}
+
+/* .image {
   width: 100%;
   display: block;
-  object-fit: cover; /* Do not scale the image */
-  object-position: top; /* Center the image within the element */
-  height: 180px;
-}
-
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: "";
-}
-
-.clearfix:after {
-  clear: both;
-}
+} */
 
 .search {
   width: 320px;
@@ -156,7 +173,7 @@ a {
   margin: 0 auto;
 }
 
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .image {
     height: 150px;
   }
@@ -164,5 +181,5 @@ a {
     height: 280px;
     min-width: unset;
   }
-}
+} */
 </style>
