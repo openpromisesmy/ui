@@ -20,28 +20,7 @@
         :key="o.id"
       >
         <router-link :to="/politician/ + o.id">
-          <el-card
-            class="politician-card"
-            shadow="hover"
-            :body-style="{ padding: '0px', height: '100%' }"
-          >
-            <div class="card-body">
-              <div
-                class="thumbnail"
-                :style="{
-                  background:
-                    'url(' + o.profile_image + ') no-repeat center center',
-                  'background-size': 'cover'
-                }"
-              ></div>
-              <div class="text">
-                <p>
-                  <b>{{ o.name }}</b>
-                </p>
-                <p>{{ o.primary_position }}</p>
-              </div>
-            </div>
-          </el-card>
+          <politician-card :o="o" />
         </router-link>
       </el-col>
     </el-row>
@@ -55,7 +34,8 @@
 <script>
 import { getPoliticians } from "@/api";
 import { loadCache, updateCache } from "@/utils";
-import LoadingSpinner from "@/components//LoadingSpinner";
+import LoadingSpinner from "@/components/LoadingSpinner";
+import PoliticianCard from "@/components/PoliticianCard";
 
 export default {
   name: "Politicians",
@@ -65,7 +45,7 @@ export default {
       search: ""
     };
   },
-  components: { LoadingSpinner },
+  components: { LoadingSpinner, PoliticianCard },
   computed: {
     filteredPoliticians() {
       return this.politicians.filter(politician => {
@@ -96,7 +76,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 main {
   text-align: center;
@@ -116,46 +95,6 @@ a {
   float: right;
 }
 
-.el-card {
-  height: 120px;
-  margin: 5px;
-}
-
-.el-card:hover {
-  background-color: rgba(240, 248, 255, 0.5);
-}
-
-.card-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.card-body > .thumbnail,
-.card-body > .text {
-  display: inline-block;
-}
-
-.card-body > .thumbnail {
-  width: 15vh;
-  height: 15vh;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border: 1px solid lightblue;
-}
-
-.card-body > .text {
-  font-size: 0.9rem;
-  width: 60%;
-  vertical-align: top;
-}
-
-.card-body p {
-  margin: 0;
-}
-
 .search {
   width: 320px;
   max-width: 90vw;
@@ -163,17 +102,6 @@ a {
 }
 
 .politicians-row {
-  width: 90vw;
   margin: 0 auto;
 }
-
-/* @media only screen and (max-width: 600px) {
-  .image {
-    height: 150px;
-  }
-  .el-card {
-    height: 280px;
-    min-width: unset;
-  }
-} */
 </style>
