@@ -18,21 +18,28 @@
               v-for="(item, index) in navigation"
               :key="index"
             >
-              <router-link v-if="item.url" v-bind:to="item.url">{{ item.text }}</router-link>
-              <a v-else-if="item.externalUrl" :href="item.externalUrl">{{ item.text }}</a>
+              <router-link v-if="item.url" v-bind:to="item.url">{{
+                item.text
+              }}</router-link>
+              <a v-else-if="item.externalUrl" :href="item.externalUrl">{{
+                item.text
+              }}</a>
             </el-menu-item>
             <el-menu-item index="4" id="account">
-              <router-link
-                to="/account"
-              >{{ this.$store.state.user.authenticated ? 'Account' : 'Login' }}</router-link>
+              <router-link to="/account">{{
+                this.$store.state.user.authenticated ? "Account" : "Login"
+              }}</router-link>
             </el-menu-item>
             <el-menu-item index="5" id="submit">
               <router-link to="/submit">
                 <el-button type="primary">Submit A Promise</el-button>
               </router-link>
             </el-menu-item>
-            <el-menu-item index="6" id="patreon" v-if="$route.path!=='/'">
-              <a target="_blank" href="https://www.patreon.com/openpromisesmalaysia">
+            <el-menu-item index="6" id="patreon" v-if="$route.path !== '/'">
+              <a
+                target="_blank"
+                href="https://www.patreon.com/openpromisesmalaysia"
+              >
                 <el-button type="danger">Keep Us running</el-button>
               </a>
             </el-menu-item>
