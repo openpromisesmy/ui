@@ -7,11 +7,13 @@
     <div class="card-body">
       <div
         class="thumbnail"
+        @error="imageLoadError"
         :style="{
-          background: 'url(' + o.profile_image + ') no-repeat center center',
+          background: 'url(' + imageToShow + ') no-repeat center center',
           'background-size': 'cover'
         }"
       ></div>
+      <img class="shadow-img" :src="o.profile_image" @error="imageLoadError" />
       <div class="text">
         <p>
           <b>{{ o.name }}</b>
@@ -25,8 +27,27 @@
 <script>
 export default {
   name: "PoliticianCard",
+  data: () => ({
+    imageAvailable: true,
+    iconPath: require("./user-icon.png")
+  }),
   props: {
     o: { type: Object }
+  },
+  computed: {
+    imageToShow: function() {
+      if (this.imageAvailable) {
+        return this.o.profile_image;
+      } else {
+        return this.iconPath;
+      }
+    }
+  },
+  methods: {
+    imageLoadError() {
+      console.log("Image failed to load" + this.o.profile_image);
+      this.imageAvailable = false;
+    }
   }
 };
 </script>
@@ -71,6 +92,10 @@ export default {
 
 .card-body p {
   margin: 0;
+}
+
+.shadow-img {
+  display: none;
 }
 
 @media only screen and (max-width: 500px) {
