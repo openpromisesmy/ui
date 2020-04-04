@@ -16,6 +16,7 @@ import Quizzes from '@/views/Quizzes'
 import Account from '@/views/Account'
 import Contact from '@/views/Contact'
 import FederalBudgetQuiz from '@/views/FederalBudgetQuiz'
+import Donate from '@/views/Donate'
 import Oops from '@/components/404'
 import beforeEach from './beforeEach'
 
@@ -133,6 +134,14 @@ const routes = [
     component: Quizzes,
     meta: {
       title: 'Quizzes'
+    }
+  },
+  {
+    path: '/keep-us-running',
+    name: 'Donate',
+    component: Donate,
+    meta: {
+      title: 'Keep Us Running'
     }
   },
   {
