@@ -94,6 +94,7 @@ export default {
 <style scoped>
 a {
   text-decoration: none;
+  display: block
 }
 #navbar-logo {
   margin: 7px 12px 7px 12px;
