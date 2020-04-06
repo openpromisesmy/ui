@@ -3,7 +3,8 @@
 ## Up and Running
 
 1. run `npm ci`
-2. in your browser, open `localhost:8080`
+2. run `npm start`
+3. in your browser, open `localhost:8080`
 
 ## Build Setup
 
