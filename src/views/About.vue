@@ -136,4 +136,10 @@ main {
   margin-bottom: 5px;
   text-align: left
 }
+
+img[id="logo"]{
+  max-width: 270px;
+  width: auto;
+  margin-bottom: 20px;
+}
 </style>
