@@ -23,7 +23,7 @@
         </el-row>
         <el-row class="copyright">
           <el-col >
-            © 2019 OpenPromises
+            © 2020 OpenPromises
           </el-col>
         </el-row>
     </footer>
@@ -54,7 +54,7 @@ export default {
   margin-top: 20px;
   background-color: darkslategray;
   padding: 10px 5px;
-  color: white
+  color: white;
 }
 .footer-link {
   color: white;

@@ -196,6 +196,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.about {
+  height: 90%;
+}
+
 .about-points {
   max-width: 600px;
   margin: 0 auto;
