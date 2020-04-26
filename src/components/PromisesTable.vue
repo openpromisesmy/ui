@@ -25,7 +25,8 @@
         <b>{{ filteredPromises.length }}</b>
         promise{{filteredPromises.length > 1 ? 's' : ''}} matches your search.
       </p>
-      <p v-if="filteredPromises.length === 0">Sorry, no promise matches your search.</p>
+      <p v-if="promises.length === 0" align="center">There have been no promises uploaded yet for this politician. Did we miss a promise? <router-link to="/submit">Submit a promise</router-link> now to help us fill that gap</p>
+      <p v-else-if="promises.length > 0 && filteredPromises.length === 0" align="center">There have been no promises about {{ search }}. Did we miss a promise? <router-link to="/submit">Submit a promise</router-link> now to help us fill that gap</p>
     </template>
     <el-row class="promise-cards-container">
       <el-col :xs="24" :sm="8" :md="6" :lg="6" :xl="4" v-for="promise in filteredPromises" :key="promise.id" >

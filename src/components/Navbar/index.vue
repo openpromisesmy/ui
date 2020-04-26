@@ -24,7 +24,7 @@ export default {
         { text: "States", url: "/states" },
         { text: "Lists", url: "/lists" },
         { text: "Participate", url: "/participate" },
-        { text: "Blog", externalUrl: "https://blog.openpromises.com" },
+        // { text: "Blog", externalUrl: "https://blog.openpromises.com" },
         // { text: 'Quizzes', url: '/quizzes' },
         { text: "About", url: "/about" }
         // { text: 'Budget 2020', url: '/budget-2020/quiz' }
