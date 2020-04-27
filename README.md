@@ -1,10 +1,9 @@
 # op-ui-2
 
 ## Up and Running
-
-1. run `npm ci`
-2. run `npm start`
-3. in your browser, open `localhost:8080`
+(you need docker already installed)
+1. run `docker-compose up`
+2. in your browser, open `localhost:8080`
 
 ## Build Setup
 
