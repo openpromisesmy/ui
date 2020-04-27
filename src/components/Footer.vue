@@ -23,7 +23,7 @@
         </el-row>
         <el-row class="copyright">
           <el-col >
-            © 2019 OpenPromises
+            © 2020 OpenPromises
           </el-col>
         </el-row>
     </footer>
