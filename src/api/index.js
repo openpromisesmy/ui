@@ -35,6 +35,17 @@ async function getSingle (path, id) {
   }
 }
 
+// Checking development variable
+// console.log(process.env.NODE_ENV);
+if (process.env.NODE_ENV == "development") {
+  // TODO: Cabinet view function here 
+  async function getCabinet() {
+    
+  }
+}
+
+
+
 const getPolitician = id => getSingle('/politicians/', id)
 const getPoliticians = () => getSomething('/politicians/')
 
