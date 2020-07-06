@@ -1,11 +1,3 @@
-// Cabinet.vue
-// import { getCabinet } from './api'
-// const cabinet = await getCabinet('perikatan nasional')
-
-//Not needing to re-call the API, we will find politicians based on the following methods
-//Array.prototype.find()
-//Array.prototype.find(x => x.id === id)
-
 const mock_cabinet = {
     ministries: [
       {
