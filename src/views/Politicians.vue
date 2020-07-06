@@ -29,9 +29,9 @@
     </p>
 
     <!-- CABINET VIEW CODE -->
-    <div v-if="showCabinet && politicians.length > 0" class="cabinet-view"> 
+    <div v-if="showCabinet && politicians.length > 0 && filteredPoliticians.length !== 0" class="cabinet-view"> 
       <h1 class="cabinet-view-title">Cabinet View </h1>
-      <el-row class="cabinet-row" v-for="ministry in getCabinet.ministries" :key="ministry.id">
+      <el-row class="cabinet-row" v-for="ministry in cabinet.ministries" :key="ministry.id">
         <h3 class="ministry-row"> {{ ministry.name }} </h3> <!-- {{ministry.id}} -->
         <el-col
           :xs="24"
@@ -72,7 +72,7 @@ import { loadCache, updateCache } from "@/utils";
 import LoadingSpinner from "@/components/LoadingSpinner";
 import PoliticianCard from "@/components/PoliticianCard";
 // CABINET VIEW CODE
-import { mock_cabinet } from '@/api/mock_cabinet.js';
+import mock_cabinet from '@/mocks/mock_cabinet.js';
 
 
 export default {
@@ -80,7 +80,8 @@ export default {
   data() {
     return {
       politicians: [],
-      search: ""
+      search: "",
+      cabinet: {},
     };
   },
   components: { LoadingSpinner, PoliticianCard },
@@ -92,19 +93,19 @@ export default {
           .includes(this.search.toLowerCase());
       });
     },
-    // CABINET VIEW CODE
     showCabinet() {
       return process.env.NODE_ENV == "development";
-      // return this.mock_cabinet;
     },
-    // CABINET VIEW CODE
-    getCabinet() {
+  },
+  methods: {
+    async getCabinet() {
       return mock_cabinet;
     }
   },
   async created() {
     try {
       this.politicians = await loadCache(this, "politicians", getPoliticians());
+      this.cabinet = await this.getCabinet();
     } catch (e) {
       console.log(e);
     }
@@ -152,7 +153,6 @@ a {
   margin: 0 auto;
 }
 
-/* CABINET VIEW CODE */
 .cabinet-view {
   margin-top: 40px;
   padding-bottom: 40px;

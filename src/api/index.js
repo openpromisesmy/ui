@@ -40,7 +40,7 @@ async function getSingle (path, id) {
 if (process.env.NODE_ENV == "development") {
   // TODO: Cabinet view function here 
   async function getCabinet() {
-    
+    return Promise.resolve(mock_cabinet);
   }
 }
 

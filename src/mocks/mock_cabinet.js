@@ -33,4 +33,4 @@ const mock_cabinet = {
   ]
 }
 
-export { mock_cabinet };
+export default mock_cabinet;
