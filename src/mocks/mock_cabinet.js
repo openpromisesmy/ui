@@ -2,10 +2,10 @@ const cabinet = {
     "ministries": [{
         ministry_id: "mock_top_leadership",
         name: "Top Leadership",
-        primary_politician_id: "sfpBmOhHuPFYVtq4wQbV",
-        primary_title: "Minister of Top Leadership",
+        primary_politician_id: "7TcN9D2JhoYUH1bfS8er",
+        primary_title: "Prime Minister",
         secondary_title: "Senior Minister",
-        secondary_politician_ids: ["ATqme0rk0KCw1WNWkksX", "dx8EJBNxptQjOxBqsXDf", "DwdDiRSLYEtdqgp7dPOQ"]
+        secondary_politician_ids: ["sfpBmOhHuPFYVtq4wQbV", "ATqme0rk0KCw1WNWkksX", "dx8EJBNxptQjOxBqsXDf", "DwdDiRSLYEtdqgp7dPOQ"]
     }, {
         ministry_id: "mock_finance",
         name: "Ministry of Finance",
