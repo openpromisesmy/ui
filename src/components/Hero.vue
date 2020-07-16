@@ -5,18 +5,9 @@
           <img id="logo" src="@/assets/logo.jpg">
           <h1 id="tagline">{{ tagline }}</h1>
           <div class="description-text">
-            <vue-typer
-              :repeat="0"
-              :pre-type-delay="1000"
-              text="We elect our representatives into power to serve us."/><br/>
-            <vue-typer
-              :repeat="0"
-              :pre-type-delay="6000"
-              text="Promises are made in our interests." /><br/>
-            <vue-typer
-              :repeat="0"
-              :pre-type-delay="10000"
-              text="It's time we track those promises." />
+            <p>We elect our representatives into power to serve us.</p>
+            <p>Promises are made in our interests.</p>
+            <p>It's time we track those promises.</p>
           </div>
       </el-row>
     </el-col>
@@ -29,10 +20,8 @@
 </template>
 
 <script>
-import { VueTyper } from 'vue-typer'
 export default {
   name: "Hero",
-  components: { VueTyper },
   data() {
     return {
       tagline: "Track Promises by Your Representatives"
@@ -42,8 +31,8 @@ export default {
 </script>
 
 <style scoped>
-@keyframes fadeIn { 
-  from { opacity: 0.6; } 
+@keyframes fadeIn {
+  from { opacity: 0.6; }
 }
 
 #logo {

@@ -4,7 +4,7 @@
         <LoadingSpinner />
       </template>
       <template v-else-if="!authenticated && appStatus === ''">
-        <h1>Login or Sign Up</h1>
+        <h1>Login or Sign Up to submit a promise</h1>
         <el-button type="primary" v-on:click="googleSignInHandler">Google Sign In</el-button>
       </template>
       <template v-else-if="appStatus === 'loggingIn'">

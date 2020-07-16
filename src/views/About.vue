@@ -86,6 +86,7 @@
             <p>What we are building behind the scenes is a platform that can be deployed for any country. If you are interested to bring this to your country, please <a href="https://facebook.com/openpromises.malaysia" target="_blank">message us on facebook</a></p>
           </el-card>
         </el-col>
+        <!--
         <el-col :md="24">
           <el-card>
             <h2>The Team</h2>
@@ -104,6 +105,7 @@
             <p>None of us are affiliated with any political party. We are just ordinary citizens hoping to do our small part in improving our country’s democracy.</p>
           </el-card>
         </el-col>
+        -->
       </el-row>
     </div>
   </main>
@@ -135,5 +137,11 @@ main {
 .el-card {
   margin-bottom: 5px;
   text-align: left
+}
+
+img[id="logo"]{
+  max-width: 270px;
+  width: auto;
+  margin-bottom: 20px;
 }
 </style>
