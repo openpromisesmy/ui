@@ -94,7 +94,7 @@ export default {
       });
     },
     showCabinet() {
-      return process.env.NODE_ENV == "development";
+      return true;
     },
   },
   methods: {
