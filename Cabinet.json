@@ -1,0 +1,67 @@
+{
+    "ministries": [
+        {
+            "ministry_id": "sadfsadfawefdsfasw4erfsdsdf",
+            "name": "Prime Minister",
+            "primary_politician_id": "7TcN9D2JhoYUH1bfS8er",
+            "primary_title": "Prime Minister"
+        },
+        {
+            "ministry_id": "asduasdiuahsduiashd",
+            "name": "Top Leadership",
+            "primary_politician_id": [
+                "wH3wgwifFY3wr1ZBEBVA",
+                "brCJRZcaJJnoqZvmZ3dX"
+            ],
+            "primary_title": [
+                "Member of Parliament for Ipoh Barat",
+                "Member of Parliament for Port Dickson"
+            ]
+        },
+        {
+            "ministry_id": "asdasdasdadasdasd",
+            "name": "Ministry of Finance",
+            "primary_politician_id": "L6lYpUWjUHYBOb_fkCB",
+            "primary_title": "Minister of Finance",
+            "secondary_politician_ids": [
+                "31ddGKthhfXp8onAIeQ2",
+                "BhVmJgt0BEuc5nl0rVxf",
+                "9R5EcUrayZd0GD64GE0W"
+            ],
+            "secondary_title": "Deputy Minister of Finance"
+        },
+        {
+            "ministry_id": "adasdasdasdasdasdasd",
+            "name": "Ministry of Health",
+            "primary_politician_id": "wxTRWm6XrXiPUnI8r9bm",
+            "primary_title": "Minister of Health",
+            "secondary_politician_ids": [
+                "D5qYZ1On8gm9WRyl2Vlu",
+                "LAEFHbjgD01SgG"
+            ],
+            "secondary_title": "Deputy Minister of Health"
+        },
+        {
+            "ministry_id": "sdasdasdasdasdasd",
+            "name": "Ministry of Education",
+            "primary_politician_id": "vlepc1B017lJ1V69YNxb",
+            "primary_title": "Minister of Education",
+            "secondary_politician_ids": [
+                "pII4TBICtJhCqt90aqX0",
+                "lYdGkUpy3rkPSweWkFoa"
+            ],
+            "secondary_title": "Deputy Minister of Education"
+        },
+        {
+            "ministry_id": "sdasdasdsadasdasd",
+            "name": "Ministry of Transport",
+            "primary_politician_id": "OHzytTgK3rwVLtcPMscS",
+            "primary_title": "Minister of Transport",
+            "secondary_politician_ids": [
+                "I2syBJB8jQOdfNa3GIlK",
+                "Y94O5uI22fseSbVz8lAv"
+            ],
+            "secondary_title": "Deputy Minister of Transport"
+        }
+    ]
+}
