@@ -58,6 +58,7 @@ main {
 #hero {
   margin: 0 auto;
   padding: 40px;
+  border-radius: 10px;
   background: #d9edf7;
 }
 
