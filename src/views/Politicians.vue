@@ -4,32 +4,9 @@
       <p>Loading politicians...This will take 1-2 seconds.</p>
       <LoadingSpinner />
     </template>
-    <el-input
-      clearable
-      placeholder="Search for a politician"
-      v-model="search"
-      class="search"
-    />
-    <el-row class="politicians-row">
-      <el-col
-        :xs="24"
-        :sm="12"
-        :lg="8"
-        v-for="o in filteredPoliticians"
-        :key="o.id"
-      >
-        <router-link :to="/politician/ + o.id">
-          <politician-card :o="o" />
-        </router-link>
-      </el-col>
-    </el-row>
-
-    <p v-if="filteredPoliticians.length === 0">
-      Sorry, no politicians match your search.
-    </p>
-
-    <!-- CABINET VIEW CODE -->
-    <div v-if="showCabinet && politicians.length > 0 && filteredPoliticians.length !== 0" class="cabinet-view"> 
+        <!-- CABINET VIEW CODE -->
+    <!-- TODO: move into its own component file -->
+    <div v-if="showCabinet && politicians.length > 0 && filteredPoliticians.length !== 0" class="cabinet-view">
       <h1 class="cabinet-view-title">Cabinet View </h1>
       <el-row class="cabinet-row" v-for="ministry in cabinet.ministries" :key="ministry.id">
         <h3 class="ministry-row"> {{ ministry.name }} </h3> <!-- {{ministry.id}} -->
@@ -37,7 +14,7 @@
           :xs="24"
           :sm="12"
           :lg="8"
-          :span="8" 
+          :span="8"
           class="primary-politician">
           <h5 class="primary-politician-title">{{ ministry.primary_title }}</h5>
           <router-link :to="/politician/ + ministry.primary_politician_id">
@@ -63,6 +40,29 @@
         </el-col>
       </el-row>
     </div>
+    <el-input
+      clearable
+      placeholder="Search for a politician"
+      v-model="search"
+      class="search"
+    />
+    <el-row class="politicians-row">
+      <el-col
+        :xs="24"
+        :sm="12"
+        :lg="8"
+        v-for="o in filteredPoliticians"
+        :key="o.id"
+      >
+        <router-link :to="/politician/ + o.id">
+          <politician-card :o="o" />
+        </router-link>
+      </el-col>
+    </el-row>
+
+    <p v-if="filteredPoliticians.length === 0">
+      Sorry, no politicians match your search.
+    </p>
   </main>
 </template>
 
@@ -156,8 +156,8 @@ a {
 .cabinet-view {
   margin-top: 40px;
   padding-bottom: 40px;
-  border-top: 3px solid;
-  border-bottom: 3px solid;
+  border-top: 1px darkgrey solid;
+  border-bottom: 1px darkgrey solid;
 }
 
 .cabinet-view-title {
