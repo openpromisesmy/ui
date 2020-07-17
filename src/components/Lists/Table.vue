@@ -8,20 +8,23 @@
       </p>
       <p v-if="filteredLists.length === 0">Sorry, no list matches your search.</p>
     </template>
-    <el-table :data="filteredLists" border style="width: 100%">
-      <el-table-column prop="title" label="Title">
-        <template slot-scope="scope">
-          <router-link :to="'/lists/' + scope.row.id">
-            <p class="list-title">{{ scope.row.title }}</p>
-          </router-link>
-        </template>
-      </el-table-column>
-      <el-table-column prop="description" label="Description">
-        <template slot-scope="scope">
-          <p class="list-title">{{ scope.row.description }}</p>
-        </template>
-      </el-table-column>
-    </el-table>
+    <!-- TODO: extract to ListCard component -->
+    <el-row class="lists-row">
+      <el-col
+        :xs="24"
+        :sm="12"
+        :lg="8"
+        v-for="list in filteredLists"
+        :key="list.id"
+      >
+        <router-link :to="/lists/ + list.id">
+          <el-card>
+            <a href="">{{ list.title }}</a>
+            <p>{{ list.description }}</p>
+          </el-card>
+        </router-link>
+      </el-col>
+    </el-row>
   </section>
 </template>
 
@@ -57,5 +60,14 @@ export default {
 }
 .el-input {
   padding: 10px 0;
+}
+.el-card {
+  height: 150px;
+  margin: 5px;
+  text-align: left;
+  padding: 10px 5px
+}
+a {
+  text-decoration: none;
 }
 </style>
