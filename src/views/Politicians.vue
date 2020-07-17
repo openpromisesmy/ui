@@ -40,6 +40,8 @@
         </el-col>
       </el-row>
     </div>
+    <h2>All Politicians</h2>
+    <p>All politicians in the OpenPromises database. If you see any missing, please get in touch with us.</p>
     <el-input
       clearable
       placeholder="Search for a politician"
