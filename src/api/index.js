@@ -35,6 +35,10 @@ async function getSingle (path, id) {
   }
 }
 
+async function getCabinet() {
+  return Promise.resolve(mock_cabinet);
+}
+
 const getPolitician = id => getSingle('/politicians/', id)
 const getPoliticians = () => getSomething('/politicians/')
 
