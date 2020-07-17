@@ -156,8 +156,6 @@ a {
 .cabinet-view {
   margin-top: 40px;
   padding-bottom: 40px;
-  border-top: 1px darkgrey solid;
-  border-bottom: 1px darkgrey solid;
 }
 
 .cabinet-view-title {
