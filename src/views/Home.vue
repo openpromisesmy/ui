@@ -6,7 +6,7 @@
     </section>
 
     <section>
-      <Lists />
+      <Politicians />
     </section>
 
     <section id="cta">
@@ -31,11 +31,11 @@
 
 <script>
 import Hero from '@/components/Hero'
-import Lists from '@/views/Lists'
+import Politicians from '@/views/Politicians'
 
 export default {
   name: 'Home',
-  components: { Hero, Lists },
+  components: { Hero, Politicians },
   created () {
     (function (d, s, id) {
       var js
