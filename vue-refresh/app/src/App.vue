@@ -1,17 +1,13 @@
 <template>
   <div id="app">
-    <Politicians />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Politicians from './views/Politicians.vue'
 
 export default {
-  name: 'App',
-  components: {
-    Politicians
-  }
+  name: 'OpenPromisesWeb',
 }
 </script>
 
