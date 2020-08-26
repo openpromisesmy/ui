@@ -4,6 +4,7 @@ import createPersistedState from 'vuex-persistedstate'
 import actions from './actions'
 import {
   SET_POLITICIAN, SET_POLITICIAN_PROMISES,
+  SET_LIST,
   SET_LISTS,
   SET_PROMISE
  } from './types'
@@ -33,6 +34,9 @@ const mutations = {
   },
   [SET_PROMISE]: function (state, { promise, id }) {
     state.promises[id] = promise
+  },
+  [SET_LIST]: function(state, list) {
+    state.lists = [ ...state.list.filter(x => x.id !== list.id).push(list) ]
   },
   [SET_LISTS]: function (state, lists) {
     state.lists = [...lists]

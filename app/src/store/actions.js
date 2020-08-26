@@ -1,12 +1,13 @@
 import {
   GET_POLITICIAN, GET_POLITICIAN_PROMISES, SET_POLITICIAN, SET_POLITICIAN_PROMISES,
-  GET_LISTS,
-  SET_LISTS,
+  GET_LIST, SET_LIST,
+  GET_LISTS, SET_LISTS,
   GET_PROMISE, SET_PROMISE
 } from './types'
 import {
   getPolitician, getPoliticianPromises,
   getPromise,
+  getList,
   listLists
 } from '../api/index'
 // import { loadCache, updateCache } from "@/utils";
@@ -31,6 +32,16 @@ export default {
       return promises
     } else {
       return inStore
+    }
+  },
+  [GET_LIST]: async function ({ commit, state }, id) {
+    const inCache = state.lists.find(x => x.id === id)
+    if (inCache === undefined) {
+      const list = await getList(id)
+      commit(SET_LIST, list)
+      return list
+    } else {
+      return inCache
     }
   },
   [GET_LISTS]: async function ({ commit, state }) {
