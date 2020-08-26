@@ -6,7 +6,7 @@ import Politicians from '@/views/Politicians'
 import States from '@/views/States'
 import ViewByState from '@/views/ViewByState'
 import Promise from '@/views/Promise'
-import Promises from '@/views/Promises'
+// import Promises from '@/views/Promises'
 import List from '@/views/List'
 import Lists from '@/views/Lists'
 import Participate from '@/views/Participate/index'
@@ -58,14 +58,14 @@ const routes = [
     name: 'Promise',
     component: Promise
   },
-  {
-    path: '/promises',
-    name: 'Promises',
-    component: Promises,
-    meta: {
-      title: 'Promises'
-    }
-  },
+  // {
+  //   path: '/promises',
+  //   name: 'Promises',
+  //   component: Promises,
+  //   meta: {
+  //     title: 'Promises'
+  //   }
+  // },
   {
     path: '/lists/:id',
     name: 'List',
