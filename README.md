@@ -29,6 +29,7 @@ PROD_FIREBASE_MESSAGING_SENDER_ID:
 ## TODOS:
 
 - use `DEV_` variables when in dev mode (set this in config/dev.env.js). Currently all the variables names are `PROD_`
+- no component should call api directly. the store should be the interface. caching should also be implemented by the store and not the component.
 
 ```
 
