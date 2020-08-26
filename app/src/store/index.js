@@ -2,7 +2,11 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import actions from './actions'
-import { SET_POLITICIAN, SET_POLITICIAN_PROMISES, SET_LISTS } from './types'
+import {
+  SET_POLITICIAN, SET_POLITICIAN_PROMISES,
+  SET_LISTS,
+  SET_PROMISE
+ } from './types'
 
 Vue.use(Vuex)
 
@@ -10,7 +14,8 @@ const state = {
   user: {
     authenticated: false
   },
-  politicians: []
+  politicians: [], // maybe this should be an object, caching lookup will be more starightforward
+  promises: {}
 }
 
 const mutations = {
@@ -24,7 +29,10 @@ const mutations = {
     state.politicians = [ ...politicians ]
   },
   cacheLists (state, lists) {
-    state.lists = [...lists]
+    state.lists = [...lists ]
+  },
+  [SET_PROMISE]: function (state, { promise, id }) {
+    state.promises[id] = promise
   },
   [SET_LISTS]: function (state, lists) {
     state.lists = [...lists]

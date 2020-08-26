@@ -21,10 +21,12 @@
 </template>
 
 <script>
-import { getList, getPromise } from '@/api'
+import { getList } from '@/api'
 import PromisesTable from '@/components/PromisesTable'
 import LoadingSpinner from '@/components/LoadingSpinner'
 import PromiseStats from '@/components/PromiseStats'
+import { GET_PROMISE } from '@/store/types'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'List',
@@ -38,6 +40,7 @@ export default {
   components: { LoadingSpinner, PromiseStats, PromisesTable },
   async created () {
     try {
+      const getPromise  = this[GET_PROMISE]
       this.list = await this.getListHandler(this.$route.params.id)
       this.list.promise_ids.forEach(async promiseId => {
         const promise = await getPromise(promiseId)
@@ -53,11 +56,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions([ GET_PROMISE ]),
     async getListHandler (id) {
       return getList(id)
-    },
-    async getPromiseHandler (id) {
-      return getPromise(id)
     }
   }
 }
