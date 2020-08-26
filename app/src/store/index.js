@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
+import actions from './actions'
+import { SET_POLITICIAN } from './types'
 
 Vue.use(Vuex)
 
@@ -20,7 +22,10 @@ const mutations = {
   },
   cachePoliticians (state, politicians) {
     state.politicians = [ ...politicians ]
+  },
+  [SET_POLITICIAN]: function (state, politician) {
+    state.politicians.push(politician)
   }
 }
 
-export default new Vuex.Store({ state, mutations, plugins: [createPersistedState()] })
+export default new Vuex.Store({ state, actions, mutations, plugins: [createPersistedState()] })
