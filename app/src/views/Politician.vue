@@ -8,13 +8,12 @@
 </template>
 
 <script>
-import { getPoliticianPromises } from '@/api'
 import { updateTitle } from '@/utils'
 import moment from 'moment'
 import PoliticianDesktop from '@/components/Politician/Desktop'
 import PromisesTable from '@/components/PromisesTable'
 import { mapActions } from 'vuex'
-import { GET_POLITICIAN } from '@/store/types' 
+import { GET_POLITICIAN, GET_POLITICIAN_PROMISES } from '@/store/types' 
 
 export default {
   name: 'Politician',
@@ -31,7 +30,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions([ GET_POLITICIAN ]),
+    ...mapActions([ GET_POLITICIAN, GET_POLITICIAN_PROMISES ]),
     updateTitle,
     parsePromises: (promises) => promises.map(promise =>
       ({
@@ -45,7 +44,7 @@ export default {
     try {
       this.politician = await this[GET_POLITICIAN](this.$route.params.id)
       updateTitle(this.politician.name)
-      const promises = await getPoliticianPromises(this.$route.params.id)
+      const promises = await this[GET_POLITICIAN_PROMISES](this.$route.params.id)
       this.promises = this.parsePromises(promises)
     } catch (e) {
       console.error(e)

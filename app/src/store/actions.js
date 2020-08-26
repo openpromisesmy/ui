@@ -1,10 +1,10 @@
-import { GET_POLITICIAN, SET_POLITICIAN } from './types'
-import { getPolitician } from '../api/index'
+import { GET_POLITICIAN, GET_POLITICIAN_PROMISES ,SET_POLITICIAN, SET_POLITICIAN_PROMISES } from './types'
+import { getPolitician, getPoliticianPromises } from '../api/index'
+// import { loadCache, updateCache } from "@/utils";
+// ideally we implement caching using the above functions but the way to access can be multi level and those caching functions don't support that yet 
 
 export default {
   [GET_POLITICIAN]: async function ({ commit, state }, id) {
-    // TODO: loadCache
-    // if not available, call api and then update cache
     const inPoliticiansArray = state.politicians.find(x => x.id === id)
     if (inPoliticiansArray === undefined) {
       let politician = await getPolitician(id)
@@ -12,6 +12,16 @@ export default {
       return politician
     } else {
       return inPoliticiansArray
+    }
+  },
+  [GET_POLITICIAN_PROMISES]: async function ({ commit, state }, id) {
+    const inStore = state.politicians.find(x => x.id === id).promises
+    if (inStore === undefined) {
+      let promises = await getPoliticianPromises(id)
+      commit(SET_POLITICIAN_PROMISES, { promises, id })
+      return promises
+    } else {
+      return inStore
     }
   }
 }

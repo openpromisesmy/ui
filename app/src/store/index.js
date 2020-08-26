@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import actions from './actions'
-import { SET_POLITICIAN } from './types'
+import { SET_POLITICIAN, SET_POLITICIAN_PROMISES } from './types'
 
 Vue.use(Vuex)
 
@@ -25,6 +25,9 @@ const mutations = {
   },
   [SET_POLITICIAN]: function (state, politician) {
     state.politicians.push(politician)
+  },
+  [SET_POLITICIAN_PROMISES]: function(state, { promises, id }) {
+    state.politicians.find(x => x.id === id).promises = promises
   }
 }
 
