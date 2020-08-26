@@ -29,12 +29,13 @@ function formatDate (date) {
   return moment(date).format('D MMMM YYYY')
 }
 
+// NOTE: 'promise' is the javascript promise, not politician's promise
 async function updateCache (self, key, promise) {
   self.$store.commit(`cache${capitalize(key)}`, await promise)
 
   return self.$store.state[key]
 }
-
+// NOTE: 'promise' is the javascript promise, not politician's promise
 async function loadCache (self, key, promise) {
   if (isEmpty(self.$store.state[key])) {
     return updateCache(self, key, promise)
