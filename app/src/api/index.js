@@ -43,7 +43,6 @@ const getPolitician = id => getSingle('/politicians/', id)
 const getPoliticians = () => getSomething('/politicians/')
 
 const getPromise = id => getSomething('/promises/' + id)
-const getPromises = () => getSomething('/promises/')
 const getLivePromises = query => getSomething('/promises/?live=true&' + query)
 const getPoliticianPromises = id =>
   getSomething(`/promises/?politician_id=${id}`) // TODO: account for live too
@@ -133,7 +132,6 @@ export {
   getPolitician,
   getPoliticians,
   getPromise,
-  getPromises,
   getLivePromises,
   getPoliticianPromises,
   googleSignIn,
