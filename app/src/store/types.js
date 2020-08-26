@@ -1,0 +1,2 @@
+export const GET_POLITICIAN = "GET_POLITICIAN"
+export const SET_POLITICIAN = "SET_POLITICIAN"
