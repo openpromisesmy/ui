@@ -1,5 +1,6 @@
-FROM node:10.16-alpine
+FROM node:12-alpine
 WORKDIR /app
-COPY package*.json ./
+COPY ./app/package*.json ./
+RUN npm install -g @vue/cli
 RUN npm ci
-CMD npm start
+CMD npm run serve
