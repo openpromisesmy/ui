@@ -1,5 +1,9 @@
-import { GET_POLITICIAN, GET_POLITICIAN_PROMISES ,SET_POLITICIAN, SET_POLITICIAN_PROMISES } from './types'
-import { getPolitician, getPoliticianPromises } from '../api/index'
+import {
+  GET_POLITICIAN, GET_POLITICIAN_PROMISES, SET_POLITICIAN, SET_POLITICIAN_PROMISES,
+  GET_LISTS,
+  SET_LISTS
+} from './types'
+import { getPolitician, getPoliticianPromises, listLists } from '../api/index'
 // import { loadCache, updateCache } from "@/utils";
 // ideally we implement caching using the above functions but the way to access can be multi level and those caching functions don't support that yet 
 
@@ -22,6 +26,16 @@ export default {
       return promises
     } else {
       return inStore
+    }
+  },
+  [GET_LISTS]: async function ({ commit, state }) {
+    const inCache = state.lists
+    if (inCache === undefined) {
+      const lists = await listLists()
+      commit(SET_LISTS, lists)
+      return lists
+    } else {
+      return inCache
     }
   }
 }

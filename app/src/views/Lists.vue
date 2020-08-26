@@ -12,9 +12,10 @@
 </template>
 
 <script>
-import { listLists } from '@/api'
 import ListsTable from '@/components/Lists/Table'
 import LoadingSpinner from '@/components/LoadingSpinner'
+import { mapActions } from 'vuex'
+import { GET_LISTS } from '@/store/types'
 
 export default {
   name: 'Lists',
@@ -26,13 +27,11 @@ export default {
     }
   },
   methods: {
-    async listListsHandler () {
-      return listLists()
-    }
+    ...mapActions([ GET_LISTS ])
   },
   async created () {
     try {
-      this.lists = await this.listListsHandler()
+      this.lists = await this[GET_LISTS]()
       this.appStatus = ''
     } catch (e) {
       console.error(e)
