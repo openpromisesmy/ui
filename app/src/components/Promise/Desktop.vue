@@ -10,7 +10,7 @@
     </ContentLoader>
     <template v-else>
 
-      <el-card class="hero" :style="'background-color:' + statusColorMap[promise.status]">
+      <el-card class="hero" :style="'background-color:' + bgColor">
         <span class="status">{{ promise.status }}</span>
         <p class="card-title">{{ politician.name }}</p>
         <h1>{{ promise.title }}</h1>
@@ -100,7 +100,11 @@ import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 
 export default {
   name: 'PromiseDesktop',
-  data: () => ({ statusColorMap }),
+  computed: {
+    bgColor: function () {
+      return statusColorMap[this.promise.status || 'Review Needed']
+    }
+  },
   props: [ 'promise', 'politician', 'appStatus', 'displayedValues', 'url' ],
   components: { ContentLoader, VueGoodshareFacebook },
   methods: { formatDate }
