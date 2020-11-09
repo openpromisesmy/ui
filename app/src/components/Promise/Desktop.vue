@@ -43,25 +43,27 @@
       </el-card>
 
       <el-card v-if="promise.state || promise.category">
-        <template v-if="promise.state">
-          <p class="card-title"> <b> State </b></p>
-          <p> {{ promise.state }} </p>
-        </template>
+        <div class="compound-card">
+          <div v-if="promise.state">
+            <p class="card-title"> <b> State </b></p>
+            <p> {{ promise.state }} </p>
+          </div>
 
-        <template v-if="promise.category">
-          <p class="card-title"> <b> Category </b></p>
-          <p> {{ promise.category }} </p>
-        </template>
-      </el-card>
+          <div v-if="promise.category">
+            <p class="card-title"> <b> Category </b></p>
+            <p> {{ promise.category }} </p>
+          </div>
 
-      <el-card>
-        <p class="card-title"> <b> Status </b></p>
-        <p>{{ promise.status || 'Review Needed' }}</p>
+          <div>
+            <p class="card-title"> <b> Status </b></p>
+            <p>{{ promise.status || 'Review Needed' }}</p>
+          </div>
 
-        <template v-if="promise.deadline">
-          <p class="card-title"> <b> Deadline </b></p>
-          <p>{{ formatDate(promise.deadline) }}</p>
-        </template>
+          <div v-if="promise.deadline">
+            <p class="card-title"> <b> Deadline </b></p>
+            <p>{{ formatDate(promise.deadline) }}</p>
+          </div>
+        </div>
       </el-card>
 
       <template v-if="promise.clauses">
@@ -154,6 +156,15 @@ export default {
   margin-bottom: 10px
 }
 
+.compound-card {
+  display: flex;
+  flex-wrap: wrap;
+}
+.compound-card div {
+  margin-right: 50px;
+  min-width: 50px;
+}
+
 .card-title {
   text-align: left
 }
@@ -168,5 +179,6 @@ export default {
 
 a {
   text-decoration: none;
+  color: unset;
 }
 </style>
