@@ -64,7 +64,7 @@ export default {
 
 .card-body {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 100%;
 }
@@ -75,11 +75,9 @@ export default {
 }
 
 .card-body > .thumbnail {
-  width: 15vh;
-  height: 15vh;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
+  width: 12vh;
+  height: 12vh;
+  border-radius: 5px;
   border: 1px solid lightblue;
   margin-right: 10px;
 }
@@ -96,12 +94,5 @@ export default {
 
 .shadow-img {
   display: none;
-}
-
-@media only screen and (max-width: 500px) {
-  .card-body > .thumbnail {
-    width: 13vh;
-    height: 13vh;
-  }
 }
 </style>
