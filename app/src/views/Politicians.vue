@@ -26,8 +26,8 @@
     <el-row class="politicians-row">
       <el-col
         :xs="24"
-        :sm="12"
-        :lg="8"
+        :sm="8"
+        :lg="6"
         v-for="o in filteredPoliticians"
         :key="o.id"
       >
