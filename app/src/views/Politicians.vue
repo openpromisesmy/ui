@@ -136,6 +136,7 @@ main {
 
 a {
   text-decoration: none;
+  color: unset;
 }
 
 .bottom {

@@ -12,7 +12,9 @@
 
       <el-card class="hero" :style="'background-color:' + bgColor">
         <span class="status">{{ promise.status }}</span>
-        <p class="card-title">{{ politician.name }}</p>
+        <router-link :to="/politician/ + politician.id">
+          <p class="card-title">{{ politician.name }}</p>
+        </router-link>
         <h1>{{ promise.title }}</h1>
         <p class="Promise_Mobile_date">{{ formatDate(promise.source_date) }}</p>
       </el-card>
@@ -162,5 +164,9 @@ export default {
   width: 50%;
   text-align: center;
   border-radius: 5%
+}
+
+a {
+  text-decoration: none;
 }
 </style>
