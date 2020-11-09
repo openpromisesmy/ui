@@ -56,12 +56,12 @@ export default {
 .el-card {
   height: 120px;
   margin: 5px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
 }
 
 .el-card:hover {
   background-color: rgba(240, 248, 255, 0.5);
 }
-
 .card-body {
   display: flex;
   justify-content: space-around;
