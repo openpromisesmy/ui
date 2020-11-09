@@ -96,7 +96,7 @@ export default {
       });
     },
     showCabinet() {
-      return true;
+      return false;
     },
   },
   methods: {
