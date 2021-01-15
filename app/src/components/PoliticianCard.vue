@@ -28,7 +28,7 @@
 export default {
   name: "PoliticianCard",
   data: () => ({
-    imageAvailable: true,
+    imageError: false,
     iconPath: require("./user-icon.png")
   }),
   props: {
@@ -36,7 +36,7 @@ export default {
   },
   computed: {
     imageToShow: function() {
-      if (this.imageAvailable) {
+      if (this.o.profile_image && !this.imageError) {
         return this.o.profile_image;
       } else {
         return this.iconPath;
@@ -46,7 +46,7 @@ export default {
   methods: {
     imageLoadError() {
       console.log("Image failed to load" + this.o.profile_image);
-      this.imageAvailable = false;
+      this.imageError = true;
     }
   }
 };
