@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="hero-wrapper">
     <div>
           <img id="logo" src="@/assets/logo.jpg">
     </div>
@@ -45,10 +45,11 @@ export default {
   text-align: left;
 }
 
-.content{
+.hero-wrapper {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 #description {
