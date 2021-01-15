@@ -1,8 +1,8 @@
 <template>
-    <el-card id="PoliticianDetails" header="Bio">
+    <el-card id="PoliticianDetails" header="Biography">
     <el-row>
         <el-col :sm="24">
-            <img class="image" :src="politician.profile_image">
+            <img class="image" :src="imageToShow" @error="imageLoadError">
         </el-col>
          <el-col :sm="24">
             <div class="details-text">
@@ -20,9 +20,28 @@
 <script>
 export default {
   name: 'Politician',
+  data: () => ({
+    imageError: false,
+    iconPath: require("./user-icon.png")
+  }),
   props: {
     politician: {
       type: Object
+    }
+  },
+  computed: {
+    imageToShow: function() {
+      if (this.politician.profile_image && !this.imageError) {
+        return this.politician.profile_image;
+      } else {
+        return this.iconPath;
+      }
+    }
+  },
+  methods: {
+    imageLoadError() {
+      console.log("Image failed to load" + this.politician.profile_image);
+      this.imageError = true;
     }
   }
 }
