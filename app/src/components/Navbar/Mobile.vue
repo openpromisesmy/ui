@@ -13,7 +13,6 @@
             @select="handleSelect"
             @open="handleOpen"
             @close="handleClose"
-            :collapse="isCollapse"
           >
             <el-menu-item
               v-bind:index="String(index)"

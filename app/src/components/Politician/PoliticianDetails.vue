@@ -40,7 +40,6 @@ export default {
   },
   methods: {
     imageLoadError() {
-      console.log("Image failed to load" + this.politician.profile_image);
       this.imageError = true;
     }
   }
