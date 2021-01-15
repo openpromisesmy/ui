@@ -45,7 +45,6 @@ export default {
   },
   methods: {
     imageLoadError() {
-      console.log("Image failed to load" + this.o.profile_image);
       this.imageError = true;
     }
   }
