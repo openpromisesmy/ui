@@ -96,4 +96,12 @@ a {
 .router-link-active {
   font-weight: 800;
 }
+
+.el-collapse-item >>> .el-collapse-item__header {
+  justify-content: flex-end;
+}
+
+.el-collapse-item >>> .el-collapse-item__arrow {
+  margin-left: 0;
+}
 </style>
