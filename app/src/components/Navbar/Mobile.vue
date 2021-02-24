@@ -26,23 +26,15 @@
                 item.text
               }}</a>
             </el-menu-item>
-            <el-menu-item index="4" id="account">
+            <el-menu-item index="4" id="account-button">
               <router-link to="/account">{{
                 this.$store.state.user.authenticated ? "Account" : "Login"
               }}</router-link>
             </el-menu-item>
-            <el-menu-item index="5" id="submit">
+            <el-menu-item index="5" id="submit-button">
               <router-link to="/submit">
                 <el-button type="primary">Submit A Promise</el-button>
               </router-link>
-            </el-menu-item>
-            <el-menu-item index="6" id="patreon" v-if="$route.path !== '/'">
-              <a
-                target="_blank"
-                href="https://www.patreon.com/openpromisesmalaysia"
-              >
-                <el-button type="danger">Keep Us running</el-button>
-              </a>
             </el-menu-item>
           </el-menu>
         </el-col>

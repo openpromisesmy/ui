@@ -1,6 +1,6 @@
 <template>
   <navbar-mobile
-    v-if="$mq === 'navbar' || $mq === 'sm'"
+    v-if="$mq === 'navbar' "
     v-bind="{ navigation, authenticated }"
   />
   <navbar-desktop v-else v-bind="{ navigation, authenticated }" />
