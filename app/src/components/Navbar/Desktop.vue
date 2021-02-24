@@ -40,14 +40,14 @@
           item.text
         }}</a>
       </el-menu-item>
-      <el-menu-item index="5" id="account">
+      <el-menu-item index="5" id="account-button">
         <router-link to="/account">
           <el-button>
             {{ this.$store.state.user.authenticated ? "Account" : "Login" }}
           </el-button>
         </router-link>
       </el-menu-item>
-      <el-menu-item index="6" id="submit">
+      <el-menu-item index="6" id="submit-button">
         <router-link to="/submit">
           <el-button type="primary">Submit A Promise</el-button>
         </router-link>
@@ -98,8 +98,8 @@ a {
   position: relative;
   z-index: 999;
 }
-#submit,
-#account {
+#submit-button,
+#account-button {
   float: right;
   padding-right: 10px;
   padding-left: 10px;
