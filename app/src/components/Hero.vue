@@ -9,8 +9,8 @@
             <p>We elect our representatives into power to serve us.</p>
             <p>Promises are made in our interests.</p>
             <p>It's time we track those promises.</p>
-            <a target="_blank" href="https://www.patreon.com/openpromisesmalaysia">
-              <el-button type="danger">Help keep us running</el-button>
+            <a target="_blank" href="https://github.com/openpromisesmy">
+              <el-button type="danger">View Github repositories</el-button>
             </a>
       <!-- </div> -->
     </div>
