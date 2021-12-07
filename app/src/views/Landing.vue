@@ -4,6 +4,10 @@
     <section id="hero">
       <hero />
     </section>
+    <section class="description">
+      <p>OpenPromises is an open source content management system for the tracking of promises. The resource was built with the aim of helping increase the accountability of elected representatives.</p>
+      <p>This page will be updated with more detailed information and instructions on the system.</p>
+    </section>
 
   </main>
 </template>
@@ -30,7 +34,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 main {
- text-align: center
+ max-width: 800px;
+ margin: 0 auto;
 }
 
 #hero {

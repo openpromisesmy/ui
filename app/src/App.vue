@@ -1,6 +1,8 @@
 <template>
   <el-container id="app" direction="vertical">
-    <Navbar />
+    <div v-if="!isLanding">
+      <Navbar />
+    </div>
     <!-- <alert-banner :text="alertText"/> -->
     <el-main>
       <router-view/>
