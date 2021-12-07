@@ -18,12 +18,21 @@ import Contact from '@/views/Contact'
 import FederalBudgetQuiz from '@/views/FederalBudgetQuiz'
 import Oops from '@/components/404'
 import beforeEach from './beforeEach'
+import Landing from '@/views/Landing'
 
 Vue.use(Router)
 
 const routes = [
   {
     path: '/',
+    name: 'Landing',
+    component: Landing,
+    meta: {
+      title: 'Keep power in check'
+    }
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: Home,
     meta: {

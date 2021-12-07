@@ -10,14 +10,14 @@
     </section>
 
     <section id="cta">
-      <el-card>
+      <!-- <el-card>
         <h1>Help fund the movement</h1>
         <a href="https://www.patreon.com/openpromisesmalaysia"><el-button type="success">Check us out on Patreon</el-button></a>
-      </el-card>
-      <el-card>
+      </el-card> -->
+      <!-- <el-card>
         <h1>Check out our community</h1>
         <a href="https://www.facebook.com/groups/op.malaysia.watchers/"><el-button type="primary">Visit Malaysia Watchers</el-button></a>
-      </el-card>
+      </el-card> -->
     </section>
 
     <section>
