@@ -5,8 +5,10 @@
       <hero />
     </section>
     <section class="description">
-      <p>OpenPromises is an open source content management system for the tracking of promises. The resource was built with the aim of helping increase the accountability of elected representatives.</p>
+      <p>OpenPromises is the first open source content management system for the tracking of promises. The resource was built with the aim of helping increase the accountability of elected representatives.</p>
+      <p>To date, OpenPromises has been deployed in Malaysia and ran from 2017 till 2020.</p>
       <p>This page will be updated with more detailed information and instructions on the system.</p>
+      <p>If you'd like to run OpenPromises for your own promise-tracking project, get in touch with us via <a href="https://www.facebook.com/openpromises.malaysia">our facebook.</a></p>
     </section>
 
   </main>
