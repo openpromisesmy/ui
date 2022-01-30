@@ -11,46 +11,48 @@
       </div>
       <!-- <alert-banner :text="alertText"/> -->
       <el-main>
-        <router-view/>
+        <router-view />
       </el-main>
       <div>
-        <Footer class="footer-container"/>
+        <Footer class="footer-container" />
       </div>
     </el-container>
   </div>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar/index'
-import Footer from '@/components/Footer'
-import Landing from '@/views/Landing'
+import Navbar from "@/components/Navbar/index";
+import Footer from "@/components/Footer";
+import Landing from "@/views/Landing";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Landing,
-    Navbar, Footer },
-  data () {
+    Navbar,
+    Footer,
+  },
+  data() {
     return {
       // alertText: 'Promises data is currently not up to date. Due to the events since early 2019, promise-tracking is of lower value. We are currently working on other avenues for increasing accountability in Malaysia. Refer to our Facebook page for update. ',
       footer: [
-        { text: 'Home', url: '/' },
-        { text: 'Promises', url: '/promises' },
-        { text: 'Politicians', url: '/politicians' }
-      ]
-    }
+        { text: "Home", url: "/" },
+        { text: "Promises", url: "/promises" },
+        { text: "Politicians", url: "/politicians" },
+      ],
+    };
   },
   computed: {
     isArchive() {
       const { hostname } = window.location;
-      let isLanding = hostname.split('.')[0] == 'archive'
-      return isLanding
+      let isLanding = hostname.split(".")[0] == "archive";
+      return isLanding;
     },
     isLanding() {
-      return !this.isArchive
-    }
-  }
-}
+      return !this.isArchive;
+    },
+  },
+};
 </script>
 
 <style>
