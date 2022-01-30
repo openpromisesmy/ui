@@ -12,7 +12,6 @@ const facebookAppId = process.env.VUE_APP_FACEBOOK_APP_ID
 firebase.initializeApp(config)
 
 const API_URL = process.env.VUE_APP_API_URL
-console.log({API_URL, config})
 
 export {
   firebase,
