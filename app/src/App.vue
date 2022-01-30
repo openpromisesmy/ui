@@ -1,27 +1,34 @@
 <template>
-  <el-container id="app" direction="vertical">
-    <div v-if="!isLanding">
-      <Navbar />
-    </div>
-    <!-- <alert-banner :text="alertText"/> -->
-    <el-main>
-      <router-view/>
-    </el-main>
-    <div v-if="!isLanding">
-      <Footer class="footer-container"/>
-    </div>
-  </el-container>
+  <div>
+    <el-container v-if="isLanding">
+      <el-main>
+        <landing />
+      </el-main>
+    </el-container>
+    <el-container v-else id="app" direction="vertical">
+      <div>
+        <Navbar />
+      </div>
+      <!-- <alert-banner :text="alertText"/> -->
+      <el-main>
+        <router-view/>
+      </el-main>
+      <div>
+        <Footer class="footer-container"/>
+      </div>
+    </el-container>
+  </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar/index'
 import Footer from '@/components/Footer'
-// import AlertBanner from '@/components/AlertBanner'
+import Landing from '@/views/Landing'
 
 export default {
   name: 'App',
   components: {
-    // AlertBanner,
+    Landing,
     Navbar, Footer },
   data () {
     return {
@@ -34,9 +41,14 @@ export default {
     }
   },
   computed: {
-    isLanding() {
-      return this.$route.name == 'Landing'
+    isArchive() {
+      const { hostname } = window.location;
+      let isLanding = hostname.split('.')[0] == 'archive'
+      return isLanding
     },
+    isLanding() {
+      return !this.isArchive
+    }
   }
 }
 </script>
