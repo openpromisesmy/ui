@@ -1,9 +1,10 @@
 # op-ui-2
 
 ## Up and Running
-(you need docker already installed)
-1. run `docker-compose up`
-2. in your browser, open `localhost:8080`
+0. create an `.env` file in project root with the required values
+1. run `npm i`
+2. run `npm run serve`
+2. in your browser, open the localhost port as specified in the success message from the above step
 
 ## Build Setup
 
