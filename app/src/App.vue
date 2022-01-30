@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-container v-if="isLanding">
+    <el-container id="app" v-if="isLanding">
       <el-main>
         <landing />
       </el-main>
