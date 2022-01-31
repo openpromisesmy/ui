@@ -2,7 +2,7 @@
   <main class="home">
 
     <section id="hero">
-      <hero />
+      <hero :showArchiveLink="true" />
     </section>
     <section class="description">
       <p>OpenPromises is the first open source content management system for the tracking of promises. The resource was built with the aim of helping increase the accountability of elected representatives.</p>
