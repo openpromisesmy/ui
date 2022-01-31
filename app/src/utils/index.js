@@ -31,9 +31,13 @@ function formatDate (date) {
 
 // NOTE: 'promise' is the javascript promise, not politician's promise
 async function updateCache (self, key, promise) {
-  self.$store.commit(`cache${capitalize(key)}`, await promise)
+  try {
+    self.$store.commit(`cache${capitalize(key)}`, await promise)
 
-  return self.$store.state[key]
+    return self.$store.state[key]
+  } catch (e) {
+    console.error(e)
+  }
 }
 // NOTE: 'promise' is the javascript promise, not politician's promise
 async function loadCache (self, key, promise) {

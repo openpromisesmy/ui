@@ -9,10 +9,16 @@
             <p>We elect our representatives into power to serve us.</p>
             <p>Promises are made in our interests.</p>
             <p>It's time we track those promises.</p>
-            <a target="_blank" href="https://github.com/openpromisesmy">
-              <el-button type="danger">View Github repositories</el-button>
-            </a>
-      <!-- </div> -->
+            <div class="btn-containers">
+              <a target="_blank" href="https://github.com/openpromisesmy">
+                <el-button type="danger">View Github repositories</el-button>
+              </a>
+              <a :href="archiveLink" v-if="showArchiveLink">
+                <el-button type="danger">View Archived Website</el-button>
+              </a>
+            </div>
+
+                  <!-- </div> -->
     </div>
   </div>
 </template>
@@ -20,10 +26,16 @@
 <script>
 export default {
   name: "Hero",
+  props: ["showArchiveLink"],
   data() {
     return {
       tagline: "Track Promises by Your Representatives"
     };
+  },
+  computed: {
+    archiveLink: function() {
+      return window.location.protocol + '//archive.' + window.location.host
+    }
   }
 };
 </script>
@@ -64,5 +76,8 @@ export default {
   text-align: center;
   line-height: 20px;
   margin: 20px
+}
+.btn-containers > * {
+  margin-right: 10px
 }
 </style>
