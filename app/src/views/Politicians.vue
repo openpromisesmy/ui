@@ -74,7 +74,9 @@ export default {
       // perhaps this caching logic should be in the store instead
       // here we ask the store for the info
       // it is the store's responsibility to check the cache
-      this.politicians = await loadCache(this, 'politicians', getPoliticians())
+      const res = await loadCache(this, 'politicians', getPoliticians())
+      if (res === undefined) throw new Error('Politicians.vue: Error in getting politicians')
+      this.politicians = res
     } catch (e) {
       console.log(e)
     }
