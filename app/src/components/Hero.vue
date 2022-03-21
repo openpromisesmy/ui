@@ -34,7 +34,7 @@ export default {
   },
   computed: {
     archiveLink: function() {
-      return window.location.protocol + '//archive.' + window.location.host
+      return window.location.protocol + '//archive.' + window.location.host.replace('www.','')
     }
   }
 };
