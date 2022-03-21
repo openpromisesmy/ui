@@ -19,6 +19,7 @@ const facebookAppId = process.env.VUE_APP_FACEBOOK_APP_ID
 firebase.initializeApp(config)
 
 const API_URL = process.env.VUE_APP_API_URL
+assert(API_URL, 'API_URL');
 
 export {
   firebase,
