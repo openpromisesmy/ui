@@ -1,14 +1,14 @@
 # op-ui-2
 
+# Prerequisites
+
 ## Up and Running
-0. create an `.env` file in the `/app` folder
-1. run `npm i`
+0. create an `.env` file in project root
+1. cd into `app` and run `npm i`
 2. run `npm run serve`
-2. in your browser, open the localhost port as specified in the success message from the above step
 
-## Build Setup
+TODO: docker instructions
 
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 # Configuration
 
@@ -33,6 +33,3 @@ VUE_APP_API_URL="http://localhost:5000/openpromises-8526c/us-central1"
 - use `DEV_` variables when in dev mode (set this in config/dev.env.js). Currently all the variables names are `PROD_`
 - no component should call api directly. the store should be the interface. caching should also be implemented by the store and not the component.
 
-```
-
-```
