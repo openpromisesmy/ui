@@ -48,7 +48,20 @@ async function loadCache (self, key, promise) {
   return self.$store.state[key]
 }
 
+/**
+ * 
+ * @param {any} value 
+ * @param {string} name 
+ */
+
+function assert(value, name) {
+  if (!value) {
+    console.warn(name + ' is not defined')
+  }
+}
+
 export {
+  assert,
   generateStats,
   formatDate,
   updateCache,

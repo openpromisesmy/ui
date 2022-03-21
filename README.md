@@ -3,7 +3,7 @@
 # Prerequisites
 
 ## Up and Running
-0. create an `.env` file in project root
+0. create an `.env` file in `/app`
 1. cd into `app` and run `npm i`
 2. run `npm run serve`
 
