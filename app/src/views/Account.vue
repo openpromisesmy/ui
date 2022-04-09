@@ -1,6 +1,6 @@
 <template>
   <main class="account">
-      <h1>Account</h1>
+      <h1 v-if="this.$store.state.user.authenticated">Account</h1>
       <Auth v-if="!this.$store.state.user.authenticated"></Auth>
       <template v-else>
        <p>Logged in as {{ this.$store.state.user.email }}</p>
