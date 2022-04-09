@@ -88,14 +88,14 @@ const routes = [
       title: 'Lists'
     }
   },
-  {
-    path: '/participate',
-    name: 'Participate',
-    component: Participate,
-    meta: {
-      title: 'Participate'
-    }
-  },
+  // {
+  //   path: '/participate',
+  //   name: 'Participate',
+  //   component: Participate,
+  //   meta: {
+  //     title: 'Participate'
+  //   }
+  // },
   {
     path: '/about',
     name: 'About',
