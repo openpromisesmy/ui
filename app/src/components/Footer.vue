@@ -1,7 +1,7 @@
 <template>
     <footer id="footer">
         <el-row>
-            <el-col :xs="24" :lg="5" v-for="(item, index) in footer"
+            <!-- <el-col :xs="24" :lg="6" v-for="(item, index) in footer"
                     :key="index">
                 <div>
                 <router-link :to="item.url"
@@ -10,16 +10,16 @@
                 </router-link>
                 </div>
             </el-col>
-            <el-col :xs="24" :lg="5">
+            <el-col :xs="24" :lg="6">
                 <a class="footer-link" href="https://facebook.com/openpromises.malaysia">
                   Facebook Page
                 </a>
-            </el-col>
-            <el-col :xs="24" :lg="5">
+            </el-col> -->
+            <!-- <el-col :xs="24" :lg="5">
                 <a class="footer-link" href="https://www.facebook.com/groups/1809117962724326/">
                   Community Group
                 </a>
-            </el-col>
+            </el-col> -->
         </el-row>
         <el-row class="copyright">
           <el-col >
@@ -53,7 +53,7 @@ export default {
 #footer {
   margin-top: 20px;
   background-color: darkslategray;
-  padding: 10px 5px;
+  padding: 5px 5px 20px;
   color: white
 }
 .footer-link {
