@@ -12,7 +12,7 @@
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
     "firebase": "^7.16.0",
-    "moment": "^2.27.0",
+    "moment": "^2.29.2",
     "vue": "^2.6.11",
     "vue-content-loader": "^0.2.3",
     "vue-goodshare": "^1.5.1",
