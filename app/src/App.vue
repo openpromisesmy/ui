@@ -9,7 +9,7 @@
       <div>
         <Navbar />
       </div>
-      <!-- <alert-banner :text="alertText"/> -->
+      <alert-banner :text="alertText"/>
       <el-main>
         <router-view />
       </el-main>
@@ -24,6 +24,7 @@
 import Navbar from "@/components/Navbar/index";
 import Footer from "@/components/Footer";
 import Landing from "@/views/Landing";
+import AlertBanner from "./components/AlertBanner.vue";
 
 export default {
   name: "App",
@@ -31,10 +32,11 @@ export default {
     Landing,
     Navbar,
     Footer,
+    AlertBanner,
   },
   data() {
     return {
-      // alertText: 'Promises data is currently not up to date. Due to the events since early 2019, promise-tracking is of lower value. We are currently working on other avenues for increasing accountability in Malaysia. Refer to our Facebook page for update. ',
+      alertText: 'Promises data is not up to date. This is an archived deployment of OpenPromises.',
       footer: [
         { text: "Home", url: "/" },
         { text: "Promises", url: "/promises" },
