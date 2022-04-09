@@ -5,13 +5,13 @@
     <img id="logo" src="@/assets/logo.jpg">
     <div class="about-points">
       <el-row :gutter="10">
-        <el-col :md="12">
+        <el-col :md="24">
           <el-card>
             <h2>The problem ?</h2>
             <p>The feedback loop for representative democracies is broken. Politicians gain support from citizens not just based on track records but also heavily based on promises that they make. The fulfilment of these promises are currently not tracked in a systematic way.</p>
           </el-card>
         </el-col>
-        <el-col :md="12">
+        <el-col :md="24">
           <el-card>
             <h2>The solution ?</h2>
             <p>A resource and platform that empowers citizens with easy access to the track record of promises made and their fulfilment: OpenPromises.</p>
@@ -23,13 +23,13 @@
             <p>OpenPromises is a not for profit project that is centred around the tracking of promises made by representatives and people in power.</p>
           </el-card>
         </el-col>
-        <el-col :md="12">
+        <el-col :md="24">
           <el-card>
             <h2>What do you mean by promises ?</h2>
             <p>Promises are plans of actions that can be carried out by people in office. It can be a one-off action or a policy change.</p>
           </el-card>
         </el-col>
-        <el-col :md="12">
+        <el-col :md="24">
           <el-card>
             <h2>What is the end goal ?</h2>
             <p>Increase the level of accountability amongst representatives in the country while increasing level of engagement amongst citizens.</p>
@@ -48,7 +48,7 @@
             <p>Currently we have 44 USD/month funding from our community members that covers our current monthly expenses. For a year before we had crowdfunding, we also used some of our personal money to for expenses incurred by the website and its setting up. As it stands, we are 100% citizen-funded through Patreon. Decentralised funding means we cannot be easily influenced or corrupted.</p>
           </el-card>
         </el-col>
-        <el-col :md="24">
+        <!-- <el-col :md="24">
         <el-card>
           <h2>What are the current expenses?</h2>
           <p>What are the current expenses?
@@ -63,7 +63,7 @@
             </ul>
           </p>
         </el-card>
-        </el-col>
+        </el-col> -->
         <el-col :md="24">
           <el-card>
             <h2>What would we use funding for?</h2>
@@ -74,12 +74,12 @@
             </ul>
           </el-card>
         </el-col>
-        <el-col :md="24">
+        <!-- <el-col :md="24">
           <el-card>
             <h2>How can people fund us?</h2>
             <p>Through our Patreon page at <a href="https://patreon.com/openpromisesmalaysia">https://patreon.com/openpromisesmalaysia</a></p>
           </el-card>
-        </el-col>
+        </el-col> -->
         <el-col :md="24">
           <el-card>
             <h2>Deployment in other countries</h2>
