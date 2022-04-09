@@ -21,7 +21,7 @@ export default {
       navigation: [
         { text: "Home", url: "/home" },
         { text: "Politicians", url: "/politicians" },
-        { text: "States", url: "/states" },
+        // { text: "States", url: "/states" },
         { text: "Lists", url: "/lists" },
         { text: "Participate", url: "/participate" },
         // { text: "Blog", externalUrl: "https://blog.openpromises.com" },
