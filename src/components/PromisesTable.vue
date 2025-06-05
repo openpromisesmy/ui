@@ -47,7 +47,7 @@
         width="125"
       ></el-table-column>
       <el-table-column prop="title" label="Title">
-        <template slot-scope="scope">
+        <template #default="scope">
           <router-link :to="'/promises/' + scope.row.id">
             <p class="promise-title">{{ scope.row.title }}</p>
           </router-link>
@@ -66,7 +66,7 @@
         label="Source Date"
         width="150"
       >
-        <template slot-scope="scope">
+        <template #default="scope">
           <p>{{ formatDate(scope.row.source_date) }}</p>
         </template>
       </el-table-column>
