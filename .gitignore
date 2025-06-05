@@ -1,9 +1,10 @@
 .DS_Store
 node_modules/
-/dist/
+dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 /test/unit/coverage/
 /test/e2e/reports/
 selenium-debug.log
@@ -15,5 +16,9 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
+*.sw?
 
+# local env files
+.env.local
+.env.*.local
 .env
