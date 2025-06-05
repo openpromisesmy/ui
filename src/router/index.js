@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home'
 import Politician from '@/views/Politician'
 import Politicians from '@/views/Politicians'
@@ -19,8 +18,6 @@ import FederalBudgetQuiz from '@/views/FederalBudgetQuiz'
 import Oops from '@/components/404'
 import beforeEach from './beforeEach'
 // import Landing from '@/views/Landing'
-
-Vue.use(Router)
 
 const routes = [
   // {
@@ -154,8 +151,8 @@ const routes = [
   }
 ]
 
-const router = new Router({
-  mode: 'history',
+const router = createRouter({
+  history: createWebHistory(),
   routes
 })
 
