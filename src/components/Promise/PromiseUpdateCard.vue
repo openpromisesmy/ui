@@ -1,16 +1,18 @@
 <template>
   <article>
     <el-card>
-      <div slot="header">
-        <el-tag class="status">{{ promiseUpdate.status }}</el-tag>
-        {{ formatDate(promiseUpdate.source_date) }}
-        <span class="source">
-          Source:
-          <a :href="promiseUpdate.source_url">
-            {{ promiseUpdate.source_name }}
-          </a>
-        </span>
-      </div>
+      <template #header>
+        <div>
+          <el-tag class="status">{{ promiseUpdate.status }}</el-tag>
+          {{ formatDate(promiseUpdate.source_date) }}
+          <span class="source">
+            Source:
+            <a :href="promiseUpdate.source_url">
+              {{ promiseUpdate.source_name }}
+            </a>
+          </span>
+        </div>
+      </template>
       <p>
       </p>
       <h1> {{ promiseUpdate.title }}</h1>
