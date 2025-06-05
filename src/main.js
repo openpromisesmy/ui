@@ -1,30 +1,18 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
 import App from './App'
 import router from './router'
-import ElementUI from 'element-ui'
-import locale from 'element-ui/lib/locale/lang/en'
-import 'element-ui/lib/theme-chalk/index.css'
+import { createApp } from 'vue'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 import store from './store'
 import VueMq from 'vue-mq'
 
-Vue.config.productionTip = false
-Vue.use(ElementUI, { locale })
-Vue.use(VueMq, {
-  breakpoints: {
-    sm: 450,
-    navbar: 900,
-    md: 1250,
-    lg: Infinity
-  }
+const app = createApp(App)
+app.use(ElementPlus)
+app.use(router)
+app.use(store)
+app.use(VueMq, {                                  // ← register vue-mq after the other plugins
+  breakpoints: { sm: 450, md: 1250, lg: Infinity }  // ← adjust as needed
 })
-
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  store,
-  components: { App },
-  template: '<App/>'
-})
+app.mount('#app')

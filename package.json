@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.21.2",
     "core-js": "^3.21.1",
-    "element-ui": "^2.13.2",
+    "element-plus": "^2.9.11",
     "firebase": "^8.10.1",
     "moment": "^2.29.2",
     "sass": "^1.89.1",
@@ -19,16 +19,16 @@
     "vue-goodshare": "^1.5.1",
     "vue-mq": "^1.0.1",
     "vue-router": "^4.1.6",
-    "vuex": "^4.1.0",   
+    "vuex": "^4.1.0",
     "vuex-persistedstate": "^3.1.0"
   },
   "devDependencies": {
-    "@vue/compat": "^3.4.21",
-    "@vue/compiler-sfc": "^3.4.21",
+    "@babel/eslint-parser": "^7.24.5",
     "@vue/cli-plugin-babel": "^5.0.4",
     "@vue/cli-plugin-eslint": "^5.0.4",
     "@vue/cli-service": "^5.0.4",
-    "@babel/eslint-parser": "^7.24.5",
+    "@vue/compat": "^3.4.21",
+    "@vue/compiler-sfc": "^3.4.21",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^6.2.2",
     "sass-loader": "^16.0.5"
