@@ -3,11 +3,9 @@
 # Prerequisites
 
 ## Up and Running
-0. create an `.env` file in `/app`
-1. cd into `app` and run `npm i`
+0. create an `.env` file in the project root
+1. run `npm i`
 2. run `npm run serve`
-
-TODO: docker instructions
 
 
 # Configuration
