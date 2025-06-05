@@ -16,7 +16,7 @@
               :label="status"
               :value="status">
             </el-option>
-            <template slot="prepend">Filter by title</template>
+            <template #prepend>Filter by title</template>
           </el-select>
         </el-col>
       </el-row>
