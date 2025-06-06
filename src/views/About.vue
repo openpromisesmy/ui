@@ -1,8 +1,9 @@
 <template>
   <main class="about">
     <h1 class="title">About OpenPromises</h1>
-    <div><h1 id="tagline">{{ msg }}</h1></div>
-    <img id="logo" src="@/assets/logo.jpg">
+    <section id="hero">
+      <Hero :tagline="msg" />
+    </section>
     <div class="about-points">
       <el-row :gutter="10">
         <el-col :md="24">
@@ -112,8 +113,10 @@
 </template>
 
 <script>
+import Hero from '@/components/Hero.vue'
 export default {
   name: 'About',
+  components: { Hero },
   data () {
     return {
       msg:
@@ -138,10 +141,10 @@ main {
   margin-bottom: 5px;
   text-align: left
 }
-
-img[id="logo"]{
-  max-width: 270px;
-  width: auto;
-  margin-bottom: 20px;
+#hero {
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 10px;
+  background: #d9edf7;
 }
 </style>

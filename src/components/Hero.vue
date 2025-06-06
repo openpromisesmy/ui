@@ -22,10 +22,11 @@
 
 <script>
 export default {
-  name: "Hero",
-  data() {
-    return {
-      tagline: "Track Promises by Your Representatives"
+  name: 'Hero',
+  props: {
+    tagline: {
+      type: String,
+      default: 'Track Promises by Your Representatives'
     }
   }
 }
