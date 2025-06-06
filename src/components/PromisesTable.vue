@@ -89,7 +89,7 @@
 <script>
 // import LoadingSpinner from '@/components//LoadingSpinner'
 import { formatDate } from '@/utils'
-import PromiseCard from '@/components/PromiseCard'
+import PromiseCard from '@/components/PromiseCard.vue'
 import promiseStatusValues from '../utils/promiseStatusValues'
 
 export default {

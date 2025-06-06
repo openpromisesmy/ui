@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import Navbar from "@/components/Navbar/index";
-import Footer from "@/components/Footer";
-import Landing from "@/views/Landing";
+import Navbar from "@/components/Navbar/index.vue";
+import Footer from "@/components/Footer.vue";
+import Landing from "@/views/Landing.vue";
 import AlertBanner from "./components/AlertBanner.vue";
 
 export default {

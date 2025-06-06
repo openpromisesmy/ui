@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Auth from '@/components/Auth'
+import Auth from '@/components/Auth.vue'
 import { googleLogout } from '@/api'
 
 export default {

@@ -19,9 +19,9 @@
 <script>
 import malaysianStates from '@/utils/malaysianStates'
 import { getLivePromises } from '@/api'
-import PromisesTable from '@/components/PromisesTable'
-import LoadingSpinner from '@/components/LoadingSpinner'
-import PromiseStats from '@/components/PromiseStats'
+import PromisesTable from '@/components/PromisesTable.vue'
+import LoadingSpinner from '@/components/LoadingSpinner.vue'
+import PromiseStats from '@/components/PromiseStats.vue'
 
 export default {
   name: 'Politicians',

@@ -46,9 +46,9 @@
 <script>
 import { getPoliticians } from '@/api'
 import { loadCache, updateCache } from '@/utils'
-import LoadingSpinner from '@/components/LoadingSpinner'
-import PoliticianCard from '@/components/PoliticianCard'
-import Cabinet from '@/components/Cabinet'
+import LoadingSpinner from '@/components/LoadingSpinner.vue'
+import PoliticianCard from '@/components/PoliticianCard.vue'
+import Cabinet from '@/components/Cabinet.vue'
 
 export default {
   name: 'Politicians',

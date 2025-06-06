@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import PoliticianCard from '@/components/PoliticianCard'
+import PoliticianCard from '@/components/PoliticianCard.vue'
 import mock_cabinet from '@/mocks/mock_cabinet.js'
 
 export default {

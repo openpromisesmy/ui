@@ -64,7 +64,7 @@
 
 <script>
 import { formatDate } from '@/utils'
-import LoadingSpinner from '@/components//LoadingSpinner'
+import LoadingSpinner from '@/components/LoadingSpinner.vue'
 
 export default {
   name: 'PromisesDesktop',
