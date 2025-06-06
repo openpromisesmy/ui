@@ -27,13 +27,12 @@
     </template>
 
     <el-row>
-    <vue-goodshare-facebook
+    <ShareNetwork
       class="facebook-share"
-      :page_url="url"
-      title_social="Share on Facebook"
-      has_counter
-      has_icon
-    ></vue-goodshare-facebook>
+      network="facebook"
+      :url="url"
+      title="Share on Facebook"
+    />
     </el-row>
   </article>
 </template>
@@ -44,11 +43,11 @@ import LoadingSpinner from '@/components/LoadingSpinner.vue'
 import PromiseStats from '@/components/PromiseStats.vue'
 import ContactDetails from './ContactDetails.vue'
 import { ContentLoader } from 'vue-content-loader'
-import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
+import { ShareNetwork } from 'vue3-social-sharing'
 
 export default {
   name: 'PoliticianDesktop',
-  components: { LoadingSpinner, PromiseStats, PoliticianDetails, ContentLoader, VueGoodshareFacebook, ContactDetails },
+  components: { LoadingSpinner, PromiseStats, PoliticianDetails, ContentLoader, ShareNetwork, ContactDetails },
   props: ['politician', 'promises', 'url'],
   data () {
     return {

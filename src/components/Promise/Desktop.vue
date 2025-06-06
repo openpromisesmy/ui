@@ -84,12 +84,11 @@
         <img :src="promise.cover_image" />
       </el-card>
 
-      <vue-goodshare-facebook
-        :page_url="url"
-        title_social="Share on Facebook"
-        has_counter
-        has_icon
-      ></vue-goodshare-facebook>
+      <ShareNetwork
+        network="facebook"
+        :url="url"
+        title="Share on Facebook"
+      />
 
     </template>
 
@@ -100,7 +99,7 @@
 // import LoadingSpinner from '@/components//LoadingSpinner'
 import { formatDate, statusColorMap } from '@/utils'
 import { ContentLoader } from 'vue-content-loader'
-import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
+import { ShareNetwork } from 'vue3-social-sharing'
 
 export default {
   name: 'PromiseDesktop',
@@ -110,7 +109,7 @@ export default {
     }
   },
   props: [ 'promise', 'politician', 'appStatus', 'displayedValues', 'url' ],
-  components: { ContentLoader, VueGoodshareFacebook },
+  components: { ContentLoader, ShareNetwork },
   methods: { formatDate }
 }
 </script>
