@@ -21,8 +21,11 @@ firebase.initializeApp(config)
 const API_URL = import.meta.env.VUE_APP_API_URL
 assert(API_URL, 'API_URL');
 
+const USE_MOCK_DATA = import.meta.env.VUE_APP_USE_MOCK_DATA !== 'false'
+
 export {
   firebase,
   API_URL,
-  facebookAppId
+  facebookAppId,
+  USE_MOCK_DATA
 }
