@@ -16,7 +16,7 @@
     "sass": "^1.89.1",
     "vue": "^3.4.21",
     "vue-content-loader": "^0.2.3",
-    "vue-goodshare": "^1.5.1",
+    "vue3-social-sharing": "^1.0.0",
     "vue-mq": "^1.0.1",
     "vue-router": "^4.1.6",
     "vuex": "^4.1.0",
