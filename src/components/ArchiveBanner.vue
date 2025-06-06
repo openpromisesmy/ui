@@ -1,5 +1,6 @@
 <template>
   <div v-if="visible" class="archive-banner">
+    <h2 class="banner-header">Archive Notice</h2>
     <section id="hero">
       <hero />
     </section>
@@ -35,12 +36,18 @@ export default {
 
 <style scoped>
 .archive-banner {
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   padding: 40px;
   border-radius: 10px;
   background: #d9edf7;
   position: relative;
+}
+
+.banner-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .close-btn {
