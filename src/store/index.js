@@ -33,8 +33,9 @@ const mutations = {
   [SET_PROMISE]: function (state, { promise, id }) {
     state.promises[id] = promise
   },
-  [SET_LIST]: function(state, list) {
-    state.lists = [ ...state.list.filter(x => x.id !== list.id).push(list) ]
+  [SET_LIST]: function (state, list) {
+    const filtered = state.lists.filter(x => x.id !== list.id)
+    state.lists = [...filtered, list]
   },
   [SET_LISTS]: function (state, lists) {
     state.lists = [...lists]
