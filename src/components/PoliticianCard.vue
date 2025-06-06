@@ -25,11 +25,13 @@
 </template>
 
 <script>
+import iconPath from './user-icon.png';
+
 export default {
   name: "PoliticianCard",
   data: () => ({
     imageError: false,
-    iconPath: require("./user-icon.png")
+    iconPath,
   }),
   props: {
     o: { type: Object }
