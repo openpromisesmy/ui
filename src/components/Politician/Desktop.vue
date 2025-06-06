@@ -39,10 +39,10 @@
 </template>
 
 <script>
-import PoliticianDetails from '@/components/Politician/PoliticianDetails'
-import LoadingSpinner from '@/components/LoadingSpinner'
-import PromiseStats from '@/components/PromiseStats'
-import ContactDetails from './ContactDetails'
+import PoliticianDetails from '@/components/Politician/PoliticianDetails.vue'
+import LoadingSpinner from '@/components/LoadingSpinner.vue'
+import PromiseStats from '@/components/PromiseStats.vue'
+import ContactDetails from './ContactDetails.vue'
 import { ContentLoader } from 'vue-content-loader'
 import VueGoodshareFacebook from 'vue-goodshare/src/providers/Facebook.vue'
 

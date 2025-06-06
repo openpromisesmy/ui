@@ -10,8 +10,8 @@
 <script>
 import { updateTitle } from '@/utils'
 import moment from 'moment'
-import PoliticianDesktop from '@/components/Politician/Desktop'
-import PromisesTable from '@/components/PromisesTable'
+import PoliticianDesktop from '@/components/Politician/Desktop.vue'
+import PromisesTable from '@/components/PromisesTable.vue'
 import { mapActions } from 'vuex'
 import { GET_POLITICIAN, GET_POLITICIAN_PROMISES } from '@/store/types' 
 

@@ -109,7 +109,7 @@
 
 <script>
 import { getPoliticians, postPromise } from '@/api'
-import Auth from '@/components/Auth'
+import Auth from '@/components/Auth.vue'
 
 const appStatus = {
   editingPromise: 'editingPromise',

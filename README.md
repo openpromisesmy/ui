@@ -5,7 +5,7 @@
 ## Up and Running
 0. create an `.env` file in the project root
 1. run `npm i`
-2. run `npm run serve`
+2. run `npm run dev`
 
 
 # Configuration

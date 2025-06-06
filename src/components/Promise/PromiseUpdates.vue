@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import PromiseUpdateCard from '@/components/Promise/PromiseUpdateCard'
+import PromiseUpdateCard from '@/components/Promise/PromiseUpdateCard.vue'
 
 export default {
   name: 'PromiseUpdates',

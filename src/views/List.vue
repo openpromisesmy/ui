@@ -21,9 +21,9 @@
 </template>
 
 <script>
-import PromisesTable from '@/components/PromisesTable'
-import LoadingSpinner from '@/components/LoadingSpinner'
-import PromiseStats from '@/components/PromiseStats'
+import PromisesTable from '@/components/PromisesTable.vue'
+import LoadingSpinner from '@/components/LoadingSpinner.vue'
+import PromiseStats from '@/components/PromiseStats.vue'
 import { GET_PROMISE, GET_LIST } from '@/store/types'
 import { mapActions } from 'vuex'
 
