@@ -16,16 +16,15 @@
     "sass": "^1.89.1",
     "vue": "^3.4.21",
     "vue-content-loader": "^0.2.3",
-    "vue3-social-sharing": "^1.0.0",
     "vue-mq": "^1.0.1",
     "vue-router": "^4.1.6",
+    "vue3-social-sharing": "^1.0.0",
     "vuex": "^4.1.0",
     "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.24.5",
     "@vitejs/plugin-vue": "^5.2.0",
-    "@vue/compat": "^3.4.21",
     "@vue/compiler-sfc": "^3.4.21",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.0",
@@ -45,7 +44,9 @@
       "parser": "@babel/eslint-parser",
       "requireConfigFile": false
     },
-    "rules": {}
+    "rules": {
+      "vue/multi-word-component-names": "off"
+    }
   },
   "browserslist": [
     "> 1%",
