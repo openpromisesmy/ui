@@ -66,7 +66,7 @@ export default {
       })
     },
     showCabinet() {
-      return process.env.NODE_ENV === 'development'
+      return import.meta.env.MODE === 'development'
     },
   },
   async created() {
