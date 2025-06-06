@@ -18,11 +18,13 @@
 </template>
 
 <script>
+import iconPath from './user-icon.png';
+
 export default {
   name: 'Politician',
   data: () => ({
     imageError: false,
-    iconPath: require("./user-icon.png")
+    iconPath,
   }),
   props: {
     politician: {
