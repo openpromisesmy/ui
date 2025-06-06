@@ -1,15 +1,13 @@
 <template>
   <div>
-    <el-container id="app" v-if="isLanding">
-      <el-main>
-        <landing />
-      </el-main>
-    </el-container>
-    <el-container v-else id="app" direction="vertical">
+    <el-container id="app" direction="vertical">
       <div>
         <Navbar />
       </div>
-      <alert-banner :text="alertText"/>
+      <archive-banner
+        v-if="showBanner"
+        @close="showBanner = false"
+      />
       <el-main>
         <router-view />
       </el-main>
@@ -21,39 +19,27 @@
 </template>
 
 <script>
-import Navbar from "@/components/Navbar/index.vue";
-import Footer from "@/components/Footer.vue";
-import Landing from "@/views/Landing.vue";
-import AlertBanner from "./components/AlertBanner.vue";
+import Navbar from "@/components/Navbar/index.vue"
+import Footer from "@/components/Footer.vue"
+import ArchiveBanner from "./components/ArchiveBanner.vue"
 
 export default {
   name: "App",
   components: {
-    Landing,
     Navbar,
     Footer,
-    AlertBanner,
+    ArchiveBanner
   },
   data() {
     return {
-      alertText: 'Promises data is not up to date. This is an archived deployment of OpenPromises.',
+      showBanner: true,
       footer: [
         { text: "Home", url: "/" },
         { text: "Promises", url: "/promises" },
         { text: "Politicians", url: "/politicians" },
       ],
-    };
-  },
-  computed: {
-    isArchive() {
-      const { hostname } = window.location;
-      let isLanding = hostname.split(".")[0] == "archive";
-      return isLanding;
-    },
-    isLanding() {
-      return !this.isArchive;
-    },
-  },
+    }
+  }
 };
 </script>
 
