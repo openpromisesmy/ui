@@ -4,19 +4,10 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [
-    vue({
-      template: {
-        compilerOptions: {
-          compatConfig: {
-            MODE: 2
-          }
-        }
-      }
-    })
+    vue()
   ],
   resolve: {
     alias: {
-      'vue': '@vue/compat',
       '@': path.resolve(__dirname, './src')
     }
   },
