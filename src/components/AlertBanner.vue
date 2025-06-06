@@ -1,5 +1,10 @@
 <template>
-  <el-alert type="warning" :title="text" />
+  <el-alert
+    type="warning"
+    :title="text"
+    :closable="closable"
+    @close="$emit('close')"
+  />
 </template>
 
 <script>
@@ -10,6 +15,10 @@ export default {
       type: String,
       required: true,
       default: ''
+    },
+    closable: {
+      type: Boolean,
+      default: false
     }
   }
 }

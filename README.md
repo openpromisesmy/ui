@@ -42,8 +42,5 @@ All configuration and build files live in the project root alongside this README
 
 ## Archive
 
-The landing page includes a **View Archived Website** button. It takes users to
-the archived deployment located at the `archive` subdomain of the current host
-(for example `https://archive.example.com`). Visiting this subdomain also shows a
-banner noting that the data is from an archived site.
+A banner at the top of the home page notes that the project is archived. Users can dismiss it to browse the site normally.
 
