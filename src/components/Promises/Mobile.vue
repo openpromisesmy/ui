@@ -23,7 +23,7 @@
       prop="title"
       label="Title"
     >
-      <template slot-scope="scope">
+      <template #default="scope">
         <router-link :to="'/promises/' + scope.row.id">{{ scope.row.title }}</router-link>
       </template>
     </el-table-column>
@@ -40,7 +40,7 @@
 
 <script>
 import { formatDate } from '@/utils'
-import LoadingSpinner from '@/components//LoadingSpinner'
+import LoadingSpinner from '@/components/LoadingSpinner.vue'
 
 export default {
   name: 'PromisesMobile',

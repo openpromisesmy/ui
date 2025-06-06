@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import RealOrFake from '@/components/Quizzes/RealOrFake'
+import RealOrFake from '@/components/Quizzes/RealOrFake.vue'
 
 export default {
   name: 'Quizzes',

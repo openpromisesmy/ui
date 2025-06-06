@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import FederralBudgetMiniQuiz from '@/components/Quizzes/FederralBudgetMiniQuiz'
+import FederralBudgetMiniQuiz from '@/components/Quizzes/FederralBudgetMiniQuiz.vue'
 
 export default {
   name: 'FederalBudgetQuiz',

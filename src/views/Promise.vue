@@ -11,9 +11,9 @@
 
 <script>
 import { getPromise, getPolitician, listPromiseUpdates } from '@/api'
-import PromiseDesktop from '@/components/Promise/Desktop'
-import PromiseUpdates from '@/components/Promise/PromiseUpdates'
-import FacebookComment from '@/components/FacebookComment'
+import PromiseDesktop from '@/components/Promise/Desktop.vue'
+import PromiseUpdates from '@/components/Promise/PromiseUpdates.vue'
+import FacebookComment from '@/components/FacebookComment.vue'
 import { formatDate, updateTitle } from '@/utils'
 
 export default {

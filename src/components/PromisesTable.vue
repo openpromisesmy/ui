@@ -16,7 +16,7 @@
               :label="status"
               :value="status">
             </el-option>
-            <template slot="prepend">Filter by title</template>
+            <template #prepend>Filter by title</template>
           </el-select>
         </el-col>
       </el-row>
@@ -47,7 +47,7 @@
         width="125"
       ></el-table-column>
       <el-table-column prop="title" label="Title">
-        <template slot-scope="scope">
+        <template #default="scope">
           <router-link :to="'/promises/' + scope.row.id">
             <p class="promise-title">{{ scope.row.title }}</p>
           </router-link>
@@ -66,7 +66,7 @@
         label="Source Date"
         width="150"
       >
-        <template slot-scope="scope">
+        <template #default="scope">
           <p>{{ formatDate(scope.row.source_date) }}</p>
         </template>
       </el-table-column>
@@ -89,7 +89,7 @@
 <script>
 // import LoadingSpinner from '@/components//LoadingSpinner'
 import { formatDate } from '@/utils'
-import PromiseCard from '@/components/PromiseCard'
+import PromiseCard from '@/components/PromiseCard.vue'
 import promiseStatusValues from '../utils/promiseStatusValues'
 
 export default {

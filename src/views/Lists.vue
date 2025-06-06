@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import ListsTable from '@/components/Lists/Table'
-import LoadingSpinner from '@/components/LoadingSpinner'
+import ListsTable from '@/components/Lists/Table.vue'
+import LoadingSpinner from '@/components/LoadingSpinner.vue'
 import { mapActions } from 'vuex'
 import { GET_LISTS } from '@/store/types'
 

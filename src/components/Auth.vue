@@ -16,7 +16,7 @@
 
 <script>
 import { googleSignIn, getContributor, postContributor } from '@/api'
-import LoadingSpinner from '@/components//LoadingSpinner'
+import LoadingSpinner from '@/components/LoadingSpinner.vue'
 
 export default {
   name: 'Auth',

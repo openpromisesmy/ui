@@ -11,7 +11,7 @@
 
 <script>
 import malaysianStates from '@/utils/malaysianStates'
-import StatesDisplay from '@/components/StatesDisplay'
+import StatesDisplay from '@/components/StatesDisplay.vue'
 
 export default {
   name: 'States',

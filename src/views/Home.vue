@@ -30,8 +30,8 @@
 </template>
 
 <script>
-import Hero from '@/components/Hero'
-import Politicians from '@/views/Politicians'
+import Hero from '@/components/Hero.vue'
+import Politicians from '@/views/Politicians.vue'
 
 export default {
   name: 'Home',

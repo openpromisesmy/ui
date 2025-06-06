@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 import actions from './actions'
 import {
@@ -9,7 +8,6 @@ import {
   SET_PROMISE
  } from './types'
 
-Vue.use(Vuex)
 
 const state = {
   user: {
@@ -49,4 +47,9 @@ const mutations = {
   }
 }
 
-export default new Vuex.Store({ state, actions, mutations, plugins: [createPersistedState()] })
+export default createStore({
+  state,
+  actions,
+  mutations,
+  plugins: [createPersistedState()]
+})

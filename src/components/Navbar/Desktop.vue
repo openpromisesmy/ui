@@ -13,7 +13,7 @@
       </el-menu-item>
 
       <el-submenu index="1" id="promises">
-        <template slot="title">Promises</template>
+        <template #title>Promises</template>
         <el-menu-item
           v-for="(item, index) in promiseItems"
           :key="index"
