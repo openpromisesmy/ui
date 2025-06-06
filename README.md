@@ -31,3 +31,12 @@ VUE_APP_API_URL="http://localhost:5000/openpromises-8526c/us-central1"
 - use `DEV_` variables when in dev mode (set this in config/dev.env.js). Currently all the variables names are `PROD_`
 - no component should call api directly. the store should be the interface. caching should also be implemented by the store and not the component.
 
+## Directory structure
+
+The project is organized into two main folders:
+
+- `public/` contains static assets such as `index.html` and the favicon.
+- `src/` holds the application code. Notable subfolders include `components/` for UI components, `views/` for page-level views, `store/` for Vuex state management, and `router/` for route definitions.
+
+All configuration and build files live in the project root alongside this README.
+
