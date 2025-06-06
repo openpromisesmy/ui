@@ -42,5 +42,5 @@ All configuration and build files live in the project root alongside this README
 
 ## Archive
 
-A banner appears at the top of the home page noting that the project is archived. Users can dismiss it to browse the site normally and the URL remains unchanged.
+A banner on the home page explains that the project is archived. It reproduces the previous landing page content and can be closed so the URL never changes.
 

@@ -4,10 +4,8 @@
       <div>
         <Navbar />
       </div>
-      <alert-banner
+      <archive-banner
         v-if="showBanner"
-        :text="alertText"
-        closable
         @close="showBanner = false"
       />
       <el-main>
@@ -23,18 +21,17 @@
 <script>
 import Navbar from "@/components/Navbar/index.vue"
 import Footer from "@/components/Footer.vue"
-import AlertBanner from "./components/AlertBanner.vue"
+import ArchiveBanner from "./components/ArchiveBanner.vue"
 
 export default {
   name: "App",
   components: {
     Navbar,
     Footer,
-    AlertBanner
+    ArchiveBanner
   },
   data() {
     return {
-      alertText: 'Promises data is not up to date. This is an archived deployment of OpenPromises.',
       showBanner: true,
       footer: [
         { text: "Home", url: "/" },
