@@ -22,8 +22,8 @@
             </el-col> -->
         </el-row>
         <el-row class="copyright">
-          <el-col >
-            © 2020 OpenPromises
+          <el-col>
+            © {{ yearRange }} OpenPromises Malaysia
           </el-col>
         </el-row>
     </footer>
@@ -41,6 +41,13 @@ export default {
       ]
     }
   },
+  computed: {
+    yearRange () {
+      const start = 2020
+      const current = new Date().getFullYear()
+      return start === current ? `${start}` : `${start} - ${current}`
+    }
+  },
   methods: {
     handleSelect (key, keyPath) {
       console.log(key, keyPath)
@@ -51,14 +58,15 @@ export default {
 
 <style scoped>
 #footer {
-  margin-top: 20px;
-  background-color: darkslategray;
-  padding: 5px 5px 20px;
+  margin-top: 40px;
+  background-color: #2c3e50;
+  padding: 10px 5px 20px;
   color: white
 }
 .footer-link {
   color: white;
   text-decoration: none;
+  margin: 0 5px;
 }
 .el-row {
   display: flex;
