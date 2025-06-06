@@ -13,9 +13,6 @@
               <a target="_blank" href="https://github.com/openpromisesmy">
                 <el-button type="danger">View Github repositories</el-button>
               </a>
-              <a :href="archiveLink" v-if="showArchiveLink">
-                <el-button type="danger">View Archived Website</el-button>
-              </a>
             </div>
 
                   <!-- </div> -->
@@ -26,18 +23,12 @@
 <script>
 export default {
   name: "Hero",
-  props: ["showArchiveLink"],
   data() {
     return {
       tagline: "Track Promises by Your Representatives"
-    };
-  },
-  computed: {
-    archiveLink: function() {
-      return window.location.protocol + '//archive.' + window.location.host.replace('www.','')
     }
   }
-};
+}
 </script>
 
 <style scoped>
