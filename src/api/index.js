@@ -1,5 +1,6 @@
 import axios from 'axios'
-import { firebase, API_URL } from '@/config'
+import { firebase, API_URL, USE_MOCK_DATA } from '@/config'
+import mocks from '@/mocks'
 const provider = new firebase.auth.GoogleAuthProvider()
 
 async function getSomething (path) {
@@ -39,16 +40,40 @@ async function getSingle (path, id) {
 //   return Promise.resolve(mock_cabinet);
 // }
 
-const getPolitician = id => getSingle('/politicians/', id)
-const getPoliticians = () => getSomething('/politicians/')
+const getPolitician = id => {
+  if (USE_MOCK_DATA) return Promise.resolve(mocks.politicians.find(x => x.id === id))
+  return getSingle('/politicians/', id)
+}
 
-const getPromise = id => getSomething('/promises/' + id)
-const getLivePromises = query => getSomething('/promises/?live=true&' + query)
-const getPoliticianPromises = id =>
-  getSomething(`/promises/?politician_id=${id}`) // TODO: account for live too
+const getPoliticians = () => {
+  if (USE_MOCK_DATA) return Promise.resolve(mocks.politicians)
+  return getSomething('/politicians/')
+}
 
-const getList = id => getSomething('/lists/' + id)
-const listLists = () => getSomething('/lists/')
+const getPromise = id => {
+  if (USE_MOCK_DATA) return Promise.resolve(mocks.promises.find(x => x.id === id))
+  return getSomething('/promises/' + id)
+}
+
+const getLivePromises = query => {
+  if (USE_MOCK_DATA) return Promise.resolve(mocks.promises)
+  return getSomething('/promises/?live=true&' + query)
+}
+
+const getPoliticianPromises = id => {
+  if (USE_MOCK_DATA) return Promise.resolve(mocks.promises.filter(p => p.politician_id === id))
+  return getSomething(`/promises/?politician_id=${id}`)
+}
+
+const getList = id => {
+  if (USE_MOCK_DATA) return Promise.resolve(mocks.lists.find(x => x.id === id))
+  return getSomething('/lists/' + id)
+}
+
+const listLists = () => {
+  if (USE_MOCK_DATA) return Promise.resolve(mocks.lists)
+  return getSomething('/lists/')
+}
 
 function googleSignIn () {
   return new Promise((resolve, reject) => {
