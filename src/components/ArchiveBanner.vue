@@ -14,11 +14,9 @@
 </template>
 
 <script>
-import Hero from '@/components/Hero.vue'
 
 export default {
   name: 'ArchiveBanner',
-  components: { Hero },
   data() {
     return {
       visible: true
