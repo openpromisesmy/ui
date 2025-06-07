@@ -52,6 +52,14 @@
           <el-button type="primary">Submit A Promise</el-button>
         </router-link>
       </el-menu-item>
+      <el-menu-item index="7" id="theme-toggle">
+        <el-switch
+          :model-value="darkMode"
+          active-text="Dark"
+          inactive-text="Light"
+          @change="$emit('toggle-dark-mode')"
+        />
+      </el-menu-item>
     </el-menu>
   </el-header>
 </template>
@@ -59,7 +67,7 @@
 <script>
 export default {
   name: "NavbarDesktop",
-  props: ["navigation", "authenticated", "email"],
+  props: ["navigation", "authenticated", "email", "darkMode"],
   data() {
     return {
       activeIndex: "0",
@@ -109,5 +117,9 @@ a {
 }
 .router-link-active {
   font-weight: 600;
+}
+
+body.dark #navbar {
+  background-color: #1e1e1e;
 }
 </style>

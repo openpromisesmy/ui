@@ -2,7 +2,7 @@
   <div>
     <el-container id="app" direction="vertical">
       <div>
-        <Navbar />
+        <Navbar :dark-mode="darkMode" @toggle-dark-mode="toggleDarkMode" />
       </div>
       <archive-banner
         v-if="showBanner"
@@ -14,6 +14,7 @@
       <div>
         <Footer class="footer-container" />
       </div>
+      <BackToTop />
     </el-container>
   </div>
 </template>
@@ -22,22 +23,46 @@
 import Navbar from "@/components/Navbar/index.vue"
 import Footer from "@/components/Footer.vue"
 import ArchiveBanner from "./components/ArchiveBanner.vue"
+import BackToTop from "@/components/BackToTop.vue"
 
 export default {
   name: "App",
   components: {
     Navbar,
     Footer,
-    ArchiveBanner
+    ArchiveBanner,
+    BackToTop
   },
   data() {
     return {
       showBanner: true,
+      darkMode: localStorage.getItem('darkMode') === 'true',
       footer: [
         { text: "Home", url: "/" },
         { text: "Promises", url: "/promises" },
         { text: "Politicians", url: "/politicians" },
       ],
+    }
+  },
+  watch: {
+    darkMode(val) {
+      localStorage.setItem('darkMode', val)
+      this.applyTheme()
+    }
+  },
+  mounted() {
+    this.applyTheme()
+  },
+  methods: {
+    toggleDarkMode() {
+      this.darkMode = !this.darkMode
+    },
+    applyTheme() {
+      if (this.darkMode) {
+        document.body.classList.add('dark')
+      } else {
+        document.body.classList.remove('dark')
+      }
     }
   }
 };
@@ -59,5 +84,16 @@ export default {
 
 .title {
   font-size: 36px;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark #navbar,
+body.dark #footer {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
 }
 </style>
