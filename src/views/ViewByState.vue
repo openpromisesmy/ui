@@ -3,7 +3,7 @@
     <el-row id="main_info">
           <section id="page-title">
               <h1>Promises relating to {{ stateName }}</h1>
-              <img class="state-image" :src=stateObject.image>
+              <img class="state-image" :src="stateObject.image" :alt="stateName + ' image'">
           </section>
           <section>
               <loading-spinner v-if="appStatus === 'loading'" />

@@ -63,10 +63,12 @@ export default {
   height: 120px;
   margin: 5px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .el-card:hover {
   background-color: rgba(240, 248, 255, 0.5);
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.35);
 }
 .card-body {
   display: flex;
