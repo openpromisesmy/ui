@@ -1,8 +1,8 @@
 <template>
   <el-collapse v-model="activeNames" id="navbar">
-    <router-link to="/">
-      <img id="navbar-logo" src="@/assets/openpromises.png"
-    /></router-link>
+  <router-link to="/">
+    <img id="navbar-logo" src="@/assets/openpromises.png" alt="OpenPromises" />
+  </router-link>
 
     <el-collapse-item title="Menu" name="1">
       <el-row class="tac">

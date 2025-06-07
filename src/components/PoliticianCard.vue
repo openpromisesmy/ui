@@ -13,7 +13,12 @@
           'background-size': 'cover'
         }"
       ></div>
-      <img class="shadow-img" :src="o.profile_image" @error="imageLoadError" />
+      <img
+        class="shadow-img"
+        :src="o.profile_image"
+        :alt="o.name"
+        @error="imageLoadError"
+      />
       <div class="text">
         <p>
           <b>{{ o.name }}</b>

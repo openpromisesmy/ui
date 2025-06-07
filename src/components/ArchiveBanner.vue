@@ -7,7 +7,7 @@
       <p>This page will be updated with more detailed information and instructions on the system.</p>
       <p>If you'd like to run OpenPromises for your own promise-tracking project, view the <a href="https://github.com/openpromisesmy">OpenPromises Github repositories</a></p>
     </section>
-    <el-button class="close-btn" circle @click="close">
+    <el-button class="close-btn" circle @click="close" aria-label="Close archive banner">
       <span class="sr-only">X</span>
     </el-button>
   </div>

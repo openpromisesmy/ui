@@ -2,7 +2,12 @@
     <el-card id="PoliticianDetails" header="Biography">
     <el-row>
         <el-col :sm="24">
-            <img class="image" :src="imageToShow" @error="imageLoadError">
+            <img
+              class="image"
+              :src="imageToShow"
+              :alt="politician.name"
+              @error="imageLoadError"
+            >
         </el-col>
          <el-col :sm="24">
             <div class="details-text">
