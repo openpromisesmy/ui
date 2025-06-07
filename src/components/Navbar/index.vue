@@ -1,14 +1,14 @@
 <template>
   <navbar-mobile
-    v-if="$mq === 'navbar' "
+    v-if="isMobile"
     v-bind="{ navigation, authenticated }"
   />
   <navbar-desktop v-else v-bind="{ navigation, authenticated }" />
 </template>
 
 <script>
-import NavbarDesktop from "@/components/Navbar/Desktop.vue";
-import NavbarMobile from "@/components/Navbar/Mobile.vue";
+import NavbarDesktop from "@/components/Navbar/Desktop.vue"
+import NavbarMobile from "@/components/Navbar/Mobile.vue"
 
 export default {
   name: "Navbar",
@@ -30,15 +30,27 @@ export default {
         // { text: 'Budget 2020', url: '/budget-2020/quiz' }
         // { text: "Contact", url: "/contact" }
       ],
-      authenticated: this.$store.state.user.authenticated
-    };
+      authenticated: this.$store.state.user.authenticated,
+      isMobile: window.matchMedia('(max-width: 768px)').matches,
+      mediaQuery: null
+    }
+  },
+  mounted() {
+    this.mediaQuery = window.matchMedia('(max-width: 768px)')
+    this.mediaQuery.addEventListener('change', this.updateIsMobile)
+  },
+  beforeUnmount() {
+    if (this.mediaQuery) {
+      this.mediaQuery.removeEventListener('change', this.updateIsMobile)
+    }
   },
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+    handleSelect() {},
+    updateIsMobile(e) {
+      this.isMobile = e ? e.matches : window.matchMedia('(max-width: 768px)').matches
     }
   }
-};
+}
 </script>
 
 <style scoped>
