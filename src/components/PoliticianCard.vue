@@ -63,12 +63,15 @@ export default {
   height: 120px;
   margin: 5px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.25);
-  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
 }
 
 .el-card:hover {
   background-color: rgba(240, 248, 255, 0.5);
   box-shadow: 4px 4px 8px rgba(0,0,0,0.35);
+  transform: scale(1.03);
 }
 .card-body {
   display: flex;
@@ -102,5 +105,9 @@ export default {
 
 .shadow-img {
   display: none;
+}
+
+body.dark .politician-card {
+  background-color: #1e1e1e;
 }
 </style>

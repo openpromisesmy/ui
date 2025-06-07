@@ -1,9 +1,14 @@
 <template>
   <navbar-mobile
     v-if="isMobile"
-    v-bind="{ navigation, authenticated }"
+    v-bind="{ navigation, authenticated, darkMode }"
+    @toggle-dark-mode="$emit('toggle-dark-mode')"
   />
-  <navbar-desktop v-else v-bind="{ navigation, authenticated }" />
+  <navbar-desktop
+    v-else
+    v-bind="{ navigation, authenticated, darkMode }"
+    @toggle-dark-mode="$emit('toggle-dark-mode')"
+  />
 </template>
 
 <script>
@@ -16,6 +21,7 @@ export default {
     NavbarDesktop,
     NavbarMobile
   },
+  props: ['darkMode'],
   data() {
     return {
       navigation: [

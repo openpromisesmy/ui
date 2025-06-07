@@ -36,6 +36,14 @@
                 <el-button type="primary">Submit A Promise</el-button>
               </router-link>
             </el-menu-item>
+            <el-menu-item index="6" id="theme-toggle">
+              <el-switch
+                :model-value="darkMode"
+                active-text="Dark"
+                inactive-text="Light"
+                @change="$emit('toggle-dark-mode')"
+              />
+            </el-menu-item>
           </el-menu>
         </el-col>
       </el-row>
@@ -46,7 +54,7 @@
 <script>
 export default {
   name: "NavbarMobile",
-  props: ["navigation", "authenticated", "email"],
+  props: ["navigation", "authenticated", "email", "darkMode"],
   data() {
     return {
       activeNames: []
@@ -87,6 +95,10 @@ a {
 }
 .router-link-active {
   font-weight: 800;
+}
+
+body.dark #navbar {
+  background-color: #1e1e1e;
 }
 
 .el-collapse-item >>> .el-collapse-item__header {

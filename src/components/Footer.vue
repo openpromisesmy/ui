@@ -63,6 +63,9 @@ export default {
   padding: 10px 5px 20px;
   color: white
 }
+body.dark #footer {
+  background-color: #1e1e1e;
+}
 .footer-link {
   color: white;
   text-decoration: none;
