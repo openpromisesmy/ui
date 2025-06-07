@@ -21,7 +21,11 @@
 
       <template v-if="promiseUpdate.cover_image">
         <p><b>Image</b></p>
-        <img :src="promiseUpdate.cover_image" class="PromiseUpdate_image"/>
+        <img
+          :src="promiseUpdate.cover_image"
+          class="PromiseUpdate_image"
+          :alt="promiseUpdate.title"
+        />
       </template>
 
     </el-card>

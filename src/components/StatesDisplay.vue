@@ -5,7 +5,7 @@
         <el-card shadow="hover" :body-style="{'padding' : '0', 'position' : 'relative'}" :style="{'margin' : '5px' }">
           <div class="card-body">
             <router-link :to="`/states/${state.name}`">
-              <img class="card-image" :src=state.image>
+              <img class="card-image" :src="state.image" :alt="state.name">
               <div class="card-info">
                 <p>{{ state.name  }}</p>
               </div>

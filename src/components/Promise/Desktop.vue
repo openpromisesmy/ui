@@ -81,7 +81,7 @@
 
       <el-card v-if="promise.cover_image" class="Promise_card_image">
         <p class="card-title"> <b> Image </b></p>
-        <img :src="promise.cover_image" />
+        <img :src="promise.cover_image" :alt="promise.title" />
       </el-card>
 
       <ShareNetwork

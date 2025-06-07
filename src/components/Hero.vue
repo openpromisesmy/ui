@@ -1,7 +1,7 @@
 <template>
   <div class="hero-wrapper">
     <div>
-          <img id="logo" src="@/assets/logo.jpg">
+          <img id="logo" src="@/assets/logo.jpg" alt="OpenPromises logo">
     </div>
     <div class="hero-copy">
       <h1 id="tagline">{{ tagline }}</h1>
@@ -10,7 +10,7 @@
             <p>Promises are made in our interests.</p>
             <p>It's time we track those promises.</p>
             <div class="btn-containers">
-              <a target="_blank" href="https://github.com/openpromisesmy">
+              <a target="_blank" href="https://github.com/openpromisesmy" rel="noopener noreferrer">
                 <el-button type="danger">View Github repositories</el-button>
               </a>
             </div>

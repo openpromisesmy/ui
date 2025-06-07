@@ -1,8 +1,8 @@
 <template>
   <el-header id="navbar">
-    <router-link to="/"
-      ><img id="navbar-logo" src="@/assets/openpromises.png"
-    /></router-link>
+    <router-link to="/">
+      <img id="navbar-logo" src="@/assets/openpromises.png" alt="OpenPromises" />
+    </router-link>
     <el-menu
       :default-active="activeIndex"
       mode="horizontal"
