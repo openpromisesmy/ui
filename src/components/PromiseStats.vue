@@ -2,18 +2,18 @@
     <el-card id="Promise_stats" header="Promise Statistics">
       <h2>{{ totalPromises }} promise {{ totalPromises === 1 ? '' : 's' }} made</h2>
       <el-row v-for="(value, key) in stats" :key="key">
-          <el-col :span="14">
+          <el-col :span="8">
             {{ key }}
           </el-col>
-          <!-- <el-col :span="8">
+          <el-col :span="10">
             <el-progress
               :show-text="false"
               :stroke-width="10"
               color="darkslategrey"
-              :percentage="Math.round( (value/totalPromises)*100 )">
-            </el-progress>
-          </el-col> -->
-          <el-col :span="10">
+              :percentage="Math.round((value/totalPromises)*100)"
+            />
+          </el-col>
+          <el-col :span="6">
             <b>{{ value }}</b>
           </el-col>
 

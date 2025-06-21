@@ -41,10 +41,13 @@ a {
   color: white;
   position: relative;
   margin: 10px auto;
+  border-radius: 8px;
+  padding: 15px;
+  transition: box-shadow 0.3s;
 }
 
 .promise-card:hover {
-  box-shadow: 1px 2px 13px 0px rgb(132, 131, 131);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 header {
