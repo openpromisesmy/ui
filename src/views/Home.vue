@@ -59,7 +59,8 @@ main {
   margin: 0 auto;
   padding: 40px;
   border-radius: 10px;
-  background: #d9edf7;
+  background: linear-gradient(135deg, #d9edf7, #fff);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .el-button {

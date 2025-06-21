@@ -42,7 +42,9 @@ export default {
 }
 
 #tagline {
-  font-size: 32px;
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .hero-copy {
@@ -55,6 +57,9 @@ export default {
   align-items: center;
   flex-wrap: wrap;
   margin: 20px 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #description {
