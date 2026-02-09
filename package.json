@@ -8,7 +8,7 @@
     "lint": "eslint . --ext .js,.vue"
   },
   "dependencies": {
-    "axios": "^0.21.2",
+    "axios": "^1.13.5",
     "core-js": "^3.21.1",
     "element-plus": "^2.9.11",
     "firebase": "^8.10.1",
