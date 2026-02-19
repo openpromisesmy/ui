@@ -1,10 +1,16 @@
 <template>
-  <section>
-    <politician-desktop
-      v-bind="{ politician, promises, url }" />
-    <h2>Promises by {{ politician.name }} </h2>
-    <promises-table :promises="promises" :exclude="['politician_name']"/>
-  </section>
+  <main class="page-shell">
+    <section class="page-panel detail-panel">
+      <politician-desktop v-bind="{ politician, promises, url }" />
+    </section>
+
+    <section class="page-panel">
+      <header class="view-header">
+        <h2>Promises by {{ politician.name }}</h2>
+      </header>
+      <promises-table :promises="promises" :exclude="['politician_name']"/>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -55,7 +61,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h2 {
-  text-align: center
+.detail-panel {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.view-header h2 {
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
 }
 </style>

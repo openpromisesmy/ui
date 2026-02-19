@@ -1,17 +1,16 @@
 <template>
-  <div class="container">
-    <template>
-      <el-row id="main_info">
-        <section id="List_info">
-          <h1>Federal Budget Malaysia 2020</h1>
-          <p>Answer few question to know what is beneficial for you?</p>
-        </section>
-      </el-row>
+  <main class="page-shell">
+    <section class="page-panel">
+      <header id="List_info" class="view-header">
+        <span class="label-chip">Quiz</span>
+        <h1 class="title">Federal Budget Malaysia 2020</h1>
+        <p>Answer a few questions to understand which budget allocations affect you.</p>
+      </header>
       <el-row>
         <FederralBudgetMiniQuiz></FederralBudgetMiniQuiz>
       </el-row>
-    </template>
-  </div>
+    </section>
+  </main>
 </template>
 
 <script>
@@ -31,24 +30,8 @@ export default {
 </script>
 
 <style scoped>
-#List_info {
-  text-align: center;
-}
-
-#main_info {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-#main_info > section {
-  flex: 1;
-  margin: 10px;
-}
-
-@media all and (max-width: 500px) {
-  #main_info {
-    flex-direction: column;
-  }
+.page-panel {
+  max-width: 960px;
+  margin: 0 auto;
 }
 </style>

@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       navigation: [
-        { text: "Home", url: "/home" },
+        { text: "Home", url: "/" },
         { text: "Politicians", url: "/politicians" },
         // { text: "States", url: "/states" },
         { text: "Lists", url: "/lists" },

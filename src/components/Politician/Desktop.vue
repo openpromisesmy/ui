@@ -19,14 +19,12 @@
         </section>
         <section>
           <promise-stats v-if="promises != 'loading'" v-bind="{ promises }"/>
-          <ContentLoader v-else width="300" height="280" >
-            <rect x="0" y="0" rx="3" ry="3" width="300" height="280" />
-          </ContentLoader>
+          <loading-spinner v-else />
         </section>
       </el-row>
     </template>
 
-    <el-row>
+    <el-row class="share-wrap">
     <ShareNetwork
       class="facebook-share"
       network="facebook"
@@ -42,12 +40,11 @@ import PoliticianDetails from '@/components/Politician/PoliticianDetails.vue'
 import LoadingSpinner from '@/components/LoadingSpinner.vue'
 import PromiseStats from '@/components/PromiseStats.vue'
 import ContactDetails from './ContactDetails.vue'
-import { ContentLoader } from 'vue-content-loader'
 import { ShareNetwork } from 'vue3-social-sharing'
 
 export default {
   name: 'PoliticianDesktop',
-  components: { LoadingSpinner, PromiseStats, PoliticianDetails, ContentLoader, ShareNetwork, ContactDetails },
+  components: { LoadingSpinner, PromiseStats, PoliticianDetails, ShareNetwork, ContactDetails },
   props: ['politician', 'promises', 'url'],
   data () {
     return {
@@ -68,12 +65,13 @@ export default {
 #main_info {
   display: flex;
   flex-direction: row;
-  justify-content: space-around
+  justify-content: space-between;
+  align-items: stretch;
 }
 
 #main_info > section {
-  flex: 1;
-  margin: 10px
+  flex: 1 1 280px;
+  margin: 8px;
 }
 
 @media all and (max-width: 500px) {
@@ -89,7 +87,16 @@ export default {
 }
 
 .facebook-share {
-  margin: 20px !important
+  margin: 10px !important;
+  border-radius: 999px;
+  padding: 9px 14px;
+  background: rgba(15, 118, 110, 0.09);
+  border: 1px solid rgba(15, 118, 110, 0.22);
+  font-weight: 700;
 }
 
+.share-wrap {
+  margin-top: 4px;
+  justify-content: center;
+}
 </style>

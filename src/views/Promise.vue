@@ -1,12 +1,15 @@
 <template>
-  <section id="PromiseView">
-    <promise-desktop
-                    v-bind="{ promise, politician, appStatus, displayedValues, url }" />
-    <promise-updates :promiseUpdates="promiseUpdates"
-                     :promiseID="promise.id"
-    />
-    <facebook-comment id="facebook-comment" />
-  </section>
+  <main id="PromiseView" class="page-shell">
+    <section class="page-panel promise-panel">
+      <promise-desktop v-bind="{ promise, politician, appStatus, displayedValues, url }" />
+    </section>
+    <section class="page-panel promise-panel">
+      <promise-updates :promiseUpdates="promiseUpdates" :promiseID="promise.id" />
+    </section>
+    <section class="page-panel promise-panel" id="facebook-comment">
+      <facebook-comment />
+    </section>
+  </main>
 </template>
 
 <script>
@@ -72,10 +75,15 @@ export default {
 #PromiseView {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 10px
+  align-items: stretch;
 }
+
+.promise-panel {
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
 #facebook-comment {
-  text-align: center
+  text-align: center;
 }
 </style>

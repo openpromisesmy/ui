@@ -10,20 +10,22 @@
 <style scoped>
 .container {
   margin: auto;
-  width: 100px
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-items: center;
 }
 
 .loader {
-  border: 16px solid #f3f3f3;
+  border: 6px solid rgba(15, 118, 110, 0.12);
   border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 60px;
-  height: 60px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
+  border-top: 6px solid #0f766e;
+  width: 42px;
+  height: 42px;
+  -webkit-animation: spin 0.9s linear infinite;
+  animation: spin 0.9s linear infinite;
 }
 
-/* Safari */
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); }

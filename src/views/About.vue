@@ -1,112 +1,25 @@
 <template>
-  <main class="about">
-    <h1 class="title">About OpenPromises</h1>
-    <section id="hero">
-      <Hero :tagline="msg" />
+  <main class="page-shell about-page">
+    <section class="page-panel">
+      <header class="view-header">
+        <span class="label-chip">Mission</span>
+        <h1 class="title">About OpenPromises</h1>
+      </header>
+      <section id="hero">
+        <Hero :tagline="msg" />
+      </section>
     </section>
     <div class="about-points">
-      <el-row :gutter="10">
-        <el-col :md="24">
-          <el-card>
-            <h2>The problem ?</h2>
-            <p>The feedback loop for representative democracies is broken. Politicians gain support from citizens not just based on track records but also heavily based on promises that they make. The fulfilment of these promises are currently not tracked in a systematic way.</p>
-          </el-card>
-        </el-col>
-        <el-col :md="24">
-          <el-card>
-            <h2>The solution ?</h2>
-            <p>A resource and platform that empowers citizens with easy access to the track record of promises made and their fulfilment: OpenPromises.</p>
-          </el-card>
-        </el-col>
-        <el-col :md="24">
-          <el-card>
-            <h2>What is OpenPromises ?</h2>
-            <p>OpenPromises is a not for profit project that is centred around the tracking of promises made by representatives and people in power.</p>
-          </el-card>
-        </el-col>
-        <el-col :md="24">
-          <el-card>
-            <h2>What do you mean by promises ?</h2>
-            <p>Promises are plans of actions that can be carried out by people in office. It can be a one-off action or a policy change.</p>
-          </el-card>
-        </el-col>
-        <el-col :md="24">
-          <el-card>
-            <h2>What is the end goal ?</h2>
-            <p>Increase the level of accountability amongst representatives in the country while increasing level of engagement amongst citizens.</p>
-          </el-card>
-        </el-col>
-        <el-col :md="24">
-          <el-card>
-            <h2>What are the objectives ?</h2>
-            <p>Build a media resource and platform that can be used by journalists, media organisations, politicians and ordinary citizens, to push for more accountability amongst the country’s representatives</p>
-            <p>Increase level of political awareness and engagement amongst ordinary citizens</p>
-          </el-card>
-        </el-col>
-        <el-col :md="24">
-          <el-card>
-            <h2>Who are we funded by ?</h2>
-            <p>Currently we have 44 USD/month funding from our community members that covers our current monthly expenses. For a year before we had crowdfunding, we also used some of our personal money to for expenses incurred by the website and its setting up. As it stands, we are 100% citizen-funded through Patreon. Decentralised funding means we cannot be easily influenced or corrupted.</p>
-          </el-card>
-        </el-col>
-        <!-- <el-col :md="24">
-        <el-card>
-          <h2>What are the current expenses?</h2>
-          <p>What are the current expenses?
-            <ul>
-              <li>Web hosting and domain (30.00 USD/month) - <b>already covered by crowdfunders</b></li>
-              <li>Paid media subscriptions (10.34 USD/month) - <b>already covered by crowdfunders</b></li>
-              <ul>
-                <li>The Malaysian Insight monthly subscription (paid annually) - 3.10 USD</li>
-                <li>Malaysia Kini monthly subscription (paid annually) - 4.14 USD</li>
-                <li>The Edge monthly subscription (paid annually) - 3.10 USD</li>
-              </ul>
-            </ul>
-          </p>
-        </el-card>
-        </el-col> -->
-        <el-col :md="24">
-          <el-card>
-            <h2>What would we use funding for?</h2>
-            <p>Tracking is a very time consuming process and a more developed backend system can cut down the time needed to process promises. Development of the website and tracking tools will be accelerated with proper funding. We also need funding to get access to paid media sources which will help us verify promises faster. Here is a list of the more immediate uses of funds:</p>
-            <ul>
-              <li>Full text search capabilities - 29 USD/month</li>
-              <li>Security tools - 25 USD/month (there are certain security tools that we can use to ensure the platform is more secure against attacks)</li>
+      <el-row :gutter="14">
+        <el-col :xs="24" :md="12" v-for="item in aboutSections" :key="item.title">
+          <el-card class="about-card">
+            <h2>{{ item.title }}</h2>
+            <p v-for="(paragraph, idx) in item.paragraphs" :key="idx">{{ paragraph }}</p>
+            <ul v-if="item.bullets">
+              <li v-for="(bullet, idx) in item.bullets" :key="idx">{{ bullet }}</li>
             </ul>
           </el-card>
         </el-col>
-        <!-- <el-col :md="24">
-          <el-card>
-            <h2>How can people fund us?</h2>
-            <p>Through our Patreon page at <a href="https://patreon.com/openpromisesmalaysia">https://patreon.com/openpromisesmalaysia</a></p>
-          </el-card>
-        </el-col> -->
-        <el-col :md="24">
-          <el-card>
-            <h2>Deployment in other countries</h2>
-            <p>What we are building behind the scenes is a platform that can be deployed for any country. If you are interested to bring this to your country, please <a href="https://facebook.com/openpromises.malaysia" target="_blank">message us on facebook</a></p>
-          </el-card>
-        </el-col>
-        <!--
-        <el-col :md="24">
-          <el-card>
-            <h2>The Team</h2>
-            <ul>
-              <li>Nazreen Mohamad - Founder and Project Manager</li>
-              <li>Chia Yen Gan - Project Officer</li>
-              <li>Jing Yi Lim - Tracking Coordinator</li>
-              <li>Umar Rasydan - Lead Developer</li>
-              <li>Seah Eu Han - Community Manager</li>
-              <li>Devraj Sathivelu - Editor</li>
-              <li>Michael Ting - Tracker</li>
-              <li>Yong Hong Yaw - Tracker</li>
-              <li>Navin Nathaniel Innasi - Tracker</li>
-              <li>Melody AB - HR Officer</li>
-            </ul>
-            <p>None of us are affiliated with any political party. We are just ordinary citizens hoping to do our small part in improving our country’s democracy.</p>
-          </el-card>
-        </el-col>
-        -->
       </el-row>
     </div>
   </main>
@@ -120,31 +33,104 @@ export default {
   data () {
     return {
       msg:
-        "Tech has the potential to make our democracies better. It's time we realise that."
+        "Tech has the potential to strengthen democratic accountability.",
+      aboutSections: [
+        {
+          title: "The Problem",
+          paragraphs: [
+            "The feedback loop in representative democracy is weak. Campaign promises influence votes, but fulfillment is rarely tracked systematically."
+          ]
+        },
+        {
+          title: "The Solution",
+          paragraphs: [
+            "OpenPromises gives citizens a clear, structured record of what was promised, what was done, and what remains unresolved."
+          ]
+        },
+        {
+          title: "What We Track",
+          paragraphs: [
+            "Promises can be policy shifts, projects, or one-off actions by people in office."
+          ]
+        },
+        {
+          title: "End Goal",
+          paragraphs: [
+            "Increase accountability among representatives while deepening informed civic participation."
+          ]
+        },
+        {
+          title: "Objectives",
+          paragraphs: [
+            "Provide a practical resource for citizens, journalists, and civic groups.",
+            "Raise political awareness through transparent progress tracking."
+          ]
+        },
+        {
+          title: "Funding",
+          paragraphs: [
+            "The project is citizen-funded and community-supported. Independent funding helps preserve editorial neutrality."
+          ]
+        },
+        {
+          title: "How Funds Are Used",
+          paragraphs: [
+            "Development, security, and better research workflows reduce manual tracking overhead and improve reliability."
+          ],
+          bullets: [
+            "Full-text search capabilities",
+            "Security and reliability tools"
+          ]
+        },
+        {
+          title: "Deployment in Other Countries",
+          paragraphs: [
+            "The platform is designed for reuse in other political contexts.",
+            "If you want to run OpenPromises in your country, message the team on Facebook."
+          ]
+        }
+      ]
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-main {
-  text-align: center
-}
-
 .about-points {
-    max-width: 600px;
-    margin: 0 auto
+  width: 100%;
 }
 
-.el-card {
-  margin-bottom: 5px;
-  text-align: left
-}
 #hero {
-  margin: 0 auto;
-  padding: 40px;
-  border-radius: 10px;
-  background: #d9edf7;
+  margin: 8px 0 0;
+}
+
+.about-card {
+  height: 100%;
+  text-align: left;
+}
+
+.about-card h2 {
+  margin: 0 0 0.55rem;
+  font-size: 1.2rem;
+}
+
+.about-card p {
+  margin: 0.45rem 0;
+}
+
+.about-card ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1rem;
+}
+
+.about-card li {
+  margin-bottom: 0.25rem;
+  color: #39565e;
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    gap: 14px;
+  }
 }
 </style>

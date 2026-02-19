@@ -1,13 +1,12 @@
 <template>
-  <section>
-    <template>
-      <el-card class="filters">
-      <el-row>
-        <el-col :xs="24" :sm="12">
+  <section class="promises-table">
+    <el-card class="filters">
+      <el-row :gutter="10">
+        <el-col :xs="24" :sm="12" class="filter-field">
           <span>Filter by title</span>
           <el-input clearable placeholder="Search for a promise" v-model="search" class="search" />
         </el-col>
-        <el-col :xs="24" :sm="12">
+        <el-col :xs="24" :sm="12" class="filter-field">
           <span>Filter by status</span>
           <el-select v-model="filterStatus" clearable filterable placeholder="Search by status">
             <el-option
@@ -16,19 +15,24 @@
               :label="status"
               :value="status">
             </el-option>
-            <template #prepend>Filter by title</template>
           </el-select>
         </el-col>
       </el-row>
       </el-card>
       <p v-if="search.length > 0 && filteredPromises.length > 0" id="filter-result-statement">
         <b>{{ filteredPromises.length }}</b>
-        promise{{filteredPromises.length > 1 ? 's' : ''}} matches your search.
+        promise{{ filteredPromises.length > 1 ? 's' : '' }} match{{ filteredPromises.length > 1 ? '' : 'es' }} your search.
       </p>
-      <p v-if="promises.length === 0" align="center">There have been no promises uploaded yet for this politician. Did we miss a promise? <router-link to="/submit">Submit a promise</router-link> now to help us fill that gap</p>
-      <p v-else-if="promises.length > 0 && filteredPromises.length === 0" align="center">There have been no promises about {{ search }}. Did we miss a promise? <router-link to="/submit">Submit a promise</router-link> now to help us fill that gap</p>
-    </template>
-    <el-row class="promise-cards-container">
+      <p v-if="promises.length === 0" class="empty-state">
+        There are no promises listed yet. Did we miss one?
+        <router-link to="/submit">Submit a promise</router-link>.
+      </p>
+      <p v-else-if="promises.length > 0 && filteredPromises.length === 0" class="empty-state">
+        No promises match <b>{{ search }}</b>. Did we miss one?
+        <router-link to="/submit">Submit a promise</router-link>.
+      </p>
+
+    <el-row class="promise-cards-container" :gutter="10">
       <el-col :xs="24" :sm="8" :md="6" :lg="6" :xl="4" v-for="promise in filteredPromises" :key="promise.id" >
         <promise-card :promise="promise" />
       </el-col>
@@ -121,23 +125,54 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.promise-title {
-  word-break: normal;
+.promises-table {
+  margin-top: 8px;
 }
-.el-input {
-  margin-bottom: 20px;
-}
+
 .promise-cards-container {
   width: 100%;
-  /* margin: 0 auto */
+  margin-top: 8px;
 }
+
 .search {
-  width: 70%;
+  width: 100%;
 }
+
 .filters {
-  margin: 10px
+  margin: 0;
+  border-radius: 14px;
+  border: 1px solid rgba(26, 68, 73, 0.16);
+  background: rgba(255, 255, 255, 0.85);
 }
+
+.filter-field span {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-weight: 700;
+  color: #2c5059;
+}
+
+.filter-field :deep(.el-select),
+.filter-field :deep(.el-input) {
+  width: 100%;
+}
+
+.filter-field :deep(.el-input__wrapper) {
+  border-radius: 10px;
+}
+
 #filter-result-statement {
-  text-align: center
+  text-align: center;
+  color: #355863;
+}
+
+.empty-state {
+  text-align: center;
+  color: #8a2942;
+  font-weight: 600;
+}
+
+.empty-state a {
+  font-weight: 800;
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
   <router-link :to="'/promises/' + promise.id">
-  <el-card class="promise-card" :style="'background-color:' + statusColorMap[promise.status]">
-    <header>
-      <span class="status">{{ promise.status === 'TBC' ? 'Review Needed' : promise.status }}</span>
-      <span class="source-date">{{ formatDate(promise.source_date) }}</span>
-    </header>
-    <h1>{{ promise.title }}</h1>
-    <p class="category">{{ promise.category }}</p>
-  </el-card>
+    <el-card class="promise-card" :style="'background-color:' + statusColorMap[promise.status]">
+      <header>
+        <span class="status">{{ promise.status === 'TBC' ? 'Review Needed' : promise.status }}</span>
+        <span class="source-date">{{ formatDate(promise.source_date) }}</span>
+      </header>
+      <h3>{{ promise.title }}</h3>
+      <p class="category">{{ promise.category }}</p>
+    </el-card>
   </router-link>
 </template>
 
@@ -36,19 +36,23 @@ a {
 }
 
 .promise-card {
-  width: 250px;
-  height: 300px;
+  width: min(100%, 280px);
+  min-height: 250px;
   color: white;
   position: relative;
-  margin: 10px auto;
+  margin: 8px auto;
+  border-radius: 14px;
+  box-shadow: 0 16px 26px rgba(17, 35, 45, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .promise-card:hover {
-  box-shadow: 1px 2px 13px 0px rgb(132, 131, 131);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 28px rgba(17, 35, 45, 0.28);
 }
 
 header {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
 }
 
 .status {
@@ -60,9 +64,19 @@ header {
   float: right
 }
 
+.promise-card h3 {
+  margin: 0.9rem 0 0;
+  font-size: 1.22rem;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
 .category {
   position: absolute;
   bottom: 0;
+  margin-bottom: 0;
+  font-weight: 700;
+  opacity: 0.95;
 }
 
 </style>

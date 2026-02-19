@@ -1,17 +1,12 @@
 <template>
   <article class="Promise">
-    <ContentLoader v-if="appStatus === 'loading'"
-                   width="600"
-                   height="500"
-    >
-      <rect x="0" y="0" rx="3" ry="3" width="600" height="150" />
-      <rect x="0" y="160" rx="3" ry="3" width="600" height="150" />
-      <rect x="0" y="320" rx="3" ry="3" width="600" height="150" />
-    </ContentLoader>
+    <div v-if="appStatus === 'loading'" class="loading-wrap">
+      <loading-spinner />
+    </div>
     <template v-else>
 
       <el-card class="hero" :style="'background-color:' + bgColor">
-        <span class="status">{{ promise.status }}</span>
+        <span class="status">{{ promise.status || "Review Needed" }}</span>
         <router-link :to="/politician/ + politician.id">
           <p class="card-title">{{ politician.name }}</p>
         </router-link>
@@ -84,11 +79,7 @@
         <img :src="promise.cover_image" :alt="promise.title" />
       </el-card>
 
-      <ShareNetwork
-        network="facebook"
-        :url="url"
-        title="Share on Facebook"
-      />
+      <ShareNetwork network="facebook" :url="url" title="Share on Facebook" class="share-button" />
 
     </template>
 
@@ -98,8 +89,8 @@
 <script>
 // import LoadingSpinner from '@/components//LoadingSpinner'
 import { formatDate, statusColorMap } from '@/utils'
-import { ContentLoader } from 'vue-content-loader'
 import { ShareNetwork } from 'vue3-social-sharing'
+import LoadingSpinner from '@/components/LoadingSpinner.vue'
 
 export default {
   name: 'PromiseDesktop',
@@ -109,7 +100,7 @@ export default {
     }
   },
   props: [ 'promise', 'politician', 'appStatus', 'displayedValues', 'url' ],
-  components: { ContentLoader, ShareNetwork },
+  components: { LoadingSpinner, ShareNetwork },
   methods: { formatDate }
 }
 </script>
@@ -117,7 +108,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .Promise {
-  max-width: 900px
+  max-width: 900px;
+  width: 100%;
+}
+
+.loading-wrap {
+  min-height: 260px;
+  display: grid;
+  place-items: center;
 }
 
 .grid-content {
@@ -134,50 +132,79 @@ export default {
 }
 
 .Promise_Mobile_date {
-  text-align: right
+  text-align: right;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .hero {
   color: white;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
 }
 
 .status {
   font-size: 0.8rem;
   font-weight: 900;
-  text-transform: uppercase
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 4px 10px;
+  display: inline-block;
 }
 
 .quote_source_link {
-  text-align: right
+  text-align: right;
+  color: #104865;
+  font-weight: 700;
 }
 
 .el-card {
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(21, 66, 72, 0.14);
 }
 
 .compound-card {
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
 }
 .compound-card div {
-  margin-right: 50px;
+  margin-right: 0;
   min-width: 50px;
+  background: rgba(13, 78, 81, 0.06);
+  border: 1px solid rgba(13, 78, 81, 0.12);
+  border-radius: 10px;
+  padding: 6px 10px;
 }
 
 .card-title {
-  text-align: left
+  text-align: left;
+  margin: 0 0 0.35rem;
 }
 
 .Promise_card_image img {
   display: block;
   margin: 0 auto;
-  width: 50%;
+  width: min(100%, 420px);
   text-align: center;
-  border-radius: 5%
+  border-radius: 10px;
+  border: 1px solid rgba(15, 73, 75, 0.2);
 }
 
 a {
   text-decoration: none;
   color: unset;
+}
+
+.share-button {
+  margin: 10px 0;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-weight: 700;
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  background: rgba(15, 118, 110, 0.08);
 }
 </style>

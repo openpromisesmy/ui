@@ -15,7 +15,7 @@
                     {{ politician.name }}
                 </h1>
                 <p><b>{{ politician.primary_position }}</b></p>
-                <p>{{ politician.brief }}</p>
+                <p>{{ politician.brief || "No biography available yet." }}</p>
             </div>
          </el-col>
     </el-row>
@@ -57,20 +57,34 @@ export default {
 <style scoped>
 .el-card {
     text-align: left;
-    height: 100%
+    height: 100%;
+    border-radius: 14px;
+    border: 1px solid rgba(21, 67, 72, 0.16);
 }
 
 .image {
   display: block;
-  object-fit: cover; /* Do not scale the image */
-  object-position: top; /* Center the image within the element */
+  object-fit: cover;
+  object-position: top;
   max-height: 250px;
   max-width: 280px;
-  margin: 0 auto
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 1px solid rgba(16, 70, 77, 0.2);
 }
 
 .details-text {
-    margin: 0 auto
+    margin: 0 auto;
+    padding-top: 8px;
+}
+
+.details-text h1 {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+.details-text p {
+  margin: 0.4rem 0 0;
 }
 
 </style>

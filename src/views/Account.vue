@@ -1,13 +1,21 @@
 <template>
-  <main class="account">
-      <h1 v-if="this.$store.state.user.authenticated">Account</h1>
-      <Auth v-if="!this.$store.state.user.authenticated"></Auth>
+  <main class="page-shell">
+    <section class="page-panel account-panel">
+      <header class="view-header">
+        <span class="label-chip">Account</span>
+        <h1 class="title">{{ this.$store.state.user.authenticated ? "Your Session" : "Sign In" }}</h1>
+      </header>
+
+      <Auth v-if="!this.$store.state.user.authenticated" />
       <template v-else>
-       <p>Logged in as {{ this.$store.state.user.email }}</p>
-        <el-button type="info" @click="googleLogoutHandler">
-          Logout
-        </el-button>
+        <div class="account-summary">
+          <p>Logged in as <b>{{ this.$store.state.user.email }}</b></p>
+          <el-button type="danger" @click="googleLogoutHandler">
+            Logout
+          </el-button>
+        </div>
       </template>
+    </section>
   </main>
 </template>
 
@@ -38,6 +46,25 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.account-panel {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.account-summary {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.account-summary p {
+  margin: 0 0 14px;
+}
+
+.account-summary :deep(.el-button) {
+  border-radius: 999px;
+  height: 40px;
+  min-width: 120px;
+  font-weight: 700;
+}
 </style>

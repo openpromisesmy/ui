@@ -1,13 +1,14 @@
 <template>
-  <main>
+  <main class="page-shell">
     <loading-spinner v-if="appStatus==='loading'" />
-    <template v-else>
-      <header>
-        <h1>Lists</h1>
+    <section v-else class="page-panel">
+      <header class="view-header">
+        <span class="label-chip">Collections</span>
+        <h1 class="title">Lists</h1>
         <p>Promises grouped by themes.</p>
       </header>
       <lists-table :lists="lists"/>
-    </template>
+    </section>
   </main>
 </template>
 
@@ -41,11 +42,8 @@ export default {
 </script>
 
 <style scoped>
-main {
-  padding: 0 10%;
-  text-align: center;
-}
-header {
-  text-align: center;
+.page-panel {
+  max-width: 1040px;
+  margin: 0 auto;
 }
 </style>

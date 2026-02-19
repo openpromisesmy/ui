@@ -1,31 +1,18 @@
 <template>
   <main class="home">
-
-    <section id="hero">
+    <section id="hero" class="surface-panel">
       <hero />
     </section>
 
-    <section>
-      <Politicians />
+    <section id="directory" class="surface-panel">
+      <header class="directory-head">
+        <h2>Representative Directory</h2>
+        <p>
+          Search profiles and review mandates, cabinet assignments, and tracked promises.
+        </p>
+      </header>
+      <Politicians :embedded="true" />
     </section>
-
-    <section id="cta">
-      <!-- <el-card>
-        <h1>Help fund the movement</h1>
-        <a href="https://www.patreon.com/openpromisesmalaysia"><el-button type="success">Check us out on Patreon</el-button></a>
-      </el-card> -->
-      <!-- <el-card>
-        <h1>Check out our community</h1>
-        <a href="https://www.facebook.com/groups/op.malaysia.watchers/"><el-button type="primary">Visit Malaysia Watchers</el-button></a>
-      </el-card> -->
-    </section>
-
-    <!-- <section>
-      <div id="fb-root"></div>
-      <h1>Follow Us on Facebook</h1>
-      <div class="fb-page" data-href="https://www.facebook.com/openpromises.malaysia/" data-tabs="timeline" data-width="500" data-height="900" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/openpromises.malaysia/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/openpromises.malaysia/">OpenPromises Malaysia</a></blockquote></div>
-    </section> -->
-
   </main>
 </template>
 
@@ -35,44 +22,43 @@ import Politicians from '@/views/Politicians.vue'
 
 export default {
   name: 'Home',
-  components: { Hero, Politicians },
-  created () {
-    (function (d, s, id) {
-      var js
-      var fjs = d.getElementsByTagName(s)[0]
-      if (d.getElementById(id)) return
-      js = d.createElement(s); js.id = id
-      js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.0&appId=1766611253591544&autoLogAppEvents=1'
-      fjs.parentNode.insertBefore(js, fjs)
-    }(document, 'script', 'facebook-jssdk'))
-  }
+  components: { Hero, Politicians }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-main {
- text-align: center
+.home {
+  display: grid;
+  gap: 26px;
 }
 
-#hero {
-  margin: 0 auto;
-  padding: 40px;
-  border-radius: 10px;
-  background: #d9edf7;
+.surface-panel {
+  border: 1px solid rgba(26, 59, 61, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: 24px;
+  box-shadow: 0 18px 34px rgba(20, 50, 55, 0.09);
+  padding: clamp(18px, 2vw, 30px);
 }
 
-.el-button {
-  font-size: 18px;
-  padding: 18px;
-  border-radius: 18px
+.directory-head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 8px;
 }
 
-#cta {
- margin: 50px 0
+.directory-head h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 2.2vw, 2.15rem);
 }
 
-.el-card {
-  display: inline-block
+.directory-head p {
+  margin: 0.6rem 0 0;
+}
+
+@media (max-width: 768px) {
+  .surface-panel {
+    border-radius: 16px;
+    padding: 14px;
+  }
 }
 </style>
